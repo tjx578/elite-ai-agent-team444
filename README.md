@@ -842,5 +842,3 @@ Private project unless otherwise specified.
 
 Built for advanced AI-assisted engineering workflows by the project owner.
 
-```
-
