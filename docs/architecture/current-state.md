@@ -124,10 +124,10 @@ The default stub script approves both gates and produces `WORKFLOW_COMPLETE` wit
 - Local PR-2 tests: **PASS** — a fresh environment ran 25 tests in 3.12 seconds.
 - Graph smoke verification: **PASS** — compile/render, happy path, bounded revision, and revision-exhaustion checks completed.
 - Ruff: **PASS** — `ruff check src tests` completed with no findings.
-- Security review: **PENDING**.
+- Security review: **COMPLETE** — Codex Security diff scan `5a286602-d315-49c9-bd7a-1fefe5ab7db5` reviewed all 12 source/config inventory items plus supporting tests and documentation, closed coverage as complete, and reported zero findings. Three candidate hardening concerns were reproduced and rejected after validation because no current attacker-to-privileged-sink path exists under the local, in-memory, no-deployment boundary.
 - Remote PR-2 CI: **NOT_EXECUTED** for initial commit `0eb800d`. Push run `32656762669` and pull-request run `32656786609` each created Python 3.11, 3.12, and 3.13 jobs, but every job had zero steps and `runner_id=0`. GitHub annotated both runs with the account billing lock, so this is neither PASS nor a code/test failure.
 
-The pending security review and PR-2 `NOT_EXECUTED` result are separate from the preserved PR-1 local test result and foundation CI record.
+The completed PR-2 security review and PR-2 `NOT_EXECUTED` result are separate from the preserved PR-1 local test result and foundation CI record.
 
 ## PR-2 hard exclusions
 

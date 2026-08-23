@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-08-24
-- **Implementation status:** Implemented by the PR-2 LangGraph deterministic kernel; final verification pending
+- **Implementation status:** Implemented; local and security verification complete, remote CI `NOT_EXECUTED` because no job obtained a runner under the GitHub billing lock
 
 ## Context
 
