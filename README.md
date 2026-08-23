@@ -40,7 +40,7 @@ PR-2 source adds:
 
 The default deterministic happy path is entirely in memory. It produces typed architecture and implementation artifacts, deterministic validation/review evidence, and `READY_WITH_CONDITIONS`. That status is an assessment only; it grants no repository or production authority.
 
-**PR-2 verification status:** a fresh local environment passed 25 tests in 3.12 seconds; Ruff, graph compile/render, and happy-path, revision, and exhaustion smoke checks passed. Security review and remote PR-2 CI remain pending. The PR-1 result and billing-blocked foundation CI record above must not be reused as PR-2 evidence.
+**PR-2 verification status:** a fresh local environment passed 25 tests in 3.12 seconds; Ruff, graph compile/render, and happy-path, revision, and exhaustion smoke checks passed. The initial PR-2 push and pull-request workflow runs were both **NOT_EXECUTED**: all six Python 3.11-3.13 jobs had zero steps and `runner_id=0`, with GitHub reporting that the account was locked because of billing. Security review remains pending. The PR-1 result must not be reused as PR-2 evidence.
 
 See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 

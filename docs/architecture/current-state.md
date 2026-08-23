@@ -125,9 +125,9 @@ The default stub script approves both gates and produces `WORKFLOW_COMPLETE` wit
 - Graph smoke verification: **PASS** — compile/render, happy path, bounded revision, and revision-exhaustion checks completed.
 - Ruff: **PASS** — `ruff check src tests` completed with no findings.
 - Security review: **PENDING**.
-- Remote PR-2 CI: **PENDING / NOT_VERIFIED**.
+- Remote PR-2 CI: **NOT_EXECUTED** for initial commit `0eb800d`. Push run `32656762669` and pull-request run `32656786609` each created Python 3.11, 3.12, and 3.13 jobs, but every job had zero steps and `runner_id=0`. GitHub annotated both runs with the account billing lock, so this is neither PASS nor a code/test failure.
 
-These pending items are separate from the preserved PR-1 local test result and the remote foundation job that was `NOT_EXECUTED` under the GitHub billing lock.
+The pending security review and PR-2 `NOT_EXECUTED` result are separate from the preserved PR-1 local test result and foundation CI record.
 
 ## PR-2 hard exclusions
 
