@@ -4,6 +4,10 @@
 
 This document defines what the Elite AI Agent Team OS may do. It is normative: role prompts, project modes, workflow results, and tool availability cannot override it.
 
+## Current implementation note
+
+PR-2 accepts only `READ_ONLY` and has no external repository or execution adapter. The repository field is routing input, not an instruction to read a target. Deterministic stub roles have no tool authority, and `READY_WITH_CONDITIONS` grants no authority. The additional levels below define future policy boundaries; they are not implemented capabilities.
+
 ## Core principle
 
 ```text

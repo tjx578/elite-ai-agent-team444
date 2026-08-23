@@ -1,10 +1,10 @@
-"""FastAPI application factory and PR-1 routes."""
+"""FastAPI application factory for the deterministic PR-2 kernel."""
 
 from fastapi import FastAPI
 
 from elite_team import __version__
-from elite_team.contracts.task import HealthResponse, TaskRequest, TaskResponse
-from elite_team.orchestration.state import create_task_foundation
+from elite_team.contracts import HealthResponse, TaskRequest, WorkflowResult
+from elite_team.orchestration.workflow import run_workflow
 
 
 def create_app() -> FastAPI:
@@ -13,7 +13,7 @@ def create_app() -> FastAPI:
     application = FastAPI(
         title="Elite AI Agent Team",
         version=__version__,
-        description="PR-1 deterministic task intake and mode-routing foundation.",
+        description="PR-2 deterministic, typed, bounded orchestration kernel.",
     )
 
     @application.get("/health", response_model=HealthResponse, tags=["system"])
@@ -24,9 +24,9 @@ def create_app() -> FastAPI:
             version=__version__,
         )
 
-    @application.post("/tasks", response_model=TaskResponse, tags=["tasks"])
-    def create_task(request: TaskRequest) -> TaskResponse:
-        return create_task_foundation(request)
+    @application.post("/tasks", response_model=WorkflowResult, tags=["tasks"])
+    def create_task(request: TaskRequest) -> WorkflowResult:
+        return run_workflow(request)
 
     return application
 

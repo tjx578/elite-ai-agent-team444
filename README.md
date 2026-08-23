@@ -2,7 +2,7 @@
 
 > An independent, human-governed control plane for auditable AI-assisted software-engineering workflows.
 
-![Status](https://img.shields.io/badge/status-PR--1%20executable%20foundation-blue)
+![Status](https://img.shields.io/badge/status-PR--2%20deterministic%20kernel-blue)
 ![Python](https://img.shields.io/badge/python-3.11%2B-green)
 ![License](https://img.shields.io/badge/license-private-lightgrey)
 
@@ -12,7 +12,9 @@ This repository is being built as small, verifiable vertical slices. The origina
 
 ## CURRENT IMPLEMENTATION
 
-The repository now contains the deliberately small **PR-1 executable foundation**:
+The repository contains the PR-1 foundation plus the source implementation of the **PR-2 Deterministic Orchestration Kernel**.
+
+PR-1 remains the verified foundation baseline:
 
 - an installable Python 3.11+ package using FastAPI and Pydantic;
 - `GET /health` and `POST /tasks`;
@@ -22,27 +24,39 @@ The repository now contains the deliberately small **PR-1 executable foundation*
 - a deterministic three-step foundation trace: `INTAKE`, `MODE_ROUTER`, `STATE_CREATION`;
 - read-only authority as the only accepted authority value;
 - architecture ADRs and the least-privilege authority model;
-- a read-only GitHub Actions test workflow definition (remote execution not verified here);
+- a read-only GitHub Actions test workflow definition; the observed remote foundation job was `NOT_EXECUTED` because a GitHub billing lock left it with zero steps and `runner_id=0`;
 - ten local API/contract tests, verified passing in this checkout on 2026-08-24.
 
-`POST /tasks` validates and classifies a request, creates in-memory state, and returns trace evidence. It does not access the supplied repository. Its terminal status is `FOUNDATION_COMPLETE`, and `final_decision` remains `null` because no agent workflow or readiness gate runs.
+PR-2 source adds:
+
+- a LangGraph `1.2.10` `StateGraph` as a code-controlled workflow controller;
+- typed, side-effect-free `ArchitectStub`, `EngineerStub`, and `ReviewerStub` roles;
+- strict architecture, implementation, validation, review, gate, workflow-result, and execution-event contracts;
+- explicit transition allow-lists and required-state checks;
+- architecture and engineering review loops capped at two revisions each;
+- correlated, immutable execution events for every attempted workflow node, including revision count, decision, and sanitized error fields;
+- fail-closed paths for invalid typed role output, validation failure, direct owner blocks, and revision-limit exhaustion;
+- terminal decision contracts for `READY_WITH_CONDITIONS`, `NOT_READY`, and `BLOCKED_REQUIRES_OWNER`.
+
+The default deterministic happy path is entirely in memory. It produces typed architecture and implementation artifacts, deterministic validation/review evidence, and `READY_WITH_CONDITIONS`. That status is an assessment only; it grants no repository or production authority.
+
+**PR-2 verification status:** a fresh local environment passed 25 tests in 3.12 seconds; Ruff, graph compile/render, and happy-path, revision, and exhaustion smoke checks passed. Security review and remote PR-2 CI remain pending. The PR-1 result and billing-blocked foundation CI record above must not be reused as PR-2 evidence.
 
 See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 
-### Boundary: not yet implemented or verified
+### Hard boundary: not implemented
 
-- Architect, reviewer, engineer, or other agent execution;
-- architecture/review gates, revision loops, or a complete workflow;
-- LangGraph orchestration;
-- OpenAI or other model-backed roles;
-- repository, shell, Git, GitHub, or deployment execution;
-- persistence, approval/resume, or an Owner Console;
-- a verified remote CI run;
-- a production deployment.
+- OpenAI, Codex, or any other model-backed reasoning;
+- repository reading or mutation, including WOLF15 integration;
+- file, shell, test-runner, Git, or GitHub execution adapters;
+- persistence, checkpoints, Supabase, durable approval/resume, or long-term memory;
+- optimizer or maintenance agents;
+- an Owner Console or dashboard;
+- Docker, deployment, or production operations.
 
-Technology names in the target architecture are planned choices, not proof that their integrations exist.
+The role classes are deterministic stubs, not AI agents. A repository string remains classification input only and is never opened. Technology names in the target architecture are planned choices unless explicitly listed above as current.
 
-## Run the current foundation
+## Run the current kernel
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -64,7 +78,7 @@ curl -X POST http://127.0.0.1:8000/tasks \
   -d '{"intent":"Audit this repository","repository":"https://example.invalid/owner/project","authority":"READ_ONLY"}'
 ```
 
-The repository value is classification input only in PR-1; the service does not fetch or inspect it. Interactive API documentation is available at `http://127.0.0.1:8000/docs` while the local service is running.
+`POST /tasks` runs the in-memory PR-2 graph and returns the typed terminal artifacts and full execution trace. The repository value is classification input only; the service does not fetch or inspect it. Interactive API documentation is available at `http://127.0.0.1:8000/docs` while the local service is running.
 
 ## TARGET ARCHITECTURE
 
@@ -113,22 +127,21 @@ The top-level router returns exactly one mode:
 
 Mode controls planning, not authority. Supplying a repository does not imply write access; selecting hybrid mode does not permit changes.
 
-## Deterministic workflow target
+## CURRENT DETERMINISTIC KERNEL
 
 ```text
 INTAKE
-  -> AUTHORITY_CHECK
   -> MODE_ROUTER
+  -> STATE_CREATION
   -> ARCHITECT
   -> ARCHITECTURE_REVIEW
   -> ENGINEER
   -> VALIDATION
   -> REVIEWER
-  -> DELIVERY_GATE
-  -> FINAL
+  -> FINALIZE
 ```
 
-Gate outcomes are `APPROVED`, `REVISION_REQUIRED`, or `BLOCKED_REQUIRES_OWNER`. Review loops are finite; the initial target is at most two revisions. Invalid contracts, missing evidence, or insufficient authority fail closed.
+`ARCHITECTURE_REVIEW` may loop back to `ARCHITECT`; `REVIEWER` may loop back to `ENGINEER`. Each loop permits at most two revisions. Gate outcomes are `APPROVED`, `REVISION_REQUIRED`, or `BLOCKED_REQUIRES_OWNER`. Typed output failures and exhausted limits terminate through `FINALIZE` with `BLOCKED_REQUIRES_OWNER`.
 
 ## Authority and production safety
 

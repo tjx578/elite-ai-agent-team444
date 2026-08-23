@@ -46,7 +46,7 @@ python -m pytest -q
 10 passed in 7.54s
 ```
 
-The GitHub Actions file is present, but no authenticated remote run was inspected in this workstream. Remote CI status is therefore **NOT_EXECUTED / NOT_VERIFIED here**, not PASS.
+The GitHub Actions file is present. The observed remote foundation job was blocked by GitHub billing before a runner executed it: it had zero steps and `runner_id=0`. Its status is therefore **NOT_EXECUTED**, not PASS and not a code/test failure.
 
 ## Exact PR-1 flow
 
@@ -68,9 +68,9 @@ Routing is intentionally narrow:
 
 The supplied repository is not resolved, fetched, read, or validated as an accessible repository.
 
-## Still target-only
+## PR-1 exclusions at that milestone
 
-PR-1 does **not** provide:
+The PR-1 baseline did **not** provide:
 
 - any architect, reviewer, engineer, security, performance, or operations role;
 - architecture, implementation, security, performance, or production gates;
@@ -81,6 +81,67 @@ PR-1 does **not** provide:
 - persistence, checkpoints, approval/resume, or long-term memory;
 - a readiness decision (the response has `final_decision: null`);
 - an Owner Console or production deployment.
+
+## PR-2 Deterministic Orchestration Kernel
+
+Source inspection confirms that PR-2 adds an in-memory, deterministic orchestration kernel:
+
+- LangGraph `1.2.10`, pinned as a runtime dependency;
+- a compiled `StateGraph` with code-defined nodes and conditional edges;
+- typed, side-effect-free architect, engineer, and reviewer stubs;
+- typed architecture, implementation, validation, review, gate, workflow-result, and execution-event contracts;
+- explicit allowed-transition and required-state validators;
+- separate architecture and engineering revision counters, each capped at two;
+- immutable, correlated events for all attempted nodes, with contiguous sequence, timestamps, status, references, revision count, decision, and optional error classification;
+- error codes for invalid role output, missing state, illegal transitions, revision exhaustion, and deterministic validation failure;
+- final-decision vocabulary limited to `READY_WITH_CONDITIONS`, `NOT_READY`, and `BLOCKED_REQUIRES_OWNER`.
+
+The compiled graph is:
+
+```text
+START
+  -> INTAKE
+  -> MODE_ROUTER
+  -> STATE_CREATION
+  -> ARCHITECT
+  -> ARCHITECTURE_REVIEW
+       -> ARCHITECT (revision, maximum 2)
+       -> ENGINEER (approved)
+       -> FINALIZE (blocked/failure)
+  -> ENGINEER
+  -> VALIDATION
+  -> REVIEWER
+       -> ENGINEER (revision, maximum 2)
+       -> FINALIZE (approved/blocked/failure)
+  -> END
+```
+
+The default stub script approves both gates and produces `WORKFLOW_COMPLETE` with `READY_WITH_CONDITIONS`. Revision exhaustion or invalid typed role output produces `WORKFLOW_BLOCKED` with `BLOCKED_REQUIRES_OWNER`. `NOT_READY` is part of the strict terminal contract; its exact reachable policy path must be confirmed by final PR-2 tests before it is claimed as exercised behavior.
+
+### PR-2 verification status
+
+- Source inspection: **COMPLETE** for the kernel, contracts, transitions, and stubs described above.
+- Local PR-2 tests: **PASS** — a fresh environment ran 25 tests in 3.12 seconds.
+- Graph smoke verification: **PASS** — compile/render, happy path, bounded revision, and revision-exhaustion checks completed.
+- Ruff: **PASS** — `ruff check src tests` completed with no findings.
+- Security review: **PENDING**.
+- Remote PR-2 CI: **PENDING / NOT_VERIFIED**.
+
+These pending items are separate from the preserved PR-1 local test result and the remote foundation job that was `NOT_EXECUTED` under the GitHub billing lock.
+
+## PR-2 hard exclusions
+
+PR-2 contains no:
+
+- OpenAI, Codex, or other model-backed reasoning;
+- repository reader or writer, including WOLF15 integration;
+- file, shell, test-runner, Git, or GitHub execution adapter;
+- persistence, checkpoint store, Supabase, durable approval/resume, or long-term memory;
+- optimizer or maintenance agent;
+- dashboard or Owner Console;
+- Docker integration, deployment, or production operation.
+
+All PR-2 role output is deterministic, in-memory stub data. `READY_WITH_CONDITIONS` is not `READY_FOR_PRODUCTION` and grants no operational authority.
 
 ## Evidence policy
 
@@ -96,13 +157,13 @@ Code presence alone does not prove a service is deployed, a remote CI job has ru
 
 ## Current authority boundary
 
-PR-1 accepts only `READ_ONLY`, but currently has no external repository adapter, so it does not read the repository named in a task. It grants no file, shell, Git, GitHub, deployment, production-data, or other external-system authority.
+The current runtime accepts only `READ_ONLY` and has no external repository adapter, so it does not read the repository named in a task. It grants no file, shell, Git, GitHub, deployment, production-data, or other external-system authority.
 
 The normative target authority model is defined in [Authority Model](../governance/authority-model.md) and [ADR-004](../adr/ADR-004-human-controlled-production.md).
 
-## Next workflow milestone
+## Next intelligence milestone
 
-The completed PR-1 slice is:
+PR-1 established:
 
 ```text
 validated task request
@@ -112,4 +173,4 @@ validated task request
         -> automated verification
 ```
 
-The next milestone should add the deterministic graph, bounded revision behavior, and stub roles while keeping model and repository-execution variability out of the loop. The current foundation must not be described as a complete multi-agent OS.
+PR-2 adds the deterministic graph, bounded revision behavior, and stub roles while keeping model and repository-execution variability out of the loop. After PR-2 verification closes, the next milestone may introduce schema-constrained model adapters. The current system must not be described as a complete autonomous engineering OS.
