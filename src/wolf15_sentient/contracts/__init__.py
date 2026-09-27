@@ -1,5 +1,20 @@
 """Typed contracts shared across the deterministic runtime."""
 
+from wolf15_sentient.contracts.evidence import (
+    ClaimType,
+    ContextBundle,
+    EvidenceStatus,
+    GroundedClaim,
+    SourceKind,
+    SourceRef,
+)
+from wolf15_sentient.contracts.learning import (
+    AdvisoryGeneration,
+    CandidateState,
+    LearningCandidate,
+    LearningEpisode,
+    MemoryClass,
+)
 from wolf15_sentient.contracts.execution import (
     ErrorCode,
     ExecutionErrorCode,
@@ -30,6 +45,17 @@ from wolf15_sentient.contracts.models import (
 )
 
 __all__ = [
+    "AdvisoryGeneration",
+    "CandidateState",
+    "ClaimType",
+    "ContextBundle",
+    "EvidenceStatus",
+    "GroundedClaim",
+    "LearningCandidate",
+    "LearningEpisode",
+    "MemoryClass",
+    "SourceKind",
+    "SourceRef",
     "AgentRunStatus",
     "ArchitectureReport",
     "Authority",
