@@ -7,8 +7,10 @@ from typing import Any
 
 import pytest
 from fastapi.testclient import TestClient
+from pydantic import ValidationError
 
-from elite_team.api.app import app
+from wolf15_sentient.api.app import app
+from wolf15_sentient.contracts import HealthResponse
 
 client = TestClient(app)
 
@@ -78,9 +80,27 @@ def test_health_reports_service_identity() -> None:
     assert response.status_code == 200
     assert response.json() == {
         "status": "ok",
-        "service": "elite-ai-agent-team",
+        "service": "wolf15-sentient",
         "version": "0.1.0",
     }
+
+
+def test_openapi_exposes_product_identity_and_read_only_authority() -> None:
+    response = client.get("/openapi.json")
+
+    assert response.status_code == 200
+    schema = response.json()
+    assert schema["info"]["title"] == "WOLF15 Sentient"
+    contracts = schema["components"]["schemas"]
+    assert contracts["HealthResponse"]["properties"]["service"]["const"] == (
+        "wolf15-sentient"
+    )
+    assert contracts["Authority"]["enum"] == ["READ_ONLY"]
+
+
+def test_health_contract_rejects_previous_service_identity() -> None:
+    with pytest.raises(ValidationError):
+        HealthResponse(status="ok", service="elite-ai-agent-team", version="0.1.0")
 
 
 @pytest.mark.parametrize(

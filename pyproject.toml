@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "elite-ai-agent-team"
+name = "wolf15-sentient"
 version = "0.1.0"
-description = "Deterministic runtime foundation for Elite AI Agent Team"
+description = "Deterministic runtime foundation for WOLF15 Sentient"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115,<1.0",

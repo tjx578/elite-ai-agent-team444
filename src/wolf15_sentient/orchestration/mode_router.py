@@ -2,7 +2,7 @@
 
 import re
 
-from elite_team.contracts.task import ProjectMode
+from wolf15_sentient.contracts.task import ProjectMode
 
 _EXPLICIT_EVOLUTION_ACTIONS = frozenset(
     {

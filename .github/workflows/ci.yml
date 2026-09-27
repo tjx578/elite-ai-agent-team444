@@ -29,7 +29,15 @@ jobs:
           cache-dependency-path: pyproject.toml
 
       - name: Install project and test dependencies
-        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+        run: python -m pip install --upgrade pip && python -m pip install ".[dev]"
 
       - name: Run test suite
         run: python -m pytest
+
+      - name: Verify installed product identity and entrypoint
+        run: >-
+          python -I -c "from importlib.metadata import distribution;
+          from wolf15_sentient.main import app;
+          assert distribution('wolf15-sentient').metadata['Name'] == 'wolf15-sentient';
+          assert app.title == 'WOLF15 Sentient';
+          assert app.openapi()['components']['schemas']['HealthResponse']['properties']['service']['const'] == 'wolf15-sentient'"

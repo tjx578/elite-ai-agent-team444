@@ -1,10 +1,10 @@
-"""Backward-compatible task contract imports.
+"""Task contract re-exports within the renamed product namespace.
 
-PR-2 keeps the public ``elite_team.contracts.task`` surface from PR-1 while
-the complete workflow contract set lives in :mod:`elite_team.contracts.models`.
+The PR-1 contract helper is retained under ``wolf15_sentient.contracts.task`` while
+the complete workflow contract set lives in :mod:`wolf15_sentient.contracts.models`.
 """
 
-from elite_team.contracts.models import (
+from wolf15_sentient.contracts.models import (
     Authority,
     FinalDecision,
     HealthResponse,

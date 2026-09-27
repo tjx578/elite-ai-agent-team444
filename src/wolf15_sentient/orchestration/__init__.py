@@ -1,8 +1,8 @@
 """Deterministic orchestration primitives for the executable kernel."""
 
-from elite_team.orchestration.mode_router import detect_project_mode
-from elite_team.orchestration.state import create_task_foundation
-from elite_team.orchestration.transitions import (
+from wolf15_sentient.orchestration.mode_router import detect_project_mode
+from wolf15_sentient.orchestration.state import create_task_foundation
+from wolf15_sentient.orchestration.transitions import (
     IllegalTransitionError,
     MissingStateError,
     WorkflowInvariantError,
@@ -10,7 +10,7 @@ from elite_team.orchestration.transitions import (
     validate_project_mode,
     validate_required_state,
 )
-from elite_team.orchestration.workflow import (
+from wolf15_sentient.orchestration.workflow import (
     DEFAULT_WORKFLOW,
     MAX_ARCHITECT_REVISIONS,
     MAX_ENGINEER_REVISIONS,

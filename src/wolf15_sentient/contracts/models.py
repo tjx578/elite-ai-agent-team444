@@ -6,7 +6,7 @@ from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
-from elite_team.contracts.execution import ExecutionEvent, TraceNode, TraceStatus
+from wolf15_sentient.contracts.execution import ExecutionEvent, TraceNode, TraceStatus
 
 NonBlankText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
@@ -229,7 +229,7 @@ class TaskResponse(WorkflowResult):
 
 class HealthResponse(StrictContract):
     status: Literal["ok"]
-    service: Literal["elite-ai-agent-team"]
+    service: Literal["wolf15-sentient"]
     version: NonBlankText
 
 
