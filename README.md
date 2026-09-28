@@ -4,7 +4,7 @@
 
 ![Status](https://img.shields.io/badge/status-canonical%20main-blue)
 ![Python](https://img.shields.io/badge/python-3.11%2B-green)
-![License](https://img.shields.io/badge/license-private-lightgrey)
+![License](https://img.shields.io/badge/license-no%20public%20grant-lightgrey)
 
 ## Status at a glance
 
@@ -15,6 +15,10 @@ passed 56 tests and the installed identity check on Python 3.11, 3.12, and
 3.13. The earlier [identity snapshot](docs/verification/sentient-identity-20260928.md)
 and [integration record](docs/verification/sentient-identity-integration-20260928.md)
 retain their own source and wheel bindings.
+PR #5 aligned repository-name references, and PR #6 merged the M1-B
+architecture freeze. The [CI run on M1-B `main`](https://github.com/tjx578/wolf15-sentient/actions/runs/36374583942)
+passed 56 tests and installed identity checks on Python 3.11–3.13 at
+`7ffac9a8254688649ecf8bca57e2ae7757bd9f32`.
 
 This repository is being built as small, verifiable vertical slices. The original multi-agent vision remains the target, but it is not presented as working software.
 
@@ -259,4 +263,7 @@ One class must not be substituted for another. Missing or inaccessible external 
 
 ## License
 
-Private project unless otherwise specified.
+This repository is publicly visible but has no open-source license. No public
+reuse grant has been made. `CODEOWNERS` identifies review stewardship; it does
+not establish copyright ownership. See [Security policy](SECURITY.md) for
+private vulnerability reporting.

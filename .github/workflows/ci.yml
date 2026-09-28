@@ -8,36 +8,133 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    name: Python ${{ matrix.python-version }}
+  tests:
+    name: pytest (${{ matrix.python-version }})
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
-
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: ${{ matrix.python-version }}
-          cache: pip
-          cache-dependency-path: pyproject.toml
-
-      - name: Install project and test dependencies
-        run: python -m pip install --upgrade pip && python -m pip install ".[dev]"
-
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.12.19"
+      - name: Install locked project and test dependencies
+        run: uv sync --locked --extra dev
       - name: Run test suite
-        run: python -m pytest
+        run: uv run --locked --extra dev python -m pytest
 
-      - name: Verify installed product identity and entrypoint
-        run: >-
-          python -I -c "from importlib.metadata import distribution;
-          from wolf15_sentient.main import app;
-          assert distribution('wolf15-sentient').metadata['Name'] == 'wolf15-sentient';
-          assert app.title == 'WOLF15 Sentient';
-          assert app.openapi()['components']['schemas']['HealthResponse']['properties']['service']['const'] == 'wolf15-sentient'"
+  lint:
+    name: ruff
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.12.19"
+      - run: uv sync --locked --extra dev
+      - name: Run Ruff
+        run: uv run --locked --extra dev ruff check .
+
+  typecheck:
+    name: pyright
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.12.19"
+      - run: uv sync --locked --extra dev
+      - name: Run Pyright
+        run: uv run --locked --extra dev pyright src tests scripts
+
+  build-install:
+    name: build-install
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.12.19"
+      - name: Check lock and build sdist plus wheel
+        run: |
+          uv lock --check
+          uv build --sdist --wheel
+      - name: Install locked runtime dependencies and built wheel
+        run: |
+          uv export --locked --no-dev --no-emit-project --output-file runtime-requirements.txt > /dev/null
+          uv venv .venv-smoke
+          uv pip install --python .venv-smoke/bin/python --require-hashes -r runtime-requirements.txt
+          uv pip install --python .venv-smoke/bin/python --no-deps dist/*.whl
+      - name: Verify installed product identity and entrypoint outside checkout
+        run: |
+          cd /tmp
+          "$GITHUB_WORKSPACE/.venv-smoke/bin/python" -I -c "from importlib.metadata import distribution; from wolf15_sentient.main import app; assert distribution('wolf15-sentient').metadata['Name'] == 'wolf15-sentient'; assert app.title == 'WOLF15 Sentient'; assert app.openapi()['components']['schemas']['HealthResponse']['properties']['service']['const'] == 'wolf15-sentient'"
+
+  dependency-audit:
+    name: dependency-audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.12.19"
+      - run: uv sync --locked --extra dev
+      - name: Audit locked runtime and test dependencies
+        run: |
+          uv export --locked --extra dev --no-emit-project --output-file audit-requirements.txt > /dev/null
+          uv run --locked --extra dev pip-audit --require-hashes -r audit-requirements.txt
+
+  secret-scan:
+    name: secret-scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.12.19"
+      - run: uv sync --locked --extra dev
+      - name: Scan tracked source for potential secrets
+        run: |
+          uv run --locked --extra dev detect-secrets scan > secret-scan.json
+          uv run --locked --extra dev python scripts/ci/check_secret_scan.py secret-scan.json

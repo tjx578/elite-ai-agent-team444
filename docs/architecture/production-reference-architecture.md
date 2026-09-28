@@ -2,8 +2,10 @@
 
 ## Status
 
-**M1-B target design, not a deployment plan.** The inspected `main` snapshot
-has a local FastAPI app, in-memory deterministic workflow, and CI. It has no
+**M1-B target design, merged at `main`
+`7ffac9a8254688649ecf8bca57e2ae7757bd9f32`; not a deployment plan.**
+That historical snapshot has a local FastAPI app, in-memory deterministic
+`READ_ONLY` workflow, and CI. It has no
 authenticated caller boundary, durable task store, production database,
 container/staging receipt, or production runtime evidence. A GitHub CI pass
 does not establish any of those conditions. No cloud provider, region,
@@ -15,12 +17,15 @@ The repository must establish explicit ownership and policy for protected
 branches, reviews, dependency locks, reproducible builds, secret scanning,
 dependency audit, type checks, package build, installed-package smoke, and
 security regression tests. Each is a separate hard gate with its own receipt;
-one aggregate score cannot compensate for a failed gate. The current CI
-executes installation, pytest, and the installed identity check on Python
-3.11–3.13. The other gates remain future work.
-On 2026-09-28, the canonical GitHub `main` branch API reported
-`protected: false` and zero effective branch rules. M1-C must close that
-governance gap before any production claim; a green CI run alone does not.
+one aggregate score cannot compensate for a failed gate. CI on the exact M1-B
+`main` commit installed the project, ran 56 tests, and checked the installed
+identity/entrypoint on Python 3.11–3.13. It did not run the other M1-C gates.
+On 2026-09-28, GitHub reported `protected: false` for that `main` checkpoint
+and zero effective branch rules. M1-C changes are in progress; a local
+configuration file or green M1-B CI run does not prove that new checks ran or
+that branch rules are active. Protect `main` with required checks only after
+their exact job names are established, and verify the resulting rules through
+GitHub before claiming this gate passed.
 
 ## M5 read-only service target
 
@@ -65,5 +70,7 @@ means an authenticated, durable, observable, read-only cognitive service
 after these gates are demonstrated; it does not include autonomous merge,
 messaging, trading, or REE activation.
 
-Deployment, Railway changes, production database writes, and broker actions
-remain outside M1-B and require separate exact-artifact authorization.
+Deployment, Railway changes, production database writes, broker actions, and
+capability or REE activation remain outside M1-C. None is established by the
+M1-B source or CI receipt; any future operation requires separate
+exact-artifact authorization and runtime evidence.
