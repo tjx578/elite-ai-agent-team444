@@ -9,6 +9,12 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_vali
 from wolf15_sentient.contracts.execution import ExecutionEvent, TraceNode, TraceStatus
 
 NonBlankText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
+IntentText = Annotated[
+    str, StringConstraints(strip_whitespace=True, min_length=1, max_length=4096)
+]
+RepositoryReference = Annotated[
+    str, StringConstraints(strip_whitespace=True, min_length=1, max_length=2048)
+]
 
 
 class StrictContract(BaseModel):
@@ -27,6 +33,12 @@ class ProjectMode(StrEnum):
     EXISTING_REPO_MODE = "EXISTING_REPO_MODE"
     GREENFIELD_SYSTEM_MODE = "GREENFIELD_SYSTEM_MODE"
     HYBRID_EVOLUTION_MODE = "HYBRID_EVOLUTION_MODE"
+
+
+class RoutingReason(StrEnum):
+    NO_REPOSITORY = "NO_REPOSITORY"
+    EXPLICIT_EVOLUTION_INTENT = "EXPLICIT_EVOLUTION_INTENT"
+    NO_EXPLICIT_EVOLUTION_INTENT = "NO_EXPLICIT_EVOLUTION_INTENT"
 
 
 class TaskStatus(StrEnum):
@@ -67,9 +79,9 @@ class GateName(StrEnum):
 
 
 class TaskRequest(StrictContract):
-    intent: NonBlankText
-    repository: NonBlankText | None = None
-    authority: Authority = Authority.READ_ONLY
+    intent: IntentText
+    repository: RepositoryReference | None = None
+    authority: Authority
 
 
 class TaskState(StrictContract):
@@ -79,10 +91,11 @@ class TaskState(StrictContract):
     task_id: UUID
     run_id: UUID
     trace_id: UUID
-    intent: NonBlankText
-    repository: NonBlankText | None
+    intent: IntentText
+    repository: RepositoryReference | None
     authority: Authority
     project_mode: ProjectMode
+    routing_reason: RoutingReason
     status: TaskStatus
     final_decision: FinalDecision | None = None
 
@@ -128,6 +141,7 @@ class WorkflowResult(StrictContract):
     run_id: UUID
     trace_id: UUID
     project_mode: ProjectMode
+    routing_reason: RoutingReason
     authority: Authority
     status: TaskStatus
     final_decision: FinalDecision
@@ -150,7 +164,9 @@ class WorkflowResult(StrictContract):
             self.current_state.trace_id,
         )
         if identifiers != state_identifiers:
-            raise ValueError("current_state correlation identifiers do not match response")
+            raise ValueError(
+                "current_state correlation identifiers do not match response"
+            )
         if any(
             (event.task_id, event.run_id, event.trace_id) != identifiers
             for event in self.trace
@@ -162,6 +178,7 @@ class WorkflowResult(StrictContract):
             raise ValueError("trace sequence must be contiguous and start at one")
         if (
             self.current_state.project_mode != self.project_mode
+            or self.current_state.routing_reason != self.routing_reason
             or self.current_state.authority != self.authority
             or self.current_state.status != self.status
             or self.current_state.final_decision != self.final_decision
@@ -176,7 +193,9 @@ class WorkflowResult(StrictContract):
             self.implementation_gate is not None
             and self.implementation_gate.gate is not GateName.IMPLEMENTATION
         ):
-            raise ValueError("implementation_gate must identify the implementation gate")
+            raise ValueError(
+                "implementation_gate must identify the implementation gate"
+            )
 
         # TaskResponse retains a nullable decision solely for the frozen PR-1
         # compatibility helper. Every PR-2 WorkflowResult has a decision and
@@ -213,10 +232,9 @@ class WorkflowResult(StrictContract):
                 or self.trace[-1].status is not TraceStatus.BLOCKED
             ):
                 raise ValueError("blocked result must be terminally blocked")
-        elif (
-            self.status is not TaskStatus.WORKFLOW_NOT_READY
-            or self.trace[-1].status not in (TraceStatus.FAIL, TraceStatus.BLOCKED)
-        ):
+        elif self.status is not TaskStatus.WORKFLOW_NOT_READY or self.trace[
+            -1
+        ].status not in (TraceStatus.FAIL, TraceStatus.BLOCKED):
             raise ValueError("not-ready result must terminate without a passing trace")
         return self
 
@@ -243,9 +261,12 @@ __all__ = [
     "GateStatus",
     "HealthResponse",
     "ImplementationPlan",
+    "IntentText",
     "NonBlankText",
     "ProjectMode",
+    "RepositoryReference",
     "ReviewDecision",
+    "RoutingReason",
     "StrictContract",
     "TaskRequest",
     "TaskResponse",

@@ -10,7 +10,7 @@ from wolf15_sentient.contracts.task import (
     TaskState,
     TaskStatus,
 )
-from wolf15_sentient.orchestration.mode_router import detect_project_mode
+from wolf15_sentient.orchestration.mode_router import select_project_mode
 
 
 def _trace_step(
@@ -69,7 +69,8 @@ def create_task_foundation(request: TaskRequest) -> TaskResponse:
     )
 
     routing_started = datetime.now(UTC)
-    project_mode = detect_project_mode(request.intent, request.repository)
+    selection = select_project_mode(request.intent, request.repository)
+    project_mode = selection.mode
     trace.append(
         _trace_step(
             sequence=2,
@@ -80,7 +81,7 @@ def create_task_foundation(request: TaskRequest) -> TaskResponse:
             started_at=routing_started,
             input_reference="validated.task_request",
             output_reference="routing.project_mode",
-            decision=project_mode.value,
+            decision=f"{project_mode.value}:{selection.reason.value}",
         )
     )
 
@@ -93,6 +94,7 @@ def create_task_foundation(request: TaskRequest) -> TaskResponse:
         repository=request.repository,
         authority=request.authority,
         project_mode=project_mode,
+        routing_reason=selection.reason,
         status=TaskStatus.FOUNDATION_COMPLETE,
         final_decision=None,
     )
@@ -115,6 +117,7 @@ def create_task_foundation(request: TaskRequest) -> TaskResponse:
         run_id=run_id,
         trace_id=trace_id,
         project_mode=project_mode,
+        routing_reason=selection.reason,
         authority=request.authority,
         status=TaskStatus.FOUNDATION_COMPLETE,
         final_decision=None,

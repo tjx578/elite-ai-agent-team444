@@ -42,7 +42,10 @@ Production actions include deployment, secret or environment mutation, productio
 - Credentials do not confer permission.
 - Approval must identify target, action, artifact/version, and relevant environment.
 - Material changes after approval invalidate that approval.
-- All attempts, including denied attempts, emit sanitized trace events.
+- Every attempted external or production action, including one denied at its
+  execution boundary, emits a sanitized trace event when that adapter exists.
+  HTTP request validation failures in the current foundation return 422; the
+  foundation has no external execution adapter or durable audit store.
 
 ## Alternatives rejected
 

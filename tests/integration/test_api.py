@@ -117,8 +117,7 @@ def test_health_contract_rejects_previous_service_identity() -> None:
         (
             {
                 "intent": (
-                    "Redesign this repository into the next generation "
-                    "architecture"
+                    "Redesign this repository into the next generation architecture"
                 ),
                 "repository": "https://example.invalid/owner/project",
             },
@@ -144,11 +143,16 @@ def test_task_request_is_routed_to_expected_project_mode(
         {"intent": "   ", "authority": "READ_ONLY"},
         {"intent": "Inspect this code", "authority": "WRITE"},
         {"intent": "Inspect this code", "authority": "read_only"},
+        {"intent": "Inspect this code"},
+        {"intent": "x" * 4097, "authority": "READ_ONLY"},
+        {
+            "intent": "Inspect this code",
+            "repository": "r" * 2049,
+            "authority": "READ_ONLY",
+        },
     ],
 )
-def test_task_request_validation_fails_closed(
-    invalid_request: dict[str, str]
-) -> None:
+def test_task_request_validation_fails_closed(invalid_request: dict[str, str]) -> None:
     response = client.post("/tasks", json=invalid_request)
 
     assert response.status_code == 422
@@ -182,17 +186,152 @@ def test_task_response_contains_typed_execution_trace() -> None:
     assert sequences == sorted(set(sequences))
 
 
+@pytest.mark.parametrize(
+    ("intent", "repository", "expected_mode", "expected_reason"),
+    [
+        (
+            "Review advanced versioning support",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Review next generational APIs",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Review the upgrade policy without changing the repository",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Design a successor architecture",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Please upgrade this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Review and migrate this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Plan a migration to the new platform",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Create a migration plan",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Replace the misspelled label in README",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Upgrade a dependency",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Upgrade this repository's dependencies",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Review this repository and migrate it to the new platform",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Migrate to the new platform",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Rearchitect this repository and its dependencies",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Modernize this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Rearchitect this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Rearchitect a local helper",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Build the next generation system",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Design a new service",
+            None,
+            "GREENFIELD_SYSTEM_MODE",
+            "NO_REPOSITORY",
+        ),
+    ],
+)
+def test_routing_reason_and_phrase_boundaries(
+    intent: str,
+    repository: str | None,
+    expected_mode: str,
+    expected_reason: str,
+) -> None:
+    request = {"intent": intent, "authority": "READ_ONLY"}
+    if repository is not None:
+        request["repository"] = repository
+    response = client.post("/tasks", json=request)
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload["project_mode"] == expected_mode
+    assert payload["routing_reason"] == expected_reason
+    assert payload["current_state"]["routing_reason"] == expected_reason
+    assert payload["trace"][1]["decision"] == f"{expected_mode}:{expected_reason}"
+
+
 def test_trace_identifiers_are_unique_for_each_task() -> None:
     first = _submit_task(intent="Design service alpha")
     second = _submit_task(intent="Design service beta")
 
     first_identifiers = {
-        _trace_identifier(first, name)
-        for name in ("task_id", "run_id", "trace_id")
+        _trace_identifier(first, name) for name in ("task_id", "run_id", "trace_id")
     }
     second_identifiers = {
-        _trace_identifier(second, name)
-        for name in ("task_id", "run_id", "trace_id")
+        _trace_identifier(second, name) for name in ("task_id", "run_id", "trace_id")
     }
 
     assert len(first_identifiers) == 3
