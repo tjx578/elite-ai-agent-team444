@@ -9,6 +9,12 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_vali
 from elite_team.contracts.execution import ExecutionTrace
 
 NonBlankText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
+IntentText = Annotated[
+    str, StringConstraints(strip_whitespace=True, min_length=1, max_length=4096)
+]
+RepositoryReference = Annotated[
+    str, StringConstraints(strip_whitespace=True, min_length=1, max_length=2048)
+]
 
 
 class Authority(StrEnum):
@@ -51,8 +57,8 @@ class StrictContract(BaseModel):
 
 
 class TaskRequest(StrictContract):
-    intent: NonBlankText
-    repository: NonBlankText | None = None
+    intent: IntentText
+    repository: RepositoryReference | None = None
     authority: Authority
 
 
@@ -63,8 +69,8 @@ class TaskState(StrictContract):
     task_id: UUID
     run_id: UUID
     trace_id: UUID
-    intent: NonBlankText
-    repository: NonBlankText | None
+    intent: IntentText
+    repository: RepositoryReference | None
     authority: Authority
     project_mode: ProjectMode
     routing_reason: RoutingReason

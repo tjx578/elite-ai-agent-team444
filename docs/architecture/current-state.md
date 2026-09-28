@@ -31,7 +31,7 @@ PR-1 adds a small, locally executable foundation. The current implementation con
 - an installable `elite_team` Python package requiring Python 3.11 or newer;
 - FastAPI application factory and ASGI entry point;
 - `GET /health`, returning service identity and version;
-- `POST /tasks`, accepting a strict `TaskRequest` and returning a strict `TaskResponse`;
+- `POST /tasks`, accepting a strict, length-bounded `TaskRequest` and returning a strict `TaskResponse`;
 - `READ_ONLY` as the only accepted authority;
 - the three project-mode enum and a deterministic mode router;
 - in-memory `TaskState` creation with unique task, run, and trace identifiers;
@@ -39,14 +39,19 @@ PR-1 adds a small, locally executable foundation. The current implementation con
 - integration tests for health, the three routing outcomes, fail-closed validation, trace shape/correlation, and identifier uniqueness;
 - a GitHub Actions workflow definition for Python 3.11, 3.12, and 3.13.
 
-Local verification on 2026-08-24:
+Local verification of the reviewed foundation source on 2026-09-28
+(Windows, Python 3.11.9):
 
 ```text
 python -m pytest -q
-10 passed in 7.54s
+21 passed, 1 dependency deprecation warning
+python -m ruff check src tests
+All checks passed
 ```
 
-The GitHub Actions file is present, but no authenticated remote run was inspected in this workstream. Remote CI status is therefore **NOT_EXECUTED / NOT_VERIFIED here**, not PASS.
+The original 2026-08-23 GitHub Actions jobs obtained no runner and executed no
+steps. Remote CI for a later review-fix commit must be verified against that
+commit's own GitHub checks; the historical jobs do not qualify it.
 
 ## Exact PR-1 flow
 
@@ -67,8 +72,10 @@ Routing is intentionally narrow:
 - any other repository-bearing request -> `EXISTING_REPO_MODE`.
 
 The response and state preserve the routing reason, and the `MODE_ROUTER` trace
-records it beside the selected mode. Evolution phrases match whole normalized
-tokens, so `advanced versioning` does not match `advanced version`.
+records it beside the selected mode. An evolution action must lead the request
+or follow an inspection action joined with `and`. Design requests can name a
+next-generation or successor architecture. Incidental mentions such as
+`review the upgrade policy` remain in existing-repository mode.
 
 The supplied repository is not resolved, fetched, read, or validated as an accessible repository.
 
@@ -100,7 +107,11 @@ Code presence alone does not prove a service is deployed, a remote CI job has ru
 
 ## Current authority boundary
 
-PR-1 requires the caller to supply `READ_ONLY`; an omitted authority is rejected. It currently has no external repository adapter, so it does not read the repository named in a task. It grants no file, shell, Git, GitHub, deployment, production-data, or other external-system authority.
+PR-1 requires the caller to supply `READ_ONLY`; an omitted authority is rejected.
+Intent is capped at 4096 characters and the repository reference at 2048.
+It currently has no external repository adapter, so it does not read the
+repository named in a task. It grants no file, shell, Git, GitHub, deployment,
+production-data, or other external-system authority.
 
 The normative target authority model is defined in [Authority Model](../governance/authority-model.md) and [ADR-004](../adr/ADR-004-human-controlled-production.md).
 

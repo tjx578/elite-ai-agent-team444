@@ -109,6 +109,12 @@ def test_task_request_is_routed_to_expected_project_mode(
         {"intent": "Inspect this code", "authority": "WRITE"},
         {"intent": "Inspect this code", "authority": "read_only"},
         {"intent": "Inspect this code"},
+        {"intent": "x" * 4097, "authority": "READ_ONLY"},
+        {
+            "intent": "Inspect this code",
+            "repository": "r" * 2049,
+            "authority": "READ_ONLY",
+        },
     ],
 )
 def test_task_request_validation_fails_closed(invalid_request: dict[str, str]) -> None:
@@ -159,6 +165,30 @@ def test_task_response_contains_typed_execution_trace() -> None:
             "https://example.invalid/owner/project",
             "EXISTING_REPO_MODE",
             "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Review the upgrade policy without changing the repository",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Design a successor architecture",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Please upgrade this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Review and migrate this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
         ),
         (
             "Build the next generation system",

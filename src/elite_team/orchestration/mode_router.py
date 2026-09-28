@@ -22,7 +22,11 @@ _EXPLICIT_EVOLUTION_PHRASES = (
     "more advanced version",
     "next generation",
     "successor system",
+    "successor architecture",
 )
+_DESIGN_ACTIONS = frozenset({"design", "build", "create", "plan", "propose"})
+_INSPECTION_ACTIONS = frozenset({"audit", "review", "inspect", "analyze", "check"})
+_REQUEST_PREFIXES = (("please",), ("i", "want", "to"), ("we", "need", "to"))
 
 
 def _normalized_intent(intent: str) -> str:
@@ -34,23 +38,36 @@ def _normalized_intent(intent: str) -> str:
 def has_explicit_evolution_intent(intent: str) -> bool:
     """Return whether an intent explicitly requests repository evolution.
 
-    Matching is intentionally narrow: a normalized intent must contain either
-    one of the documented evolution phrases or an exact imperative-style
-    action token. Substrings do not match, so words such as ``upgraded`` or
-    ``modernization`` cannot accidentally grant hybrid routing. The caller
-    separately requires a repository, preventing evolution wording alone from
-    escaping greenfield mode.
+    Matching is intentionally narrow. An evolution command must be the lead
+    action (or follow an inspection action joined with ``and``). Design
+    requests must name a successor or next-generation target. Incidental
+    mentions of an upgrade in an audit do not change the selected mode.
     """
 
     words = _normalized_intent(intent).split()
-    if any(
+    for prefix in _REQUEST_PREFIXES:
+        if tuple(words[: len(prefix)]) == prefix:
+            words = words[len(prefix) :]
+            break
+    if not words:
+        return False
+    if words[0] in _EXPLICIT_EVOLUTION_ACTIONS:
+        return True
+    if (
+        words[0] in _INSPECTION_ACTIONS
+        and len(words) > 2
+        and words[1] == "and"
+        and words[2] in _EXPLICIT_EVOLUTION_ACTIONS
+    ):
+        return True
+    if words[0] not in _DESIGN_ACTIONS:
+        return False
+    return any(
         words[index : index + len(phrase_words)] == phrase_words
         for phrase in _EXPLICIT_EVOLUTION_PHRASES
         for phrase_words in (phrase.split(),)
         for index in range(len(words) - len(phrase_words) + 1)
-    ):
-        return True
-    return bool(set(words) & _EXPLICIT_EVOLUTION_ACTIONS)
+    )
 
 
 @dataclass(frozen=True)
