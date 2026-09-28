@@ -66,6 +66,10 @@ Routing is intentionally narrow:
 - repository plus an explicit supported evolution action/phrase -> `HYBRID_EVOLUTION_MODE`;
 - any other repository-bearing request -> `EXISTING_REPO_MODE`.
 
+The response and state preserve the routing reason, and the `MODE_ROUTER` trace
+records it beside the selected mode. Evolution phrases match whole normalized
+tokens, so `advanced versioning` does not match `advanced version`.
+
 The supplied repository is not resolved, fetched, read, or validated as an accessible repository.
 
 ## Still target-only
@@ -96,7 +100,7 @@ Code presence alone does not prove a service is deployed, a remote CI job has ru
 
 ## Current authority boundary
 
-PR-1 accepts only `READ_ONLY`, but currently has no external repository adapter, so it does not read the repository named in a task. It grants no file, shell, Git, GitHub, deployment, production-data, or other external-system authority.
+PR-1 requires the caller to supply `READ_ONLY`; an omitted authority is rejected. It currently has no external repository adapter, so it does not read the repository named in a task. It grants no file, shell, Git, GitHub, deployment, production-data, or other external-system authority.
 
 The normative target authority model is defined in [Authority Model](../governance/authority-model.md) and [ADR-004](../adr/ADR-004-human-controlled-production.md).
 

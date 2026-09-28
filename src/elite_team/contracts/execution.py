@@ -7,7 +7,6 @@ from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
-
 Reference = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
 
@@ -47,4 +46,3 @@ class ExecutionTrace(BaseModel):
 
 
 __all__ = ["ExecutionTrace", "TraceNode", "TraceStatus"]
-

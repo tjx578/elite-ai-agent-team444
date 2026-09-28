@@ -8,7 +8,6 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_vali
 
 from elite_team.contracts.execution import ExecutionTrace
 
-
 NonBlankText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
 
@@ -26,6 +25,12 @@ class ProjectMode(StrEnum):
     EXISTING_REPO_MODE = "EXISTING_REPO_MODE"
     GREENFIELD_SYSTEM_MODE = "GREENFIELD_SYSTEM_MODE"
     HYBRID_EVOLUTION_MODE = "HYBRID_EVOLUTION_MODE"
+
+
+class RoutingReason(StrEnum):
+    NO_REPOSITORY = "NO_REPOSITORY"
+    EXPLICIT_EVOLUTION_INTENT = "EXPLICIT_EVOLUTION_INTENT"
+    NO_EXPLICIT_EVOLUTION_INTENT = "NO_EXPLICIT_EVOLUTION_INTENT"
 
 
 class TaskStatus(StrEnum):
@@ -48,7 +53,7 @@ class StrictContract(BaseModel):
 class TaskRequest(StrictContract):
     intent: NonBlankText
     repository: NonBlankText | None = None
-    authority: Authority = Authority.READ_ONLY
+    authority: Authority
 
 
 class TaskState(StrictContract):
@@ -62,6 +67,7 @@ class TaskState(StrictContract):
     repository: NonBlankText | None
     authority: Authority
     project_mode: ProjectMode
+    routing_reason: RoutingReason
     status: TaskStatus
     final_decision: FinalDecision | None = None
 
@@ -71,6 +77,7 @@ class TaskResponse(StrictContract):
     run_id: UUID
     trace_id: UUID
     project_mode: ProjectMode
+    routing_reason: RoutingReason
     authority: Authority
     status: TaskStatus
     final_decision: FinalDecision | None = None
@@ -88,7 +95,9 @@ class TaskResponse(StrictContract):
             self.current_state.trace_id,
         )
         if identifiers != state_identifiers:
-            raise ValueError("current_state correlation identifiers do not match response")
+            raise ValueError(
+                "current_state correlation identifiers do not match response"
+            )
         if any(
             (event.task_id, event.run_id, event.trace_id) != identifiers
             for event in self.trace
@@ -100,6 +109,7 @@ class TaskResponse(StrictContract):
             raise ValueError("trace sequence must be contiguous and start at one")
         if (
             self.current_state.project_mode != self.project_mode
+            or self.current_state.routing_reason != self.routing_reason
             or self.current_state.authority != self.authority
             or self.current_state.status != self.status
             or self.current_state.final_decision != self.final_decision
@@ -119,6 +129,7 @@ __all__ = [
     "FinalDecision",
     "HealthResponse",
     "ProjectMode",
+    "RoutingReason",
     "TaskRequest",
     "TaskResponse",
     "TaskState",

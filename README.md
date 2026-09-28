@@ -20,12 +20,12 @@ The repository now contains the deliberately small **PR-1 executable foundation*
 - conservative routing across the three project modes;
 - creation of correlated task, run, and trace identifiers;
 - a deterministic three-step foundation trace: `INTAKE`, `MODE_ROUTER`, `STATE_CREATION`;
-- read-only authority as the only accepted authority value;
+- explicit `READ_ONLY` authority as the only accepted authority value;
 - architecture ADRs and the least-privilege authority model;
 - a read-only GitHub Actions test workflow definition (remote execution not verified here);
-- ten local API/contract tests, verified passing in this checkout on 2026-08-24.
+- local API/contract tests, including authority and routing-reason checks.
 
-`POST /tasks` validates and classifies a request, creates in-memory state, and returns trace evidence. It does not access the supplied repository. Its terminal status is `FOUNDATION_COMPLETE`, and `final_decision` remains `null` because no agent workflow or readiness gate runs.
+`POST /tasks` requires the caller to request `READ_ONLY`, classifies the request, creates in-memory state, and returns the selected mode and routing reason in the state and response. The `MODE_ROUTER` trace also records both values. It does not access the supplied repository. Its terminal status is `FOUNDATION_COMPLETE`, and `final_decision` remains `null` because no agent workflow or readiness gate runs.
 
 See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 
