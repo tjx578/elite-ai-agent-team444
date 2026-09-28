@@ -1,5 +1,39 @@
 # WOLF15 Sentient architecture and delivery roadmap
 
+## Checkpoint delivery order
+
+The full skeleton remains the North Star; delivery proceeds one checkpoint at
+a time. [Canonical ownership](canonical-ownership.md) maps implemented paths
+to that target. CP0.1–CP0.3 are integrated at `main@a53388f6`; CP0.4 aligns
+architecture and local README contracts. CP0 stays open until CP0.5 records an
+exact resulting-main audit with CI and CodeQL PASS. CP1 implementation starts
+only after that completion receipt. This table is the current delivery sequence;
+the M milestone table below retains its architecture vocabulary.
+
+| Checkpoint | Target | Acceptance / dependency |
+| --- | --- | --- |
+| CP0 Cognitive Foundation Stabilized | M2 + SK-01 + M3-A + SCRS v0 | Ordered CP0.1 SK-01, CP0.2 M3-A, CP0.3 SCRS, CP0.4 architecture, CP0.5 exact-main acceptance; READ_ONLY |
+| CP1 Real Sentient Reasoning | M3-B | One real provider behind typed contracts, evidence binding, cancellation and limits; no tool authority |
+| CP2 Repository Intelligence | M4 | Exact-revision repository read and source-bound analysis |
+| CP3 Production Grade v1 | M5 | Authenticated durable observable read-only service and live acceptance |
+| CP4 Personal JARVIS | M6 | Personal assistant, neural interface, voice and read-only connectors |
+| CP5 Capability OS | M7 | Capability registry/resolver plus Unified Skills and pinned admission |
+| CP6 Capability Foundry | M8 | Donor provenance, rights, isolation, evaluation and shadow lifecycle |
+| CP7 Controlled Technology Builder | M9 | Prepare/review/approve/execute receipts for implementation, test and PR actions |
+| CP8 Adaptive Intelligence | M10 | Validated learning, REE and mature SCRS; independent evaluation, no self-promotion |
+| CP9 Technology Company OS | Integrated product | End-to-end acceptance of the complete system; no shortcut around earlier gates |
+
+All later checkpoints are frozen targets while CP0 is active. New ideas are
+classified as current-checkpoint scope, architecture amendment, future
+checkpoint, or out-of-architecture before implementation. The three
+[README rules](canonical-ownership.md#local-readme-contract-policy) apply from
+CP0.4 onward. Future subsystems get a README when their implementation appears.
+
+The owner-designated `WOLF15_Sentient.html` is a Neural Orchestrator UX Reference
+Prototype. Its relation to future `apps/owner-console/` (Next.js/TypeScript + SSE)
+is frozen in the [UX reference boundary](canonical-ownership.md#neural-orchestrator-ux-reference).
+No production console is built in CP0.
+
 ## Baseline and rule
 
 The canonical repository is `tjx578/wolf15-sentient`. PR #1–#7 are merged.
