@@ -26,6 +26,9 @@ _EXPLICIT_EVOLUTION_PHRASES = (
 )
 _DESIGN_ACTIONS = frozenset({"design", "build", "create", "plan", "propose"})
 _INSPECTION_ACTIONS = frozenset({"audit", "review", "inspect", "analyze", "check"})
+_SYSTEM_TARGETS = frozenset(
+    {"repository", "repo", "codebase", "system", "platform", "architecture"}
+)
 _REQUEST_PREFIXES = (("please",), ("i", "want", "to"), ("we", "need", "to"))
 
 
@@ -35,13 +38,33 @@ def _normalized_intent(intent: str) -> str:
     return " ".join(re.findall(r"[a-z0-9]+", intent.casefold()))
 
 
+def _contains_evolution_phrase(words: list[str]) -> bool:
+    return any(
+        words[index : index + len(phrase_words)] == phrase_words
+        for phrase in _EXPLICIT_EVOLUTION_PHRASES
+        for phrase_words in (phrase.split(),)
+        for index in range(len(words) - len(phrase_words) + 1)
+    )
+
+
+def _is_major_evolution_command(words: list[str]) -> bool:
+    action = words[0]
+    if action == "replace":
+        return _contains_evolution_phrase(words) or (
+            "with" in words
+            and "new" in words
+            and bool(set(words[1:]) & _SYSTEM_TARGETS)
+        )
+    return bool(set(words[1:6]) & _SYSTEM_TARGETS) or _contains_evolution_phrase(words)
+
+
 def has_explicit_evolution_intent(intent: str) -> bool:
     """Return whether an intent explicitly requests repository evolution.
 
-    Matching is intentionally narrow. An evolution command must be the lead
-    action (or follow an inspection action joined with ``and``). Design
-    requests must name a successor or next-generation target. Incidental
-    mentions of an upgrade in an audit do not change the selected mode.
+    Matching is intentionally narrow. A major evolution command must lead the
+    request (or follow an inspection action joined with ``and``) and name a
+    system target. Design requests name a successor target or a migration.
+    Incidental mentions of upgrade or replacement retain existing-repo mode.
     """
 
     words = _normalized_intent(intent).split()
@@ -51,22 +74,17 @@ def has_explicit_evolution_intent(intent: str) -> bool:
             break
     if not words:
         return False
-    if words[0] in _EXPLICIT_EVOLUTION_ACTIONS:
-        return True
     if (
         words[0] in _INSPECTION_ACTIONS
         and len(words) > 2
         and words[1] == "and"
         and words[2] in _EXPLICIT_EVOLUTION_ACTIONS
     ):
-        return True
-    if words[0] not in _DESIGN_ACTIONS:
-        return False
-    return any(
-        words[index : index + len(phrase_words)] == phrase_words
-        for phrase in _EXPLICIT_EVOLUTION_PHRASES
-        for phrase_words in (phrase.split(),)
-        for index in range(len(words) - len(phrase_words) + 1)
+        words = words[2:]
+    if words[0] in _EXPLICIT_EVOLUTION_ACTIONS:
+        return _is_major_evolution_command(words)
+    return words[0] in _DESIGN_ACTIONS and (
+        "migration" in words[1:] or _contains_evolution_phrase(words)
     )
 
 

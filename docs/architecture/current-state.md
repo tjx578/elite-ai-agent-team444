@@ -44,7 +44,7 @@ Local verification of the reviewed foundation source on 2026-09-28
 
 ```text
 python -m pytest -q
-21 passed, 1 dependency deprecation warning
+28 passed, 1 dependency deprecation warning
 python -m ruff check src tests
 All checks passed
 ```
@@ -72,10 +72,11 @@ Routing is intentionally narrow:
 - any other repository-bearing request -> `EXISTING_REPO_MODE`.
 
 The response and state preserve the routing reason, and the `MODE_ROUTER` trace
-records it beside the selected mode. An evolution action must lead the request
-or follow an inspection action joined with `and`. Design requests can name a
-next-generation or successor architecture. Incidental mentions such as
-`review the upgrade policy` remain in existing-repository mode.
+records it beside the selected mode. A system-level evolution action must lead
+the request or follow an inspection action joined with `and`. Design requests
+can name a migration, next-generation system, or successor architecture.
+Incidental mentions such as `review the upgrade policy` and repairs such as
+`replace the misspelled label` remain in existing-repository mode.
 
 The supplied repository is not resolved, fetched, read, or validated as an accessible repository.
 

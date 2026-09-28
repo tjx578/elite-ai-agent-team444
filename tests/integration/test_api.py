@@ -191,6 +191,48 @@ def test_task_response_contains_typed_execution_trace() -> None:
             "EXPLICIT_EVOLUTION_INTENT",
         ),
         (
+            "Plan a migration to the new platform",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Create a migration plan",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Replace the misspelled label in README",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Upgrade a dependency",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Modernize this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Rearchitect this repository",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Rearchitect a local helper",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
             "Build the next generation system",
             "https://example.invalid/owner/project",
             "HYBRID_EVOLUTION_MODE",
