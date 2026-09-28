@@ -12,7 +12,8 @@ The original identity snapshot passed **27 source tests and 27 installed-package
 tests**. Its [verification record](docs/verification/sentient-identity-20260928.md)
 and source/wheel hashes remain bound to commit `624d5ab`. After integration
 with PR #2, the source suite passed **49 local tests**; the new head needs its
-own remote CI and installed-package verification.
+own remote CI. The [integration record](docs/verification/sentient-identity-integration-20260928.md)
+binds 49 source and installed-package tests to the updated source and wheel.
 
 This repository is being built as small, verifiable vertical slices. The original multi-agent vision remains the target, but it is not presented as working software.
 
