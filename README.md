@@ -34,6 +34,15 @@ adapter work remains in its separate development checkout. See
 [ADR-005: Product Identity and Namespace](docs/adr/ADR-005-product-identity.md)
 and the [migration guide](docs/migrations/sentient-identity.md).
 
+## M1-B architecture boundaries
+
+The [reference architecture](docs/architecture/super-intelligence-reference-architecture.md)
+maps the Control Kernel, Sentient Core, specialists, Personal Assistant,
+Second Brain, Capability Fabric/Foundry, and learning/REE boundaries. The
+[roadmap](docs/architecture/roadmap.md) orders the evidence gates for later
+increments. These are target designs; the current runtime remains the
+`READ_ONLY` deterministic kernel described below.
+
 ## CURRENT IMPLEMENTATION
 
 The repository contains the PR-1 foundation plus the source implementation of the **PR-2 Deterministic Orchestration Kernel**.
