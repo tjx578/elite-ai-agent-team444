@@ -39,14 +39,18 @@ PR-1 adds a small, locally executable foundation. The current implementation con
 - integration tests for health, the three routing outcomes, fail-closed validation, trace shape/correlation, and identifier uniqueness;
 - a GitHub Actions workflow definition for Python 3.11, 3.12, and 3.13.
 
-Local verification on 2026-08-24:
+The original PR-1 checkpoint was verified locally on 2026-08-24:
 
 ```text
 python -m pytest -q
 10 passed in 7.54s
 ```
 
-The GitHub Actions file is present. The observed remote foundation job was blocked by GitHub billing before a runner executed it: it had zero steps and `runner_id=0`. Its status is therefore **NOT_EXECUTED**, not PASS and not a code/test failure.
+The original GitHub Actions jobs were **NOT_EXECUTED** because GitHub billing
+blocked runner allocation. The reviewed PR-1 head `cec55f5` was later verified
+locally with 30 passing tests and Ruff, and its push and pull-request CI jobs
+passed on Python 3.11, 3.12, and 3.13. These results are bound to that head;
+the integrated PR-2 head requires its own verification.
 
 ## Exact PR-1 flow
 
@@ -67,6 +71,9 @@ Routing is intentionally narrow:
 - any other repository-bearing request -> `EXISTING_REPO_MODE`.
 
 The supplied repository is not resolved, fetched, read, or validated as an accessible repository.
+The caller must provide `READ_ONLY`; intent is capped at 4096 characters and
+the repository reference at 2048. The response, state, and `MODE_ROUTER` trace
+preserve the routing reason.
 
 ## PR-1 exclusions at that milestone
 
@@ -157,7 +164,10 @@ Code presence alone does not prove a service is deployed, a remote CI job has ru
 
 ## Current authority boundary
 
-The current runtime accepts only `READ_ONLY` and has no external repository adapter, so it does not read the repository named in a task. It grants no file, shell, Git, GitHub, deployment, production-data, or other external-system authority.
+The current runtime requires the caller to supply `READ_ONLY` and has no
+external repository adapter, so it does not read the repository named in a
+task. It grants no file, shell, Git, GitHub, deployment, production-data, or
+other external-system authority.
 
 The normative target authority model is defined in [Authority Model](../governance/authority-model.md) and [ADR-004](../adr/ADR-004-human-controlled-production.md).
 

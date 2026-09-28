@@ -29,6 +29,10 @@ _INSPECTION_ACTIONS = frozenset({"audit", "review", "inspect", "analyze", "check
 _SYSTEM_TARGETS = frozenset(
     {"repository", "repo", "codebase", "system", "platform", "architecture"}
 )
+_INCREMENTAL_TARGETS = frozenset(
+    {"dependency", "dependencies", "package", "packages", "library", "libraries"}
+)
+_TARGET_PREFIXES = frozenset({"a", "an", "the", "this", "that", "our"})
 _REQUEST_PREFIXES = (("please",), ("i", "want", "to"), ("we", "need", "to"))
 
 
@@ -49,13 +53,22 @@ def _contains_evolution_phrase(words: list[str]) -> bool:
 
 def _is_major_evolution_command(words: list[str]) -> bool:
     action = words[0]
+    target_words = words[1:]
+    while target_words and target_words[0] in _TARGET_PREFIXES:
+        target_words = target_words[1:]
+    if not target_words:
+        return False
+    if target_words[0] in _INCREMENTAL_TARGETS:
+        return False
+    if target_words[0] in _SYSTEM_TARGETS and any(
+        word in _INCREMENTAL_TARGETS for word in target_words[1:4]
+    ):
+        return False
     if action == "replace":
         return _contains_evolution_phrase(words) or (
-            "with" in words
-            and "new" in words
-            and bool(set(words[1:]) & _SYSTEM_TARGETS)
+            "with" in words and "new" in words and target_words[0] in _SYSTEM_TARGETS
         )
-    return bool(set(words[1:6]) & _SYSTEM_TARGETS) or _contains_evolution_phrase(words)
+    return target_words[0] in _SYSTEM_TARGETS or _contains_evolution_phrase(words)
 
 
 def has_explicit_evolution_intent(intent: str) -> bool:
@@ -74,13 +87,21 @@ def has_explicit_evolution_intent(intent: str) -> bool:
             break
     if not words:
         return False
-    if (
-        words[0] in _INSPECTION_ACTIONS
-        and len(words) > 2
-        and words[1] == "and"
-        and words[2] in _EXPLICIT_EVOLUTION_ACTIONS
-    ):
-        words = words[2:]
+    if words[0] in _INSPECTION_ACTIONS:
+        for index in range(1, len(words) - 1):
+            if (
+                words[index] == "and"
+                and words[index + 1] in _EXPLICIT_EVOLUTION_ACTIONS
+            ):
+                evolution_words = words[index + 1 :]
+                if (
+                    len(evolution_words) > 1
+                    and evolution_words[1] == "it"
+                    and bool(set(words[:index]) & _SYSTEM_TARGETS)
+                ):
+                    evolution_words[1] = "system"
+                words = evolution_words
+                break
     if words[0] in _EXPLICIT_EVOLUTION_ACTIONS:
         return _is_major_evolution_command(words)
     return words[0] in _DESIGN_ACTIONS and (

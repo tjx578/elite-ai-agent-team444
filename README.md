@@ -24,8 +24,10 @@ PR-1 remains the verified foundation baseline:
 - a deterministic three-step foundation trace: `INTAKE`, `MODE_ROUTER`, `STATE_CREATION`;
 - read-only authority as the only accepted authority value;
 - architecture ADRs and the least-privilege authority model;
-- a read-only GitHub Actions test workflow definition; the observed remote foundation job was `NOT_EXECUTED` because a GitHub billing lock left it with zero steps and `runner_id=0`;
-- ten local API/contract tests, verified passing in this checkout on 2026-08-24.
+- a read-only GitHub Actions test workflow; the reviewed PR-1 head `cec55f5`
+  passed 30 local tests and push/pull-request CI on Python 3.11–3.13;
+- bounded request text, explicit `READ_ONLY`, and routing reasons in state,
+  response, and trace.
 
 PR-2 source adds:
 
@@ -40,7 +42,12 @@ PR-2 source adds:
 
 The default deterministic happy path is entirely in memory. It produces typed architecture and implementation artifacts, deterministic validation/review evidence, and `READY_WITH_CONDITIONS`. That status is an assessment only; it grants no repository or production authority.
 
-**PR-2 verification status:** a fresh local environment passed 25 tests in 3.12 seconds; Ruff, graph compile/render, and happy-path, revision, and exhaustion smoke checks passed. Codex Security diff scan `5a286602-d315-49c9-bd7a-1fefe5ab7db5` completed with full declared coverage and zero reportable findings; three defensive candidates were reproduced and rejected after reachability and boundary validation. The initial PR-2 push and pull-request workflow runs were both **NOT_EXECUTED**: all six Python 3.11-3.13 jobs had zero steps and `runner_id=0`, with GitHub reporting that the account was locked because of billing. The PR-1 result must not be reused as PR-2 evidence.
+**PR-2 historical verification:** its original head passed 25 local tests,
+Ruff, graph compile/render, and workflow smoke checks. Codex Security diff
+scan `5a286602-d315-49c9-bd7a-1fefe5ab7db5` covered the original scope
+and found no reportable issue. The original CI jobs were `NOT_EXECUTED` during
+the GitHub billing lock. The integrated PR-2 head requires fresh tests and CI;
+the historical evidence does not qualify it.
 
 See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 
