@@ -4,6 +4,12 @@
 
 This document defines the architecture beyond the PR-2 deterministic kernel. Components described here are not current capabilities unless they are also listed in [Current State](current-state.md).
 
+The M1-B [reference architecture](super-intelligence-reference-architecture.md)
+and [roadmap](roadmap.md) extend this original kernel-focused target to the
+Personal Assistant, Second Brain, Capability Fabric/Foundry, production trust,
+and REE boundaries. The PR numbers in the delivery sequence below are
+historical milestone labels, not the GitHub PR #1–#4 consolidation order.
+
 ## Design goals
 
 WOLF15 Sentient is intended to be an independent, auditable product for software-engineering work. Its control plane should:
