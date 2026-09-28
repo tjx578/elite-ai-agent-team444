@@ -2,7 +2,7 @@
 
 ## Scope
 
-This is the target control flow. PR-1 currently implements only request validation, `INTAKE`, `MODE_ROUTER`, and `STATE_CREATION`, then returns `FOUNDATION_COMPLETE` with no final readiness decision. The remaining nodes below are target architecture. A milestone may implement only a prefix and must report that limitation explicitly.
+PR-2 implements the deterministic, in-memory control flow through `FINALIZE`. It uses LangGraph `1.2.10` as a state-machine runtime; Python policy owns transitions, gates, revision limits, typed validation, and finalization. Model reasoning and all external execution remain out of scope.
 
 ## End-to-end flow
 
@@ -10,55 +10,51 @@ This is the target control flow. PR-1 currently implements only request validati
 1. INTAKE
    validate request, identity, repository reference, and requested authority
       |
-2. AUTHORITY_CHECK
-   reduce request to the effective least-privilege authority
-      |
-3. MODE_ROUTER
+2. MODE_ROUTER
    choose exactly one project mode
       |
-4. PLAN
-   select applicable roles and gates without increasing authority
+3. STATE_CREATION
+   initialize mode, correlation, trace, and revision counters
       |
-5. ARCHITECT
+4. ARCHITECT
    emit typed ArchitectureReport
       |
-6. ARCHITECTURE_REVIEW
+5. ARCHITECTURE_REVIEW
    APPROVED -------------------------------+
    REVISION_REQUIRED -> bounded revision --|-- back to ARCHITECT
    BLOCKED_REQUIRES_OWNER -----------------+--> STOP
       |
-7. ENGINEER
-   emit typed ImplementationPlan or isolated change set
+6. ENGINEER
+   emit typed in-memory ImplementationPlan
       |
-8. VALIDATION
-   collect test, security, and performance evidence required by scope
+7. VALIDATION
+   validate the typed plan without external execution
       |
-9. REVIEWER
+8. REVIEWER
    APPROVED -------------------------------+
    REVISION_REQUIRED -> bounded revision --|-- back to ENGINEER
    BLOCKED_REQUIRES_OWNER -----------------+--> STOP
       |
-10. DELIVERY_GATE
-    report only / patch / isolated worktree / draft PR, as authorized
-      |
-11. FINAL
-    typed decision, evidence summary, limitations, and owner actions
+9. FINALIZE
+   emit typed terminal state and complete execution trace
 ```
+
+Repository execution and a delivery gate remain target architecture for later increments.
 
 ## State ownership
 
 The deterministic orchestrator is the only component allowed to mutate workflow state or choose a transition. Roles return typed proposals. Tools return typed results. Neither may directly call the next role, approve its own work, raise task authority, or emit a production-ready decision without required evidence.
 
-Minimum state fields are expected to include:
+Current graph state includes:
 
 - `task_id`, `run_id`, and `trace_id`;
 - validated request and effective authority;
 - project mode and routing reason;
-- current node and terminal status;
+- terminal status and final decision;
 - typed role outputs and gate decisions;
 - revision counters;
-- evidence and artifact references;
-- errors, timestamps, and owner approval references.
+- failure code/reason when applicable;
+- typed in-memory artifact and evidence references.
 
 ## Project-mode branches
 
@@ -86,20 +82,19 @@ REVISION_REQUIRED
 BLOCKED_REQUIRES_OWNER
 ```
 
-It includes a gate name, reason, evidence references, blocking findings, and revision count. A revision loop has a configured finite maximum; the initial target is two revisions. Exceeding that maximum terminates with `BLOCKED_REQUIRES_OWNER`.
+It includes a gate name, reason, evidence references, blocking findings, and revision count. Architecture and engineering each have a maximum of two revisions. A third `REVISION_REQUIRED` decision is converted to `BLOCKED_REQUIRES_OWNER` with `REVISION_LIMIT_EXHAUSTED`.
 
 ## Final decision contract
 
 Terminal outcomes are:
 
 ```text
-READY_FOR_PRODUCTION
 READY_WITH_CONDITIONS
 NOT_READY
 BLOCKED_REQUIRES_OWNER
 ```
 
-`READY_FOR_PRODUCTION` is unavailable unless all required runtime, test, security, operations, and deployment evidence has been collected for the exact artifact and environment. A local deterministic or stub workflow cannot produce that claim truthfully.
+`READY_FOR_PRODUCTION` is intentionally absent from the current contract. The default approved stub path produces `READY_WITH_CONDITIONS`; blocked gates, invalid typed output, and exhausted revisions produce `BLOCKED_REQUIRES_OWNER`. `NOT_READY` is a typed terminal value, but its reachable policy path remains subject to final PR-2 verification.
 
 ## Execution trace
 

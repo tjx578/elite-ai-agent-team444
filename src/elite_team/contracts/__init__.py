@@ -1,24 +1,51 @@
-"""Typed contracts shared across the PR-1 runtime."""
+"""Typed contracts shared across the deterministic runtime."""
 
-from elite_team.contracts.execution import ExecutionTrace, TraceNode, TraceStatus
-from elite_team.contracts.task import (
+from elite_team.contracts.execution import (
+    ErrorCode,
+    ExecutionErrorCode,
+    ExecutionEvent,
+    ExecutionTrace,
+    TraceNode,
+    TraceStatus,
+)
+from elite_team.contracts.models import (
+    AgentRunStatus,
+    ArchitectureReport,
     Authority,
     FinalDecision,
+    GateDecision,
+    GateName,
+    GateStatus,
     HealthResponse,
+    ImplementationPlan,
     ProjectMode,
+    ReviewDecision,
     RoutingReason,
     TaskRequest,
     TaskResponse,
     TaskState,
     TaskStatus,
+    ValidationReport,
+    ValidationStatus,
+    WorkflowResult,
 )
 
 __all__ = [
+    "AgentRunStatus",
+    "ArchitectureReport",
     "Authority",
+    "ErrorCode",
+    "ExecutionErrorCode",
+    "ExecutionEvent",
     "ExecutionTrace",
     "FinalDecision",
+    "GateDecision",
+    "GateName",
+    "GateStatus",
     "HealthResponse",
+    "ImplementationPlan",
     "ProjectMode",
+    "ReviewDecision",
     "RoutingReason",
     "TaskRequest",
     "TaskResponse",
@@ -26,5 +53,7 @@ __all__ = [
     "TaskStatus",
     "TraceNode",
     "TraceStatus",
+    "ValidationReport",
+    "ValidationStatus",
+    "WorkflowResult",
 ]
-

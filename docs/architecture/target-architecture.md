@@ -2,7 +2,7 @@
 
 ## Status
 
-This document defines the desired architecture. Components described here are not current capabilities unless they are also listed as verified in [Current State](current-state.md).
+This document defines the architecture beyond the PR-2 deterministic kernel. Components described here are not current capabilities unless they are also listed in [Current State](current-state.md).
 
 ## Design goals
 
@@ -72,11 +72,11 @@ Mode classification changes the workflow plan; it does not increase authority.
 
 ### Deterministic Orchestrator
 
-Owns valid states, node ordering, gate transitions, revision limits, timeouts, failure behavior, and terminal decisions. Reasoning components propose typed outputs; they do not choose arbitrary next steps or bypass gates.
+PR-2 implements the in-memory core: valid states, node ordering, gate transitions, two bounded revision loops, typed failure behavior, and terminal decisions. Timeouts, persistence, external execution, and production operations remain later work. Reasoning components propose typed outputs; they do not choose arbitrary next steps or bypass gates.
 
 ### Reasoning adapters
 
-Architect, reviewer, engineer, security, performance, and operations roles are introduced incrementally. Each adapter has a narrow input/output contract and no implicit tool authority. Early milestones should use deterministic stubs to validate the operating system before introducing model variability.
+PR-2 provides deterministic architect, reviewer, and engineer stubs with narrow typed contracts and no tool authority. Model-backed versions, plus security, performance, and operations roles, remain later work.
 
 ### Execution adapters
 

@@ -12,6 +12,18 @@ from elite_team.api.app import app
 
 client = TestClient(app)
 
+HAPPY_PATH_NODES = (
+    "INTAKE",
+    "MODE_ROUTER",
+    "STATE_CREATION",
+    "ARCHITECT",
+    "ARCHITECTURE_REVIEW",
+    "ENGINEER",
+    "VALIDATION",
+    "REVIEWER",
+    "FINALIZE",
+)
+
 
 def _trace_container(payload: Mapping[str, Any]) -> Mapping[str, Any]:
     """Return the response object that owns trace metadata."""
@@ -99,6 +111,9 @@ def test_task_request_is_routed_to_expected_project_mode(
     payload = _submit_task(**request_overrides)
 
     assert payload["project_mode"] == expected_mode
+    assert payload["authority"] == "READ_ONLY"
+    assert payload["final_decision"] == "READY_WITH_CONDITIONS"
+    assert tuple(event["node"] for event in _trace_events(payload)) == HAPPY_PATH_NODES
 
 
 @pytest.mark.parametrize(
@@ -227,6 +242,18 @@ def test_task_response_contains_typed_execution_trace() -> None:
             "EXPLICIT_EVOLUTION_INTENT",
         ),
         (
+            "Migrate to the new platform",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Rearchitect this repository and its dependencies",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
             "Modernize this repository",
             "https://example.invalid/owner/project",
             "HYBRID_EVOLUTION_MODE",
@@ -290,3 +317,5 @@ def test_trace_identifiers_are_unique_for_each_task() -> None:
     assert len(first_identifiers) == 3
     assert len(second_identifiers) == 3
     assert first_identifiers.isdisjoint(second_identifiers)
+    assert first["current_state"]["intent"] == "Design service alpha"
+    assert second["current_state"]["intent"] == "Design service beta"

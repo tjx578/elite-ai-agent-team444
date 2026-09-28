@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-08-24
-- **Implementation status:** Target contract; full graph is a later milestone
+- **Implementation status:** Implemented; local and security verification complete, remote CI `NOT_EXECUTED` because no job obtained a runner under the GitHub billing lock
 
 ## Context
 
@@ -24,7 +24,7 @@ Code-defined policy owns:
 
 Reasoning roles receive bounded context and return typed proposals. They cannot invoke one another directly, approve their own output, choose arbitrary transitions, or increase authority.
 
-The initial maximum is two revisions per bounded review loop. Exhaustion produces `BLOCKED_REQUIRES_OWNER`.
+The implemented maximum is two revisions for each architecture and engineering review loop. Exhaustion produces `BLOCKED_REQUIRES_OWNER`.
 
 ## Consequences
 
