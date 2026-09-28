@@ -63,6 +63,7 @@ The control plane must not be embedded inside a target repository. A repository 
 | Intelligence Division | Research, analysis, and source verification | Target; roster and contracts pending |
 | Knowledge & Memory | Store and retrieve sourced context and lifecycle-bound decisions | Target; no persistence or retrieval implementation |
 | Capability Fabric | Describe capabilities and mediate access through authorized tools and adapters | Target; no execution adapters |
+| Learning & Adaptation Plane | Journal evidence-backed episodes and produce evaluated capability/workflow candidates without raising authority | Contracts only; not wired to workflow |
 | WOLF15 Trading System | Own trading strategy, risk controls, and execution | External; no integration in this foundation |
 
 The Core proposes work; the Control Kernel enforces admissibility throughout
