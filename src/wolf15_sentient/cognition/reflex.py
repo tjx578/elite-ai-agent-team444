@@ -1,7 +1,9 @@
 """Read-only Sentient Cognitive Reflex observability over M3-A controller telemetry."""
 
 import json
+from datetime import datetime
 from hashlib import sha256
+from uuid import UUID
 
 from wolf15_sentient.contracts.cognition import (
     CognitiveMetric,
@@ -10,6 +12,7 @@ from wolf15_sentient.contracts.cognition import (
     CognitiveReflexProfile,
     CognitiveStateEstimate,
     MetricNoiseProfile,
+    ObservationReceipt,
 )
 from wolf15_sentient.contracts.evidence import ClaimOutcome
 from wolf15_sentient.contracts.reasoning import ReasoningResult
@@ -27,7 +30,14 @@ def profile_digest(profile: CognitiveReflexProfile) -> str:
     return sha256(payload.encode("utf-8")).hexdigest()
 
 
-def build_reasoning_observation(result: ReasoningResult) -> CognitiveObservation:
+def build_reasoning_observation(
+    result: ReasoningResult,
+    *,
+    observation_id: UUID,
+    sequence: int,
+    observed_at: datetime,
+    producer_id: str,
+) -> CognitiveObservation:
     """Translate controller-owned M3-A facts into bounded observability metrics."""
 
     context = result.input.context
@@ -54,6 +64,10 @@ def build_reasoning_observation(result: ReasoningResult) -> CognitiveObservation
         missing.append(CognitiveMetric.CONFLICT_FREE)
 
     return CognitiveObservation(
+        observation_id=observation_id,
+        sequence=sequence,
+        observed_at=observed_at,
+        producer_id=producer_id,
         task_id=result.input.task_id,
         run_id=result.input.run_id,
         input_digest_sha256=result.input_digest_sha256,
@@ -161,7 +175,26 @@ def estimate_reflex_state(
 ) -> CognitiveStateEstimate:
     """Apply independent scalar Kalman updates without changing runtime behavior."""
 
+    # Revalidate detached snapshots, including mutable nested state/observations.
+    observation = CognitiveObservation.model_validate(
+        observation.model_dump(mode="python")
+    )
+    profile = CognitiveReflexProfile.model_validate(profile.model_dump(mode="python"))
+    if previous is not None:
+        previous = CognitiveStateEstimate.model_validate(
+            previous.model_dump(mode="python")
+        )
     digest = profile_digest(profile)
+    event_digest = sha256(
+        json.dumps(
+            observation.model_dump(mode="json"),
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=True,
+            allow_nan=False,
+        ).encode("utf-8")
+    ).hexdigest()
+    history: tuple[ObservationReceipt, ...] = ()
     if previous is not None:
         if (previous.task_id, previous.run_id) != (
             observation.task_id,
@@ -179,6 +212,27 @@ def estimate_reflex_state(
             raise ValueError(
                 "previous cognitive state uses a different profile configuration"
             )
+        if previous.producer_id != observation.producer_id:
+            raise ValueError("observation producer cannot change within a run")
+        history = previous.observation_history
+        recorded = next(
+            (
+                item
+                for item in history
+                if item.observation_id == observation.observation_id
+            ),
+            None,
+        )
+        if recorded is not None:
+            if recorded.digest_sha256 != event_digest:
+                raise ValueError("observation ID reused with different payload")
+            return previous
+        if observation.sequence != previous.sequence + 1:
+            raise ValueError("new observation must have the next sequence")
+        if observation.observed_at < previous.observed_at:
+            raise ValueError("observation time cannot move backwards")
+    elif observation.sequence != 1:
+        raise ValueError("first observation must have sequence one")
 
     estimates = [
         _estimate_metric(
@@ -190,6 +244,19 @@ def estimate_reflex_state(
         for metric in CognitiveMetric
     ]
     return CognitiveStateEstimate(
+        observation_id=observation.observation_id,
+        sequence=observation.sequence,
+        observed_at=observation.observed_at,
+        producer_id=observation.producer_id,
+        observation_digest_sha256=event_digest,
+        observation_history=history
+        + (
+            ObservationReceipt(
+                observation_id=observation.observation_id,
+                sequence=observation.sequence,
+                digest_sha256=event_digest,
+            ),
+        ),
         task_id=observation.task_id,
         run_id=observation.run_id,
         input_digest_sha256=observation.input_digest_sha256,

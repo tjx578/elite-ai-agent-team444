@@ -17,8 +17,9 @@ increment is only **Cognitive Reflex Observability v0**.
 
 ## Controller-derived observations
 
-`build_reasoning_observation(ReasoningResult)` derives only facts already owned
-by the M3-A controller:
+`build_reasoning_observation(result, observation_id=..., sequence=...,
+observed_at=..., producer_id=...)` derives only facts already owned by the M3-A
+controller. The caller supplies lifecycle metadata explicitly:
 
 | Metric | v0 meaning |
 | --- | --- |
@@ -111,18 +112,34 @@ promotion mechanism are included in this change.
 
 ## Acceptance boundary
 
-`SCRS_OBSERVATION_LIFECYCLE = NOT_DEFINED` blocks M3-B telemetry integration.
-Observation identity, producer identity, sequence, event time, idempotent replay,
-and out-of-order handling require a separate telemetry-boundary contract.
-Repeated reasoning inputs do not necessarily identify the same observation;
-input digest alone must not be used for deduplication. This increment does not
-implement replay handling or claim independent measurements on repeated calls.
+`SCRS_OBSERVATION_LIFECYCLE = DEFINED_OFFLINE`. Each observation binds a UUID
+`observation_id`, strict integer `sequence`, timezone-aware `observed_at`, and
+nonblank `producer_id` together with task ID, run ID, input digest, and metrics.
+The first event has sequence 1; a new event must have exactly the next sequence,
+the same task/run/producer, and a nondecreasing event time. Equal timestamps are
+allowed because sequence orders events. An old or skipped sequence with a new
+ID is rejected. A known ID with changed payload is rejected.
 
-Keep this PR Draft. CodeQL is NOT_EXECUTED while stacked over M3-A because the
-existing trigger targets main. After PR #13 is reviewed and merged, rebase onto
-resulting main and retarget this PR, then qualify CI, CodeQL, and independent
-review against the new HEAD before a separate merge decision. This patch does
-not change workflow triggers or authorize merge/deployment.
+The estimate contains the complete run-local history of event IDs, sequences,
+and SHA-256 digests using the same canonical JSON encoding as the profile.
+Replaying any recorded event with identical payload returns the current state
+unchanged, including covariance and history. Profile binding is checked before
+replay. The caller must pass the latest state; the pure function cannot detect
+caller rollback or authenticate producer claims. These digests identify content
+and are not signed attestations or proof of statistically independent samples.
+
+V0 bounds a run to 1,024 observations and retains every replay receipt. It never
+evicts history or wraps sequence. At the limit, a further new event is rejected;
+a caller must explicitly start a different run without carrying over this prior
+state. Repeated reasoning inputs can identify distinct observations, so input
+digest alone is not used for deduplication. Callers must reuse an event's original
+ID on retry. States missing lifecycle fields cannot resume; do not fabricate
+history. State retention is caller-owned and no persistent storage is introduced.
+
+M3-B provider telemetry integration remains future work. This contract does not
+connect a provider, write memory, or change active workflow behavior. Merge
+qualification requires CI, CodeQL, and independent review on the exact rebased
+HEAD against main; earlier stacked runs do not substitute for those checks.
 
 The unit tests require deterministic replay, explicit `NOT_MEASURED`, bounded
 Kalman gain, covariance growth for prediction-only gaps, profile/run binding,

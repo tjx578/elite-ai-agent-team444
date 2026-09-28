@@ -1,6 +1,6 @@
 """SCRS observability v0: deterministic, read-only cognitive state estimation."""
 
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from hashlib import sha256
 from uuid import UUID
 
@@ -32,6 +32,7 @@ from wolf15_sentient.contracts.evidence import (
 from wolf15_sentient.contracts.reasoning import (
     ReasoningInvocation,
     ReasoningRequest,
+    ReasoningResult,
 )
 from wolf15_sentient.reasoning import run_reasoning
 
@@ -99,6 +100,16 @@ def profile(version: str = "test-v1") -> CognitiveReflexProfile:
     )
 
 
+def observe(result: ReasoningResult, sequence: int = 1) -> CognitiveObservation:
+    return build_reasoning_observation(
+        result,
+        observation_id=UUID(int=100 + sequence),
+        sequence=sequence,
+        observed_at=datetime(2026, 9, 29, tzinfo=UTC),
+        producer_id="offline-test",
+    )
+
+
 def metric(
     state: CognitiveStateEstimate, name: CognitiveMetric
 ) -> CognitiveMetricEstimate:
@@ -107,7 +118,7 @@ def metric(
 
 def test_reasoning_observation_uses_controller_owned_facts() -> None:
     result = run_reasoning(request())
-    observation = build_reasoning_observation(result)
+    observation = observe(result)
 
     assert observation.evidence_coverage == 1.0
     assert observation.claim_acceptance == 1.0
@@ -121,7 +132,7 @@ def test_reasoning_observation_uses_controller_owned_facts() -> None:
 
 def test_unmeasured_claim_metric_stays_explicit() -> None:
     result = run_reasoning(request(with_claim=False))
-    observation = build_reasoning_observation(result)
+    observation = observe(result)
 
     assert observation.claim_acceptance is None
     assert observation.missing_metrics == [CognitiveMetric.CLAIM_ACCEPTANCE]
@@ -135,7 +146,7 @@ def test_adapter_failure_is_operational_signal_not_authority() -> None:
             raise RuntimeError("private")
 
     result = run_reasoning(request(), FailedAdapter())
-    observation = build_reasoning_observation(result)
+    observation = observe(result)
 
     assert observation.adapter_operational == 0.0
     assert observation.proposal_contract_valid == 0.0
@@ -143,7 +154,7 @@ def test_adapter_failure_is_operational_signal_not_authority() -> None:
 
 
 def test_first_estimate_bootstraps_from_measurement_without_fake_prior_mean() -> None:
-    observation = build_reasoning_observation(run_reasoning(request()))
+    observation = observe(run_reasoning(request()))
     state = estimate_reflex_state(observation, profile())
 
     evidence = metric(state, CognitiveMetric.EVIDENCE_COVERAGE)
@@ -162,10 +173,14 @@ def test_first_estimate_bootstraps_from_measurement_without_fake_prior_mean() ->
 
 
 def test_second_observation_is_smoothed_between_prior_and_measurement() -> None:
-    first_observation = build_reasoning_observation(run_reasoning(request()))
+    first_observation = observe(run_reasoning(request()))
     first = estimate_reflex_state(first_observation, profile())
 
     second_observation = CognitiveObservation(
+        observation_id=UUID(int=102),
+        sequence=2,
+        observed_at=first.observed_at,
+        producer_id=first.producer_id,
         task_id=first.task_id,
         run_id=first.run_id,
         input_digest_sha256="1" * 64,
@@ -186,12 +201,16 @@ def test_second_observation_is_smoothed_between_prior_and_measurement() -> None:
 
 
 def test_missing_measurement_predicts_only_when_prior_exists() -> None:
-    first_observation = build_reasoning_observation(run_reasoning(request()))
+    first_observation = observe(run_reasoning(request()))
     first = estimate_reflex_state(first_observation, profile())
     previous = metric(first, CognitiveMetric.CLAIM_ACCEPTANCE)
     assert previous.covariance is not None
 
     missing = CognitiveObservation(
+        observation_id=UUID(int=102),
+        sequence=2,
+        observed_at=first.observed_at,
+        producer_id=first.producer_id,
         task_id=first.task_id,
         run_id=first.run_id,
         input_digest_sha256="2" * 64,
@@ -214,6 +233,10 @@ def test_missing_measurement_predicts_only_when_prior_exists() -> None:
 
 def test_missing_without_prior_remains_not_measured() -> None:
     observation = CognitiveObservation(
+        observation_id=UUID(int=101),
+        sequence=1,
+        observed_at=datetime(2026, 9, 29, tzinfo=UTC),
+        producer_id="offline-test",
         task_id=UUID(int=21),
         run_id=UUID(int=22),
         input_digest_sha256="3" * 64,
@@ -236,10 +259,14 @@ def test_missing_without_prior_remains_not_measured() -> None:
 
 
 def test_previous_state_must_match_run_and_profile() -> None:
-    observation = build_reasoning_observation(run_reasoning(request()))
+    observation = observe(run_reasoning(request()))
     first = estimate_reflex_state(observation, profile())
 
     wrong_run = CognitiveObservation(
+        observation_id=UUID(int=102),
+        sequence=2,
+        observed_at=first.observed_at,
+        producer_id=first.producer_id,
         task_id=first.task_id,
         run_id=UUID(int=999),
         input_digest_sha256="4" * 64,
@@ -257,7 +284,7 @@ def test_previous_state_must_match_run_and_profile() -> None:
 
 
 def test_same_inputs_are_deterministic() -> None:
-    observation = build_reasoning_observation(run_reasoning(request()))
+    observation = observe(run_reasoning(request()))
     first = estimate_reflex_state(observation, profile())
     second = estimate_reflex_state(observation, profile())
 
@@ -279,7 +306,7 @@ def test_previous_state_rejects_changed_parameters_with_same_labels(
     channel: str,
     parameter: str,
 ) -> None:
-    observation = build_reasoning_observation(run_reasoning(request()))
+    observation = observe(run_reasoning(request()))
     original = profile()
     first = estimate_reflex_state(observation, original)
     changed = original.model_dump(mode="json")
@@ -294,19 +321,21 @@ def test_previous_state_rejects_changed_parameters_with_same_labels(
 
 
 def test_profile_roundtrip_retains_digest_and_accepts_update() -> None:
-    observation = build_reasoning_observation(run_reasoning(request()))
+    observation = observe(run_reasoning(request()))
     original = profile()
     first = estimate_reflex_state(observation, original)
     # Mapping insertion order is not part of the canonical configuration identity.
     reordered = dict(reversed(list(original.model_dump(mode="json").items())))
     restored = CognitiveReflexProfile.model_validate(reordered)
-    second = estimate_reflex_state(observation, restored, first)
+    second = estimate_reflex_state(
+        observe(run_reasoning(request()), 2), restored, first
+    )
     assert first.profile_digest_sha256 == second.profile_digest_sha256
     assert first.profile_digest_sha256 != first.input_digest_sha256
 
 
 def test_old_state_without_profile_digest_is_rejected() -> None:
-    observation = build_reasoning_observation(run_reasoning(request()))
+    observation = observe(run_reasoning(request()))
     data = estimate_reflex_state(observation, profile()).model_dump(mode="json")
     del data["profile_digest_sha256"]
     with pytest.raises(ValidationError, match="profile_digest_sha256"):
@@ -334,7 +363,7 @@ def test_profile_and_nested_parameters_are_immutable() -> None:
     ],
 )
 def test_estimate_contract_rejects_nonfinite_numbers(field: str, value: float) -> None:
-    observation = build_reasoning_observation(run_reasoning(request()))
+    observation = observe(run_reasoning(request()))
     state = estimate_reflex_state(observation, profile())
     data = state.model_dump(mode="python")
     data["metrics"][0][field] = value
@@ -363,9 +392,94 @@ def test_noise_contract_rejects_nonfinite_numbers(field: str, value: float) -> N
 def test_observation_contract_rejects_nonfinite_numbers(
     field: str, value: float
 ) -> None:
-    data = build_reasoning_observation(run_reasoning(request())).model_dump(
-        mode="python"
-    )
+    data = observe(run_reasoning(request())).model_dump(mode="python")
     data[field] = value
     with pytest.raises(ValidationError, match="finite"):
         CognitiveObservation.model_validate(data)
+
+
+def test_replay_is_idempotent_even_after_later_observation() -> None:
+    event = observe(run_reasoning(request()))
+    first = estimate_reflex_state(event, profile())
+    assert estimate_reflex_state(event, profile(), first) == first
+    next_event = observe(run_reasoning(request()), 2)
+    assert next_event.input_digest_sha256 == event.input_digest_sha256
+    second = estimate_reflex_state(next_event, profile(), first)
+    assert second.sequence == 2
+    assert second.metrics != first.metrics
+    assert estimate_reflex_state(event, profile(), second) == second
+    assert estimate_reflex_state(next_event, profile(), second) == second
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("evidence_coverage", 0.25),
+        ("input_digest_sha256", "a" * 64),
+        ("sequence", 2),
+        ("producer_id", "another-producer"),
+    ],
+)
+def test_reused_event_id_cannot_change_payload(field: str, value: object) -> None:
+    event = observe(run_reasoning(request()))
+    first = estimate_reflex_state(event, profile())
+    data = event.model_dump(mode="python")
+    data[field] = value
+    with pytest.raises(ValueError):
+        estimate_reflex_state(
+            CognitiveObservation.model_validate(data), profile(), first
+        )
+
+
+@pytest.mark.parametrize("sequence", [1, 3])
+def test_new_event_rejects_old_or_skipped_sequence(sequence: int) -> None:
+    first = estimate_reflex_state(observe(run_reasoning(request())), profile())
+    data = observe(run_reasoning(request()), sequence).model_dump(mode="python")
+    data["observation_id"] = UUID(int=999)
+    with pytest.raises(ValueError, match="next sequence"):
+        estimate_reflex_state(
+            CognitiveObservation.model_validate(data), profile(), first
+        )
+
+
+def test_bootstrap_requires_first_sequence() -> None:
+    with pytest.raises(ValueError, match="sequence one"):
+        estimate_reflex_state(observe(run_reasoning(request()), 2), profile())
+
+
+def test_event_time_cannot_move_backwards() -> None:
+    first = estimate_reflex_state(observe(run_reasoning(request())), profile())
+    data = observe(run_reasoning(request()), 2).model_dump(mode="python")
+    data["observed_at"] = first.observed_at - timedelta(seconds=1)
+    with pytest.raises(ValueError, match="backwards"):
+        estimate_reflex_state(
+            CognitiveObservation.model_validate(data), profile(), first
+        )
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("sequence", 0),
+        ("sequence", True),
+        ("sequence", 1025),
+        ("observed_at", "2026-09-29T00:00:00"),
+        ("producer_id", " "),
+    ],
+)
+def test_invalid_lifecycle_metadata_is_rejected(field: str, value: object) -> None:
+    data = observe(run_reasoning(request())).model_dump(mode="python")
+    data[field] = value
+    with pytest.raises(ValidationError):
+        CognitiveObservation.model_validate(data)
+
+
+def test_history_cannot_be_truncated() -> None:
+    first = estimate_reflex_state(observe(run_reasoning(request())), profile())
+    second = estimate_reflex_state(
+        observe(run_reasoning(request()), 2), profile(), first
+    )
+    data = second.model_dump(mode="python")
+    data["observation_history"] = data["observation_history"][1:]
+    with pytest.raises(ValidationError, match="contiguous"):
+        CognitiveStateEstimate.model_validate(data)

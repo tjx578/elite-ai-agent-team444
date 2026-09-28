@@ -4,7 +4,7 @@ from enum import StrEnum
 from typing import Annotated, Literal
 from uuid import UUID
 
-from pydantic import ConfigDict, Field, model_validator
+from pydantic import AwareDatetime, ConfigDict, Field, model_validator
 
 from wolf15_sentient.contracts.evidence import Sha256
 from wolf15_sentient.contracts.models import NonBlankText, StrictContract
@@ -13,6 +13,7 @@ UnitInterval = Annotated[float, Field(ge=0.0, le=1.0, allow_inf_nan=False)]
 PositiveNoise = Annotated[float, Field(gt=0.0, le=10.0, allow_inf_nan=False)]
 NonNegativeFloat = Annotated[float, Field(ge=0.0, allow_inf_nan=False)]
 FiniteFloat = Annotated[float, Field(allow_inf_nan=False)]
+ObservationSequence = Annotated[int, Field(ge=1, le=1024, strict=True)]
 
 
 class CognitiveMetric(StrEnum):
@@ -57,6 +58,10 @@ class CognitiveObservation(StrictContract):
     task_id: UUID
     run_id: UUID
     input_digest_sha256: Sha256
+    observation_id: UUID
+    sequence: ObservationSequence
+    observed_at: AwareDatetime
+    producer_id: NonBlankText
     evidence_coverage: UnitInterval | None = None
     claim_acceptance: UnitInterval | None = None
     conflict_free: UnitInterval | None = None
@@ -125,6 +130,14 @@ class CognitiveMetricEstimate(StrictContract):
         return self
 
 
+class ObservationReceipt(StrictContract):
+    """Run-local replay identity; caller retains this data without implicit I/O."""
+
+    observation_id: UUID
+    sequence: ObservationSequence
+    digest_sha256: Sha256
+
+
 class CognitiveStateEstimate(StrictContract):
     """Advisory estimate only; it cannot authorize routing, tools, or execution."""
 
@@ -132,6 +145,14 @@ class CognitiveStateEstimate(StrictContract):
     task_id: UUID
     run_id: UUID
     input_digest_sha256: Sha256
+    observation_id: UUID
+    sequence: ObservationSequence
+    observed_at: AwareDatetime
+    producer_id: NonBlankText
+    observation_digest_sha256: Sha256
+    observation_history: tuple[ObservationReceipt, ...] = Field(
+        min_length=1, max_length=1024
+    )
     profile_id: NonBlankText
     profile_version: NonBlankText
     profile_digest_sha256: Sha256
@@ -144,6 +165,16 @@ class CognitiveStateEstimate(StrictContract):
 
     @model_validator(mode="after")
     def validate_metric_set(self) -> "CognitiveStateEstimate":
+        history = self.observation_history
+        if [item.sequence for item in history] != list(range(1, self.sequence + 1)):
+            raise ValueError("observation history must be contiguous from sequence one")
+        if len({item.observation_id for item in history}) != len(history):
+            raise ValueError("observation history IDs must be unique")
+        if (history[-1].observation_id, history[-1].digest_sha256) != (
+            self.observation_id,
+            self.observation_digest_sha256,
+        ):
+            raise ValueError("latest observation must match history")
         metrics = [item.metric for item in self.metrics]
         if len(metrics) != len(set(metrics)):
             raise ValueError("cognitive estimate metrics must be unique")
@@ -161,4 +192,5 @@ __all__ = [
     "CognitiveReflexProfile",
     "CognitiveStateEstimate",
     "MetricNoiseProfile",
+    "ObservationReceipt",
 ]
