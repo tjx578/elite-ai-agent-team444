@@ -1,10 +1,12 @@
 # WOLF15 Sentient identity migration
 
-## Current increment
+## Completed identity migration
 
-This worktree prepares product naming and the Python namespace over PR-2
-`df43c93e12b2ff68ce4fe1c2d3778a6052886413`. The original PR-3 worktree is
-preserved separately. See [ADR-005](../adr/ADR-005-product-identity.md).
+The original migration was prepared over PR-2 commit
+`df43c93e12b2ff68ce4fe1c2d3778a6052886413`. PR #1–#4 are now merged into
+the canonical [tjx578/wolf15-sentient](https://github.com/tjx578/wolf15-sentient)
+repository. The original PR-3 model-adapter worktree remains separate. See
+[ADR-005](../adr/ADR-005-product-identity.md).
 
 | Surface | Previous | New |
 | --- | --- | --- |
@@ -37,22 +39,17 @@ PR-2-based migration is not evidence that PR-3 has already been ported.
 
 ## GitHub delivery status
 
-The observed local remote is `https://github.com/tjx578/elite-ai-agent-team444.git`.
-The proposed repository name is `wolf15-sentient`. No GitHub rename, remote URL
-change, commit, push, PR creation, merge, or deployment is performed by this
-local migration. Current GitHub name availability, PR status, default branch,
-and account/billing status have not been rechecked in this increment.
-
-Before external delivery, verify the owner/repository identity and branch bases,
-review repository integrations and callers, perform the approved rename, then
-update each checkout's remote to the confirmed URL. Preserve PR ancestry and
-review the migration independently of the subsystem moves. Require remote CI
-with actual job steps on the exact delivered SHA; a workflow file is not proof
-that CI executed. Local verification does not authorize merge or production.
+The repository was renamed to `tjx578/wolf15-sentient`. The canonical remote
+is `https://github.com/tjx578/wolf15-sentient.git`; the former repository slug
+is legacy. PR #1–#4 remained intact and merged in order. The resulting `main`
+commit `64ae79f1b1bd1924d8402bc45d74dc2133f8b37e` passed the
+[final CI run](https://github.com/tjx578/wolf15-sentient/actions/runs/36372815613):
+56 tests plus installed identity checks on Python 3.11, 3.12, and 3.13.
+No deployment or production mutation was performed.
 
 ## Recovery
 
-The migration is isolated on `codex/sentient-identity`. The original PR-3 checkout
-and PR-2 base remain available. Review or revise this worktree in place; if the
-migration is abandoned, archive the managed worktree to preserve its snapshot.
-Consumers can continue using the earlier package until they adopt the rename.
+The historical `codex/sentient-identity` branch and original PR-3 model-adapter
+checkout remain available. Future corrections to the merged migration should
+use a new reviewed PR. Consumers of the old package must adopt the new import,
+distribution, entrypoint, and health identity together.
