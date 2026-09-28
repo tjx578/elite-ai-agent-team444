@@ -184,6 +184,12 @@ artifacts, dependency and data/egress boundary, rights outcome, issued time,
 expiry, and revocation reference. The verifier authenticates that artifact
 and checks every authority-bearing field against the requested use; mutable
 prose or a mere citation of a valid receipt cannot authorize admission.
+Before admission and every admitted use, resolve the revocation reference
+against an independently controlled, authenticated current-state source.
+Reject a revoked decision and block use when the state is missing, stale,
+unavailable, or cannot be authenticated. A long-running use must recheck at
+its governed operation boundaries and stop on revocation; the decision's
+unexpired timestamp alone is never proof that it remains authorized.
 Admission must compare the requested scope artifact and digest with the
 evaluated scope in the receipt, verify the attestation or trusted record, and
 match the policy revision and digest in force for admission before separately
@@ -266,8 +272,8 @@ no candidate receives `PASS_LOCAL` through this path.
 | G5 — function | Contract fit and ownership boundaries against the target task |
 | G6 — contribution | Fixed-task comparison for quality, latency, cost, and resource use against pinned corpus, expected outcomes, baseline implementation, and configuration |
 | G7 — evaluator | Fresh, authenticated receipt-v1 result with canonical signed payload and digests for subject, evaluator, immutable profile, qualification policy, collector implementation, built/installed artifacts and their security metadata, dependencies including baseline closure, qualification corpus, baseline, evidence, environment, evaluated scope, and time/expiry bindings above |
-| G8 — admission | Authenticated immutable owner/policy decision binding every authority-bearing field and the receipt; verified receipt issuer and verdict, current policy identity, exact scope, authority, environment, installed-artifact and security-metadata, dependency, and pinned qualification-corpus match to receipt, compatible rights, and admission expiry no later than receipt expiry |
-| G9 — maintenance | Re-evaluation and a new authenticated receipt after relevant source, built/installed artifact or security metadata, dependency, qualification corpus, harness, baseline, host, policy, or permission change, or receipt expiry; an in-scope new real-task input alone does not trigger re-evaluation |
+| G8 — admission | Authenticated immutable owner/policy decision binding every authority-bearing field and the receipt; verified receipt issuer and verdict, current policy identity, exact scope, authority, environment, installed-artifact and security-metadata, dependency, and pinned qualification-corpus match to receipt, compatible rights, authenticated current non-revoked state, and admission expiry no later than receipt expiry |
+| G9 — maintenance | Recheck authenticated revocation state before each use and stop on revocation; re-evaluation and a new authenticated receipt after relevant source, built/installed artifact or security metadata, dependency, qualification corpus, harness, baseline, host, policy, or permission change, or receipt expiry; an in-scope new real-task input alone does not trigger re-evaluation |
 
 Record each local gate as `PASS_LOCAL`, `FAIL`, `NOT_EXECUTED`, or
 `NOT_MEASURED` with its receipt. Missing, truncated, stale, or mismatched
