@@ -37,6 +37,21 @@ and reference checks only. Cognitive telemetry does not establish factual truth.
 The caller must provide an explicit `CognitiveReflexProfile`. There is no
 runtime default because no SCRS profile is calibrated in M3-A.
 
+The profile and its nested noise parameters are immutable. Each state binds
+`profile_digest_sha256` to the complete validated profile, including schema,
+labels, calibration status, all five Q/R/P0 parameter groups, and authority
+effect. The v0 encoding is Python JSON with sorted keys, compact separators,
+ASCII escaping, and non-finite values forbidden, hashed as UTF-8 with SHA-256.
+This is a configuration identity, not a calibration or authenticity claim.
+Updates require both matching labels and matching configuration digest.
+Changing Q, R, or P0 under the same id/version is rejected. States from the
+initial draft without this digest must be bootstrapped again; do not synthesize
+a digest for history whose actual profile is unknown.
+
+All estimator numeric fields require finite values. Existing interval and
+positive-noise bounds still apply; NaN and either infinity are rejected when
+validating profile, observation, or estimate contracts.
+
 For each observed channel v0 applies an independent scalar Kalman update with
 identity transition/observation models:
 
@@ -95,6 +110,19 @@ No automatic fusion weights, behavioral thresholds, reflective mutation, or
 promotion mechanism are included in this change.
 
 ## Acceptance boundary
+
+`SCRS_OBSERVATION_LIFECYCLE = NOT_DEFINED` blocks M3-B telemetry integration.
+Observation identity, producer identity, sequence, event time, idempotent replay,
+and out-of-order handling require a separate telemetry-boundary contract.
+Repeated reasoning inputs do not necessarily identify the same observation;
+input digest alone must not be used for deduplication. This increment does not
+implement replay handling or claim independent measurements on repeated calls.
+
+Keep this PR Draft. CodeQL is NOT_EXECUTED while stacked over M3-A because the
+existing trigger targets main. After PR #13 is reviewed and merged, rebase onto
+resulting main and retarget this PR, then qualify CI, CodeQL, and independent
+review against the new HEAD before a separate merge decision. This patch does
+not change workflow triggers or authorize merge/deployment.
 
 The unit tests require deterministic replay, explicit `NOT_MEASURED`, bounded
 Kalman gain, covariance growth for prediction-only gaps, profile/run binding,

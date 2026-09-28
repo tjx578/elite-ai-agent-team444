@@ -1,5 +1,8 @@
 """Read-only Sentient Cognitive Reflex observability over M3-A controller telemetry."""
 
+import json
+from hashlib import sha256
+
 from wolf15_sentient.contracts.cognition import (
     CognitiveMetric,
     CognitiveMetricEstimate,
@@ -12,20 +15,29 @@ from wolf15_sentient.contracts.evidence import ClaimOutcome
 from wolf15_sentient.contracts.reasoning import ReasoningResult
 
 
+def profile_digest(profile: CognitiveReflexProfile) -> str:
+    """Bind all validated profile fields using the v0 canonical JSON encoding."""
+    payload = json.dumps(
+        profile.model_dump(mode="json"),
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+        allow_nan=False,
+    )
+    return sha256(payload.encode("utf-8")).hexdigest()
+
+
 def build_reasoning_observation(result: ReasoningResult) -> CognitiveObservation:
     """Translate controller-owned M3-A facts into bounded observability metrics."""
 
     context = result.input.context
     source_count = len(context.source_assessments)
     usable_source_count = sum(item.usable for item in context.source_assessments)
-    evidence_coverage = (
-        usable_source_count / source_count if source_count else None
-    )
+    evidence_coverage = usable_source_count / source_count if source_count else None
 
     claim_count = len(context.claim_assessments)
     accepted_claim_count = sum(
-        item.outcome is not ClaimOutcome.REJECTED
-        for item in context.claim_assessments
+        item.outcome is not ClaimOutcome.REJECTED for item in context.claim_assessments
     )
     claim_acceptance = accepted_claim_count / claim_count if claim_count else None
 
@@ -54,7 +66,9 @@ def build_reasoning_observation(result: ReasoningResult) -> CognitiveObservation
     )
 
 
-def _measurement(observation: CognitiveObservation, metric: CognitiveMetric) -> float | None:
+def _measurement(
+    observation: CognitiveObservation, metric: CognitiveMetric
+) -> float | None:
     if metric is CognitiveMetric.EVIDENCE_COVERAGE:
         return observation.evidence_coverage
     if metric is CognitiveMetric.CLAIM_ACCEPTANCE:
@@ -66,7 +80,9 @@ def _measurement(observation: CognitiveObservation, metric: CognitiveMetric) -> 
     return observation.adapter_operational
 
 
-def _noise(profile: CognitiveReflexProfile, metric: CognitiveMetric) -> MetricNoiseProfile:
+def _noise(
+    profile: CognitiveReflexProfile, metric: CognitiveMetric
+) -> MetricNoiseProfile:
     if metric is CognitiveMetric.EVIDENCE_COVERAGE:
         return profile.evidence_coverage
     if metric is CognitiveMetric.CLAIM_ACCEPTANCE:
@@ -96,9 +112,7 @@ def _estimate_metric(
     previous_state = previous.state if previous is not None else None
     previous_covariance = previous.covariance if previous is not None else None
 
-    if measurement is None and (
-        previous_state is None or previous_covariance is None
-    ):
+    if measurement is None and (previous_state is None or previous_covariance is None):
         return CognitiveMetricEstimate(metric=metric, status="NOT_MEASURED")
 
     if previous_state is None or previous_covariance is None:
@@ -122,9 +136,7 @@ def _estimate_metric(
             covariance=predicted_covariance,
         )
 
-    gain = predicted_covariance / (
-        predicted_covariance + noise.observation_noise
-    )
+    gain = predicted_covariance / (predicted_covariance + noise.observation_noise)
     innovation = measurement - predicted_state
     state = predicted_state + gain * innovation
     posterior_covariance = (1.0 - gain) * predicted_covariance
@@ -149,17 +161,24 @@ def estimate_reflex_state(
 ) -> CognitiveStateEstimate:
     """Apply independent scalar Kalman updates without changing runtime behavior."""
 
+    digest = profile_digest(profile)
     if previous is not None:
         if (previous.task_id, previous.run_id) != (
             observation.task_id,
             observation.run_id,
         ):
-            raise ValueError("previous cognitive state belongs to a different task or run")
+            raise ValueError(
+                "previous cognitive state belongs to a different task or run"
+            )
         if (previous.profile_id, previous.profile_version) != (
             profile.profile_id,
             profile.version,
         ):
             raise ValueError("previous cognitive state uses a different profile")
+        if previous.profile_digest_sha256 != digest:
+            raise ValueError(
+                "previous cognitive state uses a different profile configuration"
+            )
 
     estimates = [
         _estimate_metric(
@@ -176,8 +195,9 @@ def estimate_reflex_state(
         input_digest_sha256=observation.input_digest_sha256,
         profile_id=profile.profile_id,
         profile_version=profile.version,
+        profile_digest_sha256=digest,
         metrics=estimates,
     )
 
 
-__all__ = ["build_reasoning_observation", "estimate_reflex_state"]
+__all__ = ["build_reasoning_observation", "estimate_reflex_state", "profile_digest"]

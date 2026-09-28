@@ -4,14 +4,15 @@ from enum import StrEnum
 from typing import Annotated, Literal
 from uuid import UUID
 
-from pydantic import Field, model_validator
+from pydantic import ConfigDict, Field, model_validator
 
 from wolf15_sentient.contracts.evidence import Sha256
 from wolf15_sentient.contracts.models import NonBlankText, StrictContract
 
-UnitInterval = Annotated[float, Field(ge=0.0, le=1.0)]
-PositiveNoise = Annotated[float, Field(gt=0.0, le=10.0)]
-NonNegativeFloat = Annotated[float, Field(ge=0.0)]
+UnitInterval = Annotated[float, Field(ge=0.0, le=1.0, allow_inf_nan=False)]
+PositiveNoise = Annotated[float, Field(gt=0.0, le=10.0, allow_inf_nan=False)]
+NonNegativeFloat = Annotated[float, Field(ge=0.0, allow_inf_nan=False)]
+FiniteFloat = Annotated[float, Field(allow_inf_nan=False)]
 
 
 class CognitiveMetric(StrEnum):
@@ -25,6 +26,8 @@ class CognitiveMetric(StrEnum):
 class MetricNoiseProfile(StrictContract):
     """Explicit, uncalibrated scalar Kalman parameters for one metric."""
 
+    model_config = ConfigDict(frozen=True)
+
     process_noise: PositiveNoise
     observation_noise: PositiveNoise
     initial_covariance: PositiveNoise
@@ -32,6 +35,8 @@ class MetricNoiseProfile(StrictContract):
 
 class CognitiveReflexProfile(StrictContract):
     """No default profile is supplied because M3-A has no calibrated thresholds."""
+
+    model_config = ConfigDict(frozen=True)
 
     schema_version: Literal["scrs-profile-v0"] = "scrs-profile-v0"
     profile_id: NonBlankText
@@ -71,7 +76,9 @@ class CognitiveObservation(StrictContract):
         }
         expected = {metric for metric, value in optional.items() if value is None}
         if set(self.missing_metrics) != expected:
-            raise ValueError("missing_metrics must exactly match unmeasured optional telemetry")
+            raise ValueError(
+                "missing_metrics must exactly match unmeasured optional telemetry"
+            )
         if len(self.missing_metrics) != len(set(self.missing_metrics)):
             raise ValueError("missing_metrics must be unique")
         return self
@@ -83,7 +90,7 @@ class CognitiveMetricEstimate(StrictContract):
     observation: UnitInterval | None = None
     predicted_state: UnitInterval | None = None
     state: UnitInterval | None = None
-    innovation: float | None = None
+    innovation: FiniteFloat | None = None
     gain: UnitInterval | None = None
     covariance: NonNegativeFloat | None = None
 
@@ -95,7 +102,9 @@ class CognitiveMetricEstimate(StrictContract):
             self.covariance,
         )
         if self.status == "NOT_MEASURED":
-            if self.observation is not None or any(value is not None for value in numeric):
+            if self.observation is not None or any(
+                value is not None for value in numeric
+            ):
                 raise ValueError("NOT_MEASURED cannot contain a state estimate")
             if self.innovation is not None or self.gain is not None:
                 raise ValueError("NOT_MEASURED cannot contain filter diagnostics")
@@ -103,7 +112,9 @@ class CognitiveMetricEstimate(StrictContract):
             if self.observation is not None:
                 raise ValueError("PREDICTED_ONLY cannot contain an observation")
             if any(value is None for value in numeric):
-                raise ValueError("PREDICTED_ONLY requires predicted state and covariance")
+                raise ValueError(
+                    "PREDICTED_ONLY requires predicted state and covariance"
+                )
             if self.innovation is not None or self.gain is not None:
                 raise ValueError("PREDICTED_ONLY cannot contain update diagnostics")
         else:
@@ -123,6 +134,7 @@ class CognitiveStateEstimate(StrictContract):
     input_digest_sha256: Sha256
     profile_id: NonBlankText
     profile_version: NonBlankText
+    profile_digest_sha256: Sha256
     calibration_status: Literal["UNVALIDATED"] = "UNVALIDATED"
     metrics: list[CognitiveMetricEstimate] = Field(min_length=5, max_length=5)
     advisory_only: Literal[True] = True
@@ -136,7 +148,9 @@ class CognitiveStateEstimate(StrictContract):
         if len(metrics) != len(set(metrics)):
             raise ValueError("cognitive estimate metrics must be unique")
         if set(metrics) != set(CognitiveMetric):
-            raise ValueError("cognitive estimate must contain the complete v0 metric set")
+            raise ValueError(
+                "cognitive estimate must contain the complete v0 metric set"
+            )
         return self
 
 

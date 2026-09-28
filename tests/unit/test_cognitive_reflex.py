@@ -5,6 +5,7 @@ from hashlib import sha256
 from uuid import UUID
 
 import pytest
+from pydantic import ValidationError
 
 from wolf15_sentient.cognition import (
     build_reasoning_observation,
@@ -12,8 +13,10 @@ from wolf15_sentient.cognition import (
 )
 from wolf15_sentient.contracts.cognition import (
     CognitiveMetric,
+    CognitiveMetricEstimate,
     CognitiveObservation,
     CognitiveReflexProfile,
+    CognitiveStateEstimate,
     MetricNoiseProfile,
 )
 from wolf15_sentient.contracts.evidence import (
@@ -96,8 +99,9 @@ def profile(version: str = "test-v1") -> CognitiveReflexProfile:
     )
 
 
-def metric(state: object, name: CognitiveMetric) -> object:
-    assert hasattr(state, "metrics")
+def metric(
+    state: CognitiveStateEstimate, name: CognitiveMetric
+) -> CognitiveMetricEstimate:
     return next(item for item in state.metrics if item.metric is name)
 
 
@@ -258,3 +262,110 @@ def test_same_inputs_are_deterministic() -> None:
     second = estimate_reflex_state(observation, profile())
 
     assert first.model_dump_json() == second.model_dump_json()
+
+
+@pytest.mark.parametrize(
+    "channel", [metric.value.lower() for metric in CognitiveMetric]
+)
+@pytest.mark.parametrize(
+    "parameter",
+    [
+        "process_noise",
+        "observation_noise",
+        "initial_covariance",
+    ],
+)
+def test_previous_state_rejects_changed_parameters_with_same_labels(
+    channel: str,
+    parameter: str,
+) -> None:
+    observation = build_reasoning_observation(run_reasoning(request()))
+    original = profile()
+    first = estimate_reflex_state(observation, original)
+    changed = original.model_dump(mode="json")
+    changed[channel][parameter] = 0.75
+    replacement = CognitiveReflexProfile.model_validate(changed)
+    assert (replacement.profile_id, replacement.version) == (
+        original.profile_id,
+        original.version,
+    )
+    with pytest.raises(ValueError, match="different profile configuration"):
+        estimate_reflex_state(observation, replacement, first)
+
+
+def test_profile_roundtrip_retains_digest_and_accepts_update() -> None:
+    observation = build_reasoning_observation(run_reasoning(request()))
+    original = profile()
+    first = estimate_reflex_state(observation, original)
+    # Mapping insertion order is not part of the canonical configuration identity.
+    reordered = dict(reversed(list(original.model_dump(mode="json").items())))
+    restored = CognitiveReflexProfile.model_validate(reordered)
+    second = estimate_reflex_state(observation, restored, first)
+    assert first.profile_digest_sha256 == second.profile_digest_sha256
+    assert first.profile_digest_sha256 != first.input_digest_sha256
+
+
+def test_old_state_without_profile_digest_is_rejected() -> None:
+    observation = build_reasoning_observation(run_reasoning(request()))
+    data = estimate_reflex_state(observation, profile()).model_dump(mode="json")
+    del data["profile_digest_sha256"]
+    with pytest.raises(ValidationError, match="profile_digest_sha256"):
+        CognitiveStateEstimate.model_validate(data)
+
+
+def test_profile_and_nested_parameters_are_immutable() -> None:
+    original = profile()
+    with pytest.raises(ValidationError, match="frozen"):
+        original.version = "changed"
+    with pytest.raises(ValidationError, match="frozen"):
+        original.evidence_coverage.process_noise = 0.9
+
+
+@pytest.mark.parametrize("value", [float("inf"), float("-inf"), float("nan")])
+@pytest.mark.parametrize(
+    "field",
+    [
+        "observation",
+        "predicted_state",
+        "state",
+        "innovation",
+        "gain",
+        "covariance",
+    ],
+)
+def test_estimate_contract_rejects_nonfinite_numbers(field: str, value: float) -> None:
+    observation = build_reasoning_observation(run_reasoning(request()))
+    state = estimate_reflex_state(observation, profile())
+    data = state.model_dump(mode="python")
+    data["metrics"][0][field] = value
+    with pytest.raises(ValidationError, match="finite"):
+        CognitiveStateEstimate.model_validate(data)
+
+
+@pytest.mark.parametrize("value", [float("inf"), float("-inf"), float("nan")])
+@pytest.mark.parametrize(
+    "field",
+    [
+        "process_noise",
+        "observation_noise",
+        "initial_covariance",
+    ],
+)
+def test_noise_contract_rejects_nonfinite_numbers(field: str, value: float) -> None:
+    data = noise().model_dump(mode="python")
+    data[field] = value
+    with pytest.raises(ValidationError, match="finite"):
+        MetricNoiseProfile.model_validate(data)
+
+
+@pytest.mark.parametrize("value", [float("inf"), float("-inf"), float("nan")])
+@pytest.mark.parametrize("field", [metric.value.lower() for metric in CognitiveMetric])
+def test_observation_contract_rejects_nonfinite_numbers(
+    field: str, value: float
+) -> None:
+    data = build_reasoning_observation(run_reasoning(request())).model_dump(
+        mode="python"
+    )
+    data[field] = value
+    with pytest.raises(ValidationError, match="finite"):
+        CognitiveObservation.model_validate(data)
