@@ -92,7 +92,16 @@ not infer semantic conflicts from arbitrary prose. `READY` describes context
 assembly only, not factual or production readiness. The M1-B and M1-C
 checkpoints above remain historical records of their own revisions.
 
+## M3-A branch implementation
+
+The [M3-A branch implementation](m3a-reasoning-contracts.md) adds an explicit
+offline library entry point for task routing, the M2 bridge, and deterministic
+proposal checks. Its default adapter is a labelled stub. This describes branch
+source, not a merged or live-provider checkpoint. Existing HTTP and LangGraph
+behavior is unchanged. M3-B live reasoning remains unproven.
+
 ## PR-0 baseline
+
 
 At the start of PR-0, the repository was at **Stage 0 — Blueprint and Documentation Foundation**. The only tracked project artifact was a vision-oriented `README.md`.
 

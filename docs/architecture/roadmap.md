@@ -45,6 +45,11 @@ They do not change this milestone order or activate product skills. Governed
 runtime skill loading remains an M7 target; donor evaluation remains M8 work.
 
 M1-C precedes production runtime work. M2 and M3 can be developed as
+separate increments. [M3-A](m3a-reasoning-contracts.md) establishes task routing,
+reasoning contracts, and the evidence bridge with offline adapters. M3-B must
+then prove one approved real provider within these boundaries. SK-01 is a
+supporting governance lane; completing all 25 candidate qualifications is not
+a prerequisite for M3. M2 and M3 remain
 separate bounded changes, but neither can claim a full cognitive service
 without evidence binding and Kernel-enforced policy. M4 is the first
 repository-intelligence vertical slice. M5's target is read-only Production
