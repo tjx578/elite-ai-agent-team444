@@ -127,6 +127,8 @@ The default stub script approves both gates and produces `WORKFLOW_COMPLETE` wit
 
 ### PR-2 verification status
 
+- Integrated local source on 2026-09-28: **PASS_LOCAL** — 47 tests, Ruff check,
+  and Python compilation. Fresh remote CI must be verified against this head.
 - Source inspection: **COMPLETE** for the kernel, contracts, transitions, and stubs described above.
 - Local PR-2 tests: **PASS** — a fresh environment ran 25 tests in 3.12 seconds.
 - Graph smoke verification: **PASS** — compile/render, happy path, bounded revision, and revision-exhaustion checks completed.

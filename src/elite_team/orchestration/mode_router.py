@@ -54,14 +54,20 @@ def _contains_evolution_phrase(words: list[str]) -> bool:
 def _is_major_evolution_command(words: list[str]) -> bool:
     action = words[0]
     target_words = words[1:]
+    if target_words and target_words[0] == "to":
+        target_words = target_words[1:]
     while target_words and target_words[0] in _TARGET_PREFIXES:
+        target_words = target_words[1:]
+    if target_words and target_words[0] == "new":
         target_words = target_words[1:]
     if not target_words:
         return False
     if target_words[0] in _INCREMENTAL_TARGETS:
         return False
-    if target_words[0] in _SYSTEM_TARGETS and any(
-        word in _INCREMENTAL_TARGETS for word in target_words[1:4]
+    if (
+        target_words[0] in _SYSTEM_TARGETS
+        and "and" not in target_words[1:4]
+        and any(word in _INCREMENTAL_TARGETS for word in target_words[1:4])
     ):
         return False
     if action == "replace":

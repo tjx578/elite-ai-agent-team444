@@ -42,12 +42,13 @@ PR-2 source adds:
 
 The default deterministic happy path is entirely in memory. It produces typed architecture and implementation artifacts, deterministic validation/review evidence, and `READY_WITH_CONDITIONS`. That status is an assessment only; it grants no repository or production authority.
 
-**PR-2 historical verification:** its original head passed 25 local tests,
-Ruff, graph compile/render, and workflow smoke checks. Codex Security diff
-scan `5a286602-d315-49c9-bd7a-1fefe5ab7db5` covered the original scope
-and found no reportable issue. The original CI jobs were `NOT_EXECUTED` during
-the GitHub billing lock. The integrated PR-2 head requires fresh tests and CI;
-the historical evidence does not qualify it.
+**PR-2 verification:** the integrated source passed 47 local tests, Ruff check,
+and Python compilation on 2026-09-28. Its original head passed 25 local tests,
+graph compile/render, and workflow smoke checks. Codex Security diff scan
+`5a286602-d315-49c9-bd7a-1fefe5ab7db5` covered that original scope and
+found no reportable issue. The original CI jobs were `NOT_EXECUTED` during the
+GitHub billing lock. Fresh remote CI must be read from this PR's current HEAD;
+historical evidence does not qualify the integrated source.
 
 See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 

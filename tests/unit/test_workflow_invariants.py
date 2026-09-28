@@ -101,12 +101,17 @@ def test_architecture_revision_once_then_completes() -> None:
     assert result.architecture_gate is not None
     assert result.architecture_gate.status is GateStatus.APPROVED
     assert result.architecture_gate.revision_count == 1
-    assert _nodes(result) == FOUNDATION_NODES + (
-        "ARCHITECT",
-        "ARCHITECTURE_REVIEW",
-        "ARCHITECT",
-        "ARCHITECTURE_REVIEW",
-    ) + HAPPY_WORKFLOW_NODES[2:]
+    assert (
+        _nodes(result)
+        == FOUNDATION_NODES
+        + (
+            "ARCHITECT",
+            "ARCHITECTURE_REVIEW",
+            "ARCHITECT",
+            "ARCHITECTURE_REVIEW",
+        )
+        + HAPPY_WORKFLOW_NODES[2:]
+    )
 
 
 def test_architecture_revision_limit_exhaustion_blocks_before_engineering() -> None:

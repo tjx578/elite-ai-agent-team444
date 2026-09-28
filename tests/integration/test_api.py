@@ -242,6 +242,18 @@ def test_task_response_contains_typed_execution_trace() -> None:
             "EXPLICIT_EVOLUTION_INTENT",
         ),
         (
+            "Migrate to the new platform",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Rearchitect this repository and its dependencies",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
             "Modernize this repository",
             "https://example.invalid/owner/project",
             "HYBRID_EVOLUTION_MODE",

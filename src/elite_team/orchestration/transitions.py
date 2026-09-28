@@ -23,9 +23,7 @@ _ALLOWED_TRANSITIONS: dict[TraceNode | None, frozenset[TraceNode]] = {
     TraceNode.INTAKE: frozenset({TraceNode.MODE_ROUTER}),
     TraceNode.MODE_ROUTER: frozenset({TraceNode.STATE_CREATION}),
     TraceNode.STATE_CREATION: frozenset({TraceNode.ARCHITECT}),
-    TraceNode.ARCHITECT: frozenset(
-        {TraceNode.ARCHITECTURE_REVIEW, TraceNode.FINALIZE}
-    ),
+    TraceNode.ARCHITECT: frozenset({TraceNode.ARCHITECTURE_REVIEW, TraceNode.FINALIZE}),
     TraceNode.ARCHITECTURE_REVIEW: frozenset(
         {TraceNode.ARCHITECT, TraceNode.ENGINEER, TraceNode.FINALIZE}
     ),
