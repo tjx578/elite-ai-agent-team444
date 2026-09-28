@@ -10,9 +10,13 @@ package, passed 56 tests, and checked installed identity/entrypoint on Python
 `e14a96919dbd50350c4877393c40a069570d906c`; its
 [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162914)
 and [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162867)
-passed on that commit. These are historical commit-bound receipts. The working
-runtime is a deterministic `READ_ONLY` kernel with
-three stubs and contract-only evidence/learning types. No deployment,
+passed on that commit. These are historical commit-bound receipts. At that
+checkpoint, the runtime was a deterministic `READ_ONLY` kernel with three
+stubs and contract-only evidence/learning types. The separate
+[M2 evidence/context evaluator](m2-evidence-context-runtime.md) subsequently
+merged in [PR #11](https://github.com/tjx578/wolf15-sentient/pull/11) at
+`main` commit `8cfabf70b2927c7eaf73ae8983df4f9ca7c069fb`; it is a pure
+read path, not workflow wiring. No deployment,
 Railway change, capability activation, or REE activation follows from these
 checkpoints.
 This roadmap does not turn a target into a current capability. Each milestone
@@ -33,6 +37,12 @@ evidence.
 | M8 | Capability Foundry | Donor provenance, overlap, isolation, offline/shadow evaluation | Automatic code import |
 | M9 | Approved personal actions | Prepare/review/approve/execute receipts bound to exact action | Unreviewed sending |
 | M10 | Learning and REE lifecycle | Verified episodes, fixed-rubric offline/shadow evaluation, separate approval and profile pinning | Self-promotion |
+
+The [SK-01 skill selection assessment](../research/skill-selection/assessment.md)
+and [adoption plan](skill-adoption-plan.md) are versioned research inputs. They
+can guide qualification of development-workbench procedures during M2–M5.
+They do not change this milestone order or activate product skills. Governed
+runtime skill loading remains an M7 target; donor evaluation remains M8 work.
 
 M1-C precedes production runtime work. M2 and M3 can be developed as
 separate bounded changes, but neither can claim a full cognitive service

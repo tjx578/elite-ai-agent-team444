@@ -1,0 +1,3780 @@
+{
+  "schema_version": "sk-01.skill-selection.v1",
+  "artifact_role": "DOCUMENTATION_ONLY_NOT_RUNTIME_REGISTRY",
+  "audit": {
+    "id": "W15-SKILL-SELECTION-20260928",
+    "date": "2026-09-28",
+    "verdict": "WARN",
+    "audit_json_sha256": "058ca1a3c2334dc936ebce19c858cf6528b16dff48a1f276cad0a9af9d017622",
+    "audit_report_sha256": "0323f2973e14be63bb4c36780ffb6ae7fa378126969d9727a5458417c9aef5b5",
+    "historical_catalog_revision": "d2411fbb431a19527179437500beadaa05f5b161",
+    "historical_catalog_url": "https://github.com/tjx578/TUYUL-FX-WOLF-15LAYER-SYSTEM/blob/d2411fbb431a19527179437500beadaa05f5b161/docs/runbooks/codex-skill-assessment.md",
+    "historical_workbook_sha256": "f07d91b8f360f778ced948dcfa1bd0bb7aa43beafe65753ca9a32718ceeac7ef",
+    "sentient_architecture_revision_at_audit": "e14a96919dbd50350c4877393c40a069570d906c",
+    "current_package_inventory": "NOT_MEASURED",
+    "current_package_review": "NOT_EXECUTED",
+    "behavioral_tests": "NOT_EXECUTED",
+    "common_skill_v1_evaluation": "NOT_EXECUTED"
+  },
+  "historical_counts": {
+    "selectors": 220,
+    "selection_categories": {
+      "KONSOLIDASI_ALTERNATIF": 43,
+      "DOMAIN_TERPISAH": 15,
+      "PRIORITAS_INTI": 25,
+      "PENDUKUNG_BERTAHAP": 48,
+      "EKSPERIMEN_TERTUNDA": 35,
+      "OPSIONAL_PROVIDER": 31,
+      "PERSONAL_DOKUMEN": 14,
+      "FOUNDRY_META": 8,
+      "REFERENSI_LEGACY_SAJA": 1
+    },
+    "reported_catalog_sources": {
+      "global": 157,
+      "plugin": 63
+    }
+  },
+  "qualification_dependency": "Review exact package bytes, dependencies, behavior, contribution, authority, and evidence bindings under skill-qualification-policy.md before any scoped admission.",
+  "entries": [
+    {
+      "selector": "agent-adaptive-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 6
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-agent",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-planner / agent-coder; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 7
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-agentic-payments",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 8
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "agent-analyze-code-quality",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-code-analyzer; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 9
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-app-store",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 10
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "agent-arch-system-design",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "ADR, system boundary dan blueprint sesuai kontrak repo.",
+      "proposed_owner_area": "Architecture & planning",
+      "proposed_module": "docs/architecture/; sentient/planning",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M4",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 11
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "ADR/C4, dependensi, failure modes dan acceptance dapat ditelusuri; reference package lengkap."
+    },
+    {
+      "selector": "agent-architecture",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-arch-system-design; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 12
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-authentication",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Desain identity, consent dan least-privilege connector.",
+      "proposed_owner_area": "API & identity",
+      "proposed_module": "api/; security/ (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 13
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Caller palsu, token kedaluwarsa, scope salah, cross-owner access dan replay grant ditolak."
+    },
+    {
+      "selector": "agent-automation-smart-agent",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 14
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-base-template-generator",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Template/fixture reusable dengan scope eksplisit.",
+      "proposed_owner_area": "Engineering",
+      "proposed_module": "agents/; execution/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 15
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-benchmark-suite",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Benchmark berulang dan uji kontribusi suatu skill.",
+      "proposed_owner_area": "Performance",
+      "proposed_module": "evaluation/benchmark (target); evals/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 16
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Tanpa-skill vs dengan-skill menggunakan task set tetap; cost/latency/quality dan variasi hasil dilaporkan."
+    },
+    {
+      "selector": "agent-byzantine-coordinator",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Referensi konsistensi/konsensus terdistribusi hanya jika ada kebutuhan replika dan failure model nyata.",
+      "proposed_owner_area": "Distributed research",
+      "proposed_module": "research/; ADR (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 17
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-challenges",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Kasus uji dan tantangan evaluasi; jangan mengubah contoh menjadi hasil nyata.",
+      "proposed_owner_area": "Testing",
+      "proposed_module": "tests/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 18
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-code-analyzer",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Analisis source dan temuan yang mengarah ke file/line.",
+      "proposed_owner_area": "Repository intelligence",
+      "proposed_module": "repositories/; evaluation/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M4",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 19
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Kasus positif/negatif, lokasi temuan tepat, tidak membuat angka coverage atau latency."
+    },
+    {
+      "selector": "agent-code-goal-planner",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "GOAP/goal-plan sebagai kandidat metode di balik planner; bukan pengganti kernel.",
+      "proposed_owner_area": "Architecture & planning",
+      "proposed_module": "sentient/planning; docs/architecture/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 20
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-code-review-swarm",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 21
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-coder",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Implementasi perubahan terbatas beserta tes.",
+      "proposed_owner_area": "Engineering",
+      "proposed_module": "agents/; execution/ (target)",
+      "use_lane": "WORKBENCH; PRODUCT_LATER",
+      "target_stage": "M2 / M3 / M4",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 22
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Diff sesuai scope, tes positive/negative lulus, tidak ada modifikasi di luar workspace."
+    },
+    {
+      "selector": "agent-collective-intelligence-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 23
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-consensus-coordinator",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Referensi konsistensi/konsensus terdistribusi hanya jika ada kebutuhan replika dan failure model nyata.",
+      "proposed_owner_area": "Distributed research",
+      "proposed_module": "research/; ADR (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 24
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-coordination",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 25
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-coordinator-swarm-init",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 26
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-crdt-synchronizer",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Referensi konsistensi/konsensus terdistribusi hanya jika ada kebutuhan replika dan failure model nyata.",
+      "proposed_owner_area": "Distributed research",
+      "proposed_module": "research/; ADR (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 27
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-data-ml-model",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 28
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-dev-backend-api",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Implementasi FastAPI dan kontrak input/output.",
+      "proposed_owner_area": "API & identity",
+      "proposed_module": "api/; contracts/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 29
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Invalid input, idempotency, error schema dan authorization diuji tanpa menambah endpoint tak diminta."
+    },
+    {
+      "selector": "agent-docs-api-openapi",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Kontrak API dan consumer TypeScript yang diturunkan dari schema.",
+      "proposed_owner_area": "API & identity",
+      "proposed_module": "contracts/; api/; apps/owner-console (target)",
+      "use_lane": "WORKBENCH",
+      "target_stage": "M2 / M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 30
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Schema sumber dan generated client konsisten; breaking change terlihat dalam contract tests."
+    },
+    {
+      "selector": "agent-github-modes",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Pemilihan prosedur GitHub sesuai tipe operasi.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 31
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-github-pr-manager",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Handoff review/PR dengan head dan permission terikat.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 32
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-goal-planner",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-planner; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 33
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-gossip-coordinator",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Referensi konsistensi/konsensus terdistribusi hanya jika ada kebutuhan replika dan failure model nyata.",
+      "proposed_owner_area": "Distributed research",
+      "proposed_module": "research/; ADR (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 34
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-hierarchical-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 35
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-implementer-sparc-coder",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-coder; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 36
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-issue-tracker",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Triage issue dan trace requirement; perubahan issue tetap mutasi.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 37
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-load-balancer",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Eksperimen penjadwalan beban, bukan pemilihan executor berizin menurut availability.",
+      "proposed_owner_area": "Performance",
+      "proposed_module": "evaluation/benchmark; observability/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / measured need",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 38
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-matrix-optimizer",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Kandidat optimasi matriks/workload; semantik paket harus diperiksa sebelum algoritme dipilih.",
+      "proposed_owner_area": "Performance",
+      "proposed_module": "evaluation/benchmark; observability/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / measured need",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 39
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-memory-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 40
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-mesh-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 41
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-migration-plan",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Migrasi kompatibel bertahap dengan rollback plan non-eksekusi.",
+      "proposed_owner_area": "Architecture & planning",
+      "proposed_module": "sentient/planning; docs/architecture/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 42
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-multi-repo-swarm",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 43
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-neural-network",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 44
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-ops-cicd-github",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan github-workflow-automation; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 45
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-orchestrator-task",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 46
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-pagerank-analyzer",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Kandidat ranking relasi/dependency; centrality tidak menjadi otoritas sumber.",
+      "proposed_owner_area": "Knowledge & research",
+      "proposed_module": "knowledge/; memory/; context/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 47
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-payments",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 48
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "agent-performance-analyzer",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Profiling dan analisis bottleneck berbasis workload.",
+      "proposed_owner_area": "Performance",
+      "proposed_module": "evaluation/benchmark (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 49
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Baseline, workload, lingkungan, latency, resource dan correctness dibandingkan secara terpisah."
+    },
+    {
+      "selector": "agent-performance-benchmarker",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-benchmark-suite; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 50
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-performance-monitor",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Monitoring baseline, tail latency dan resource tanpa auto-remediation.",
+      "proposed_owner_area": "Performance",
+      "proposed_module": "evaluation/benchmark; observability/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / measured need",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 51
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-performance-optimizer",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-performance-analyzer; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 52
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-planner",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Rencana bounded, dependency dan kebutuhan capability.",
+      "proposed_owner_area": "Architecture & planning",
+      "proposed_module": "sentient/planning; orchestration/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M3",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 53
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Rencana tidak melewati gate; revisi dibatasi dan tugas sederhana tidak dipaksa full workflow."
+    },
+    {
+      "selector": "agent-pr-manager",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-github-pr-manager; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 54
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-production-validator",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Readiness berdasarkan gate independen.",
+      "proposed_owner_area": "Evidence & verification",
+      "proposed_module": "evaluation/; docs/verification/ (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M1-C / M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 55
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Test, auth, durability, build dan observability dipisahkan; missing evidence menjadi blocker, bukan skor nol/sukses."
+    },
+    {
+      "selector": "agent-project-board-sync",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Sinkronisasi metadata proyek sebagai operasi terotorisasi.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 56
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-pseudocode",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Algoritme/pseudocode sebagai proposal yang wajib diuji sebelum runtime.",
+      "proposed_owner_area": "Architecture & planning",
+      "proposed_module": "sentient/planning; docs/architecture/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 57
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-queen-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 58
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-quorum-manager",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Referensi konsistensi/konsensus terdistribusi hanya jika ada kebutuhan replika dan failure model nyata.",
+      "proposed_owner_area": "Distributed research",
+      "proposed_module": "research/; ADR (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 59
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-raft-manager",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Referensi konsistensi/konsensus terdistribusi hanya jika ada kebutuhan replika dan failure model nyata.",
+      "proposed_owner_area": "Distributed research",
+      "proposed_module": "research/; ADR (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 60
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-refinement",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Refinement bounded yang menjaga kontrak dan perilaku.",
+      "proposed_owner_area": "Engineering",
+      "proposed_module": "agents/; execution/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 61
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-release-manager",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Rencana rilis dan artefak; publikasi perlu persetujuan terpisah.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 62
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-release-swarm",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one release route + independent evaluation; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 63
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-repo-architect",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-arch-system-design; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 64
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-researcher",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Riset bersumber dan sintesis lintas dokumen/repo.",
+      "proposed_owner_area": "Knowledge & research",
+      "proposed_module": "knowledge/; context/ (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M4 / M6",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 65
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Klaim memiliki provenance dan freshness; kontra-bukti dan hal tak diketahui dipertahankan."
+    },
+    {
+      "selector": "agent-resource-allocator",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Anggaran model, worker dan concurrency berdasarkan workload terukur.",
+      "proposed_owner_area": "Performance",
+      "proposed_module": "evaluation/benchmark; observability/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / measured need",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 66
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-reviewer",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Review independen atas perubahan, risiko dan evidence.",
+      "proposed_owner_area": "Review",
+      "proposed_module": "evaluation/; agents/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 67
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Temuan memiliki lokasi, dampak dan dasar; unchanged behavior dan scope diperiksa."
+    },
+    {
+      "selector": "agent-safla-neural",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 68
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-sandbox",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Desain/test workspace isolation; worktree saja bukan security sandbox.",
+      "proposed_owner_area": "Execution boundary",
+      "proposed_module": "execution/; orchestration/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / execution stage",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 69
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-scout-explorer",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Discovery read-only dan inventaris source sebelum analisis.",
+      "proposed_owner_area": "Repository intelligence",
+      "proposed_module": "repositories/; evidence/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M4",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 70
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Inventaris lengkap pada fixture repo, skip reason terlihat, symlink/path escape ditolak."
+    },
+    {
+      "selector": "agent-security-manager",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Koordinasi review keamanan tanpa authority baru.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 71
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-sona-learning-optimizer",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 72
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-sparc-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 73
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-spec-mobile-react-native",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 74
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "agent-specification",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Mengubah tujuan menjadi spesifikasi dan acceptance yang dapat diuji.",
+      "proposed_owner_area": "Architecture & planning",
+      "proposed_module": "contracts/; docs/architecture/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 75
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Output memuat scope, non-goals, invariant, input/output, negative cases dan kriteria selesai."
+    },
+    {
+      "selector": "agent-swarm",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 76
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-swarm-issue",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 77
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-swarm-memory-manager",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 78
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-swarm-pr",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 79
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-sync-coordinator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 80
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-tdd-london-swarm",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-tester + bounded engineering workflow; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 81
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-test-long-runner",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Pengujian soak/reliability dengan batas waktu dan resource eksplisit.",
+      "proposed_owner_area": "Testing",
+      "proposed_module": "tests/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 82
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-tester",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Tes perilaku, regresi, kontrak dan negative paths.",
+      "proposed_owner_area": "Testing",
+      "proposed_module": "tests/; evaluation/",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 83
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Command, environment, revision, exit code dan actual result tersimpan; tidak ada PASS dari mock status."
+    },
+    {
+      "selector": "agent-topology-optimizer",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 84
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-trading-predictor",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi WOLF15 Trading, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 85
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "agent-user-tools",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Inventaris dan routing tool; tool tersedia tidak berarti boleh dipanggil.",
+      "proposed_owner_area": "Execution boundary",
+      "proposed_module": "execution/; orchestration/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / execution stage",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 86
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-v3-integration-architect",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 87
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-v3-memory-specialist",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 88
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-v3-performance-engineer",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 89
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-v3-queen-coordinator",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 90
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-v3-security-architect",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 91
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agent-worker-specialist",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Worker task sempit di bawah kernel; worker tidak menentukan transisi global.",
+      "proposed_owner_area": "Engineering",
+      "proposed_module": "agents/; execution/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 92
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "agent-workflow",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 93
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agent-workflow-automation",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 94
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "agentdb-advanced",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 95
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agentdb-learning",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 96
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agentdb-memory-patterns",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 97
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agentdb-optimization",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 98
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agentdb-vector-search",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 99
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "agentic-jujutsu",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Referensi version-control alternatif; tidak mengganti Git tanpa kebutuhan dan compatibility plan.",
+      "proposed_owner_area": "Optional source-control provider",
+      "proposed_module": "repositories/ (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 100
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "analyze-tuyul-kartel-fx",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi WOLF15 Trading, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 101
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "audit-wolf15-constitution",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi WOLF15 Trading, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 102
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "claims",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Kandidat dokumentasi klaim/otorisasi; jangan menganggapnya otomatis engine GroundedClaim.",
+      "proposed_owner_area": "API & identity",
+      "proposed_module": "api/; contracts/; security/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 103
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:assess-patch-risk",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Menilai risiko perubahan dan area uji yang dibutuhkan.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 104
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:attack-path-analysis",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Menelusuri attacker-controlled input sampai privileged sink.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 105
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:deep-security-scan",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Pemindaian mendalam hanya untuk scope berisiko yang ditetapkan.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 106
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:define-security-policy",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Merumuskan policy berdasarkan threat model, tidak mengaktifkan izin.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 107
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:finding-discovery",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Mencari kandidat finding yang memerlukan reproduksi.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 108
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:fix-finding",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Mengusulkan/menerapkan patch hanya di workspace yang diotorisasi.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 109
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:propose-security-hardening",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Usulan hardening terukur tanpa perubahan runtime otomatis.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 110
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:security-diff-scan",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Review keamanan perubahan yang sempit.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/ (target); .github/",
+      "use_lane": "WORKBENCH",
+      "target_stage": "M1-C onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 111
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Finding dan batas cakupan terikat exact diff; hasil lama tidak dipindah ke revision baru."
+    },
+    {
+      "selector": "codex-security:security-scan",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Alternatif scan sesuai scope; tidak menggantikan diff scan secara otomatis.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 112
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:threat-model",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Ancaman pada kernel, donor, tools dan data pribadi.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "docs/security (target); security/ (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M5 / M6",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 113
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Trust boundary, aset, attacker control, sink, mitigasi dan residual risk dinyatakan."
+    },
+    {
+      "selector": "codex-security:track-findings",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Lifecycle finding dan evidence; update tracker memerlukan izin write.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 114
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:triage-finding",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Klasifikasi dampak dan validitas finding.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 115
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:validation",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Validasi evidence keamanan, bukan sekadar nama status.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 116
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "codex-security:verify-fix",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Membuktikan perbaikan dengan reproduksi dan regresi.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "evaluation/security (target); tests/",
+      "use_lane": "WORKBENCH",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 117
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Reproducer semula gagal, patch menutup jalur dan regresi diuji pada exact head."
+    },
+    {
+      "selector": "codex-security:vulnerability-writeup",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Laporan privat, minimisasi data dan koordinasi disclosure.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 118
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "computer-use:computer-use",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Fallback UI automation jika adapter terstruktur tidak memenuhi task; bukan pengganti semua connector.",
+      "proposed_owner_area": "Execution boundary",
+      "proposed_module": "execution/computer (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 119
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "deep-research-work:deep-research",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Riset web/current information dan brief bersumber.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 120
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "documents:documents",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Artefak dokumen lokal berbasis sumber.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 121
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "embeddings",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Derived semantic index; scoped retrieval, source revision dan ACL tetap canonical.",
+      "proposed_owner_area": "Knowledge & research",
+      "proposed_module": "knowledge/; memory/; context/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 122
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "evaluate-agent-skill",
+      "selection_category": "FOUNDRY_META",
+      "function": "Evaluator verdict dari evidence yang sudah dikumpulkan, bukan test runner atau pemberi izin.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 123
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "extract-agent-workflow",
+      "selection_category": "FOUNDRY_META",
+      "function": "Demonstrasi bertanda sumber menjadi kandidat operator/workflow, bukan live self-modification.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 124
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "figma:figma-code-connect",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 125
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-create-new-file",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 126
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-design-to-code",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 127
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-generate-design",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 128
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-generate-diagram",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 129
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-generate-library",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 130
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-implement-motion",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 131
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-swiftui",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 132
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "figma:figma-use",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 133
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-use-figjam",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 134
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-use-motion",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 135
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "figma:figma-use-slides",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Figma spesifik; gunakan capability paling sempit pada task desain yang sesuai.",
+      "proposed_owner_area": "Owner Console / design",
+      "proposed_module": "apps/owner-console; integrations/figma (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 136
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "flow-nexus-neural",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 137
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "flow-nexus-platform",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 138
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "flow-nexus-swarm",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 139
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "github-automation",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Prosedur automation GitHub per operasi, bukan mandat write global.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 140
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "github-code-review",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Review diff dan check pada exact PR head/base.",
+      "proposed_owner_area": "Review",
+      "proposed_module": "integrations/github (target); docs/verification/",
+      "use_lane": "WORKBENCH",
+      "target_stage": "M1-C onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 141
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Stale head, branch berubah, check belum berjalan dan unresolved finding tidak diloloskan."
+    },
+    {
+      "selector": "github-multi-repo",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Manifest exact-revision lintas repo, overlap dan integration evidence.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 142
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "github-project-management",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Pelacakan requirement, dependensi dan review proyek.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 143
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "github-release-management",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Release checklist dan artefak; satu rute dipilih, jangan duplikasi release manager.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": "repositories/; integrations/github/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M4 / approved delivery",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 144
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "github-workflow-automation",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "CI deterministik dan status-check evidence.",
+      "proposed_owner_area": "GitHub & delivery",
+      "proposed_module": ".github/workflows/",
+      "use_lane": "WORKBENCH",
+      "target_stage": "M1-C / M2",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 145
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Job gagal/skip/cancel tidak hijau palsu; source head dan hasil scan/build terikat tepat."
+    },
+    {
+      "selector": "global-development-instruction",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan repo AGENTS.md + scoped procedure, no host override; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 146
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "google-drive:google-docs",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Membaca atau menyusun dokumen; simpan/edit merupakan permission terpisah.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 147
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "google-drive:google-drive",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Discovery dan pembacaan sumber Drive dengan scope owner.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 148
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "google-drive:google-drive-comments",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Alur komentar dokumen; read vs post/resolve dipisahkan.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 149
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "google-drive:google-sheets",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Analisis spreadsheet cloud; query dan update sel dipisahkan.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 150
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "google-drive:google-slides",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Membaca/membuat bahan presentasi; update/share dipisahkan.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 151
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "hive-mind",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 152
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "hive-mind-advanced",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 153
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "hooks-automation",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Hook lifecycle terotorisasi; tidak memasang hook atau mengeksekusi arbitrary command otomatis.",
+      "proposed_owner_area": "Execution boundary",
+      "proposed_module": "execution/; orchestration/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / execution stage",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 154
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "imagegen",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Pembuatan visual yang diminta; bukan mandatory cognitive path.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 155
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "investor-profile-video-blueprint",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 156
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "memory-management",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Pola memori sesuai lima kelas dan lifecycle; bukan global shared control state.",
+      "proposed_owner_area": "Knowledge & research",
+      "proposed_module": "knowledge/; memory/; context/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 157
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "mindmap-reasoning",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan petakan-konsep (compare, not automatic replacement); overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 158
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "neural-orchestrator",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan Control Kernel + one bounded planner; procedural reference only; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 159
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "neural-training",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 160
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "openai-developers:agents-sdk",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Alternatif specialist adapter di bawah kernel; bukan orchestrator kedua.",
+      "proposed_owner_area": "Optional model/app provider",
+      "proposed_module": "models/; integrations/openai (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 161
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "openai-developers:build-chatgpt-app",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Interface eksternal opsional; bukan syarat Owner Console.",
+      "proposed_owner_area": "Optional model/app provider",
+      "proposed_module": "models/; integrations/openai (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 162
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "openai-developers:chatgpt-app-submission",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Proses distribusi produk terpisah; tidak auto-submit.",
+      "proposed_owner_area": "Optional model/app provider",
+      "proposed_module": "models/; integrations/openai (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 163
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "openai-developers:openai-api-troubleshooting",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Diagnosis model-adapter/API dengan log disanitasi.",
+      "proposed_owner_area": "Provider reference",
+      "proposed_module": "models/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M3",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 164
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "openai-developers:openai-platform-api-key",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Onboarding credential terotorisasi; bukan skill reasoning dan tidak membaca key ke prompt.",
+      "proposed_owner_area": "Optional model/app provider",
+      "proposed_module": "models/; integrations/openai (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 165
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "openai-docs",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Referensi resmi untuk implementasi model adapter.",
+      "proposed_owner_area": "Provider reference",
+      "proposed_module": "models/ (target); docs/architecture/",
+      "use_lane": "WORKBENCH",
+      "target_stage": "M3",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 166
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Referensi tepat endpoint/version; request tetap melalui port bertipe dan test double tanpa credential riil."
+    },
+    {
+      "selector": "pair-programming",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Workflow interaktif workbench untuk implementasi yang diawasi owner.",
+      "proposed_owner_area": "Engineering",
+      "proposed_module": "agents/; execution/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 167
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "pdf:pdf",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Pembacaan dan produksi PDF dengan validasi layout.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 168
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "performance-analysis",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-performance-analyzer; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 169
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "petakan-konsep",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Metode lima tahap untuk dekomposisi tugas kompleks.",
+      "proposed_owner_area": "Architecture & planning",
+      "proposed_module": "skills/petakan-konsep/ (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M4",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 170
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Trigger positif/negatif benar; relasi dan sintesis punya evidence/assumption; sumber empat dokumen dicocokkan ke paket."
+    },
+    {
+      "selector": "plugin-creator",
+      "selection_category": "FOUNDRY_META",
+      "function": "Kemasan integrasi tool/skill bila memang dibutuhkan runtime host.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 171
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "plugin-management:plugin-management",
+      "selection_category": "FOUNDRY_META",
+      "function": "Discovery dan pengelolaan provider; konfigurasi aktif hanya atas instruksi owner.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 172
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "presentations:presentations",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Pembuatan artefak presentasi owner.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 173
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "reasoningbank-agentdb",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 174
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "reasoningbank-intelligence",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Kandidat riset ML/memory/backend; pilih setelah benchmark workload, biaya, isolasi dan dependency.",
+      "proposed_owner_area": "ML / memory research",
+      "proposed_module": "evals/; learning/offline (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 175
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "remotion:remotion-best-practices",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 176
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-captions",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 177
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-create",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 178
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-docs",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 179
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-interactivity",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 180
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-maps",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 181
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "remotion:remotion-markup",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 182
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-multimedia",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 183
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-render",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 184
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-saas",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 185
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-studio",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 186
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "remotion:remotion-upgrade",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Workflow Remotion untuk artefak video/animasi yang diminta; bukan engine penalaran atau wajib UI real-time.",
+      "proposed_owner_area": "Media / voice interface",
+      "proposed_module": "artifacts/media; integrations/remotion (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 187
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "retrieval-knowledge-structurer",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Chunking, metadata, canonical concept dan context selection.",
+      "proposed_owner_area": "Knowledge & research",
+      "proposed_module": "knowledge/; context/; evidence/ (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 188
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji revision mismatch, source ACL, recall/relevance, citation coverage dan context budget."
+    },
+    {
+      "selector": "review-agent",
+      "selection_category": "FOUNDRY_META",
+      "function": "Review paket secara independen dari penulisnya.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 189
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "security-audit",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Audit tambahan berbasis scope dan sink; bukan pengganti scan yang diwajibkan.",
+      "proposed_owner_area": "Security",
+      "proposed_module": "security/; evaluation/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M2 onward",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 190
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "sites:sites-building",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Alternatif pembuatan/hosting UI; Next.js target tidak otomatis perlu Sites.",
+      "proposed_owner_area": "Optional frontend provider",
+      "proposed_module": "integrations/sites (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 191
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "sites:sites-hosting",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Alternatif pembuatan/hosting UI; Next.js target tidak otomatis perlu Sites.",
+      "proposed_owner_area": "Optional frontend provider",
+      "proposed_module": "integrations/sites (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 192
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "skill-builder",
+      "selection_category": "FOUNDRY_META",
+      "function": "Authoring paket prosedural berkontrak.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 193
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "skill-creator",
+      "selection_category": "FOUNDRY_META",
+      "function": "Alternatif authoring paket; bandingkan dengan skill-builder, bukan muat kedua instruksi selalu.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 194
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "skill-installer",
+      "selection_category": "FOUNDRY_META",
+      "function": "Tahap admission/instalasi setelah qualification; instalasi adalah mutasi terpisah.",
+      "proposed_owner_area": "Capability Foundry",
+      "proposed_module": "skills/; capabilities/; capability_factory/ (target)",
+      "use_lane": "META_WORKBENCH; PRODUCT_CANDIDATE",
+      "target_stage": "M7 / M8",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 195
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
+    },
+    {
+      "selector": "sparc-methodology",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan agent-specification / agent-coder / agent-reviewer; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 196
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "spreadsheets:excel-live-control",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Kontrol aplikasi Excel; perubahan dokumen memerlukan otorisasi.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 197
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "spreadsheets:spreadsheets",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Analisis angka dan workbook; formula/calculation diperiksa.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 198
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "stream-chain",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Kandidat streaming/batching; contract, cancellation dan backpressure diuji.",
+      "proposed_owner_area": "Execution boundary",
+      "proposed_module": "execution/; orchestration/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / execution stage",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 199
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "supabase:supabase",
+      "selection_category": "OPSIONAL_PROVIDER",
+      "function": "Provider hosted Postgres hanya bila platform dipilih; jangan provisioning dari audit.",
+      "proposed_owner_area": "Optional persistence provider",
+      "proposed_module": "persistence/adapters (target)",
+      "use_lane": "OPTIONAL_ADAPTER / WORKBENCH",
+      "target_stage": "When provider is selected",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 200
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Host/tool availability, contract, provider failure dan read/write boundaries dibuktikan pada versi terpilih."
+    },
+    {
+      "selector": "supabase:supabase-postgres-best-practices",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Referensi PostgreSQL; penerapan tidak mewajibkan platform Supabase.",
+      "proposed_owner_area": "Persistence",
+      "proposed_module": "persistence/; db/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 201
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "swarm-advanced",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 202
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "swarm-orchestration",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 203
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    },
+    {
+      "selector": "template-creator:template-creator",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Templat output untuk brief/report; jangan menduplikasi semua skill format.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 204
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "timerally-intelligence",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi proyek domain lain, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 205
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "trace-agent-runtime-flow",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Menelusuri source, state transition dan receipt runtime.",
+      "proposed_owner_area": "Evidence & verification",
+      "proposed_module": "orchestration/; observability/ (target)",
+      "use_lane": "WORKBENCH + PRODUCT_CANDIDATE",
+      "target_stage": "M2 / M5",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 206
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Proposed, present, exercised dan effect-confirmed tetap berbeda; trace terikat task/run/revision."
+    },
+    {
+      "selector": "truth-score-evaluator",
+      "selection_category": "REFERENSI_LEGACY_SAJA",
+      "function": "Simpan sebagai referensi legacy; jangan gunakan angka agregat untuk meluluskan software.",
+      "proposed_owner_area": "Legacy gate anti-pattern",
+      "proposed_module": "docs/research/negative-fixtures (target)",
+      "use_lane": "REFERENCE_ONLY",
+      "target_stage": "No active admission",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 207
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Konsep metrik boleh ditulis ulang dari actual receipts; hard gate yang gagal tidak boleh tertutup skor lain."
+    },
+    {
+      "selector": "v3-cli-modernization",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 208
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-core-implementation",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 209
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-ddd-architecture",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 210
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-integration-deep",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 211
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-mcp-optimization",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 212
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-memory-unification",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 213
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-performance-optimization",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 214
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-security-overhaul",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 215
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "v3-swarm-coordination",
+      "selection_category": "EKSPERIMEN_TERTUNDA",
+      "function": "Metode terikat generasi/stack donor; petakan ketergantungan v3 sebelum mengambil pola yang reusable.",
+      "proposed_owner_area": "Donor-specific research",
+      "proposed_module": "capability_factory/references (target)",
+      "use_lane": "OFFLINE_RESEARCH_ONLY",
+      "target_stage": "After measured requirement",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 216
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Uji terhadap baseline sederhana; licensing, repeatability, owner isolation dan measured value sebelum dependency baru."
+    },
+    {
+      "selector": "verification-quality",
+      "selection_category": "PRIORITAS_INTI",
+      "function": "Verifikasi hasil, scope dan evidence sebelum menyatakan selesai.",
+      "proposed_owner_area": "Evidence & verification",
+      "proposed_module": "evaluation/; docs/verification/",
+      "use_lane": "WORKBENCH + RUNTIME_PATTERN",
+      "target_stage": "M1-C / M2",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 217
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Fixture bukti hilang, stale SHA, hasil parsial dan hasil bertentangan tetap menghasilkan verdict yang benar."
+    },
+    {
+      "selector": "visualize:visualize",
+      "selection_category": "PERSONAL_DOKUMEN",
+      "function": "Visualisasi evidence, arsitektur dan hasil; bukan bukti runtime.",
+      "proposed_owner_area": "Personal assistant & artifacts",
+      "proposed_module": "personal/; integrations/google/; artifacts/ (target)",
+      "use_lane": "PRODUCT_CANDIDATE + WORKBENCH",
+      "target_stage": "M6; persisted writes later",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 218
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Provenance/ACL/freshness, sumber parsial, adversarial document dan tidak-ada-write pada read-only diuji."
+    },
+    {
+      "selector": "wolf-arsenal-toolkit",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi WOLF15 Trading, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 219
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "wolf15-authority-boundary-review",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi WOLF15 Trading, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 220
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "wolf15-legacy-prompt-admission",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi WOLF15 Trading, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 221
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "wolf15-replay-audit",
+      "selection_category": "DOMAIN_TERPISAH",
+      "function": "Pertahankan sebagai referensi WOLF15 Trading, bukan prosedur inti Sentient.",
+      "proposed_owner_area": "External domain",
+      "proposed_module": "integrations/domains/ (target)",
+      "use_lane": "EXTERNAL_DOMAIN_ONLY",
+      "target_stage": "Separately authorized domain task",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 222
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Spesifikasi domain, bukti sumber dan adapter terpisah; tidak ada efek domain dari task general-purpose."
+    },
+    {
+      "selector": "worker-benchmarks",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Benchmark worker yang membandingkan throughput, latency, cost dan correctness.",
+      "proposed_owner_area": "Performance",
+      "proposed_module": "evaluation/benchmark; observability/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / measured need",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 223
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "worker-integration",
+      "selection_category": "PENDUKUNG_BERTAHAP",
+      "function": "Integrasi worker melalui port/receipt, bukan side-channel bypass.",
+      "proposed_owner_area": "Execution boundary",
+      "proposed_module": "execution/; orchestration/ (target)",
+      "use_lane": "WORKBENCH + CONDITIONAL_PATTERN",
+      "target_stage": "M5 / execution stage",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 224
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "NOT_ASSESSED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Paket lengkap/host diuji; acceptance mengikuti fungsi; baseline, negative cases dan receipt exact-revision wajib."
+    },
+    {
+      "selector": "workflow-automation",
+      "selection_category": "KONSOLIDASI_ALTERNATIF",
+      "function": "Bandingkan fungsi dengan one kernel-owned delegation/routing procedure; overlap ini adalah kandidat, bukan equivalence yang sudah terbukti.",
+      "proposed_owner_area": "Coordination / overlap",
+      "proposed_module": "orchestration/; skills/ (target)",
+      "use_lane": "ALTERNATIVE_REFERENCE",
+      "target_stage": "After core route comparison",
+      "source_record": {
+        "worksheet": "Codex_220",
+        "row": 225
+      },
+      "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
+      "overlap_status": "COMPARISON_REQUIRED",
+      "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "next_check": "Contract dan behavioral comparison sebelum alias/supersession; lazy loading dan ablation menunjukkan manfaat."
+    }
+  ]
+}
