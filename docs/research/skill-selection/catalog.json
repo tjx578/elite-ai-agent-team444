@@ -2036,6 +2036,7 @@
       "dependency_status": "PACKAGE_DEPENDENCIES_NOT_ASSESSED",
       "overlap_status": "NOT_ASSESSED",
       "evidence_status": "DESIGN_CANDIDATE_ONLY",
+      "bootstrap_requirement": "Independent, pinned evaluator bootstrap before use; see docs/governance/skill-qualification-policy.md#bootstrap-of-the-first-evaluator. No self-qualification or PASS_LOCAL is claimed.",
       "next_check": "Periksa exact package dan seluruh referenced routes; collector + evaluator dipisahkan; input malformed/stale/forged ditolak."
     },
     {

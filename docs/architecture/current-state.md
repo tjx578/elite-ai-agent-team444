@@ -64,6 +64,34 @@ has no license grant. These are source- and GitHub-bound receipts for this
 checkpoint, not a claim about later commits. Production deployment and Railway
 changes are **NOT_EXECUTED**; no capability or REE is activated.
 
+## M2 evidence and context read path: merged checkpoint
+
+[PR #11](https://github.com/tjx578/wolf15-sentient/pull/11) merged the initial
+M2 read path at `main` commit
+`8cfabf70b2927c7eaf73ae8983df4f9ca7c069fb`. The pure
+`wolf15_sentient.evidence.assemble_context` function consumes caller-supplied
+UTF-8 source content, `SourceRef` metadata, claims, and an explicit policy. It
+checks SHA-256 digests, scope, revision, and freshness; preserves conflicts and
+missing evidence; and returns a structured `BLOCKED` result when no source is
+usable. A matching ID and digest never promote a source assertion to fact:
+caller-submitted `VERIFIED` claims are downgraded to `SOURCE_CLAIM` unless an
+independent validation path exists. See the
+[M2 contract and limits](m2-evidence-context-runtime.md).
+
+The [CI run on the merge commit](https://github.com/tjx578/wolf15-sentient/actions/runs/36386405999)
+completed successfully: 74 tests passed on each of Python 3.11, 3.12, and
+3.13; Ruff, Pyright, sdist/wheel build and isolated install, dependency audit,
+and secret scan also passed. The separate
+[CodeQL run](https://github.com/tjx578/wolf15-sentient/actions/runs/36386405976)
+completed Actions and Python analysis successfully on the same SHA. These are
+source and CI receipts, not deployment or production-runtime evidence.
+
+The evaluator does not dereference locators, read repositories, call external
+providers, write memory, or connect to the active LangGraph workflow. It does
+not infer semantic conflicts from arbitrary prose. `READY` describes context
+assembly only, not factual or production readiness. The M1-B and M1-C
+checkpoints above remain historical records of their own revisions.
+
 ## PR-0 baseline
 
 At the start of PR-0, the repository was at **Stage 0 — Blueprint and Documentation Foundation**. The only tracked project artifact was a vision-oriented `README.md`.
@@ -248,7 +276,8 @@ validated task request
 
 PR-2 added the deterministic graph, bounded revision behavior, and stub roles
 while keeping model and repository-execution variability out of the loop. M1-C
-established repository trust gates without a production claim. M2 evidence
-and context, M3 model reasoning, and M4 read-only repository intelligence are
-later increments with separate acceptance evidence. The current system must
+established repository trust gates without a production claim. The initial M2
+evidence/context read path is now merged as the pure helper documented above.
+M3 model reasoning and M4 read-only repository intelligence remain separate
+future increments with their own acceptance evidence. The current system must
 not be described as a complete autonomous engineering OS.

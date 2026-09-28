@@ -47,6 +47,11 @@ behavioral tests, contribution tests, and `common-skill/v1` evaluation are
 not been established. The catalog states those gaps rather than inventing a
 dependency graph or treating similar names as equivalent.
 
+The `evaluate-agent-skill` entry remains a design candidate. Its first use
+requires the independent, pinned
+[bootstrap path](../../governance/skill-qualification-policy.md#bootstrap-of-the-first-evaluator);
+it cannot certify itself or raise its catalog status by assertion.
+
 ## First package-review batch
 
 The first eight candidates support evidence and context work and its follow-up
