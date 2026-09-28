@@ -44,7 +44,7 @@ Local verification of the reviewed foundation source on 2026-09-28
 
 ```text
 python -m pytest -q
-28 passed, 1 dependency deprecation warning
+30 passed, 1 dependency deprecation warning
 python -m ruff check src tests
 All checks passed
 ```

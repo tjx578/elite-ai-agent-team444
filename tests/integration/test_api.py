@@ -215,6 +215,18 @@ def test_task_response_contains_typed_execution_trace() -> None:
             "NO_EXPLICIT_EVOLUTION_INTENT",
         ),
         (
+            "Upgrade this repository's dependencies",
+            "https://example.invalid/owner/project",
+            "EXISTING_REPO_MODE",
+            "NO_EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
+            "Review this repository and migrate it to the new platform",
+            "https://example.invalid/owner/project",
+            "HYBRID_EVOLUTION_MODE",
+            "EXPLICIT_EVOLUTION_INTENT",
+        ),
+        (
             "Modernize this repository",
             "https://example.invalid/owner/project",
             "HYBRID_EVOLUTION_MODE",
