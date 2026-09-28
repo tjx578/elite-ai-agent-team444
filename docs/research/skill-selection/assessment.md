@@ -15,9 +15,11 @@ The 220-entry source JSON has SHA-256
 `058ca1a3c2334dc936ebce19c858cf6528b16dff48a1f276cad0a9af9d017622`;
 the narrative assessment has SHA-256
 `0323f2973e14be63bb4c36780ffb6ae7fa378126969d9727a5458417c9aef5b5`.
-The source workbook digest and individual worksheet rows are recorded in the
-catalog. These are historical source bindings; they do not identify the bytes
-currently installed on an owner's host.
+The source workbook SHA-256 is
+`f07d91b8f360f778ced948dcfa1bd0bb7aa43beafe65753ca9a32718ceeac7ef`;
+individual worksheet rows are recorded in the catalog. These historical
+source bindings do not identify the bytes currently installed on an owner's
+host.
 
 The public catalog retains selector, selection category, proposed function and
 owner area, target stage, source row, qualification dependency, overlap status,
