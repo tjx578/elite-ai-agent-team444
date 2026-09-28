@@ -8,13 +8,6 @@ from wolf15_sentient.contracts.evidence import (
     SourceKind,
     SourceRef,
 )
-from wolf15_sentient.contracts.learning import (
-    AdvisoryGeneration,
-    CandidateState,
-    LearningCandidate,
-    LearningEpisode,
-    MemoryClass,
-)
 from wolf15_sentient.contracts.execution import (
     ErrorCode,
     ExecutionErrorCode,
@@ -22,6 +15,13 @@ from wolf15_sentient.contracts.execution import (
     ExecutionTrace,
     TraceNode,
     TraceStatus,
+)
+from wolf15_sentient.contracts.learning import (
+    AdvisoryGeneration,
+    CandidateState,
+    LearningCandidate,
+    LearningEpisode,
+    MemoryClass,
 )
 from wolf15_sentient.contracts.models import (
     AgentRunStatus,
@@ -35,6 +35,7 @@ from wolf15_sentient.contracts.models import (
     ImplementationPlan,
     ProjectMode,
     ReviewDecision,
+    RoutingReason,
     TaskRequest,
     TaskResponse,
     TaskState,
@@ -46,20 +47,14 @@ from wolf15_sentient.contracts.models import (
 
 __all__ = [
     "AdvisoryGeneration",
-    "CandidateState",
-    "ClaimType",
-    "ContextBundle",
-    "EvidenceStatus",
-    "GroundedClaim",
-    "LearningCandidate",
-    "LearningEpisode",
-    "MemoryClass",
-    "SourceKind",
-    "SourceRef",
     "AgentRunStatus",
     "ArchitectureReport",
     "Authority",
+    "CandidateState",
+    "ClaimType",
+    "ContextBundle",
     "ErrorCode",
+    "EvidenceStatus",
     "ExecutionErrorCode",
     "ExecutionEvent",
     "ExecutionTrace",
@@ -67,10 +62,17 @@ __all__ = [
     "GateDecision",
     "GateName",
     "GateStatus",
+    "GroundedClaim",
     "HealthResponse",
     "ImplementationPlan",
+    "LearningCandidate",
+    "LearningEpisode",
+    "MemoryClass",
     "ProjectMode",
     "ReviewDecision",
+    "RoutingReason",
+    "SourceKind",
+    "SourceRef",
     "TaskRequest",
     "TaskResponse",
     "TaskState",

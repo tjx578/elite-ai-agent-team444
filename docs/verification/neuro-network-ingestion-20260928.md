@@ -14,9 +14,9 @@ This verification record covers the first WOLF15 Sentient ingestion slice derive
 - Authority/evidence contracts read: `authority-model.md`, `evidence-contract.md`, `decision-envelope.md`, `pipeline-contract.md`.
 - Legacy orchestrator capability source read: `tuyul-neural-orchestrator-skill-v2.md`.
 
-NotebookLM itself does not expose source-membership metadata through the Drive connector, so exact membership of every Drive artifact in notebook `cb93cdd6-2f97-479a-9eea-2dfaf511f3a0` remains NOT_ESTABLISHED. The corpus match is strong based on title, subject, and shared folder.
+NotebookLM itself does not expose source-membership metadata through the Drive connector, so exact membership of every Drive artifact in the named notebook remains NOT_ESTABLISHED. The corpus match is strong based on title, subject, and shared folder. Private notebook identifiers and file locators are omitted.
 
-## Repository binding
+## Original repository binding
 
 - Repository: `tjx578/elite-ai-agent-team444`
 - Integration base: `624d5ab579290b13805c13a1f1e69b9925b2a6c1`
@@ -47,3 +47,13 @@ NotebookLM itself does not expose source-membership metadata through the Drive c
 - Learning workflow activation: NOT_EXECUTED
 - Persistence: NOT_EXECUTED
 - Adaptive routing: NOT_EXECUTED
+
+## Integrated local verification
+
+After the identity migration was reconciled with the merged deterministic
+kernel, the combined source passed **56 local tests**, Ruff check, and Python
+compilation. This result covers the seven learning-contract tests as well as
+the 49 identity/kernel tests. The earlier `NOT_EXECUTED` entry describes the
+original commit-creation checkpoint; it is not the status of this integrated
+source. Remote CI must be checked against the final PR head. No learning
+workflow, persistent memory, or adaptive routing was activated.

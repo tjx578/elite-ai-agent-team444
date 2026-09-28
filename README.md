@@ -8,8 +8,12 @@
 
 ## Status at a glance
 
-Local migration verification: **27 source tests and 27 installed-package tests passed**.
-See the [verification record](docs/verification/sentient-identity-20260928.md) for source binding and limits.
+The original identity snapshot passed **27 source tests and 27 installed-package
+tests**. Its [verification record](docs/verification/sentient-identity-20260928.md)
+and source/wheel hashes remain bound to commit `624d5ab`. After integration
+with PR #2, the source suite passed **49 local tests**; the new head needs its
+own remote CI. The [integration record](docs/verification/sentient-identity-integration-20260928.md)
+binds 49 source and installed-package tests to the updated source and wheel.
 
 This repository is being built as small, verifiable vertical slices. The original multi-agent vision remains the target, but it is not presented as working software.
 
@@ -17,15 +21,15 @@ WOLF15 Sentient is the product identity. **Elite AI Agent Team OS** names its
 planned organization of divisions and specialists. **WOLF15 Trading System**
 remains an external system with its own strategy, risk, and execution authority.
 
-This isolated identity migration starts at PR-2 commit
+The original identity migration started at PR-2 commit
 `df43c93e12b2ff68ce4fe1c2d3778a6052886413`. Its Python distribution and health
 service name are `wolf15-sentient`; its import namespace is `wolf15_sentient`.
 Existing consumers must update imports, launch commands, and health identity
 checks. The former namespace is not provided as an alias. The version remains
 `0.1.0` for this unpublished migration.
 
-The GitHub repository rename is pending. This change does not establish that
-the migration is on `main` or that remote CI has run. PR-3 adapter work remains
+The GitHub repository rename is pending. The integrated migration is not yet on
+`main`; remote CI must be checked against its new head. PR-3 adapter work remains
 in its separate development checkout. See
 [ADR-005: Product Identity and Namespace](docs/adr/ADR-005-product-identity.md)
 and the [migration guide](docs/migrations/sentient-identity.md).
@@ -44,8 +48,10 @@ PR-1 remains the verified foundation baseline:
 - a deterministic three-step foundation trace: `INTAKE`, `MODE_ROUTER`, `STATE_CREATION`;
 - read-only authority as the only accepted authority value;
 - architecture ADRs and the least-privilege authority model;
-- a read-only GitHub Actions test workflow definition; the observed remote foundation job was `NOT_EXECUTED` because a GitHub billing lock left it with zero steps and `runner_id=0`;
-- ten local API/contract tests, verified passing in this checkout on 2026-08-24.
+- a read-only GitHub Actions test workflow; the reviewed PR-1 head `cec55f5`
+  passed 30 local tests and push/pull-request CI on Python 3.11–3.13;
+- bounded request text, explicit `READ_ONLY`, and routing reasons in state,
+  response, and trace.
 
 PR-2 source adds:
 
@@ -60,7 +66,14 @@ PR-2 source adds:
 
 The default deterministic happy path is entirely in memory. It produces typed architecture and implementation artifacts, deterministic validation/review evidence, and `READY_WITH_CONDITIONS`. That status is an assessment only; it grants no repository or production authority.
 
-**PR-2 verification status:** a fresh local environment passed 25 tests in 3.12 seconds; Ruff, graph compile/render, and happy-path, revision, and exhaustion smoke checks passed. Codex Security diff scan `5a286602-d315-49c9-bd7a-1fefe5ab7db5` completed with full declared coverage and zero reportable findings; three defensive candidates were reproduced and rejected after reachability and boundary validation. The initial PR-2 push and pull-request workflow runs were both **NOT_EXECUTED**: all six Python 3.11-3.13 jobs had zero steps and `runner_id=0`, with GitHub reporting that the account was locked because of billing. The PR-1 result must not be reused as PR-2 evidence.
+**PR-2 verification:** the integrated source passed 47 local tests, Ruff check,
+and Python compilation on 2026-09-28. Its original head passed 25 local tests,
+graph compile/render, and workflow smoke checks. Codex Security diff scan
+`5a286602-d315-49c9-bd7a-1fefe5ab7db5` covered that original scope and
+found no reportable issue. The original CI jobs were `NOT_EXECUTED` during the
+GitHub billing lock. The integrated PR-2 head `aa596cb` passed push and
+pull-request CI on Python 3.11–3.13 with 47 tests per job. This does not
+qualify the later identity-migration head.
 
 See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 

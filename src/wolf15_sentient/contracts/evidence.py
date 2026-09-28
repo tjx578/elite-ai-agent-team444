@@ -8,7 +8,6 @@ from pydantic import AwareDatetime, Field, StringConstraints, model_validator
 
 from wolf15_sentient.contracts.models import NonBlankText, StrictContract
 
-
 Sha256 = Annotated[str, StringConstraints(pattern=r"^[0-9a-f]{64}$")]
 
 
