@@ -3,7 +3,7 @@
 import re
 from dataclasses import dataclass
 
-from elite_team.contracts.task import ProjectMode, RoutingReason
+from wolf15_sentient.contracts.task import ProjectMode, RoutingReason
 
 _EXPLICIT_EVOLUTION_ACTIONS = frozenset(
     {

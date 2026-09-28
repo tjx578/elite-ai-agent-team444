@@ -6,7 +6,7 @@ This document defines the architecture beyond the PR-2 deterministic kernel. Com
 
 ## Design goals
 
-Elite AI Agent Team OS is intended to be an independent, auditable control plane for software-engineering work. It should:
+WOLF15 Sentient is intended to be an independent, auditable product for software-engineering work. Its control plane should:
 
 - accept a bounded owner objective and explicit authority;
 - classify the work into one of three project modes;
@@ -26,7 +26,7 @@ Owner
 Owner Console or API client                 TARGET
   |
   v
-Elite Control Plane
+WOLF15 Sentient Control Plane
   +-- Intake and contract validation
   +-- Authority and policy enforcement
   +-- Project Mode Router
@@ -51,6 +51,29 @@ Target repositories and production systems remain outside the control plane.
 The control plane must not be embedded inside a target repository. A repository such as WOLF15 is a target reached through a policy-constrained adapter, not a source of authority for the control plane.
 
 ## Logical components
+
+### Product responsibilities
+
+| Component | Responsibility | Current implementation |
+| --- | --- | --- |
+| WOLF15 Sentient | Product identity encompassing interfaces, reasoning, control, specialists, and integrations | Renamed API and deterministic foundation |
+| Sentient Core / Neural Orchestrator | Interpret intent, propose plans and specialist needs, synthesize responses | Target; no live reasoning component |
+| Control Kernel | Own workflow state, transitions, policy, authority checks, gates, and termination | PR-2 deterministic in-memory kernel |
+| Elite AI Agent Team OS | Organize task specialists and their bounded outputs | Three deterministic architect, engineer, reviewer stubs |
+| Intelligence Division | Research, analysis, and source verification | Target; roster and contracts pending |
+| Knowledge & Memory | Store and retrieve sourced context and lifecycle-bound decisions | Target; no persistence or retrieval implementation |
+| Capability Fabric | Describe capabilities and mediate access through authorized tools and adapters | Target; no execution adapters |
+| WOLF15 Trading System | Own trading strategy, risk controls, and execution | External; no integration in this foundation |
+
+The Core proposes work; the Control Kernel enforces admissibility throughout
+the product, including relevant checks for simple response paths. Memory does
+not own workflow state. Policy configuration requires enforcement at the
+execution boundary before an adapter can act.
+
+Six divisions and 28 specialists are an organizational target, not running
+agents or services. The complete roster, including five proposed Intelligence
+Division roles and their input/output boundaries, requires a separate design.
+This migration introduces no new role implementations.
 
 ### API and intake
 

@@ -1,4 +1,4 @@
-# ELITE AI AGENT TEAM OS
+# WOLF15 Sentient
 
 > An independent, human-governed control plane for auditable AI-assisted software-engineering workflows.
 
@@ -8,7 +8,31 @@
 
 ## Status at a glance
 
+The original identity snapshot passed **27 source tests and 27 installed-package
+tests**. Its [verification record](docs/verification/sentient-identity-20260928.md)
+and source/wheel hashes remain bound to commit `624d5ab`. After integration
+with PR #2, the source suite passed **49 local tests**; the new head needs its
+own remote CI. The [integration record](docs/verification/sentient-identity-integration-20260928.md)
+binds 49 source and installed-package tests to the updated source and wheel.
+
 This repository is being built as small, verifiable vertical slices. The original multi-agent vision remains the target, but it is not presented as working software.
+
+WOLF15 Sentient is the product identity. **Elite AI Agent Team OS** names its
+planned organization of divisions and specialists. **WOLF15 Trading System**
+remains an external system with its own strategy, risk, and execution authority.
+
+The original identity migration started at PR-2 commit
+`df43c93e12b2ff68ce4fe1c2d3778a6052886413`. Its Python distribution and health
+service name are `wolf15-sentient`; its import namespace is `wolf15_sentient`.
+Existing consumers must update imports, launch commands, and health identity
+checks. The former namespace is not provided as an alias. The version remains
+`0.1.0` for this unpublished migration.
+
+The GitHub repository rename is pending. The integrated migration is not yet on
+`main`; remote CI must be checked against its new head. PR-3 adapter work remains
+in its separate development checkout. See
+[ADR-005: Product Identity and Namespace](docs/adr/ADR-005-product-identity.md)
+and the [migration guide](docs/migrations/sentient-identity.md).
 
 ## CURRENT IMPLEMENTATION
 
@@ -47,8 +71,9 @@ and Python compilation on 2026-09-28. Its original head passed 25 local tests,
 graph compile/render, and workflow smoke checks. Codex Security diff scan
 `5a286602-d315-49c9-bd7a-1fefe5ab7db5` covered that original scope and
 found no reportable issue. The original CI jobs were `NOT_EXECUTED` during the
-GitHub billing lock. Fresh remote CI must be read from this PR's current HEAD;
-historical evidence does not qualify the integrated source.
+GitHub billing lock. The integrated PR-2 head `aa596cb` passed push and
+pull-request CI on Python 3.11–3.13 with 47 tests per job. This does not
+qualify the later identity-migration head.
 
 See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 
@@ -69,7 +94,7 @@ The role classes are deterministic stubs, not AI agents. A repository string rem
 ```bash
 python -m pip install -e ".[dev]"
 python -m pytest
-python -m uvicorn elite_team.main:app --reload
+python -m uvicorn wolf15_sentient.main:app --reload
 ```
 
 Check service identity:
@@ -97,7 +122,7 @@ Owner
 Owner Console / API
   |
   v
-Independent Elite Control Plane
+WOLF15 Sentient Control Plane
   +-- typed intake and authority policy
   +-- project-mode router
   +-- deterministic orchestrator
@@ -198,6 +223,9 @@ Specialists are introduced only when the workflow and evidence justify them:
 The planned organization may grow beyond these roles. Role count is not a maturity metric; verified end-to-end behavior is.
 
 ## Documentation
+
+- [ADR-005: Product Identity and Namespace](docs/adr/ADR-005-product-identity.md)
+- [Identity migration guide](docs/migrations/sentient-identity.md)
 
 - [Current State](docs/architecture/current-state.md)
 - [Target Architecture](docs/architecture/target-architecture.md)

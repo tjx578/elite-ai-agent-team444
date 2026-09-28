@@ -2,16 +2,16 @@
 
 from fastapi import FastAPI
 
-from elite_team import __version__
-from elite_team.contracts import HealthResponse, TaskRequest, WorkflowResult
-from elite_team.orchestration.workflow import run_workflow
+from wolf15_sentient import __version__
+from wolf15_sentient.contracts import HealthResponse, TaskRequest, WorkflowResult
+from wolf15_sentient.orchestration.workflow import run_workflow
 
 
 def create_app() -> FastAPI:
     """Create an isolated FastAPI application instance."""
 
     application = FastAPI(
-        title="Elite AI Agent Team",
+        title="WOLF15 Sentient",
         version=__version__,
         description="PR-2 deterministic, typed, bounded orchestration kernel.",
     )
@@ -20,7 +20,7 @@ def create_app() -> FastAPI:
     def health() -> HealthResponse:
         return HealthResponse(
             status="ok",
-            service="elite-ai-agent-team",
+            service="wolf15-sentient",
             version=__version__,
         )
 

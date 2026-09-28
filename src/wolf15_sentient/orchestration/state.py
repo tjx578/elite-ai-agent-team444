@@ -3,9 +3,14 @@
 from datetime import UTC, datetime
 from uuid import UUID, uuid4
 
-from elite_team.contracts.execution import ExecutionTrace, TraceNode, TraceStatus
-from elite_team.contracts.task import TaskRequest, TaskResponse, TaskState, TaskStatus
-from elite_team.orchestration.mode_router import select_project_mode
+from wolf15_sentient.contracts.execution import ExecutionTrace, TraceNode, TraceStatus
+from wolf15_sentient.contracts.task import (
+    TaskRequest,
+    TaskResponse,
+    TaskState,
+    TaskStatus,
+)
+from wolf15_sentient.orchestration.mode_router import select_project_mode
 
 
 def _trace_step(

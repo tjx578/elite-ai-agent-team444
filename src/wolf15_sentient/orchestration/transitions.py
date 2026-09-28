@@ -3,7 +3,7 @@
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from elite_team.contracts import ProjectMode, TraceNode
+from wolf15_sentient.contracts import ProjectMode, TraceNode
 
 
 class WorkflowInvariantError(RuntimeError):

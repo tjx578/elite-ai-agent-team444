@@ -1,6 +1,6 @@
 """Typed contracts shared across the deterministic runtime."""
 
-from elite_team.contracts.execution import (
+from wolf15_sentient.contracts.execution import (
     ErrorCode,
     ExecutionErrorCode,
     ExecutionEvent,
@@ -8,7 +8,7 @@ from elite_team.contracts.execution import (
     TraceNode,
     TraceStatus,
 )
-from elite_team.contracts.models import (
+from wolf15_sentient.contracts.models import (
     AgentRunStatus,
     ArchitectureReport,
     Authority,

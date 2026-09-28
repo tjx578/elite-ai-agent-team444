@@ -11,8 +11,8 @@ from uuid import UUID, uuid4
 from langgraph.graph import END, START, StateGraph
 from pydantic import BaseModel
 
-from elite_team.agents import ArchitectStub, EngineerStub, ReviewerStub
-from elite_team.contracts import (
+from wolf15_sentient.agents import ArchitectStub, EngineerStub, ReviewerStub
+from wolf15_sentient.contracts import (
     ArchitectureReport,
     Authority,
     ErrorCode,
@@ -34,8 +34,8 @@ from elite_team.contracts import (
     ValidationStatus,
     WorkflowResult,
 )
-from elite_team.orchestration.mode_router import select_project_mode
-from elite_team.orchestration.transitions import (
+from wolf15_sentient.orchestration.mode_router import select_project_mode
+from wolf15_sentient.orchestration.transitions import (
     assert_transition,
     validate_project_mode,
     validate_required_state,

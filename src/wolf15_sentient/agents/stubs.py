@@ -2,7 +2,7 @@
 
 from collections.abc import Sequence
 
-from elite_team.contracts.models import (
+from wolf15_sentient.contracts.models import (
     AgentRunStatus,
     ArchitectureReport,
     GateName,

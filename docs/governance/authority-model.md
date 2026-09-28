@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines what the Elite AI Agent Team OS may do. It is normative: role prompts, project modes, workflow results, and tool availability cannot override it.
+This document defines what WOLF15 Sentient may do, including its Core, Control Kernel, and Elite AI Agent Team OS specialists. It is normative: role prompts, project modes, workflow results, and tool availability cannot override it.
 
 ## Current implementation note
 

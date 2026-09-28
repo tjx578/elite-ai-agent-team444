@@ -10,8 +10,8 @@ from typing import Any
 
 import pytest
 
-from elite_team.agents import ArchitectStub, EngineerStub, ReviewerStub
-from elite_team.contracts import (
+from wolf15_sentient.agents import ArchitectStub, EngineerStub, ReviewerStub
+from wolf15_sentient.contracts import (
     ErrorCode,
     FinalDecision,
     GateStatus,
@@ -20,14 +20,14 @@ from elite_team.contracts import (
     TaskStatus,
     TraceNode,
 )
-from elite_team.orchestration.transitions import (
+from wolf15_sentient.orchestration.transitions import (
     IllegalTransitionError,
     MissingStateError,
     assert_transition,
     validate_project_mode,
     validate_required_state,
 )
-from elite_team.orchestration.workflow import WorkflowDependencies, run_workflow
+from wolf15_sentient.orchestration.workflow import WorkflowDependencies, run_workflow
 
 FOUNDATION_NODES = (
     "INTAKE",

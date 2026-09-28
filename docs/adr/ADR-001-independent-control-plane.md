@@ -4,6 +4,10 @@
 - **Date:** 2026-08-24
 - **Implementation status:** Target contract; introduced incrementally
 
+Product naming is updated by [ADR-005](ADR-005-product-identity.md). The original
+context below is retained; the independent control-plane boundary continues to
+apply to WOLF15 Sentient as a whole.
+
 ## Context
 
 Elite AI Agent Team OS is intended to work across existing repositories, greenfield systems, and system-evolution projects. Embedding its orchestration, credentials, or policy inside a target repository would couple the controller lifecycle to the system being inspected and make authority boundaries difficult to audit.
