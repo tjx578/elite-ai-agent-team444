@@ -21,17 +21,22 @@ process, not a qualification receipt or active registry.
    measured in the intended environment.
 4. **Exact-byte evaluation:** private evidence is evaluated with a separately
    qualified `$evaluate-agent-skill` and immutable `common-skill/v1` profile.
-   The receipt must bind the subject, evaluator, profile, collector, evidence,
-   environment, and evaluated scope identities below. The evaluator consumes
-   evidence; it does not run tests or scanners on behalf of the collector. A
-   valid `PASS_LOCAL` applies only to those bound bytes, environment, and scope.
+   The authenticated receipt must bind the subject, evaluator, profile,
+   collector, evidence, environment, evaluated scope, and qualification policy
+   identities below. The evaluator consumes evidence; it does not run tests or
+   scanners on behalf of the collector. A valid `PASS_LOCAL` applies only to
+   those bound bytes, environment, scope, and policy.
 5. **Scoped admission:** an owner or authorized policy decision records the
    allowed task, environment, authority, dependencies, expiry, and revocation
    path. It must cite a qualification receipt whose evaluated scope and
    authority match the requested admission scope, and it must confirm a
-   compatible rights outcome for that exact use. A broader or different task,
-   operation, authority, or side effect needs corresponding new evaluation and
-   rights evidence. The package author does not approve their own package.
+   compatible rights outcome for that exact use. It must also verify the
+   receipt's issuer, verdict, bindings, and policy revision against an
+   independently controlled attestation or trusted append-only record. A
+   broader or different task, operation, authority, or side effect needs
+   corresponding new evaluation and rights evidence. A policy revision needs
+   evaluation under the new policy. The package author does not approve their
+   own package.
 6. **Installation or activation:** only the separately authorized target is
    changed. Workbench use does not install a Sentient runtime capability.
 
@@ -42,23 +47,30 @@ process, not a qualification receipt or active registry.
 | Subject | Candidate package revision and `subject_tree_digest` of the full package |
 | Evaluator | Evaluator package revision and `evaluator_tree_digest` of its full package |
 | Profile | `common-skill/v1` plus digest of the immutable profile artifact actually used |
+| Qualification policy | Immutable policy revision and digest of the full policy artifact applied to this run |
 | Collector | Exact collector `id@version`, immutable implementation revision, and full-package tree digest; for a non-Git distribution, use an equivalent immutable artifact identity and digest, never a fabricated Git SHA |
 | Evidence | Shared `run_id`, digest of the collected evidence bundle, and environment identity including relevant host/runtime/dependency versions |
 | Evaluated scope | Versioned, immutable scope artifact and its digest, naming task class, permitted operations and side effects, authority level, and relevant data/egress boundary |
+| Receipt authenticity | Trusted issuer identity and either a verifiable attestation over the verdict and every binding above or a receipt ID in an independently controlled append-only store containing that same issuer, verdict, and bindings |
 
 All bindings must refer to the same evaluation run. A matching subject and
-evidence bundle is insufficient if the evaluator or profile changes. A missing
-or mismatched collector implementation or scope binding also blocks
-`PASS_LOCAL`; record `NOT_EXECUTED` or `NOT_MEASURED` as appropriate until the
-missing component is verified. The collector's digest identifies its bytes;
-independent review and behavior tests are still needed to establish that it
-produces valid evidence. This table defines required fields, not an assertion
-that receipts or digests have already been collected for any SK-01 candidate.
+evidence bundle is insufficient if the evaluator, profile, or policy changes.
+A missing or mismatched collector implementation, scope, policy, or verifiable
+receipt origin also blocks `PASS_LOCAL`; record `NOT_EXECUTED` or
+`NOT_MEASURED` as appropriate until the missing component is verified. The
+collector's digest identifies its bytes; independent review and behavior tests
+are still needed to establish that it produces valid evidence. A candidate
+author's self-reported verdict or receipt is not authenticated evidence. This
+table defines required fields, not an assertion that receipts or digests have
+already been collected for any SK-01 candidate.
 
 A qualification receipt does not grant authority. `PASS_LOCAL` for one scope
 cannot be reused as a pass for another scope or a more privileged operation.
 Admission must compare the requested scope artifact and digest with the
-evaluated scope in the receipt and separately authorize any allowed effects.
+evaluated scope in the receipt, verify the attestation or trusted record, and
+match the policy revision and digest in force for admission before separately
+authorizing any allowed effects. A policy change requires a new evaluation
+receipt before new admission under that policy.
 
 ## Rights gate for the requested use
 
@@ -83,13 +95,16 @@ own first qualification. Establish a limited external trust root first:
 
 1. An independent reviewer inventories and pins the evaluator's complete
    package revision/tree digest, the exact profile artifact and digest, its
-   dependencies, the collector's immutable implementation identity and full
-   package digest, the intended offline environment and scope, and compatible
-   rights for that scope.
+   dependencies, the qualification policy revision and digest, the collector's
+   immutable implementation identity and full package digest, the intended
+   offline environment and scope, compatible rights for that scope, and the
+   independently controlled receipt issuer and attestation or append-only
+   record mechanism.
 2. A separate test harness exercises fixed positive, negative, malformed,
    stale, forged-binding, and failure fixtures with independently specified
-   expected verdicts. It records actual outputs and side effects; the
-   evaluator does not manufacture its own evidence or expected results.
+   expected verdicts. It records actual outputs and side effects and binds the
+   resulting verdict and all receipt identities through the trusted mechanism;
+   the evaluator does not manufacture its own evidence or expected results.
 3. An owner or authorized policy decision reviews those receipts and grants
    narrowly scoped offline evaluator use at the pinned identities. This is a
    bootstrap admission for evaluation only, not product activation or
@@ -99,9 +114,10 @@ own first qualification. Establish a limited external trust root first:
    profile version returns to independent bootstrap review; it cannot approve
    itself or silently inherit the old verdict.
 
-If the external review, fixtures, profile, collector, or scoped authorization
-cannot be verified, the bootstrap remains `NOT_EXECUTED` or `NOT_MEASURED` and
-no candidate receives `PASS_LOCAL` through this path.
+If the external review, fixtures, profile, collector, policy identity, receipt
+authenticity, or scoped authorization cannot be verified, the bootstrap remains
+`NOT_EXECUTED` or `NOT_MEASURED` and no candidate receives `PASS_LOCAL` through
+this path.
 
 | Gate | Required evidence before promotion |
 | --- | --- |
@@ -112,9 +128,9 @@ no candidate receives `PASS_LOCAL` through this path.
 | G4 — behavior | Positive, negative, timeout, cancellation, and failure outcomes |
 | G5 — function | Contract fit and ownership boundaries against the target task |
 | G6 — contribution | Fixed-task comparison for quality, latency, cost, and resource use |
-| G7 — evaluator | Fresh result with subject, evaluator, immutable profile, collector implementation, evidence, environment, and evaluated-scope bindings above |
-| G8 — admission | Independently validated owner/policy decision, exact scope and authority match to receipt, compatible rights, and pinned target |
-| G9 — maintenance | Re-evaluation after relevant bytes, dependency, host, policy, or permission change |
+| G7 — evaluator | Fresh, authenticated result with subject, evaluator, immutable profile, qualification policy, collector implementation, evidence, environment, and evaluated-scope bindings above |
+| G8 — admission | Independently validated owner/policy decision, verified receipt issuer and verdict, current policy identity, exact scope and authority match to receipt, compatible rights, and pinned target |
+| G9 — maintenance | Re-evaluation and a new authenticated receipt after relevant bytes, dependency, host, policy, or permission change |
 
 Record each local gate as `PASS_LOCAL`, `FAIL`, `NOT_EXECUTED`, or
 `NOT_MEASURED` with its receipt. Missing, truncated, stale, or mismatched
