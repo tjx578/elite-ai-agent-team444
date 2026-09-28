@@ -229,8 +229,13 @@ Admission must compare the requested scope artifact and digest with the
 evaluated scope in the receipt, verify the attestation or trusted record, and
 match the policy revision and digest in force for admission before separately
 authorizing any allowed effects. It must compare the bound host/runtime,
-installed subject/evaluator/collector and dependency artifacts and
-data/egress boundary with the target environment. It must separately compare
+installed subject and dependencies that execute during the admitted use, and
+data/egress boundary with the target environment. The evaluator, collector,
+harness, baseline, and their evaluation-only dependency closure remain bound
+to the qualification receipt and approved evaluation record; they need not be
+installed on the target. Any of those components that actually executes during
+admitted use is also a target runtime dependency and must be checked there.
+It must separately compare
 the receipt's pinned qualification corpus with the approved evaluation
 record, not with the new real-task input. A mismatch needs a new
 evaluation in a contained replica of that target; an offline-only receipt
@@ -246,11 +251,22 @@ policy and requires a new evaluation receipt and admission under the current
 policy before further use. Repeat the admission checks for scope, authority,
 rights, receipt and decision expiry, environment, and revocation at each use;
 for external rights, resolve the bound grant's current validity and revocation
-state through its independently controlled authority before each use. An
+state through its independently controlled authority before each use. Accept
+only an authenticated response bound to the grant identity and version, the
+admission decision, and a fresh verifier-generated challenge. Apply the strict
+schema/parsing, trusted-clock, expiry, and independently stored highest-generation
+checks defined above for admission revocation to this grant-status response too;
+an unavailable schema, parser test, or trusted freshness check blocks use. The response
+must bind its issuance time and validity generation to that challenge and be
+within an owner-approved maximum age measured by a trusted clock. Reject
+replayed challenges, a regressing generation, and responses that are stale or
+cannot be authenticated. If the authority cannot provide this freshness
+evidence, that external grant cannot authorize the use; a cached response or
+the admission's remaining lifetime is insufficient. An
 expired, revoked, changed, missing, or unverifiable grant blocks execution.
 Missing or mismatched evidence blocks execution.
-Before every admitted use, verify that installed subject, evaluator, collector,
-and dependency artifacts, security metadata, and relevant environment still
+Before every admitted use, verify that the installed subject and dependencies
+actually executed by that use, security metadata, and relevant environment still
 match the bound identities. An immutable, content-addressed installation must
 prove its seal remains valid; otherwise recompute and compare those identities
 immediately before use. If neither check is available or a value differs,
@@ -321,8 +337,8 @@ no candidate receives `PASS_LOCAL` through this path.
 | G5 — function | Contract fit and ownership boundaries against the target task |
 | G6 — contribution | Fixed-task comparison for quality, latency, cost, and resource use against pinned corpus, expected outcomes, baseline implementation, and configuration |
 | G7 — evaluator | Fresh, authenticated receipt-v1 result with canonical signed payload and digests for subject, evaluator, immutable profile, qualification policy, collector implementation, built/installed artifacts and their security metadata, dependencies including baseline closure, qualification corpus, baseline, evidence, environment, evaluated scope, and time/expiry bindings above |
-| G8 — admission | Canonical, strictly parsed, authenticated immutable decision binding every authority-bearing field and the receipt; verified receipt issuer and verdict, current policy identity, exact scope, authority, environment, installed-artifact and security-metadata, dependency, and pinned qualification-corpus match to receipt, compatible rights, fresh authenticated non-revoked state, and admission expiry no later than receipt expiry |
-| G9 — maintenance | Repeat G8 checks against the current policy and requested use, and recheck bound installed-artifact, security-metadata, dependency, and environment identity plus fresh authenticated revocation state before each use; stop on mismatch or revocation; re-evaluate after relevant source, built/installed artifact or security metadata, dependency, qualification corpus, harness, baseline, host, policy, or permission change, or receipt expiry; an in-scope new real-task input alone does not trigger re-evaluation |
+| G8 — admission | Canonical, strictly parsed, authenticated immutable decision binding every authority-bearing field and the receipt; verified receipt issuer and verdict, current policy identity, exact scope, authority, target environment and executed subject/dependency artifacts with security metadata; evaluation-only artifacts and qualification corpus match the approved evaluation record rather than requiring target installation; compatible rights with fresh authenticated grant status, fresh authenticated non-revoked admission state, and admission expiry no later than receipt expiry |
+| G9 — maintenance | Repeat G8 checks against the current policy and requested use, and recheck bound artifacts actually executed during admitted use, security metadata, and target environment identity plus fresh authenticated admission and external-grant revocation state before each use; stop on mismatch or revocation; re-evaluate after relevant source, built/installed artifact or security metadata, dependency, qualification corpus, harness, baseline, host, policy, or permission change, or receipt expiry; an in-scope new real-task input alone does not trigger re-evaluation |
 
 Record each local gate as `PASS_LOCAL`, `FAIL`, `NOT_EXECUTED`, or
 `NOT_MEASURED` with its receipt. Missing, truncated, stale, or mismatched
