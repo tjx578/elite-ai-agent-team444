@@ -1,844 +1,204 @@
 # ELITE AI AGENT TEAM OS
 
-> Neural-linked AI engineering team for designing, auditing, building, optimizing, and deploying production-ready software systems.
+> An independent, human-governed control plane for auditable AI-assisted software-engineering workflows.
 
-![Status](https://img.shields.io/badge/status-in%20development-blue)
+![Status](https://img.shields.io/badge/status-PR--1%20executable%20foundation-blue)
 ![Python](https://img.shields.io/badge/python-3.11%2B-green)
-![FastAPI](https://img.shields.io/badge/backend-FastAPI-teal)
-![LangGraph](https://img.shields.io/badge/orchestration-LangGraph-purple)
-![OpenAI](https://img.shields.io/badge/AI-OpenAI-black)
 ![License](https://img.shields.io/badge/license-private-lightgrey)
 
----
+## Status at a glance
 
-## Overview
+This repository is being built as small, verifiable vertical slices. The original multi-agent vision remains the target, but it is not presented as working software.
 
-**Elite AI Agent Team OS** is an advanced AI engineering command center designed to work like a coordinated senior software engineering team.
+## CURRENT IMPLEMENTATION
 
-It can:
+The repository now contains the deliberately small **PR-1 executable foundation**:
 
-- Audit and improve existing repositories.
-- Build new systems from scratch based only on owner prompts.
-- Redesign existing systems into more advanced architectures.
-- Generate production-ready architecture, backend, frontend, tests, CI/CD, deployment plans, monitoring, and final production decisions.
+- an installable Python 3.11+ package using FastAPI and Pydantic;
+- `GET /health` and `POST /tasks`;
+- strict task, state, response, authority, and execution-trace contracts;
+- conservative routing across the three project modes;
+- creation of correlated task, run, and trace identifiers;
+- a deterministic three-step foundation trace: `INTAKE`, `MODE_ROUTER`, `STATE_CREATION`;
+- explicit `READ_ONLY` authority as the only accepted authority value;
+- architecture ADRs and the least-privilege authority model;
+- a read-only GitHub Actions test workflow definition (remote execution not verified here);
+- local API/contract tests, including authority and routing-reason checks.
 
-This system is not a simple coding assistant.  
-It is a structured multi-agent engineering workflow with role separation, approval gates, memory, orchestration, and production discipline.
+`POST /tasks` requires the caller to request `READ_ONLY`, classifies the request, creates in-memory state, and returns the selected mode and routing reason in the state and response. The `MODE_ROUTER` trace also records both values. It does not access the supplied repository. Its terminal status is `FOUNDATION_COMPLETE`, and `final_decision` remains `null` because no agent workflow or readiness gate runs.
 
----
+See [Current State](docs/architecture/current-state.md) for the exact evidence boundary.
 
-## Core Concept
+### Boundary: not yet implemented or verified
 
-The system operates as a **neural-linked AI engineering unit**.
+- Architect, reviewer, engineer, or other agent execution;
+- architecture/review gates, revision loops, or a complete workflow;
+- LangGraph orchestration;
+- OpenAI or other model-backed roles;
+- repository, shell, Git, GitHub, or deployment execution;
+- persistence, approval/resume, or an Owner Console;
+- a verified remote CI run;
+- a production deployment.
 
-```text
-Owner / User
-   ↓
-Neural Orchestrator
-   ↓
-Project Mode Router
-   ↓
-Architect Division
-   ↓
-Reviewer Division
-   ↓
-Engineering Division
-   ↓
-Reviewer Division
-   ↓
-Optimizer Division
-   ↓
-Maintenance Division
-   ↓
-Final Production Decision
-````
+Technology names in the target architecture are planned choices, not proof that their integrations exist.
 
----
-
-## Operating Modes
-
-Elite AI Agent Team supports three major project modes.
-
-### 1. EXISTING_REPO_MODE
-
-Used when the owner provides an existing repository, codebase, logs, or files.
-
-Best for:
-
-* Codebase audit
-* Root cause analysis
-* Debugging
-* Refactoring
-* Security review
-* Performance improvement
-* Deployment readiness
-
-Output includes:
-
-* Existing architecture map
-* Data flow
-* Critical problems
-* Root cause analysis
-* Patch/refactor plan
-* Test plan
-* Deployment risk
-* Final decision
-
----
-
-### 2. GREENFIELD_SYSTEM_MODE
-
-Used when the owner provides only an idea, prompt, product concept, or requirement.
-
-Best for:
-
-* Building a new system from scratch
-* Generating MVP architecture
-* Creating backend/frontend structure
-* Designing database schema
-* Producing API contracts
-* Creating production-ready implementation plans
-
-Output includes:
-
-* Product Requirement Document
-* MVP scope
-* System architecture
-* Backend architecture
-* Frontend architecture
-* Database schema
-* API contract
-* Folder structure
-* Production code plan
-* Deployment plan
-* Monitoring plan
-* Final decision
-
----
-
-### 3. HYBRID_EVOLUTION_MODE
-
-Used when the owner provides an existing repo but wants a more advanced next-generation system.
-
-Best for:
-
-* Upgrading legacy systems
-* Redesigning architecture
-* Creating advanced replacements
-* Adding AI/ML modules
-* Planning migration
-* Preserving compatibility
-
-Output includes:
-
-* Current system assessment
-* Existing capability map
-* Weakness and limitation report
-* Advanced target architecture
-* Migration strategy
-* New module design
-* Backward compatibility plan
-* Implementation roadmap
-* Risk and rollback plan
-* Final decision
-
----
-
-## Agent Team Structure
-
-```text
-ELITE AI AGENT TEAM
-│
-├── 0. Neural Orchestrator / AI Tech Lead Core
-│
-├── 1. Architect Division
-│   ├── Startup MVP Systems Architect
-│   ├── Clean Architecture Refactor Architect
-│   ├── Backend Systems Architect
-│   └── Technical Decision Architect
-│
-├── 2. Engineering Division
-│   ├── Full-Stack Product Engineer
-│   ├── Backend Implementation Engineer
-│   ├── Frontend UI Systems Engineer
-│   └── Integration & Test Engineer
-│
-├── 3. Reviewer Division
-│   ├── Codebase Audit Reviewer
-│   ├── Debugging & Root Cause Reviewer
-│   ├── Security Audit Reviewer
-│   ├── Maintainability Reviewer
-│   └── Behavior Preservation Reviewer
-│
-├── 4. Optimizer Division
-│   ├── Performance Optimization Engineer
-│   ├── Scalability Optimization Engineer
-│   ├── Frontend Rendering Optimizer
-│   ├── Backend Query & Cache Optimizer
-│   └── Resource Efficiency Optimizer
-│
-└── 5. Maintenance Division
-    ├── DevOps Deployment Engineer
-    ├── Reliability / SRE Engineer
-    ├── Monitoring & Logging Engineer
-    ├── Incident Response Engineer
-    └── Production Security Ops Engineer
-```
-
----
-
-## Core Divisions
-
-### Neural Orchestrator
-
-The central workflow controller.
-
-Responsibilities:
-
-* Read owner request
-* Detect project mode
-* Activate required agents
-* Route tasks
-* Enforce gates
-* Prevent role overlap
-* Compose final report
-* Decide readiness status
-
----
-
-### Architect Division
-
-Responsible for system-level design.
-
-Responsibilities:
-
-* System architecture
-* Backend architecture
-* Frontend architecture
-* Database schema
-* API contract
-* Data flow
-* Folder structure
-* Caching strategy
-* Scaling strategy
-* Technical tradeoff
-* Implementation blueprint
-
----
-
-### Engineering Division
-
-Responsible for implementation.
-
-Responsibilities:
-
-* Backend services
-* Frontend UI
-* API endpoints
-* Database integration
-* Validation
-* Error handling
-* Tests
-* Environment configuration
-* Production-ready code
-
----
-
-### Reviewer Division
-
-Responsible for technical validation.
-
-Responsibilities:
-
-* Architecture audit
-* Code audit
-* Security audit
-* Root cause analysis
-* Edge case analysis
-* Regression risk
-* Maintainability review
-* Approval or rejection
-
----
-
-### Optimizer Division
-
-Responsible for performance and scalability.
-
-Responsibilities:
-
-* Performance bottleneck detection
-* Memory optimization
-* Query optimization
-* Caching optimization
-* Payload reduction
-* Frontend rendering optimization
-* Scalability roadmap
-
----
-
-### Maintenance Division
-
-Responsible for production readiness.
-
-Responsibilities:
-
-* Deployment architecture
-* CI/CD
-* Docker/Kubernetes
-* Monitoring
-* Logging
-* Alerting
-* Backup
-* Rollback
-* Incident response
-* Production checklist
-
----
-
-## Decision Gates
-
-Every important workflow must pass through strict gates.
-
-```text
-1. Architecture Gate
-2. Implementation Gate
-3. Security Gate
-4. Performance Gate
-5. Production Gate
-```
-
-### Architecture Gate
-
-Pass criteria:
-
-* Architecture is clear
-* Data flow is defined
-* API contract exists
-* Database schema is logical
-* Scaling risk is known
-* No unnecessary overengineering
-
-### Implementation Gate
-
-Pass criteria:
-
-* Code runs
-* Tests exist or limitations are documented
-* Error handling exists
-* Input validation exists
-* No critical duplicate logic
-* Folder structure is maintainable
-
-### Security Gate
-
-Pass criteria:
-
-* Authentication is safe
-* API exposure is controlled
-* Secrets are not hardcoded
-* Sensitive data is protected
-* Injection risk is reduced
-* Permissions are clear
-
-### Performance Gate
-
-Pass criteria:
-
-* Queries are efficient
-* Payload is reasonable
-* Caching strategy is defined
-* Rendering is optimized
-* Memory leaks are not obvious
-* Scaling path is clear
-
-### Production Gate
-
-Pass criteria:
-
-* CI/CD is ready
-* Docker setup is ready
-* Environment variables are documented
-* Monitoring is available
-* Logging is available
-* Rollback plan exists
-* Deployment checklist is complete
-
----
-
-## Final Decision Format
-
-Every task must end with one of:
-
-```text
-READY FOR PRODUCTION
-READY WITH CONDITIONS
-NOT READY
-```
-
----
-
-## Recommended Tech Stack
-
-| Layer          | Technology                       |
-| -------------- | -------------------------------- |
-| Orchestration  | LangGraph                        |
-| Agent Runtime  | OpenAI Agents SDK                |
-| Code Executor  | Codex CLI / Codex SDK            |
-| API Backend    | FastAPI                          |
-| Dashboard      | Next.js                          |
-| Memory / State | Supabase Postgres                |
-| Vector Memory  | pgvector                         |
-| Source Control | GitHub                           |
-| Sandbox        | Docker                           |
-| CI/CD          | GitHub Actions                   |
-| Deployment     | Railway / VPS                    |
-| Monitoring     | Sentry / OpenTelemetry / Grafana |
-
----
-
-## Repository Structure
-
-```text
-elite-ai-agent-team/
-│
-├── apps/
-│   ├── api/
-│   │   ├── app/
-│   │   │   ├── main.py
-│   │   │   ├── config.py
-│   │   │   ├── routes/
-│   │   │   ├── services/
-│   │   │   ├── schemas/
-│   │   │   └── db/
-│   │   ├── tests/
-│   │   ├── requirements.txt
-│   │   └── Dockerfile
-│   │
-│   └── dashboard/
-│       ├── app/
-│       ├── components/
-│       ├── lib/
-│       ├── package.json
-│       └── Dockerfile
-│
-├── agents/
-│   ├── base.py
-│   ├── architect.py
-│   ├── engineering.py
-│   ├── reviewer.py
-│   ├── optimizer.py
-│   ├── maintenance.py
-│   └── orchestrator.py
-│
-├── orchestration/
-│   ├── graph.py
-│   ├── state.py
-│   ├── gates.py
-│   ├── routing.py
-│   ├── mode_router.py
-│   └── checkpoints.py
-│
-├── tools/
-│   ├── codex_tool.py
-│   ├── github_tool.py
-│   ├── repo_reader.py
-│   ├── terminal_runner.py
-│   ├── test_runner.py
-│   ├── security_scanner.py
-│   ├── docker_runner.py
-│   └── deployment_tool.py
-│
-├── memory/
-│   ├── db.py
-│   ├── models.py
-│   ├── vector_store.py
-│   ├── decision_log.py
-│   └── audit_history.py
-│
-├── prompts/
-│   ├── 00_neural_orchestrator.md
-│   ├── 01_architect.md
-│   ├── 02_engineering.md
-│   ├── 03_reviewer.md
-│   ├── 04_optimizer.md
-│   ├── 05_maintenance.md
-│   └── subagents/
-│
-├── skills/
-│   ├── architect/SKILL.md
-│   ├── engineering/SKILL.md
-│   ├── reviewer/SKILL.md
-│   ├── optimizer/SKILL.md
-│   └── maintenance/SKILL.md
-│
-├── tasks/
-│   └── examples/
-│
-├── reports/
-│
-├── docs/
-│
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-│
-├── docker-compose.yml
-├── .env.example
-├── AGENTS.md
-└── README.md
-```
-
----
-
-## Quick Start
-
-### 1. Clone Repository
+## Run the current foundation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/elite-ai-agent-team.git
-cd elite-ai-agent-team
+python -m pip install -e ".[dev]"
+python -m pytest
+python -m uvicorn elite_team.main:app --reload
 ```
 
-### 2. Create Python Virtual Environment
+Check service identity:
 
 ```bash
-cd apps/api
-python -m venv .venv
+curl http://127.0.0.1:8000/health
 ```
 
-Activate environment.
-
-macOS / Linux:
+Submit a read-only task:
 
 ```bash
-source .venv/bin/activate
+curl -X POST http://127.0.0.1:8000/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"intent":"Audit this repository","repository":"https://example.invalid/owner/project","authority":"READ_ONLY"}'
 ```
 
-Windows PowerShell:
+The repository value is classification input only in PR-1; the service does not fetch or inspect it. Interactive API documentation is available at `http://127.0.0.1:8000/docs` while the local service is running.
 
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-If `requirements.txt` does not exist yet:
-
-```bash
-pip install fastapi uvicorn pydantic pydantic-settings langgraph openai python-dotenv
-pip freeze > requirements.txt
-```
-
-### 4. Run API
-
-```bash
-uvicorn app.main:app --reload
-```
-
-Open:
+## TARGET ARCHITECTURE
 
 ```text
-http://127.0.0.1:8000/health
+Owner
+  |
+  v
+Owner Console / API
+  |
+  v
+Independent Elite Control Plane
+  +-- typed intake and authority policy
+  +-- project-mode router
+  +-- deterministic orchestrator
+  +-- bounded gates and revision loops
+  +-- trace and decision ledger
+  |
+  +------ typed contracts -------+
+  |                               |
+  v                               v
+Reasoning roles             Execution adapters
+Architect                   Repository / Files
+Reviewer                    Tests / Shell
+Engineer                    Git / GitHub
+Security / Performance      Deployment (separate approval)
+  |                               |
+  +------------- evidence --------+
+                 |
+                 v
+          Human decision boundary
 ```
 
-Expected response:
+The orchestrator controls state and transitions deterministically. Model-backed roles produce schema-constrained proposals; they do not control the workflow or grant themselves tools. Target repositories remain external systems reached through constrained adapters.
 
-```json
-{
-  "status": "ok",
-  "service": "elite-ai-agent-team",
-  "version": "0.1.0"
-}
-```
+Read the complete [Target Architecture](docs/architecture/target-architecture.md) and [Execution Flow](docs/architecture/execution-flow.md).
 
----
+## Project modes
 
-## Environment Variables
+The top-level router returns exactly one mode:
 
-Create `.env` from `.env.example`.
+| Mode | Use when | Source of truth |
+| --- | --- | --- |
+| `GREENFIELD_SYSTEM_MODE` | Designing a new system without an existing repository | Validated owner requirements |
+| `EXISTING_REPO_MODE` | Auditing, repairing, or incrementally improving an existing repository | Repository evidence plus owner objective |
+| `HYBRID_EVOLUTION_MODE` | Evolving an existing repository into a materially new architecture or successor | Current repository, explicit evolution intent, and migration constraints |
 
-```env
-OPENAI_API_KEY=
-DATABASE_URL=
-SUPABASE_URL=
-SUPABASE_SERVICE_ROLE_KEY=
-GITHUB_TOKEN=
-CODEX_MODE=local
-ENVIRONMENT=development
-```
+Mode controls planning, not authority. Supplying a repository does not imply write access; selecting hybrid mode does not permit changes.
 
----
-
-## API Endpoints
-
-### Health Check
-
-```http
-GET /health
-```
-
-### Run Agent Task
-
-```http
-POST /api/tasks/run
-```
-
-Example request:
-
-```json
-{
-  "user_request": "Build an AI CRM system from scratch for small businesses",
-  "repo_path": null
-}
-```
-
-Example response includes:
-
-```json
-{
-  "project_mode": "GREENFIELD_SYSTEM_MODE",
-  "architect_report": {},
-  "reviewer_report": {},
-  "engineering_report": {},
-  "optimizer_report": {},
-  "maintenance_report": {},
-  "final_decision": "READY_WITH_CONDITIONS"
-}
-```
-
----
-
-## Project Mode Examples
-
-### Greenfield System
-
-```json
-{
-  "user_request": "Build a new AI-powered time rally navigator system from scratch"
-}
-```
-
-Expected mode:
+## Deterministic workflow target
 
 ```text
-GREENFIELD_SYSTEM_MODE
+INTAKE
+  -> AUTHORITY_CHECK
+  -> MODE_ROUTER
+  -> ARCHITECT
+  -> ARCHITECTURE_REVIEW
+  -> ENGINEER
+  -> VALIDATION
+  -> REVIEWER
+  -> DELIVERY_GATE
+  -> FINAL
 ```
 
-### Existing Repository Audit
+Gate outcomes are `APPROVED`, `REVISION_REQUIRED`, or `BLOCKED_REQUIRES_OWNER`. Review loops are finite; the initial target is at most two revisions. Invalid contracts, missing evidence, or insufficient authority fail closed.
 
-```json
-{
-  "user_request": "Audit this repo and find why final_signal is not generated",
-  "repo_path": "C:/projects/signalthrottle"
-}
-```
+## Authority and production safety
 
-Expected mode:
+The default is non-mutating. Intended authority progresses only through explicit, scoped grants:
 
 ```text
-EXISTING_REPO_MODE
+analysis only
+  -> read-only
+  -> proposed patch
+  -> isolated worktree
+  -> feature branch and tests
+  -> draft pull request
+  -> human approval
+  -> separately controlled production action
 ```
 
-### Hybrid Evolution
+There is no direct push to a protected/default branch, autonomous merge, or production mutation. Credentials, project mode, model output, and a readiness label are not authority. See the normative [Authority Model](docs/governance/authority-model.md).
 
-```json
-{
-  "user_request": "Read this repo and design a more advanced version with ML waypoint resolver",
-  "repo_path": "C:/projects/time-rally-navigator"
-}
-```
+## Delivery roadmap
 
-Expected mode:
+| Increment | Scope | Evidence required before claiming completion |
+| --- | --- | --- |
+| **PR-0** | Truth alignment, architecture contracts, ADRs, authority model | Documentation matches repository state |
+| **PR-1** | Python/API/contracts/router/state/trace foundation | Focused tests pass; endpoints and schemas are runnable |
+| **PR-2** | Deterministic graph, bounded revision loop, stub roles | Workflow integration tests pass without model variability |
+| **PR-3** | Schema-constrained model adapters | Contract, failure, and evaluation evidence |
+| **PR-4** | Read-only and isolated repository adapters | Policy tests and sandbox evidence; no default-branch authority |
+| **PR-5** | Feature branch and draft PR delivery | Git/GitHub integration evidence and human merge boundary |
+| **PR-6** | Persistence, approval, and resume | Idempotency and replay-resistant approval tests |
+| **PR-7** | Owner Console | UI consumes stable contracts without bypassing policy |
+| **PR-8+** | Additional roles, memory, optimization | Capability-specific security, quality, and performance evidence |
 
-```text
-HYBRID_EVOLUTION_MODE
-```
+PR-1 establishes the local slice of **M0 — Executable Foundation**: a validated task enters, its mode is classified, deterministic state and trace are produced, and local automated tests pass. Full M0 promotion still requires a verified remote CI run. M0 is not the same as a complete agent OS.
 
----
+## Target specialist organization
 
-## Development Roadmap
+Specialists are introduced only when the workflow and evidence justify them:
 
-### Week 1 — Foundation
+- **Architect:** system boundaries, data/API contracts, migration, and trade-offs;
+- **Engineer:** implementation plans and isolated changes;
+- **Reviewer:** architecture/code correctness, regression, and gate decisions;
+- **Security:** threat analysis and security evidence;
+- **Performance:** bottlenecks, benchmarks, and scale evidence;
+- **Operations:** deployment design, observability, rollback, and incident readiness.
 
-* Repository skeleton
-* FastAPI skeleton
-* Prompt skeleton
-* Agent dummy skeleton
-* LangGraph workflow skeleton
-* `/api/tasks/run` dummy workflow
-* Project Mode Router
+The planned organization may grow beyond these roles. Role count is not a maturity metric; verified end-to-end behavior is.
 
-Success criteria:
+## Documentation
 
-* `/health` works
-* `/api/tasks/run` works
-* Five core agents return dummy reports
-* `project_mode` is detected correctly
-* Final decision is returned
+- [Current State](docs/architecture/current-state.md)
+- [Target Architecture](docs/architecture/target-architecture.md)
+- [Execution Flow](docs/architecture/execution-flow.md)
+- [ADR-001: Independent Control Plane](docs/adr/ADR-001-independent-control-plane.md)
+- [ADR-002: Deterministic Orchestrator](docs/adr/ADR-002-deterministic-orchestrator.md)
+- [ADR-003: Three Project Modes](docs/adr/ADR-003-three-project-modes.md)
+- [ADR-004: Human-Controlled Production](docs/adr/ADR-004-human-controlled-production.md)
+- [Authority Model](docs/governance/authority-model.md)
 
----
+## Truth and verification policy
 
-### Week 2 — Agent Runtime and Memory
+Claims in this repository follow separate evidence classes:
 
-* OpenAI Agents SDK integration
-* Supabase task memory
-* Report storage
-* Decision logs
-* Human approval endpoint
+- source and configuration show what is present;
+- local tests show what passed in the current checkout;
+- remote CI shows what ran on the remote service;
+- authenticated runtime evidence shows what is actually running;
+- authenticated production evidence shows production state.
 
-Success criteria:
-
-* Agent output is AI-generated
-* Task history is stored
-* Gate decisions are stored
-* Owner can approve or reject gates
-
----
-
-### Week 3 — Codex Executor and Git Workflow
-
-* Codex CLI / SDK integration
-* Repo reader
-* Git branch workflow
-* Patch generation
-* Test runner
-* Reviewer approval
-
-Success criteria:
-
-* Engineering Agent can work on a branch
-* Codex can inspect and modify files
-* Tests can run
-* No direct changes to main branch
-
----
-
-### Week 4 — Dashboard, Docker, CI/CD
-
-* Next.js dashboard
-* Docker setup
-* GitHub Actions
-* Monitoring/logging basics
-* Railway or VPS deployment
-
-Success criteria:
-
-* Dashboard can submit task
-* Dashboard can show reports
-* GitHub Actions runs on PR
-* API can deploy
-* Logs are visible
-
----
-
-### Week 5 — Real Repo Integration
-
-* Connect SignalThrottle / Wolf15 / Time Rally Navigator
-* Run real audit
-* Generate patch proposal
-* Validate with Reviewer
-* Prepare production workflow
-
-Success criteria:
-
-* Existing repo audit works
-* Hybrid evolution plan works
-* Patch proposal is generated
-* Final report is actionable
-
----
-
-## Safety and Control Rules
-
-This system must not directly modify production without approval.
-
-Recommended safety ladder:
-
-```text
-Read-only repo
-↓
-Patch suggestion
-↓
-Branch creation
-↓
-Pull request only
-↓
-Manual approval
-↓
-Semi-autonomous deployment
-```
-
-Strict rules:
-
-* No direct push to main.
-* No production deployment without owner approval.
-* No destructive command without confirmation.
-* Every critical code change must be reviewed.
-* Every production action must have rollback plan.
-
----
-
-## Example Final Report Format
-
-```md
-# ELITE AI AGENT TEAM REPORT
-
-## 1. Requirement Understanding
-
-## 2. Project Mode
-
-## 3. Architect Report
-
-## 4. Reviewer Report
-
-## 5. Engineering Report
-
-## 6. Optimizer Report
-
-## 7. Maintenance Report
-
-## 8. Production Checklist
-
-## 9. Final Decision
-```
-
-Final decision must be:
-
-```text
-READY FOR PRODUCTION
-READY WITH CONDITIONS
-NOT READY
-```
-
----
-
-## Intended Use Cases
-
-* AI software engineering command center
-* Startup MVP builder
-* Codebase auditor
-* Production debugging assistant
-* Refactoring assistant
-* Security review assistant
-* Performance optimization assistant
-* DevOps deployment planner
-* AI-powered system architect
-* Existing repo evolution planner
-
----
+One class must not be substituted for another. Missing or inaccessible external evidence is `UNKNOWN` or `NOT_MEASURED`, not a pass, zero, or readiness claim.
 
 ## License
 
 Private project unless otherwise specified.
-
----
-
-## Owner
-
-Built for advanced AI-assisted engineering workflows by the project owner.
-
