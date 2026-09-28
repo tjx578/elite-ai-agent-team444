@@ -54,6 +54,11 @@ requires a PR and ten named checks, blocks force-push and deletion, dismisses
 stale approvals, and requires review conversations to be resolved. The ruleset
 has no bypass actors. `CODEOWNERS`, `SECURITY.md`, `uv.lock`, weekly Dependabot
 configuration, and private vulnerability reporting are present or enabled.
+The CodeQL workflow in this tree pins both action steps to verified
+`v4.38.2` commit `2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2`; the cited
+`e14a969` run used the then-current mutable `v4` tag. Dependency locking
+covers Python packages in `uv.lock`, while the installed-package check proves
+an install and smoke test, not byte-for-byte reproducible wheel artifacts.
 The owner deferred selection of an open-source license; the public repository
 has no license grant. These are source- and GitHub-bound receipts for this
 checkpoint, not a claim about later commits. Production deployment and Railway
