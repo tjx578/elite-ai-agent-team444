@@ -2,19 +2,23 @@
 
 ## Baseline and rule
 
-The canonical repository is `tjx578/wolf15-sentient`. PR #1–#4 and the
-repository-identity documentation PR are merged. At inspected `main`
-`e24db7bc057ec4f2bcd9bf0599254effae49f18a`, CI passed 56 tests on
-Python 3.11–3.13. The working runtime is a deterministic `READ_ONLY` kernel
-with three stubs and contract-only evidence/learning types. This roadmap
-does not turn a target into a current capability. Each milestone must update
-[`current-state.md`](current-state.md) with exact-source and test evidence.
+The canonical repository is `tjx578/wolf15-sentient`. PR #1–#6 are merged.
+The inspected M1-B `main` baseline is
+`7ffac9a8254688649ecf8bca57e2ae7757bd9f32`; its CI installed the
+package, passed 56 tests, and checked installed identity/entrypoint on Python
+3.11–3.13. This is a historical commit-bound receipt, not proof for later
+M1-C changes. The working runtime is a deterministic `READ_ONLY` kernel with
+three stubs and contract-only evidence/learning types. No deployment,
+Railway change, capability activation, or REE activation follows from M1-B.
+This roadmap does not turn a target into a current capability. Each milestone
+must update [`current-state.md`](current-state.md) with exact-source and test
+evidence.
 
 | Step | Delivery | Acceptance gate | Excluded at that step |
 | --- | --- | --- | --- |
 | P0 — complete | PR #1–#4 consolidated; canonical repository name | Merge ancestry and CI on resulting main | Deployment |
-| M1-B — this PR | Freeze responsibility, trust, data, and authority boundaries in architecture docs | Source-grounded consistency review, link check, CI | Runtime wiring |
-| M1-C | Ownership and production trust foundation | Protected-branch policy plus separate lint, type, build/install, dependency, secret, and security gates | Production launch |
+| M1-B — complete | Freeze responsibility, trust, data, and authority boundaries in architecture docs | Merged PR #6 and CI on resulting `main` `7ffac9a` | Runtime wiring |
+| M1-C — in progress | Ownership and production trust foundation | Active protected-branch policy plus separate lint, type, build/install, dependency, secret, and security gates on exact M1-C head and resulting `main` | Production launch |
 | M2 | Evidence/context read path | SourceRef resolution, freshness/conflict policy, grounded claims, read-only replay | Automatic learning |
 | M3 | Schema-constrained reasoning adapters | Typed proposal contract, model-output validation, deterministic fallback and limits | Tool authority for models |
 | M4 | Read-only repository intelligence | Exact-revision repository snapshot, provenance, grounded report | Repository mutation |

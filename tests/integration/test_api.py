@@ -100,7 +100,9 @@ def test_openapi_exposes_product_identity_and_read_only_authority() -> None:
 
 def test_health_contract_rejects_previous_service_identity() -> None:
     with pytest.raises(ValidationError):
-        HealthResponse(status="ok", service="elite-ai-agent-team", version="0.1.0")
+        HealthResponse.model_validate(
+            {"status": "ok", "service": "elite-ai-agent-team", "version": "0.1.0"}
+        )
 
 
 @pytest.mark.parametrize(

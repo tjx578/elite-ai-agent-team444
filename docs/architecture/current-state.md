@@ -8,11 +8,15 @@ This document records what is demonstrably present in the repository. It is not 
 
 The canonical repository is
 [`tjx578/wolf15-sentient`](https://github.com/tjx578/wolf15-sentient).
-PR #1–#4 are merged with consolidation baseline `64ae79f`. CI on that commit
-passed 56 tests and installed identity checks on Python 3.11–3.13. The
-original migration snapshot passed 27 source and 27 installed-package tests;
-its [verification record](../verification/sentient-identity-20260928.md)
-remains bound to that earlier source.
+PR #1–#6 are merged. The M1-B architecture-freeze baseline is `main` commit
+`7ffac9a8254688649ecf8bca57e2ae7757bd9f32`, not a moving claim about
+later commits. Its [CI run](https://github.com/tjx578/wolf15-sentient/actions/runs/36374583942)
+installed the project, passed 56 tests, and passed the installed product
+identity/entrypoint check on Python 3.11, 3.12, and 3.13. Earlier checkpoints
+remain separate: PR #1–#4 consolidated at `64ae79f`, and the original migration
+snapshot passed 27 source and 27 installed-package tests. Its
+[verification record](../verification/sentient-identity-20260928.md) remains
+bound to that earlier source.
 
 The migration began over PR-2 commit `df43c93e12b2ff68ce4fe1c2d3778a6052886413`.
 The distribution and `/health` service name are
@@ -23,10 +27,25 @@ The distribution and `/health` service name are
 [migration guide](../migrations/sentient-identity.md).
 
 The PR-1 and PR-2 records below describe historical baselines, including the
-former namespace and historical verification. The separate PR-3 model-adapter
-work is not part of this baseline. No new model reasoning, repository execution,
-persistent memory, or trading integration is introduced. The proposed six divisions and
-28 specialists remain a target; three deterministic stub roles are implemented.
+former namespace and historical verification. The separate model-adapter and
+offline REE work is not part of M1-B `main`. M1-B documents target architecture;
+it does not add model reasoning, repository execution, persistent memory,
+trading integration, or authority. The proposed six divisions and 28
+specialists remain a target; three deterministic stub roles are implemented.
+
+## M1-C production trust foundation: in progress
+
+At the M1-B `main` checkpoint, GitHub reported `protected: false` for `main`
+and no effective branch rules. The tracked tree did not contain `CODEOWNERS`,
+`SECURITY.md`, a dependency lockfile, or separate lint, type-check, build,
+dependency-audit, and secret-scan CI jobs. CI at that checkpoint ran package
+installation, pytest, and the installed identity/entrypoint check only.
+
+M1-C work must be evaluated against its own exact commit and GitHub settings.
+Proposed files in an unmerged checkout, local tests, and a green M1-B CI run do
+not establish active branch protection or passing M1-C checks. Production
+deployment and Railway changes are **NOT_EXECUTED**; no capability or REE is
+activated.
 
 ## PR-0 baseline
 
@@ -198,7 +217,7 @@ other external-system authority.
 
 The normative target authority model is defined in [Authority Model](../governance/authority-model.md) and [ADR-004](../adr/ADR-004-human-controlled-production.md).
 
-## Next intelligence milestone
+## Next trust and intelligence milestones
 
 PR-1 established:
 
@@ -210,4 +229,9 @@ validated task request
         -> automated verification
 ```
 
-PR-2 adds the deterministic graph, bounded revision behavior, and stub roles while keeping model and repository-execution variability out of the loop. After PR-2 verification closes, the next milestone may introduce schema-constrained model adapters. The current system must not be described as a complete autonomous engineering OS.
+PR-2 added the deterministic graph, bounded revision behavior, and stub roles
+while keeping model and repository-execution variability out of the loop. M1-C
+must establish repository trust gates before any production claim. M2 evidence
+and context, M3 model reasoning, and M4 read-only repository intelligence are
+later increments with separate acceptance evidence. The current system must
+not be described as a complete autonomous engineering OS.

@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from pydantic import ValidationError
 
 from wolf15_sentient.agents import ArchitectStub, EngineerStub, ReviewerStub
 from wolf15_sentient.contracts import (
@@ -16,9 +17,9 @@ from wolf15_sentient.contracts import (
     FinalDecision,
     GateStatus,
     TaskRequest,
-    TaskResponse,
     TaskStatus,
     TraceNode,
+    WorkflowResult,
 )
 from wolf15_sentient.orchestration.transitions import (
     IllegalTransitionError,
@@ -66,12 +67,12 @@ def _dependencies(
     )
 
 
-def _nodes(result: TaskResponse) -> tuple[str, ...]:
+def _nodes(result: WorkflowResult) -> tuple[str, ...]:
     return tuple(event.node.value for event in result.trace)
 
 
 def _assert_blocked(
-    result: TaskResponse,
+    result: WorkflowResult,
     *,
     error_code: ErrorCode,
     failed_node: TraceNode,
@@ -83,6 +84,15 @@ def _assert_blocked(
     matching = [event for event in result.trace if event.node is failed_node]
     assert matching
     assert matching[-1].error_code is error_code
+
+
+def test_terminal_workflow_result_rejects_null_final_decision() -> None:
+    payload = run_workflow(_request()).model_dump()
+    payload["final_decision"] = None
+    payload["current_state"]["final_decision"] = None
+
+    with pytest.raises(ValidationError, match="final_decision"):
+        WorkflowResult.model_validate(payload)
 
 
 def test_architecture_revision_once_then_completes() -> None:
@@ -258,7 +268,7 @@ def test_independent_runs_have_deterministic_trace_semantics() -> None:
     first = run_workflow(request)
     second = run_workflow(request)
 
-    def semantics(result: TaskResponse) -> list[tuple[object, ...]]:
+    def semantics(result: WorkflowResult) -> list[tuple[object, ...]]:
         return [
             (
                 event.node,

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from operator import add
-from typing import Annotated, Any, TypedDict
+from typing import Annotated, Any, TypedDict, TypeVar
 from uuid import UUID, uuid4
 
 from langgraph.graph import END, START, StateGraph
@@ -36,6 +36,7 @@ from wolf15_sentient.contracts import (
 )
 from wolf15_sentient.orchestration.mode_router import select_project_mode
 from wolf15_sentient.orchestration.transitions import (
+    WorkflowInvariantError,
     assert_transition,
     validate_project_mode,
     validate_required_state,
@@ -44,6 +45,8 @@ from wolf15_sentient.orchestration.transitions import (
 MAX_ARCHITECT_REVISIONS = 2
 MAX_ENGINEER_REVISIONS = 2
 WORKFLOW_RECURSION_LIMIT = 32
+ModelT = TypeVar("ModelT", bound=BaseModel)
+StateT = TypeVar("StateT")
 
 
 class WorkflowGraphState(TypedDict, total=False):
@@ -66,6 +69,16 @@ class WorkflowGraphState(TypedDict, total=False):
     final_decision: FinalDecision
     failure_code: ErrorCode
     failure_reason: str
+
+
+def _required(state: WorkflowGraphState, key: str, expected: type[StateT]) -> StateT:
+    """Read a graph field only after checking its presence and runtime type."""
+
+    value = state.get(key)
+    validate_required_state(state, (key,))
+    if not isinstance(value, expected):
+        raise WorkflowInvariantError(f"invalid workflow state type: {key}")
+    return value
 
 
 @dataclass(frozen=True, slots=True)
@@ -106,9 +119,9 @@ def _event(
     validate_required_state(state, ("task_id", "run_id", "trace_id"))
     return ExecutionEvent(
         sequence=len(state.get("trace", [])) + 1,
-        task_id=state["task_id"],
-        run_id=state["run_id"],
-        trace_id=state["trace_id"],
+        task_id=_required(state, "task_id", UUID),
+        run_id=_required(state, "run_id", UUID),
+        trace_id=_required(state, "trace_id", UUID),
         node=node,
         started_at=started_at,
         finished_at=datetime.now(UTC),
@@ -122,10 +135,10 @@ def _event(
     )
 
 
-def _typed_output(value: object, contract: type[BaseModel]) -> BaseModel:
+def _typed_output(value: object, contract: type[ModelT]) -> ModelT:
     """Validate every role output, including already-instantiated models."""
 
-    if isinstance(value, contract):
+    if isinstance(value, BaseModel) and isinstance(value, contract):
         return contract.model_validate(value.model_dump())
     return contract.model_validate(value)
 
@@ -178,7 +191,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
     def intake(state: WorkflowGraphState) -> WorkflowGraphState:
         started = datetime.now(UTC)
         _guard(state, TraceNode.INTAKE, ("request", "task_id", "run_id", "trace_id"))
-        request = TaskRequest.model_validate(state["request"].model_dump())
+        request = TaskRequest.model_validate(_required(state, "request", TaskRequest).model_dump())
         return {
             "request": request,
             "authority": request.authority,
@@ -198,7 +211,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
     def mode_router(state: WorkflowGraphState) -> WorkflowGraphState:
         started = datetime.now(UTC)
         _guard(state, TraceNode.MODE_ROUTER, ("request", "authority"))
-        request = state["request"]
+        request = _required(state, "request", TaskRequest)
         selection = select_project_mode(request.intent, request.repository)
         return {
             "project_mode": selection.mode,
@@ -223,7 +236,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
             TraceNode.STATE_CREATION,
             ("request", "authority", "project_mode"),
         )
-        mode = validate_project_mode(state["project_mode"])
+        mode = validate_project_mode(_required(state, "project_mode", ProjectMode))
         return {
             "architecture_revision_count": 0,
             "engineer_revision_count": 0,
@@ -249,9 +262,9 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
                 TraceNode.ARCHITECT,
                 ("request", "authority", "project_mode"),
             )
-            mode = validate_project_mode(state["project_mode"])
+            mode = validate_project_mode(_required(state, "project_mode", ProjectMode))
             raw = deps.architect.run(
-                intent=state["request"].intent,
+                intent=_required(state, "request", TaskRequest).intent,
                 project_mode=mode,
                 revision_count=revision,
             )
@@ -283,7 +296,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
 
     def architecture_review(state: WorkflowGraphState) -> WorkflowGraphState:
         started = datetime.now(UTC)
-        revision = state["architecture_revision_count"]
+        revision = _required(state, "architecture_revision_count", int)
         try:
             _guard(
                 state,
@@ -291,7 +304,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
                 ("architecture_report", "architecture_revision_count"),
             )
             raw = deps.reviewer.review_architecture(
-                report=state["architecture_report"],
+                report=_required(state, "architecture_report", ArchitectureReport),
                 revision_count=revision,
             )
             review = _typed_output(raw, ReviewDecision)
@@ -383,9 +396,9 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
                 TraceNode.ENGINEER,
                 ("architecture_report", "architecture_gate", "project_mode"),
             )
-            mode = validate_project_mode(state["project_mode"])
+            mode = validate_project_mode(_required(state, "project_mode", ProjectMode))
             raw = deps.engineer.run(
-                architecture=state["architecture_report"],
+                architecture=_required(state, "architecture_report", ArchitectureReport),
                 project_mode=mode,
                 revision_count=revision,
             )
@@ -417,14 +430,16 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
 
     def validation(state: WorkflowGraphState) -> WorkflowGraphState:
         started = datetime.now(UTC)
-        revision = state["engineer_revision_count"]
+        revision = _required(state, "engineer_revision_count", int)
         try:
             _guard(
                 state,
                 TraceNode.VALIDATION,
                 ("implementation_plan", "engineer_revision_count"),
             )
-            ImplementationPlan.model_validate(state["implementation_plan"].model_dump())
+            ImplementationPlan.model_validate(
+                _required(state, "implementation_plan", ImplementationPlan).model_dump()
+            )
         except (AttributeError, RuntimeError, TypeError, ValueError):
             return _blocked_update(
                 state,
@@ -460,7 +475,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
 
     def reviewer(state: WorkflowGraphState) -> WorkflowGraphState:
         started = datetime.now(UTC)
-        revision = state["engineer_revision_count"]
+        revision = _required(state, "engineer_revision_count", int)
         try:
             _guard(
                 state,
@@ -468,8 +483,8 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
                 ("implementation_plan", "validation_report"),
             )
             raw = deps.reviewer.review_implementation(
-                plan=state["implementation_plan"],
-                validation=state["validation_report"],
+                plan=_required(state, "implementation_plan", ImplementationPlan),
+                validation=_required(state, "validation_report", ValidationReport),
                 revision_count=revision,
             )
             review = _typed_output(raw, ReviewDecision)
@@ -564,7 +579,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
             TraceNode.FINALIZE,
             ("terminal_status", "final_decision"),
         )
-        decision = state["final_decision"]
+        decision = _required(state, "final_decision", FinalDecision)
         status = (
             TraceStatus.PASS
             if decision is FinalDecision.READY_WITH_CONDITIONS
@@ -596,7 +611,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
     def route_after_architecture_review(state: WorkflowGraphState) -> str:
         if state.get("failure_code") is not None:
             return "finalize"
-        gate = state["architecture_gate"].status
+        gate = _required(state, "architecture_gate", GateDecision).status
         if gate is GateStatus.REVISION_REQUIRED:
             return "architect"
         if gate is GateStatus.APPROVED:
@@ -612,7 +627,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
     def route_after_reviewer(state: WorkflowGraphState) -> str:
         if state.get("failure_code") is not None:
             return "finalize"
-        gate = state["implementation_gate"].status
+        gate = _required(state, "implementation_gate", GateDecision).status
         return "engineer" if gate is GateStatus.REVISION_REQUIRED else "finalize"
 
     builder = StateGraph(WorkflowGraphState)
@@ -703,30 +718,41 @@ def run_workflow(
             "trace",
         ),
     )
-    project_mode = validate_project_mode(result["project_mode"])
+    project_mode = validate_project_mode(_required(result, "project_mode", ProjectMode))
+    task_id = _required(result, "task_id", UUID)
+    run_id = _required(result, "run_id", UUID)
+    trace_id = _required(result, "trace_id", UUID)
+    authority = _required(result, "authority", Authority)
+    routing_reason = _required(result, "routing_reason", RoutingReason)
+    terminal_status = _required(result, "terminal_status", TaskStatus)
+    final_decision = _required(result, "final_decision", FinalDecision)
+    trace = result.get("trace")
+    if trace is None:
+        validate_required_state(result, ("trace",))
+        raise WorkflowInvariantError("invalid workflow state type: trace")
     current_state = TaskState(
-        task_id=result["task_id"],
-        run_id=result["run_id"],
-        trace_id=result["trace_id"],
+        task_id=task_id,
+        run_id=run_id,
+        trace_id=trace_id,
         intent=validated_request.intent,
         repository=validated_request.repository,
-        authority=result["authority"],
+        authority=authority,
         project_mode=project_mode,
-        routing_reason=result["routing_reason"],
-        status=result["terminal_status"],
-        final_decision=result["final_decision"],
+        routing_reason=routing_reason,
+        status=terminal_status,
+        final_decision=final_decision,
     )
     return WorkflowResult(
-        task_id=result["task_id"],
-        run_id=result["run_id"],
-        trace_id=result["trace_id"],
+        task_id=task_id,
+        run_id=run_id,
+        trace_id=trace_id,
         project_mode=project_mode,
-        routing_reason=result["routing_reason"],
-        authority=result["authority"],
-        status=result["terminal_status"],
-        final_decision=result["final_decision"],
+        routing_reason=routing_reason,
+        authority=authority,
+        status=terminal_status,
+        final_decision=final_decision,
         current_state=current_state,
-        trace=result["trace"],
+        trace=trace,
         architecture_report=result.get("architecture_report"),
         architecture_gate=result.get("architecture_gate"),
         implementation_plan=result.get("implementation_plan"),
