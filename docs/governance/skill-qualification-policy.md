@@ -38,13 +38,14 @@ process, not a qualification receipt or active registry.
 5. **Scoped admission:** an owner or authorized policy decision records the
    allowed task, environment, authority, dependencies, expiry, and revocation
    path. It must cite a qualification receipt whose evaluated scope and
-   authority match the requested admission scope, and it must confirm a
-   compatible rights outcome for that exact use. It must also verify the
-   receipt's issuer, verdict, bindings, and policy revision against an
-   independently controlled attestation or trusted append-only record. A
-   broader or different task, operation, authority, or side effect needs
-   corresponding new evaluation and rights evidence. A policy revision or
-   changed dependency, workload, harness, or baseline artifact needs evaluation
+   authority match the requested admission scope and whose bound environment
+   matches the target host/runtime, installed artifacts, and data/egress
+   boundary. It must confirm a compatible rights outcome for that exact use,
+   verify the receipt's issuer, verdict, bindings, and policy revision against
+   an independently controlled attestation or trusted append-only record, and
+   set admission expiry no later than receipt expiry. A broader or different
+   task, operation, authority, side effect, environment, policy, dependency,
+   workload, harness, baseline, or executable artifact needs new evaluation
    under the new identities. The package author does not approve their own
    package.
 6. **Installation or activation:** only the separately authorized target is
@@ -54,11 +55,11 @@ process, not a qualification receipt or active registry.
 
 | Component | Required identity in the receipt |
 | --- | --- |
-| Subject | Candidate package revision and `subject_tree_digest` of the full package |
-| Evaluator | Evaluator package revision and `evaluator_tree_digest` of its full package |
+| Subject | Candidate package revision and `subject_tree_digest` of the full package; if built or installed before execution, exact built artifact and installed-tree digests plus build recipe, configuration, and toolchain identities |
+| Evaluator | Evaluator package revision and `evaluator_tree_digest` of its full package; if built or installed before execution, exact built artifact and installed-tree digests plus build provenance |
 | Profile | `common-skill/v1` plus digest of the immutable profile artifact actually used |
 | Qualification policy | Immutable policy revision and digest of the full policy artifact applied to this run |
-| Collector | Exact collector `id@version`, immutable implementation revision, and full-package tree digest; for a non-Git distribution, use an equivalent immutable artifact identity and digest, never a fabricated Git SHA |
+| Collector | Exact collector `id@version`, immutable implementation revision, full-package tree digest, and exact built/installed artifact digests with build provenance when applicable; for a non-Git distribution, use an equivalent immutable artifact identity and digest, never a fabricated Git SHA |
 | Dependencies | Digest of the resolved dependency lock or manifest and content digests of every installed direct and transitive dependency artifact used by the subject, evaluator, collector, or harness, including platform-specific artifacts; versions alone are insufficient |
 | Workload and baseline | Immutable revision and digest of the task/benchmark corpus, expected outcomes, test harness, baseline implementation, and baseline configuration used for behavior and contribution checks |
 | Evidence | Shared `run_id`, digest of the collected evidence bundle, and environment identity including relevant host/runtime/platform versions and runtime or host-image artifact digests where applicable |
@@ -74,17 +75,30 @@ digested over its exact bytes. A multi-file package, installed dependency,
 manifest, or evidence bundle uses `tree-v1`: hash the UTF-8 prefix
 `skill-tree-v1` followed by a line-feed byte (`0x0A`), then one entry per source
 entry sorted by the raw UTF-8 bytes of its normalized relative path. Each entry
-is serialized as an
-unsigned 32-bit big-endian path-byte length, path bytes, one-byte type (`1`
+is serialized as an unsigned 32-bit big-endian path-byte length, path bytes,
+one-byte type (`1`
 regular file, `2` symbolic link, `3` directory), unsigned 32-bit big-endian
-source mode, unsigned 64-bit big-endian payload-byte length, and the 32 raw
+canonical mode, unsigned 64-bit big-endian payload-byte length, and the 32 raw
 bytes of SHA-256 over the payload. File payloads are exact file bytes; symbolic
 link payloads are exact link-target bytes without following the link; directory
-payloads are empty. Include empty directories. Normalize paths to Unicode NFC
-with `/` separators; reject absolute paths, `..`, duplicate normalized paths,
-unsupported entry types, and entries whose source mode cannot be established.
-Use source/archive mode, never the checking host's default permissions. Reject
-symbolic links that escape the package root when resolved.
+payloads are empty. Include empty directories. The only canonical mode values
+are `0o100644` for a regular non-executable file, `0o100755` for an executable
+file, `0o040755` for a directory, and `0o120000` for a symbolic link. Convert
+Git `100644`, `100755`, `040000`, and `120000` to those values respectively.
+For archives, require an explicit Unix entry type and permission bits: accept
+only `0644` or `0755` for regular files and `0755` for directories; map a
+symbolic-link entry to `0o120000` and bind its exact target bytes. Reject
+special bits, other modes, missing mode metadata, and unsupported entry types.
+Never substitute the checking host's default permissions.
+
+Paths are nonempty, relative Unicode NFC strings with `/` separators. Reject
+backslashes, drive prefixes, absolute paths, empty, `.` or `..` components,
+repeated or trailing separators, invalid Unicode, and duplicate paths after
+normalization. Also reject paths that alias under the intended target
+filesystem's case-folding or path-equivalence rules; those rules are part of
+the bound environment. Reject symbolic links that escape the package root
+when resolved. The producer and verifier reject the same invalid tree rather
+than letting an extractor choose which entry wins.
 
 The receipt names `tree-v1` for every tree digest and records the immutable
 revision separately from the content digest. A Git commit or Git tree ID alone
@@ -92,6 +106,36 @@ is not a `tree-v1` digest. For a single-file manifest, hash its exact bytes;
 for a multi-file manifest, use `tree-v1`. Producer and verifier independently
 recompute and compare the same typed digest before accepting a binding. An
 unknown algorithm, encoding, or serialization version blocks `PASS_LOCAL`.
+
+### Authenticated receipt representation
+
+`skill-qualification-receipt/v1` is a UTF-8 JSON object with exactly five
+top-level keys: `schema_version`, `schema_digest`, `verdict`, `issuer_id`, and
+`bindings`. `verdict` is exactly one of `PASS_LOCAL`, `FAIL`, `NOT_EXECUTED`, or
+`NOT_MEASURED`. The `bindings` object has exactly one key for each receipt row
+above except Receipt authenticity: `subject`, `evaluator`, `profile`,
+`qualification_policy`, `collector`, `dependencies`, `workload_baseline`,
+`evidence`, `evaluated_scope`, and `time_expiry`. Each value follows a separately
+pinned, immutable nested-field schema whose SHA-256 digest is `schema_digest`;
+the verifier must match that digest to the owner-approved schema for this
+version. Until that schema and its independent parser tests exist, no receipt
+may pass.
+All identity, digest, and timestamp fields are strings; UTC timestamps use the
+single form `YYYY-MM-DDTHH:MM:SSZ`. Arrays of artifact identities are sorted by
+their canonical serialized bytes and contain no duplicates. Reject missing,
+unknown, or duplicate keys at any level, non-NFC strings, non-canonical digest
+or timestamp text, and JSON numbers in receipt identity fields.
+
+Serialize the complete payload with [RFC 8785 JSON Canonicalization Scheme](https://www.rfc-editor.org/rfc/rfc8785.html)
+(JCS), then attest those exact UTF-8 bytes with an independently trusted issuer
+key and approved signature algorithm. The signature envelope is outside the
+payload and identifies the key and algorithm. The verifier strictly parses the
+payload, checks its versioned schema and all bindings, reserializes it with JCS,
+requires byte-for-byte equality, and only then verifies the signature and
+issuer trust. For the append-only alternative, the trusted store must retain
+those same canonical payload bytes under a stable receipt ID and authenticate
+the issuer. A valid signature over non-canonical or ambiguous bytes is not an
+admissible receipt.
 
 All bindings must refer to the same evaluation run. Any artifact, input,
 configuration, or installed dependency that can change the measured behavior,
@@ -112,13 +156,17 @@ cannot be reused as a pass for another scope or a more privileged operation.
 Admission must compare the requested scope artifact and digest with the
 evaluated scope in the receipt, verify the attestation or trusted record, and
 match the policy revision and digest in force for admission before separately
-authorizing any allowed effects. It must compare the bound dependency and
-workload identities with the intended environment and check, using a trusted
-clock, that evaluation and issuance are not in the future and the receipt has
-not expired.
-Missing or invalid timestamps, an unapproved freshness limit, or an expired
-receipt blocks admission. A policy change requires a new evaluation receipt
-before new admission under that policy.
+authorizing any allowed effects. It must compare the bound host/runtime,
+installed subject/evaluator/collector and dependency artifacts, workload, and
+data/egress boundary with the target environment. A mismatch needs a new
+evaluation in a contained replica of that target; an offline-only receipt
+cannot admit connected or more privileged use. Using a trusted clock, admission
+must check that evaluation and issuance are not in the future and the receipt
+has not expired. The admission expiry must be no later than receipt expiry;
+an admitted procedure becomes invalid when its receipt expires and needs a new
+receipt and admission review before further use. Missing or invalid timestamps
+or an unapproved freshness limit block admission. A policy change requires a
+new evaluation receipt before new admission under that policy.
 
 ## Rights gate for the requested use
 
@@ -147,19 +195,25 @@ own first qualification. Establish a limited external trust root first:
    immutable implementation identity and full package digest, the intended
    offline environment and scope, the dependency artifacts, the fixed fixture
    and baseline artifacts, the approved freshness limit, compatible rights for
-   that scope, the `tree-v1` digest procedure, disposable offline sandbox, and
-   independently controlled receipt issuer, trusted clock, and attestation or
-   append-only record mechanism.
-2. A separate test harness exercises fixed positive, negative, malformed,
+   that scope, the `tree-v1` digest procedure and receipt-v1 schema/parser,
+   disposable offline sandbox, and independently controlled receipt issuer,
+   trusted clock, and attestation or append-only record mechanism.
+2. An owner grants a one-time, narrowly bounded permission to execute only the
+   pinned evaluator, collector, and harness inside that sandbox for bootstrap
+   tests. This is not a qualification pass or permission for host or product
+   use.
+3. A separate test harness exercises fixed positive, negative, malformed,
    stale, forged-binding, and failure fixtures with independently specified
-   expected verdicts. It records actual outputs and side effects and binds the
-   resulting verdict and all receipt identities through the trusted mechanism;
-   the evaluator does not manufacture its own evidence or expected results.
-3. An owner or authorized policy decision reviews those receipts and grants
+   expected verdicts. It also rejects non-canonical trees, duplicate receipt
+   keys, altered signed bytes, expired receipts, and environment mismatches.
+   It records actual outputs and side effects and binds the resulting verdict
+   and all receipt identities through the trusted mechanism; the evaluator
+   does not manufacture its own evidence or expected results.
+4. An owner or authorized policy decision reviews those receipts and grants
    narrowly scoped offline evaluator use at the pinned identities. This is a
    bootstrap admission for evaluation only, not product activation or
    permission to install packages, merge, deploy, or mutate external systems.
-4. Only then may the pinned evaluator assess other candidates from separately
+5. Only then may the pinned evaluator assess other candidates from separately
    collected evidence under the receipt bindings above. A new evaluator or
    profile version returns to independent bootstrap review; it cannot approve
    itself or silently inherit the old verdict.
@@ -178,9 +232,9 @@ no candidate receives `PASS_LOCAL` through this path.
 | G4 — behavior | Positive, negative, timeout, cancellation, and failure outcomes on pinned fixture and harness bytes, with sandbox containment and side effects recorded |
 | G5 — function | Contract fit and ownership boundaries against the target task |
 | G6 — contribution | Fixed-task comparison for quality, latency, cost, and resource use against pinned corpus, expected outcomes, baseline implementation, and configuration |
-| G7 — evaluator | Fresh, authenticated result with canonical digests for subject, evaluator, immutable profile, qualification policy, collector implementation, dependency artifacts, workload, baseline, evidence, environment, evaluated scope, and time/expiry bindings above |
-| G8 — admission | Independently validated owner/policy decision, verified receipt issuer and verdict, current policy identity, exact scope and authority match to receipt, matching dependency and workload identities, unexpired receipt, compatible rights, and pinned target |
-| G9 — maintenance | Re-evaluation and a new authenticated receipt after relevant bytes, installed dependency artifact, workload, harness, baseline, host, policy, or permission change |
+| G7 — evaluator | Fresh, authenticated receipt-v1 result with canonical signed payload and digests for subject, evaluator, immutable profile, qualification policy, collector implementation, built/installed artifacts, dependencies, workload, baseline, evidence, environment, evaluated scope, and time/expiry bindings above |
+| G8 — admission | Independently validated owner/policy decision, verified receipt issuer and verdict, current policy identity, exact scope, authority, environment, installed-artifact, dependency, and workload match to receipt, compatible rights, and admission expiry no later than receipt expiry |
+| G9 — maintenance | Re-evaluation and a new authenticated receipt after relevant source, built/installed artifact, dependency, workload, harness, baseline, host, policy, or permission change, or receipt expiry |
 
 Record each local gate as `PASS_LOCAL`, `FAIL`, `NOT_EXECUTED`, or
 `NOT_MEASURED` with its receipt. Missing, truncated, stale, or mismatched
