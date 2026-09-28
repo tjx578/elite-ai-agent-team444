@@ -13,19 +13,30 @@ availability target, or cost budget has been selected here.
 
 ## M1-C trust foundation before a runtime rollout
 
-The repository must establish explicit ownership and policy for protected
-branches, reviews, dependency locks, reproducible builds, secret scanning,
-dependency audit, type checks, package build, installed-package smoke, and
-security regression tests. Each is a separate hard gate with its own receipt;
-one aggregate score cannot compensate for a failed gate. CI on the exact M1-B
-`main` commit installed the project, ran 56 tests, and checked the installed
-identity/entrypoint on Python 3.11–3.13. It did not run the other M1-C gates.
-On 2026-09-28, GitHub reported `protected: false` for that `main` checkpoint
-and zero effective branch rules. M1-C changes are in progress; a local
-configuration file or green M1-B CI run does not prove that new checks ran or
-that branch rules are active. Protect `main` with required checks only after
-their exact job names are established, and verify the resulting rules through
-GitHub before claiming this gate passed.
+M1-C established explicit ownership and policy for protected branches and
+reviews, locked Python dependency resolution, package build, isolated
+installed-package smoke, secret scanning, dependency audit, type checks, and
+CodeQL analysis. CI has separate required checks for the three Python test
+jobs, Ruff, Pyright, build-install, dependency audit, secret scan, and two
+CodeQL languages. Inside `build-install`, lock validation, sdist/wheel creation,
+installation, and smoke are successful steps of one required check. The
+workflow does not compare artifact digests or prove byte-for-byte reproducible
+builds. The earlier M1-B `main` commit ran 56 tests and the installed identity
+check on Python 3.11–3.13, but did not run the new gates.
+PR #7 merged at `main` commit `e14a96919dbd50350c4877393c40a069570d906c`.
+The [M1-C CI run](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162914)
+passed 57 tests per Python version and all separate quality, build/install,
+dependency, and secret gates. [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162867)
+passed Actions and Python analysis. GitHub reported `protected: true`, with
+the [active main ruleset](https://github.com/tjx578/wolf15-sentient/rules/24097366)
+requiring PRs and ten checks while blocking force-push and deletion. These
+receipts establish the observed repository trust gates at that exact
+checkpoint; they do not establish a deployed runtime or production readiness.
+At that checkpoint, CodeQL used the mutable `v4` tag. The current workflow pins
+both CodeQL steps to the verified `v4.38.2` commit
+`2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2`, with weekly GitHub Actions
+dependency updates. A successful run at one commit remains evidence for that
+commit only.
 
 ## M5 read-only service target
 
