@@ -177,19 +177,36 @@ A qualification receipt does not grant authority. `PASS_LOCAL` for one scope
 cannot be reused as a pass for another scope or a more privileged operation.
 Admission requires a separate immutable decision artifact authenticated by an
 owner-approved signature or an independently controlled, append-only trusted
-record. It binds the decision issuer, referenced receipt ID and canonical
-payload digest, exact admitted scope artifact and digest, task class,
+record. It binds a unique admission ID, the decision issuer, referenced receipt
+ID and canonical payload digest, exact admitted scope artifact and digest, task class,
 operations, side effects, authority, target environment and installed
 artifacts, dependency and data/egress boundary, rights outcome, issued time,
 expiry, and revocation reference. The verifier authenticates that artifact
 and checks every authority-bearing field against the requested use; mutable
 prose or a mere citation of a valid receipt cannot authorize admission.
+The `skill-admission-decision/v1` payload is canonical UTF-8 JSON with a pinned,
+owner-approved schema and digest covering every field above. Parse it strictly:
+reject unknown, missing, or duplicate fields at every level and reject non-NFC
+strings before canonicalization. Re-serialize with RFC 8785 JCS, require
+byte-for-byte equality, and verify the signature over those canonical bytes
+and the issuer's authority, or verify an independently controlled append-only
+record of the identical canonical bytes. Until the schema, independent parser
+tests, and authenticated decision mechanism exist, no admission may pass.
 Before admission and every admitted use, resolve the revocation reference
-against an independently controlled, authenticated current-state source.
-Reject a revoked decision and block use when the state is missing, stale,
-unavailable, or cannot be authenticated. A long-running use must recheck at
-its governed operation boundaries and stop on revocation; the decision's
-unexpired timestamp alone is never proof that it remains authorized.
+against an independently controlled, authoritative current-state source using
+a fresh verifier nonce. Its authenticated response must bind the admission ID,
+nonce, non-revoked or revoked status, monotonic generation, observation time,
+and expiry. With a trusted clock, require observation time no later than now,
+now no later than expiry, and expiry no later than observation time plus the
+owner-approved maximum status age. Compare the generation with the highest
+previously accepted generation from an independently controlled trusted store;
+if that comparison is unavailable, block use. Cached or replayed responses
+cannot satisfy a new nonce. Reject a revoked decision and
+block use when the state is missing, stale, unavailable, or cannot be
+authenticated. Until this check is implemented and verified, no admission may
+pass. A long-running use must recheck at its governed operation boundaries and
+stop on revocation; the decision's unexpired timestamp alone is never proof
+that it remains authorized.
 Admission must compare the requested scope artifact and digest with the
 evaluated scope in the receipt, verify the attestation or trusted record, and
 match the policy revision and digest in force for admission before separately
@@ -206,6 +223,12 @@ an admitted procedure becomes invalid when its receipt expires and needs a new
 receipt and admission review before further use. Missing or invalid timestamps
 or an unapproved freshness limit block admission. A policy change requires a
 new evaluation receipt before new admission under that policy.
+Before every admitted use, verify that installed subject, evaluator, collector,
+and dependency artifacts, security metadata, and relevant environment still
+match the bound identities. An immutable, content-addressed installation must
+prove its seal remains valid; otherwise recompute and compare those identities
+immediately before use. If neither check is available or a value differs,
+block execution. Long-running use rechecks at governed operation boundaries.
 
 ## Rights gate for the requested use
 
@@ -272,8 +295,8 @@ no candidate receives `PASS_LOCAL` through this path.
 | G5 — function | Contract fit and ownership boundaries against the target task |
 | G6 — contribution | Fixed-task comparison for quality, latency, cost, and resource use against pinned corpus, expected outcomes, baseline implementation, and configuration |
 | G7 — evaluator | Fresh, authenticated receipt-v1 result with canonical signed payload and digests for subject, evaluator, immutable profile, qualification policy, collector implementation, built/installed artifacts and their security metadata, dependencies including baseline closure, qualification corpus, baseline, evidence, environment, evaluated scope, and time/expiry bindings above |
-| G8 — admission | Authenticated immutable owner/policy decision binding every authority-bearing field and the receipt; verified receipt issuer and verdict, current policy identity, exact scope, authority, environment, installed-artifact and security-metadata, dependency, and pinned qualification-corpus match to receipt, compatible rights, authenticated current non-revoked state, and admission expiry no later than receipt expiry |
-| G9 — maintenance | Recheck authenticated revocation state before each use and stop on revocation; re-evaluation and a new authenticated receipt after relevant source, built/installed artifact or security metadata, dependency, qualification corpus, harness, baseline, host, policy, or permission change, or receipt expiry; an in-scope new real-task input alone does not trigger re-evaluation |
+| G8 — admission | Canonical, strictly parsed, authenticated immutable decision binding every authority-bearing field and the receipt; verified receipt issuer and verdict, current policy identity, exact scope, authority, environment, installed-artifact and security-metadata, dependency, and pinned qualification-corpus match to receipt, compatible rights, fresh authenticated non-revoked state, and admission expiry no later than receipt expiry |
+| G9 — maintenance | Recheck bound installed-artifact, security-metadata, dependency, and environment identity plus fresh authenticated revocation state before each use; stop on mismatch or revocation; re-evaluate after relevant source, built/installed artifact or security metadata, dependency, qualification corpus, harness, baseline, host, policy, or permission change, or receipt expiry; an in-scope new real-task input alone does not trigger re-evaluation |
 
 Record each local gate as `PASS_LOCAL`, `FAIL`, `NOT_EXECUTED`, or
 `NOT_MEASURED` with its receipt. Missing, truncated, stale, or mismatched
