@@ -2,18 +2,19 @@
 
 > An independent, human-governed control plane for auditable AI-assisted software-engineering workflows.
 
-![Status](https://img.shields.io/badge/status-PR--2%20deterministic%20kernel-blue)
+![Status](https://img.shields.io/badge/status-canonical%20main-blue)
 ![Python](https://img.shields.io/badge/python-3.11%2B-green)
 ![License](https://img.shields.io/badge/license-private-lightgrey)
 
 ## Status at a glance
 
-The original identity snapshot passed **27 source tests and 27 installed-package
-tests**. Its [verification record](docs/verification/sentient-identity-20260928.md)
-and source/wheel hashes remain bound to commit `624d5ab`. After integration
-with PR #2, the source suite passed **49 local tests**; the new head needs its
-own remote CI. The [integration record](docs/verification/sentient-identity-integration-20260928.md)
-binds 49 source and installed-package tests to the updated source and wheel.
+The canonical GitHub repository is
+[tjx578/wolf15-sentient](https://github.com/tjx578/wolf15-sentient). PR #1–#4
+are merged; their consolidation baseline is `64ae79f`. The [CI run on that baseline](https://github.com/tjx578/wolf15-sentient/actions/runs/36372815613)
+passed 56 tests and the installed identity check on Python 3.11, 3.12, and
+3.13. The earlier [identity snapshot](docs/verification/sentient-identity-20260928.md)
+and [integration record](docs/verification/sentient-identity-integration-20260928.md)
+retain their own source and wheel bindings.
 
 This repository is being built as small, verifiable vertical slices. The original multi-agent vision remains the target, but it is not presented as working software.
 
@@ -28,9 +29,8 @@ Existing consumers must update imports, launch commands, and health identity
 checks. The former namespace is not provided as an alias. The version remains
 `0.1.0` for this unpublished migration.
 
-The GitHub repository rename is pending. The integrated migration is not yet on
-`main`; remote CI must be checked against its new head. PR-3 adapter work remains
-in its separate development checkout. See
+The GitHub repository rename and PR consolidation are complete. PR-3 model
+adapter work remains in its separate development checkout. See
 [ADR-005: Product Identity and Namespace](docs/adr/ADR-005-product-identity.md)
 and the [migration guide](docs/migrations/sentient-identity.md).
 

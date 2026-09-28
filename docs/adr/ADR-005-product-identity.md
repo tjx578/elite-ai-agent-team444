@@ -1,13 +1,13 @@
 # ADR-005: WOLF15 Sentient Product Identity and Namespace
 
-- **Status:** Accepted for the local migration; remote delivery pending
+- **Status:** Accepted and merged on canonical `main`
 - **Date:** 2026-09-28
 - **Baseline:** PR-2 `df43c93e12b2ff68ce4fe1c2d3778a6052886413`
 - **Related:** [ADR-001](ADR-001-independent-control-plane.md), [ADR-002](ADR-002-deterministic-orchestrator.md)
 
 ## Decision
 
-WOLF15 Sentient identifies the complete product. Its intended repository name,
+WOLF15 Sentient identifies the complete product. Its canonical repository name,
 Python distribution, and health service identifier are `wolf15-sentient`.
 The Python package is `wolf15_sentient`. Elite AI Agent Team OS identifies the
 specialist organization within the product. WOLF15 Trading System remains an
@@ -49,12 +49,13 @@ Any release process must assess versioning before publication.
 
 ## Evidence and sequencing
 
-The identity migration starts at PR-2, which includes PR-1 commit
-`107eae91d681d6bbd5786483ea8c84db1e4b6088` (ancestry verified locally).
-It does not include the uncommitted PR-3 adapter changes in the primary checkout.
-Those changes require their own integration and verification under the new
-namespace later. Neither branch existence nor local tests proves `main` contains
-the foundation, that GitHub has been renamed, or that remote CI ran.
+The identity migration started at PR-2, which included PR-1 commit
+`107eae91d681d6bbd5786483ea8c84db1e4b6088` at the original checkpoint.
+The repository is now `tjx578/wolf15-sentient`; PR #1–#4 are merged on `main`
+at `64ae79f`. Final CI ran on that exact commit and passed 56 tests plus
+installed identity checks on Python 3.11–3.13. The separate uncommitted PR-3
+model-adapter work in the primary checkout still requires its own port and
+verification under the new namespace.
 
 The proposed six divisions and 28 specialists remain an organizational target.
 A complete roster with five additional Intelligence Division roles, input/output

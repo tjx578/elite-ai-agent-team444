@@ -4,13 +4,18 @@
 
 This document records what is demonstrably present in the repository. It is not a description of the eventual WOLF15 Sentient product.
 
-## Identity migration on the PR-2 baseline
+## Canonical baseline
 
-Local migration verification: **27 source tests and 27 installed-package tests passed**.
-See the [verification record](../verification/sentient-identity-20260928.md) for source binding and limits.
+The canonical repository is
+[`tjx578/wolf15-sentient`](https://github.com/tjx578/wolf15-sentient).
+PR #1–#4 are merged with consolidation baseline `64ae79f`. CI on that commit
+passed 56 tests and installed identity checks on Python 3.11–3.13. The
+original migration snapshot passed 27 source and 27 installed-package tests;
+its [verification record](../verification/sentient-identity-20260928.md)
+remains bound to that earlier source.
 
-This worktree migrates PR-2 commit `df43c93e12b2ff68ce4fe1c2d3778a6052886413`
-to the WOLF15 Sentient identity. The distribution and `/health` service name are
+The migration began over PR-2 commit `df43c93e12b2ff68ce4fe1c2d3778a6052886413`.
+The distribution and `/health` service name are
 `wolf15-sentient`; the package and ASGI entrypoint are `wolf15_sentient` and
 `wolf15_sentient.main:app`. Package folders `api`, `contracts`, `agents`, and
 `orchestration` retain their existing responsibilities. See
@@ -18,9 +23,9 @@ to the WOLF15 Sentient identity. The distribution and `/health` service name are
 [migration guide](../migrations/sentient-identity.md).
 
 The PR-1 and PR-2 records below describe historical baselines, including the
-former namespace and historical verification. PR-3 work is separate from this
-PR-2-based migration. No new model reasoning, repository execution, persistent
-memory, or trading integration is introduced. The proposed six divisions and
+former namespace and historical verification. The separate PR-3 model-adapter
+work is not part of this baseline. No new model reasoning, repository execution,
+persistent memory, or trading integration is introduced. The proposed six divisions and
 28 specialists remain a target; three deterministic stub roles are implemented.
 
 ## PR-0 baseline

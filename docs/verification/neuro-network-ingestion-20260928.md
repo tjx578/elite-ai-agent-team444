@@ -18,7 +18,8 @@ NotebookLM itself does not expose source-membership metadata through the Drive c
 
 ## Original repository binding
 
-- Repository: `tjx578/elite-ai-agent-team444`
+- Repository at original checkpoint (legacy name): `tjx578/elite-ai-agent-team444`
+- Canonical repository after rename: `tjx578/wolf15-sentient`
 - Integration base: `624d5ab579290b13805c13a1f1e69b9925b2a6c1`
 - Base branch: `codex/sentient-identity`
 - Change type: stacked draft PR
