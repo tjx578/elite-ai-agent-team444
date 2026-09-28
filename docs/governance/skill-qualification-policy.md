@@ -28,6 +28,13 @@ process, not a qualification receipt or active registry.
    candidate, evaluator, harness, or collector code, enforce scope-approved
    limits on process count, CPU, memory, scratch storage, and wall time, with
    termination on breach. Missing or unenforceable limits block execution.
+   Run the candidate in a subordinate user and process isolation boundary;
+   it cannot signal or modify the harness, collector, or evaluator. Keep their
+   code, fixtures, and evidence storage outside the candidate's writable
+   reach. Transfer candidate observations through a one-way, authenticated
+   evidence channel controlled by the collector, and independently check the
+   resulting bundle before evaluation. If this separation cannot be verified,
+   behavior qualification is `NOT_EXECUTED`.
    This version supports offline qualification only; connected or shadow
    qualification is unsupported and blocked until a separately authorized
    design, containment model, evidence profile, and evaluation path are
@@ -135,11 +142,11 @@ top-level keys: `schema_version`, `schema_digest`, `verdict`, `issuer_id`, and
 `NOT_MEASURED`. The `bindings` object has exactly one key for each receipt row
 above except Receipt authenticity: `subject`, `evaluator`, `profile`,
 `qualification_policy`, `collector`, `dependencies`, `workload_baseline`,
-`evidence`, `evaluated_scope`, and `time_expiry`. Each value follows a separately
-pinned, immutable nested-field schema whose SHA-256 digest is `schema_digest`;
-the verifier must match that digest to the owner-approved schema for this
-version. Until that schema and its independent parser tests exist, no receipt
-may pass.
+`evidence`, `evaluated_scope`, and `time_expiry`. `schema_digest` is the SHA-256
+digest of one immutable, complete receipt schema that includes the definitions
+for all ten nested binding values. The verifier must match that digest to the
+owner-approved complete schema for this version. Until that schema and its
+independent parser tests exist, no receipt may pass.
 All identity, digest, and timestamp fields are strings; UTC timestamps use the
 single form `YYYY-MM-DDTHH:MM:SSZ`. Arrays of artifact identities are sorted by
 their canonical serialized bytes and contain no duplicates. Reject missing,
@@ -180,8 +187,12 @@ owner-approved signature or an independently controlled, append-only trusted
 record. It binds a unique admission ID, the decision issuer, referenced receipt
 ID and canonical payload digest, exact admitted scope artifact and digest, task class,
 operations, side effects, authority, target environment and installed
-artifacts, dependency and data/egress boundary, rights outcome, issued time,
-expiry, and revocation reference. The verifier authenticates that artifact
+artifacts, dependency and data/egress boundary, rights outcome and its bound
+evidence identity, issued time, expiry, and revocation reference. For external
+permission or terms, the bound rights evidence includes immutable grant bytes
+and digest, issuer identity, allowed actions and conditions, validity period,
+and an authoritative revocation reference. The verifier authenticates that
+artifact
 and checks every authority-bearing field against the requested use; mutable
 prose or a mere citation of a valid receipt cannot authorize admission.
 The `skill-admission-decision/v1` payload is canonical UTF-8 JSON with a pinned,
@@ -234,7 +245,10 @@ currently in force. A policy change invalidates admissions bound to the old
 policy and requires a new evaluation receipt and admission under the current
 policy before further use. Repeat the admission checks for scope, authority,
 rights, receipt and decision expiry, environment, and revocation at each use;
-missing or mismatched evidence blocks execution.
+for external rights, resolve the bound grant's current validity and revocation
+state through its independently controlled authority before each use. An
+expired, revoked, changed, missing, or unverifiable grant blocks execution.
+Missing or mismatched evidence blocks execution.
 Before every admitted use, verify that installed subject, evaluator, collector,
 and dependency artifacts, security metadata, and relevant environment still
 match the bound identities. An immutable, content-addressed installation must
@@ -302,7 +316,7 @@ no candidate receives `PASS_LOCAL` through this path.
 | G0 — host inventory | Actual active, inactive, aliased, and shadowed packages and host version |
 | G1 — package identity | Full package bytes, canonical `tree-v1` digest, revision, and source provenance |
 | G2 — structure and rights | Valid entrypoint, required helpers and dependencies, plus a compatible rights result for the requested use |
-| G3 — authority and privacy | No authority from donor text; unadmitted code and collection stay in a disposable offline sandbox without host credentials, host network access, external egress, or repository writes, with enforced process, CPU, memory, scratch-storage, and wall-time limits; secrets and personal data stay within scope |
+| G3 — authority and privacy | No authority from donor text; unadmitted code and collection stay in a disposable offline sandbox without host credentials, host network access, external egress, or repository writes, with enforced process, CPU, memory, scratch-storage, and wall-time limits; the candidate is isolated from harness, collector, evaluator, and evidence storage; secrets and personal data stay within scope |
 | G4 — behavior | Positive, negative, timeout, cancellation, and failure outcomes on pinned fixture and harness bytes, with sandbox containment and side effects recorded; connected qualification remains blocked pending a separate authorized path |
 | G5 — function | Contract fit and ownership boundaries against the target task |
 | G6 — contribution | Fixed-task comparison for quality, latency, cost, and resource use against pinned corpus, expected outcomes, baseline implementation, and configuration |
