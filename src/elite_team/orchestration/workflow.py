@@ -24,6 +24,7 @@ from elite_team.contracts import (
     ImplementationPlan,
     ProjectMode,
     ReviewDecision,
+    RoutingReason,
     TaskRequest,
     TaskState,
     TaskStatus,
@@ -33,7 +34,7 @@ from elite_team.contracts import (
     ValidationStatus,
     WorkflowResult,
 )
-from elite_team.orchestration.mode_router import detect_project_mode
+from elite_team.orchestration.mode_router import select_project_mode
 from elite_team.orchestration.transitions import (
     assert_transition,
     validate_project_mode,
@@ -52,6 +53,7 @@ class WorkflowGraphState(TypedDict, total=False):
     trace_id: UUID
     authority: Authority
     project_mode: ProjectMode
+    routing_reason: RoutingReason
     trace: Annotated[list[ExecutionEvent], add]
     architecture_revision_count: int
     engineer_revision_count: int
@@ -197,9 +199,10 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
         started = datetime.now(UTC)
         _guard(state, TraceNode.MODE_ROUTER, ("request", "authority"))
         request = state["request"]
-        mode = detect_project_mode(request.intent, request.repository)
+        selection = select_project_mode(request.intent, request.repository)
         return {
-            "project_mode": mode,
+            "project_mode": selection.mode,
+            "routing_reason": selection.reason,
             "trace": [
                 _event(
                     state,
@@ -208,7 +211,7 @@ def build_workflow(dependencies: WorkflowDependencies | None = None) -> Any:
                     status=TraceStatus.PASS,
                     input_reference="validated.task_request",
                     output_reference="routing.project_mode",
-                    decision=mode.value,
+                    decision=f"{selection.mode.value}:{selection.reason.value}",
                 )
             ],
         }
@@ -679,7 +682,9 @@ def run_workflow(
         "architecture_revision_count": 0,
         "engineer_revision_count": 0,
     }
-    workflow = DEFAULT_WORKFLOW if dependencies is None else build_workflow(dependencies)
+    workflow = (
+        DEFAULT_WORKFLOW if dependencies is None else build_workflow(dependencies)
+    )
     result: WorkflowGraphState = workflow.invoke(
         initial,
         {"recursion_limit": WORKFLOW_RECURSION_LIMIT},
@@ -692,6 +697,7 @@ def run_workflow(
             "trace_id",
             "authority",
             "project_mode",
+            "routing_reason",
             "terminal_status",
             "final_decision",
             "trace",
@@ -706,6 +712,7 @@ def run_workflow(
         repository=validated_request.repository,
         authority=result["authority"],
         project_mode=project_mode,
+        routing_reason=result["routing_reason"],
         status=result["terminal_status"],
         final_decision=result["final_decision"],
     )
@@ -714,6 +721,7 @@ def run_workflow(
         run_id=result["run_id"],
         trace_id=result["trace_id"],
         project_mode=project_mode,
+        routing_reason=result["routing_reason"],
         authority=result["authority"],
         status=result["terminal_status"],
         final_decision=result["final_decision"],
