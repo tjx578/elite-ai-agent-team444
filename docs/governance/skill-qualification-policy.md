@@ -20,7 +20,14 @@ process, not a qualification receipt or active registry.
    cancellation, side effects, and contribution against a fixed baseline are
    measured in the intended environment. Pin the workload, expected outcomes,
    harness, baseline implementation, and baseline configuration used for those
-   measurements.
+   measurements. Run unadmitted candidate code, the evaluator, harness, and
+   collector only inside a disposable, filesystem-contained offline sandbox with
+   no host credentials or host network access, no external network egress,
+   read-only source mounts, and writable scratch outside the repository. Use
+   only in-sandbox fixtures for network-dependent cases. Record actual side
+   effects. If containment cannot be established, behavior qualification is
+   `NOT_EXECUTED`. Never fall back to direct developer or workbench host
+   execution.
 4. **Exact-byte evaluation:** private evidence is evaluated with a separately
    qualified `$evaluate-agent-skill` and immutable `common-skill/v1` profile.
    The authenticated receipt must bind the subject, evaluator, profile,
@@ -58,6 +65,33 @@ process, not a qualification receipt or active registry.
 | Evaluated scope | Versioned, immutable scope artifact and its digest, naming task class, permitted operations and side effects, authority level, relevant data/egress boundary, and an owner-approved maximum receipt age |
 | Time and expiry | Trusted UTC `evaluated_at`, `issued_at`, and `expires_at` bound to the verdict; `evaluated_at` must not follow `issued_at`, and `expires_at` must follow `issued_at` and cannot exceed `evaluated_at` plus the approved maximum receipt age |
 | Receipt authenticity | Trusted issuer identity and either a verifiable attestation over the verdict and every binding above or a receipt ID in an independently controlled append-only store containing that same issuer, verdict, and bindings |
+
+### Canonical digest format
+
+Every digest above uses SHA-256 and is recorded as lowercase, 64-character
+hexadecimal with an explicit `sha256:` prefix. A single-file artifact is
+digested over its exact bytes. A multi-file package, installed dependency,
+manifest, or evidence bundle uses `tree-v1`: hash the UTF-8 prefix
+`skill-tree-v1` followed by a line-feed byte (`0x0A`), then one entry per source
+entry sorted by the raw UTF-8 bytes of its normalized relative path. Each entry
+is serialized as an
+unsigned 32-bit big-endian path-byte length, path bytes, one-byte type (`1`
+regular file, `2` symbolic link, `3` directory), unsigned 32-bit big-endian
+source mode, unsigned 64-bit big-endian payload-byte length, and the 32 raw
+bytes of SHA-256 over the payload. File payloads are exact file bytes; symbolic
+link payloads are exact link-target bytes without following the link; directory
+payloads are empty. Include empty directories. Normalize paths to Unicode NFC
+with `/` separators; reject absolute paths, `..`, duplicate normalized paths,
+unsupported entry types, and entries whose source mode cannot be established.
+Use source/archive mode, never the checking host's default permissions. Reject
+symbolic links that escape the package root when resolved.
+
+The receipt names `tree-v1` for every tree digest and records the immutable
+revision separately from the content digest. A Git commit or Git tree ID alone
+is not a `tree-v1` digest. For a single-file manifest, hash its exact bytes;
+for a multi-file manifest, use `tree-v1`. Producer and verifier independently
+recompute and compare the same typed digest before accepting a binding. An
+unknown algorithm, encoding, or serialization version blocks `PASS_LOCAL`.
 
 All bindings must refer to the same evaluation run. Any artifact, input,
 configuration, or installed dependency that can change the measured behavior,
@@ -113,8 +147,9 @@ own first qualification. Establish a limited external trust root first:
    immutable implementation identity and full package digest, the intended
    offline environment and scope, the dependency artifacts, the fixed fixture
    and baseline artifacts, the approved freshness limit, compatible rights for
-   that scope, and the independently controlled receipt issuer, trusted clock,
-   and attestation or append-only record mechanism.
+   that scope, the `tree-v1` digest procedure, disposable offline sandbox, and
+   independently controlled receipt issuer, trusted clock, and attestation or
+   append-only record mechanism.
 2. A separate test harness exercises fixed positive, negative, malformed,
    stale, forged-binding, and failure fixtures with independently specified
    expected verdicts. It records actual outputs and side effects and binds the
@@ -129,21 +164,21 @@ own first qualification. Establish a limited external trust root first:
    profile version returns to independent bootstrap review; it cannot approve
    itself or silently inherit the old verdict.
 
-If the external review, fixtures, profile, collector, policy identity, receipt
-authenticity, or scoped authorization cannot be verified, the bootstrap remains
-`NOT_EXECUTED` or `NOT_MEASURED` and no candidate receives `PASS_LOCAL` through
-this path.
+If the external review, fixtures, profile, collector, policy identity, digest
+procedure, sandbox containment, receipt authenticity, or scoped authorization
+cannot be verified, the bootstrap remains `NOT_EXECUTED` or `NOT_MEASURED` and
+no candidate receives `PASS_LOCAL` through this path.
 
 | Gate | Required evidence before promotion |
 | --- | --- |
 | G0 — host inventory | Actual active, inactive, aliased, and shadowed packages and host version |
-| G1 — package identity | Full package bytes, tree digest, revision, and source provenance |
+| G1 — package identity | Full package bytes, canonical `tree-v1` digest, revision, and source provenance |
 | G2 — structure and rights | Valid entrypoint, required helpers and dependencies, plus a compatible rights result for the requested use |
-| G3 — authority and privacy | No authority from donor text; secrets and personal data stay within scope |
-| G4 — behavior | Positive, negative, timeout, cancellation, and failure outcomes on pinned fixture and harness bytes |
+| G3 — authority and privacy | No authority from donor text; unadmitted code and collection stay in a disposable offline sandbox without host credentials, host network access, external egress, or repository writes; secrets and personal data stay within scope |
+| G4 — behavior | Positive, negative, timeout, cancellation, and failure outcomes on pinned fixture and harness bytes, with sandbox containment and side effects recorded |
 | G5 — function | Contract fit and ownership boundaries against the target task |
 | G6 — contribution | Fixed-task comparison for quality, latency, cost, and resource use against pinned corpus, expected outcomes, baseline implementation, and configuration |
-| G7 — evaluator | Fresh, authenticated result with subject, evaluator, immutable profile, qualification policy, collector implementation, dependency artifacts, workload, baseline, evidence, environment, evaluated scope, and time/expiry bindings above |
+| G7 — evaluator | Fresh, authenticated result with canonical digests for subject, evaluator, immutable profile, qualification policy, collector implementation, dependency artifacts, workload, baseline, evidence, environment, evaluated scope, and time/expiry bindings above |
 | G8 — admission | Independently validated owner/policy decision, verified receipt issuer and verdict, current policy identity, exact scope and authority match to receipt, matching dependency and workload identities, unexpired receipt, compatible rights, and pinned target |
 | G9 — maintenance | Re-evaluation and a new authenticated receipt after relevant bytes, installed dependency artifact, workload, harness, baseline, host, policy, or permission change |
 
