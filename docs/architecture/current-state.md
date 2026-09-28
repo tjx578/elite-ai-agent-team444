@@ -8,7 +8,7 @@ This document records what is demonstrably present in the repository. It is not 
 
 The canonical repository is
 [`tjx578/wolf15-sentient`](https://github.com/tjx578/wolf15-sentient).
-PR #1–#6 are merged. The M1-B architecture-freeze baseline is `main` commit
+PR #1–#7 are merged. The M1-B architecture-freeze baseline is `main` commit
 `7ffac9a8254688649ecf8bca57e2ae7757bd9f32`, not a moving claim about
 later commits. Its [CI run](https://github.com/tjx578/wolf15-sentient/actions/runs/36374583942)
 installed the project, passed 56 tests, and passed the installed product
@@ -33,7 +33,7 @@ it does not add model reasoning, repository execution, persistent memory,
 trading integration, or authority. The proposed six divisions and 28
 specialists remain a target; three deterministic stub roles are implemented.
 
-## M1-C production trust foundation: in progress
+## M1-C production trust foundation: complete
 
 At the M1-B `main` checkpoint, GitHub reported `protected: false` for `main`
 and no effective branch rules. The tracked tree did not contain `CODEOWNERS`,
@@ -41,11 +41,23 @@ and no effective branch rules. The tracked tree did not contain `CODEOWNERS`,
 dependency-audit, and secret-scan CI jobs. CI at that checkpoint ran package
 installation, pytest, and the installed identity/entrypoint check only.
 
-M1-C work must be evaluated against its own exact commit and GitHub settings.
-Proposed files in an unmerged checkout, local tests, and a green M1-B CI run do
-not establish active branch protection or passing M1-C checks. Production
-deployment and Railway changes are **NOT_EXECUTED**; no capability or REE is
-activated.
+PR #7 merged M1-C at `main` commit
+`e14a96919dbd50350c4877393c40a069570d906c`. Its
+[CI run](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162914)
+installed locked dependencies, passed 57 tests on each of Python 3.11, 3.12,
+and 3.13, and passed Ruff, Pyright, sdist/wheel build, isolated installed-package
+smoke, dependency audit, and secret scan. The separate
+[CodeQL run](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162867)
+passed Actions and Python analysis. GitHub reported `protected: true` for
+`main`; the [active M1-C ruleset](https://github.com/tjx578/wolf15-sentient/rules/24097366)
+requires a PR and ten named checks, blocks force-push and deletion, dismisses
+stale approvals, and requires review conversations to be resolved. The ruleset
+has no bypass actors. `CODEOWNERS`, `SECURITY.md`, `uv.lock`, weekly Dependabot
+configuration, and private vulnerability reporting are present or enabled.
+The owner deferred selection of an open-source license; the public repository
+has no license grant. These are source- and GitHub-bound receipts for this
+checkpoint, not a claim about later commits. Production deployment and Railway
+changes are **NOT_EXECUTED**; no capability or REE is activated.
 
 ## PR-0 baseline
 
@@ -231,7 +243,7 @@ validated task request
 
 PR-2 added the deterministic graph, bounded revision behavior, and stub roles
 while keeping model and repository-execution variability out of the loop. M1-C
-must establish repository trust gates before any production claim. M2 evidence
+established repository trust gates without a production claim. M2 evidence
 and context, M3 model reasoning, and M4 read-only repository intelligence are
 later increments with separate acceptance evidence. The current system must
 not be described as a complete autonomous engineering OS.

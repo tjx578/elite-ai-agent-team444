@@ -2,14 +2,19 @@
 
 ## Baseline and rule
 
-The canonical repository is `tjx578/wolf15-sentient`. PR #1–#6 are merged.
+The canonical repository is `tjx578/wolf15-sentient`. PR #1–#7 are merged.
 The inspected M1-B `main` baseline is
 `7ffac9a8254688649ecf8bca57e2ae7757bd9f32`; its CI installed the
 package, passed 56 tests, and checked installed identity/entrypoint on Python
-3.11–3.13. This is a historical commit-bound receipt, not proof for later
-M1-C changes. The working runtime is a deterministic `READ_ONLY` kernel with
+3.11–3.13. M1-C merged at `main` commit
+`e14a96919dbd50350c4877393c40a069570d906c`; its
+[CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162914)
+and [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162867)
+passed on that commit. These are historical commit-bound receipts. The working
+runtime is a deterministic `READ_ONLY` kernel with
 three stubs and contract-only evidence/learning types. No deployment,
-Railway change, capability activation, or REE activation follows from M1-B.
+Railway change, capability activation, or REE activation follows from these
+checkpoints.
 This roadmap does not turn a target into a current capability. Each milestone
 must update [`current-state.md`](current-state.md) with exact-source and test
 evidence.
@@ -18,7 +23,7 @@ evidence.
 | --- | --- | --- | --- |
 | P0 — complete | PR #1–#4 consolidated; canonical repository name | Merge ancestry and CI on resulting main | Deployment |
 | M1-B — complete | Freeze responsibility, trust, data, and authority boundaries in architecture docs | Merged PR #6 and CI on resulting `main` `7ffac9a` | Runtime wiring |
-| M1-C — in progress | Ownership and production trust foundation | Active protected-branch policy plus separate lint, type, build/install, dependency, secret, and security gates on exact M1-C head and resulting `main` | Production launch |
+| M1-C — complete | Ownership and production trust foundation | Merged PR #7, active [main ruleset](https://github.com/tjx578/wolf15-sentient/rules/24097366), and CI plus CodeQL on resulting `main` `e14a969` | Production launch |
 | M2 | Evidence/context read path | SourceRef resolution, freshness/conflict policy, grounded claims, read-only replay | Automatic learning |
 | M3 | Schema-constrained reasoning adapters | Typed proposal contract, model-output validation, deterministic fallback and limits | Tool authority for models |
 | M4 | Read-only repository intelligence | Exact-revision repository snapshot, provenance, grounded report | Repository mutation |

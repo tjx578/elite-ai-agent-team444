@@ -20,6 +20,16 @@ architecture freeze. The [CI run on M1-B `main`](https://github.com/tjx578/wolf1
 passed 56 tests and installed identity checks on Python 3.11–3.13 at
 `7ffac9a8254688649ecf8bca57e2ae7757bd9f32`.
 
+PR #7 then merged the M1-C repository trust foundation at `main` commit
+`e14a96919dbd50350c4877393c40a069570d906c`. Its
+[CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162914)
+passed 57 tests on each supported Python version plus lint, type, build/install,
+dependency-audit, and secret-scan gates; its
+[CodeQL run](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162867)
+passed Actions and Python analysis. The
+[main ruleset](https://github.com/tjx578/wolf15-sentient/rules/24097366)
+is active. These receipts do not establish production deployment.
+
 This repository is being built as small, verifiable vertical slices. The original multi-agent vision remains the target, but it is not presented as working software.
 
 WOLF15 Sentient is the product identity. **Elite AI Agent Team OS** names its
