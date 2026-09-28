@@ -8,6 +8,21 @@
 
 ## Status at a glance
 
+**CP0 foundation:** SK-01 governance, M3-A offline reasoning contracts, and
+SCRS advisory observability are integrated at
+`main@a53388f60b34372c5c3f43a31d8a5157add54379`. Resulting-main
+[CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209386) and
+[CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209366)
+passed, with 198 tests per Python 3.11/3.12/3.13. CP0 closure still requires
+architecture alignment and the final exact-main acceptance receipt. See the
+[architecture index](docs/architecture/README.md),
+[current-to-target ownership map](docs/architecture/canonical-ownership.md),
+and [checkpoint roadmap](docs/architecture/roadmap.md). Real model/provider,
+repository-reader, execution, capability/REE activation and deployment are
+outside this integrated offline foundation.
+
+The records below preserve earlier implementation milestones and their evidence.
+
 The canonical GitHub repository is
 [tjx578/wolf15-sentient](https://github.com/tjx578/wolf15-sentient). PR #1–#4
 are merged; their consolidation baseline is `64ae79f`. The [CI run on that baseline](https://github.com/tjx578/wolf15-sentient/actions/runs/36372815613)
@@ -59,7 +74,9 @@ increments. These are target designs; the current runtime remains the
 
 ## CURRENT IMPLEMENTATION
 
-The repository contains the PR-1 foundation plus the source implementation of the **PR-2 Deterministic Orchestration Kernel**.
+The active HTTP workflow contains the PR-1 foundation and **PR-2 Deterministic
+Orchestration Kernel**. Separate M2 evidence, M3-A reasoning and SCRS libraries
+are integrated as described above; they are not wired into `/tasks`.
 
 PR-1 remains the verified foundation baseline:
 

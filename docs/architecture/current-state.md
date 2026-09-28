@@ -6,6 +6,39 @@ This document records what is demonstrably present in the repository. It is not 
 
 ## Canonical baseline
 
+### CP0 integrated foundation
+
+The latest integrated implementation checkpoint recorded here is
+`a53388f60b34372c5c3f43a31d8a5157add54379`. CP0.1–CP0.3 are complete;
+CP0.4 documentation alignment and CP0.5 final acceptance are separate gates.
+The [canonical map](canonical-ownership.md) describes current ownership and
+the full target without implying that future folders or services exist.
+
+| Step | Integrated PR / resulting main | Resulting-main evidence |
+| --- | --- | --- |
+| CP0.1 SK-01 governance | #12 / `474f42aa15c3db69642303da053958ac80ce3024` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463187032), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463186823): PASS; 74 tests per Python version |
+| CP0.2 M3-A | #13 / `ded797af5739ca6b16f50823049e143657dd50c0` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840252), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840264): PASS; 114 tests per Python version |
+| CP0.3 SCRS v0 | #14 / `a53388f60b34372c5c3f43a31d8a5157add54379` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209386), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209366): PASS; 198 tests per Python version |
+
+Python versions above are 3.11, 3.12 and 3.13. Each CI also passed Ruff,
+Pyright, build/isolated install, dependency audit and secret scan. Independent
+read-only source review passed for M3-A HEAD
+`42dd9d429ab1e397905872cc290a49b2769a6c64` and SCRS HEAD
+`9d48b43896ab5a6f4414fe23f3f322ec5f1b1e68`; each resulting merge tree matched
+the reviewed tree. These are development/source and CI results, not live
+runtime or deployment proof.
+
+SK-01 contains 220 documented selectors with 25 priority design candidates.
+The catalog establishes zero package qualification or activation claims.
+M3-A provides explicit offline task routing and the M2 evidence bridge. SCRS
+provides five-channel advisory estimates, immutable profile digest binding,
+finite numeric validation, and bounded event identity/replay/sequence handling.
+Both remain library entry points outside the active HTTP/LangGraph workflow.
+Real providers, repository readers, writers, durable memory, runtime skills,
+REE and deployment remain unimplemented or inactive at this checkpoint.
+
+### Historical baselines
+
 The canonical repository is
 [`tjx578/wolf15-sentient`](https://github.com/tjx578/wolf15-sentient).
 PR #1–#7 are merged. The M1-B architecture-freeze baseline is `main` commit
@@ -92,12 +125,12 @@ not infer semantic conflicts from arbitrary prose. `READY` describes context
 assembly only, not factual or production readiness. The M1-B and M1-C
 checkpoints above remain historical records of their own revisions.
 
-## M3-A branch implementation
+## M3-A integrated offline implementation
 
-The [M3-A branch implementation](m3a-reasoning-contracts.md) adds an explicit
+The [M3-A implementation](m3a-reasoning-contracts.md) adds an explicit
 offline library entry point for task routing, the M2 bridge, and deterministic
-proposal checks. Its default adapter is a labelled stub. This describes branch
-source, not a merged or live-provider checkpoint. Existing HTTP and LangGraph
+proposal checks. Its default adapter is a labelled stub. PR #13 integrated
+this offline source as recorded above; it is not a live-provider checkpoint. Existing HTTP and LangGraph
 behavior is unchanged. M3-B live reasoning remains unproven.
 
 ## PR-0 baseline
@@ -287,6 +320,7 @@ PR-2 added the deterministic graph, bounded revision behavior, and stub roles
 while keeping model and repository-execution variability out of the loop. M1-C
 established repository trust gates without a production claim. The initial M2
 evidence/context read path is now merged as the pure helper documented above.
-M3 model reasoning and M4 read-only repository intelligence remain separate
-future increments with their own acceptance evidence. The current system must
+M3-B real model reasoning and M4 read-only repository intelligence remain separate
+future increments with their own acceptance evidence. M3-A offline contracts
+and SCRS v0 are integrated as recorded above. The current system must
 not be described as a complete autonomous engineering OS.

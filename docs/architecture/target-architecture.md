@@ -2,6 +2,11 @@
 
 ## Status
 
+Use the [canonical ownership map](canonical-ownership.md) for the CP0 current
+implementation, target destinations and README policy. This document retains
+the broader design; target folder names do not authorize duplicate owners or
+automatic migration.
+
 This document defines the architecture beyond the PR-2 deterministic kernel. Components described here are not current capabilities unless they are also listed in [Current State](current-state.md).
 
 The M1-B [reference architecture](super-intelligence-reference-architecture.md)

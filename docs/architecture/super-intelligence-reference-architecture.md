@@ -2,6 +2,11 @@
 
 ## Status and evidence
 
+The [CP0 canonical ownership map](canonical-ownership.md) aligns the current
+packages with this North Star and freezes ten architecture invariants. The
+historical baseline below remains its original evidence snapshot; later
+integration is recorded in [Current State](current-state.md).
+
 **M1-B target boundary, 2026-09-28.** This is a design for future increments,
 not a claim that the described services exist. The inspected baseline is
 canonical `main` at `e24db7bc057ec4f2bcd9bf0599254effae49f18a`:
