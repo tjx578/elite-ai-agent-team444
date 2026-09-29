@@ -1,0 +1,85 @@
+{
+  "reviewed_sha": "a6c2f24334b25349d9f9dcee52899169eebd4e37",
+  "previous_sha": "75e51e5a8d28e868a9130455402e168f97b49edc",
+  "cp0_accepted_sha": "bad73335f518d89356b88cba1cc26730808cd224",
+  "local_verdict": "PASS_LOCAL",
+  "changed_paths": [
+    "docs/research/algorithm-donors/codex-desktop-implementation-contract.md"
+  ],
+  "registry_bytes_unchanged": true,
+  "registry_sha256": "e7d298a5b15fd30d7a5a759c948a1bc89c89efd34626245fe3ac089327a09b20",
+  "records": 37,
+  "appendix_unchanged": true,
+  "relative_document_links_checked": 78,
+  "source_tests_workflows_unchanged": true,
+  "clean_worktree": true,
+  "whitespace": "PASS",
+  "runtime_tests": "NOT_EXECUTED_DOCUMENTATION_ONLY",
+  "remote_ci": "NOT_EXECUTED",
+  "freeze": false,
+  "cp1": "NOT_STARTED",
+  "independent_review": "EXECUTED / PASS",
+  "finding_A01": "CLOSED",
+  "ready_for_freeze": true,
+  "registry_frozen": false,
+  "source_registry_status": "DRAFT_RECONCILED",
+  "status_receipt_location": "EXTERNAL_TO_REVIEWED_COMMIT",
+  "groups": {
+    "1": {
+      "name": "Package integrity",
+      "verdict": "PASS",
+      "reviewer": "addendum_integrity"
+    },
+    "2": {
+      "name": "Record accounting",
+      "verdict": "PASS",
+      "reviewer": "addendum_integrity"
+    },
+    "3": {
+      "name": "Provenance",
+      "verdict": "PASS",
+      "reviewer": "addendum_integrity"
+    },
+    "4": {
+      "name": "Ownership",
+      "verdict": "PASS",
+      "reviewer": "addendum_ownership"
+    },
+    "5": {
+      "name": "Checkpoint constraints",
+      "verdict": "PASS",
+      "reviewer": "addendum_ownership"
+    },
+    "6": {
+      "name": "Stage semantics",
+      "verdict": "PASS",
+      "reviewer": "addendum_ownership"
+    },
+    "7": {
+      "name": "Authority",
+      "verdict": "PASS",
+      "reviewer": "addendum_authority"
+    },
+    "8": {
+      "name": "Lifecycle",
+      "verdict": "PASS",
+      "reviewer": "addendum_authority"
+    },
+    "9": {
+      "name": "Anti-pattern coverage",
+      "verdict": "PASS",
+      "reviewer": "addendum_authority"
+    },
+    "10": {
+      "name": "CP0 integrity",
+      "verdict": "PASS",
+      "reviewer": "addendum_integrity"
+    }
+  },
+  "push": "NOT_EXECUTED",
+  "pr": "NOT_CREATED",
+  "merge": "NOT_EXECUTED",
+  "resulting_main_verification": "NOT_EXECUTED",
+  "deploy": "NOT_EXECUTED",
+  "created_at_utc": "2026-09-29T05:57:52.832088+00:00"
+}

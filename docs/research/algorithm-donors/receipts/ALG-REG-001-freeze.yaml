@@ -1,0 +1,53 @@
+freeze:
+  addendum_id: CP0-ADDENDUM-01
+  registry_generation: ALG-REG-001
+  reviewed_source_commit: a6c2f24334b25349d9f9dcee52899169eebd4e37
+  source_commit: a6c2f24334b25349d9f9dcee52899169eebd4e37
+  frozen_at: '2026-09-29T06:13:29.386672+00:00'
+  frozen_by_process: Codex documentation-only freeze after exact-source independent
+    review
+  review_receipt_ref: receipts/CP0_ADDENDUM_01_A01_REVIEW_a6c2f24.json
+  review_receipt_sha256: 49c0171b12754915865758a2295f0eafad815666e9428b023d9cfc301595b2aa
+  independent_review: PASS
+  design_records:
+    total: 37
+    package_records: 31
+    reconciled_design: 4
+    batch_document_supported: 2
+  integrity:
+    scope: Documentation freeze; conflict conclusions bound to prior exact-source
+      independent review. Does not certify future implementations.
+    duplicate_ids: 0
+    ownership_conflicts: 0
+    checkpoint_conflicts: 0
+    unresolved_prohibitions: 0
+  runtime:
+    implementations_active: 0
+    capabilities_active: 0
+    ree_active: 0
+    deployment_effect: NONE
+    authority_escalation: NONE
+  cp0:
+    accepted_sha: bad73335f518d89356b88cba1cc26730808cd224
+    mutated: false
+  digest_semantics: SHA-256 of exact Git blob bytes (LF). Receipt is a separate file
+    and excluded from registry bytes, avoiding self-reference.
+  reviewed_source_sha256:
+    adoption-registry.yaml: e7d298a5b15fd30d7a5a759c948a1bc89c89efd34626245fe3ac089327a09b20
+    anti-pattern-registry.md: 186d6ae66ecc25e6bc924366f6d277c7ee8c337d8dbc0f24c7e7158876e58479
+    anti-patterns.md: 4d6b7be2701d0d78a9ad4fd12cbe862779be045ad8406fe3d7107bf9770eb804
+    codex-desktop-implementation-contract.md: f5d9c70be9df958aed44df9d70656f9c36c4ac595566752f9d17b21fa466434d
+  frozen_artifact_sha256:
+    adoption-registry.yaml: e826e19bf1875ce0cd5e03637da62f3841a9fc5b814a828b619a0d847c4cb5dd
+    anti-pattern-registry.md: 186d6ae66ecc25e6bc924366f6d277c7ee8c337d8dbc0f24c7e7158876e58479
+    anti-patterns.md: 4d6b7be2701d0d78a9ad4fd12cbe862779be045ad8406fe3d7107bf9770eb804
+    codex-desktop-implementation-contract.md: f5d9c70be9df958aed44df9d70656f9c36c4ac595566752f9d17b21fa466434d
+  registry_sha256: e826e19bf1875ce0cd5e03637da62f3841a9fc5b814a828b619a0d847c4cb5dd
+  status: FROZEN
+  publication: NOT_EXECUTED
+  cp1: NOT_STARTED
+  immutability: ALG-REG-001 is immutable; new donors enter research/admission queue
+    for a future generation such as ALG-REG-002
+  review_receipt_copy_semantics: Original JSON content preserved; CRLF normalized
+    to LF for canonical Git blob hashing.
+  external_original_review_receipt_sha256: 9d21697a0a6ee9359a9a662a22082af089a51b1265c70ff73870c5d9da218533

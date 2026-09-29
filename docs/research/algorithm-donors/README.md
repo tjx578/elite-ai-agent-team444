@@ -70,9 +70,29 @@ Only lifecycle_stage.documented is true. No runtime or authority changes occur.
 - [Indexed exclusions](anti-patterns.md).
 - [Supplementary local observations](local-source-observations.md).
 
-DRAFT_RECONCILED means receipt, origins, design attribution, owners and stages
-are documented. It does not qualify donor implementations or freeze the registry.
-Independent documentation review remains NOT_EXECUTED; READY_FOR_FREEZE is not
-asserted. Push/PR/merge are separate actions and are not authorized by this
-reconciliation. CP0 accepted SHA is unchanged; local HEAD is not a resulting-main
-CP1 baseline.
+## Frozen generation ALG-REG-001
+
+ALG-REG-001 is locally FROZEN, bound to reviewed source commit
+`a6c2f24334b25349d9f9dcee52899169eebd4e37`. All ten independent
+documentation review groups passed. The 37 design records are unchanged.
+
+- [Exact-source independent review receipt](receipts/CP0_ADDENDUM_01_A01_REVIEW_a6c2f24.json).
+- [Freeze metadata and four source/frozen artifact digests](receipts/ALG-REG-001-freeze.yaml).
+
+Digest values use exact Git blob bytes, not platform-dependent checkout line
+endings. The registry embeds the reviewed pre-freeze digest; the separate
+freeze receipt holds the final registry digest to avoid self-reference.
+The receipt references are relative to this algorithm-donors directory.
+
+ALG-REG-001 and its bound artifacts are immutable. Newly discovered donors,
+including repositories or D:/Python sources, enter a research/admission queue
+for a future generation such as ALG-REG-002. Do not silently edit ALG-REG-001.
+
+The earlier reconciled-generation text and companion-document draft appendices
+record the reviewed source stage; the freeze receipt records the current local
+freeze. The copied review receipt retains its original pre-freeze scope/status.
+This freeze records documentation acceptance and does not qualify implementations.
+
+Push, Draft PR, remote checks, PR review, merge and resulting-main verification
+remain separate. CP0 remains CLOSED / PASS at its accepted SHA. CP1 is
+NOT_STARTED and requires an integrated, verified resulting-main baseline.

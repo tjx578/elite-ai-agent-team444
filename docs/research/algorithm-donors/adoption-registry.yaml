@@ -1,16 +1,15 @@
 schema_version: '0.3'
-registry_generation: CP0-ADDENDUM-01-RECONCILED-001
-status: DRAFT_RECONCILED
-frozen: false
+registry_generation: ALG-REG-001
+status: FROZEN
+frozen: true
 cp0_accepted_sha: bad73335f518d89356b88cba1cc26730808cd224
 cp0_reopen: false
 runtime_effect: NONE
 authority_effect: NONE
 cp1_starting_baseline: null
 open_requirements:
-- Independent documentation review of exact commit before READY_FOR_FREEZE
-- Registry freeze remains separate
-- No automatic push/PR/merge under latest user instruction
+- Publication, PR review, merge and resulting-main verification remain separate
+- CP1 requires verified resulting-main baseline; local freeze is insufficient
 batches:
 - batch_id: ARCH-ALG-01
   title: Cognitive / Constitutional Algorithms
@@ -5797,10 +5796,28 @@ future_implementation_requirements:
 - Complete checkpoint-specific contracts, tests and qualification
 - Preserve missing/measured/simulated evidence and pinned lifecycle
 independent_documentation_review:
-  status: NOT_EXECUTED
-  reviewed_sha: null
+  status: PASS
+  reviewed_sha: a6c2f24334b25349d9f9dcee52899169eebd4e37
+  review_receipt_ref: receipts/CP0_ADDENDUM_01_A01_REVIEW_a6c2f24.json
 delivery:
   push: NOT_EXECUTED
   pr: NOT_CREATED
   merge: NOT_EXECUTED
   remote_ci: NOT_EXECUTED
+
+freeze:
+  addendum_id: CP0-ADDENDUM-01
+  registry_generation: ALG-REG-001
+  frozen_at: '2026-09-29T06:13:29.386672+00:00'
+  frozen_by_process: Codex documentation-only freeze after exact-source independent
+    review
+  source_commit: a6c2f24334b25349d9f9dcee52899169eebd4e37
+  review_receipt_ref: receipts/CP0_ADDENDUM_01_A01_REVIEW_a6c2f24.json
+  review_receipt_sha256: 49c0171b12754915865758a2295f0eafad815666e9428b023d9cfc301595b2aa
+  registry_digest:
+    algorithm: SHA-256
+    scope: reviewed source commit Git blob before freeze metadata
+    value: e7d298a5b15fd30d7a5a759c948a1bc89c89efd34626245fe3ac089327a09b20
+  final_registry_digest_ref: receipts/ALG-REG-001-freeze.yaml
+  immutability: ALG-REG-001 is immutable; new donors enter research/admission queue
+    for a future generation such as ALG-REG-002
