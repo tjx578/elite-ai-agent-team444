@@ -52,6 +52,7 @@ wolf15-sentient/
 │       │   ├── approval.py
 │       │   ├── provider.py
 │       │   ├── observability.py
+│       │   ├── media.py
 │       │   └── webmcp.py
 │       ├── orchestration/
 │       ├── elite_team/
@@ -64,6 +65,13 @@ wolf15-sentient/
 │       ├── owner/
 │       ├── personal/
 │       ├── intelligence/
+│       │   └── media/
+│       │       ├── intake/
+│       │       ├── normalize/
+│       │       ├── transcript/
+│       │       ├── segmentation/
+│       │       ├── extraction/
+│       │       └── gap_detection/
 │       ├── context/
 │       ├── evidence/
 │       ├── knowledge/
@@ -101,9 +109,19 @@ wolf15-sentient/
 │       │   ├── policy/
 │       │   └── receipts/
 │       ├── models/
-│       │   └── providers/
+│       │   ├── providers/
+│       │   └── profiles/
 │       ├── repositories/
 │       ├── integrations/
+│       │   ├── media/
+│       │   │   └── youtube/
+│       │   │       ├── resolver/
+│       │   │       ├── metadata/
+│       │   │       ├── captions/
+│       │   │       └── client/
+│       │   ├── speech/
+│       │   │   ├── stt/
+│       │   │   └── tts/
 │       │   ├── browser/
 │       │   │   └── webmcp/
 │       │   │       ├── discovery/
@@ -142,6 +160,7 @@ wolf15-sentient/
 │       │   ├── capabilities/
 │       │   ├── skills/
 │       │   ├── models/
+│       │   ├── voice/
 │       │   ├── browser/
 │       │   └── system/
 │       ├── hooks/
@@ -178,7 +197,9 @@ wolf15-sentient/
 2. `orchestration/` composes work through `control/`; it is not a second
    authority chain.
 3. `sentient/model_gateway/` is the cognitive-facing model gateway;
-   `models/providers/` contains concrete model providers.
+   `models/providers/` contains concrete model providers and `models/profiles/`
+   contains technical model-family capability/quirk facts. Neither profile nor
+   provider metadata grants authority.
 4. `mcp/` is backend/service MCP. `integrations/browser/webmcp/` is browser
    WebMCP. They are complementary and must not be collapsed.
 5. `capabilities/providers/webmcp/` represents discovered/qualified providers;
@@ -194,10 +215,10 @@ wolf15-sentient/
 | CP | Primary target areas |
 | --- | --- |
 | CP0 | current foundation and architecture governance |
-| CP1 | `sentient/model_gateway`, `models/providers`, reasoning/evidence contracts |
+| CP1 | `sentient/model_gateway`, `models/providers`, `models/profiles`, reasoning/evidence contracts |
 | CP2 | `repositories`, `execution/repo_reader`, `context`, `evidence` |
 | CP3 | `persistence`, `observability`, `security`, `api`, portions of `control`, generic receipts/recovery |
-| CP4 | `owner`, `personal`, `intelligence`, `integrations/browser/webmcp`, Owner Console browser/voice surfaces |
+| CP4 | `owner`, `personal`, `intelligence/media`, `integrations/media`, `integrations/speech`, `integrations/browser/webmcp`, Owner Console voice/browser surfaces |
 | CP5 | `capabilities`, `skills`, `tools`, `mcp`, `models`, WebMCP provider representation |
 | CP6 | `capability_factory`, `evaluation`, WebMCP donor/security qualification |
 | CP7 | `execution`, approvals/idempotency, Git/GitHub and consequential browser actions |
