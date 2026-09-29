@@ -86,8 +86,8 @@ additional authority chains.
 2. Reconcile every file and disposition, including rejected/deferred mechanisms.
    Bind uploaded bytes or retain a justified explicit unknown.
 3. Review source and primary ownership against canonical architecture.
-4. Validate unique identities, references, digests, both matrices and all 25
-   required algorithms plus ReasoningPlan and ProviderDescriptor.
+4. Validate unique identities, references, digests, both matrices and all 35
+   reconciled design records and the original 25-algorithm scope.
 5. Freeze the reviewed generation. Bind its Git blob and source-manifest digests
    in an external receipt or later commit; avoid self-referential commit hashes.
 6. Review exact docs-only HEAD and CI/CodeQL, merge under repository requirements,
@@ -96,3 +96,23 @@ additional authority chains.
 
 This draft does not pass that completion gate. Open requirements are explicit
 in the YAML and frozen remains false. No donor Python is vendored or executed.
+
+
+## Supplied package reconciliation — generation DRAFT-002
+
+Six owner-supplied files have now been read completely. The incoming 31
+algorithm records are preserved as source claims and reconciled with four
+original-scope records, giving 35 explicit design records. This does not qualify
+any donor or close the missing historical reports.
+
+- [Source provenance and missing package files](source-provenance.md).
+- [Declared package manifest](PACKAGE_MANIFEST.md).
+- [Adoption canon](../../architecture/algorithm-adoption-canon.md).
+- [Checkpoint guidance](checkpoint-adoption-matrix.md).
+- [Expanded anti-pattern policy](anti-pattern-registry.md).
+- [Implementation contract](codex-desktop-implementation-contract.md).
+
+The seven missing package documents include the five batch reports. Existing
+local pages preserve available evidence and remain incomplete. Supplied YAML
+claims for ARCH-ALG-01/02 may guide reconciliation but do not recover the two
+canonical snapshots or their full per-file dispositions.

@@ -1,5 +1,5 @@
-schema_version: 0.1-draft
-registry_generation: CP0-ADDENDUM-01-DRAFT-001
+schema_version: 0.2-draft
+registry_generation: CP0-ADDENDUM-01-DRAFT-002
 status: DRAFT_INCOMPLETE
 frozen: false
 cp0_accepted_sha: bad73335f518d89356b88cba1cc26730808cd224
@@ -1712,8 +1712,7 @@ source_aliases:
   duplicate_of: DONOR-75d5aea538ad51f7
   basis: EXACT_LOCAL_BYTES
 algorithms:
-- algorithm_id: ALG-001
-  name: ConceptGraph
+- name: ReasoningPlan
   source_family: tuyul_reasoning_engine.py
   source:
     reported_file: tuyul_reasoning_engine(1).py
@@ -1726,75 +1725,66 @@ algorithms:
     historical_hash_binding: NOT_VERIFIED
   classification:
     source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Typed concepts and relations with source references
+    extracted_principle: Typed bounded plan with evidence requirements
   decision:
     status: ADOPT_REWRITE
     basis: Owner addendum brief; generic principle only
-    target_subsystem: context
+    target_subsystem: sentient
     related_subsystems:
-    - knowledge
+    - orchestration
     target_checkpoints:
     - CP1
-    - CP2
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
-  - Typed concepts and relations with source references
+  - Typed bounded plan with evidence requirements
+  - declarative typed plan
+  - no arbitrary callable execution
+  - model proposes only
   reject:
-  - Unbounded all-simple-path traversal; graph size as confidence
+  - A plan controlling execution or manufacturing missing facts
   implementation:
     status: NOT_IMPLEMENTED
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Bound traversal and prove cycle handling, provenance and evidence gaps
+    required_acceptance: Kernel validates proposals; unsupported evidence requests remain explicit
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-002
-  name: ReasoningProcedure DSL
-  source_family: advanced reasoning framework examples.py
-  source:
-    reported_file: Advanced Reasoning Framework Examples.py
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-026
+  algorithm_id: ALG-REASON-PLAN-001
+  canonical_name: ReasoningPlanContract
+  source_proposal:
+    algorithm_id: ALG-REASON-PLAN-001
+    canonical_name: ReasoningPlanContract
     donor_batches:
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    - ARCH-ALG-04
     - ARCH-ALG-05
-    reference_ids:
-    - ARCH-ALG-05-01
-    local_candidate_ids:
-    - DONOR-890d70774ceaea33
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Versioned declarative proposal steps
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
+    source_examples:
+    - Custom GPT Thinking & Reasoning Framework.py
+    - Advanced Reasoning Framework Examples.py
+    - tuyul_reasoning_engine.py
+    decision: ADOPT_REWRITE
     target_subsystem: orchestration
-    related_subsystems:
-    - sentient
-    target_checkpoints:
-    - CP1
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Versioned declarative proposal steps
-  reject:
-  - Arbitrary callables and a second workflow authority chain
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Reject unknown steps and prove proposal-only outputs
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-003
-  name: ReasoningTrace
+    target_checkpoint: CP1
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - declarative typed plan
+    - no arbitrary callable execution
+    - model proposes only
+    evidence_class: SOURCE_CLAIM
+- name: ReasoningTrace
   source_family: tuyul_reasoning_engine.py
   source:
     reported_file: tuyul_reasoning_engine(1).py
@@ -1818,12 +1808,17 @@ algorithms:
     - CP1
     - CP3
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Compact decision receipts and evidence references
+  - store step status and refs
+  - no hidden chain-of-thought persistence
   reject:
   - Unrestricted internal reasoning logs and synthetic confidence
   implementation:
@@ -1834,8 +1829,100 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Bind task, input digest, procedure version and outcomes without leaking secrets
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-004
-  name: ProcedureSelector
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-003
+  algorithm_id: ALG-REASON-TRACE-001
+  canonical_name: ReasoningTrace
+  source_proposal:
+    algorithm_id: ALG-REASON-TRACE-001
+    canonical_name: ReasoningTrace
+    donor_batches:
+    - ARCH-ALG-02
+    - ARCH-ALG-04
+    - ARCH-ALG-05
+    source_examples:
+    - Custom GPT Thinking & Reasoning Framework.py
+    - tuyul_cognitive_loop.py
+    decision: ADOPT_REWRITE
+    target_subsystem: orchestration/observability
+    target_checkpoint: CP1
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - store step status and refs
+    - no hidden chain-of-thought persistence
+    evidence_class: SOURCE_CLAIM
+- name: ConceptGraph
+  source_family: tuyul_reasoning_engine.py
+  source:
+    reported_file: tuyul_reasoning_engine(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-06
+    local_candidate_ids:
+    - DONOR-fed806a7495afba8
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Typed concepts and relations with source references
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: context
+    related_subsystems:
+    - knowledge
+    target_checkpoints:
+    - CP1
+    - CP2
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Typed concepts and relations with source references
+  - bounded graph traversal
+  - cycle detection
+  - unknown stays unknown
+  reject:
+  - Unbounded all-simple-path traversal; graph size as confidence
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Bound traversal and prove cycle handling, provenance and evidence gaps
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-001
+  algorithm_id: ALG-CONCEPT-GRAPH-001
+  canonical_name: ConceptGraph
+  source_proposal:
+    algorithm_id: ALG-CONCEPT-GRAPH-001
+    canonical_name: ConceptGraph
+    donor_batches:
+    - ARCH-ALG-05
+    source_examples:
+    - tuyul_kartel_mindmap_framework.py
+    - tuyul_reasoning_engine.py
+    decision: ADOPT_REWRITE
+    target_subsystem: context/knowledge
+    target_checkpoint: CP1
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - bounded graph traversal
+    - cycle detection
+    - unknown stays unknown
+    evidence_class: SOURCE_CLAIM
+- name: ProcedureSelector
   source_family: strategy_selector_engine.py
   source:
     reported_file: strategy_selector_engine.py
@@ -1857,12 +1944,17 @@ algorithms:
     target_checkpoints:
     - CP1
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Bounded deterministic procedure selection
+  - select procedure only
+  - cannot grant authority
   reject:
   - Trading strategy names and authority derived from score
   implementation:
@@ -1873,8 +1965,28 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Explicit unsupported-route and ambiguous-input outcomes
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-005
-  name: RepositorySnapshotReader
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-004
+  algorithm_id: ALG-PROCEDURE-SELECTOR-001
+  canonical_name: ProcedureSelector
+  source_proposal:
+    algorithm_id: ALG-PROCEDURE-SELECTOR-001
+    canonical_name: ProcedureSelector
+    donor_batches:
+    - ARCH-ALG-04
+    source_examples:
+    - strategy_selector_engine.py
+    decision: ADOPT_REWRITE
+    target_subsystem: orchestration
+    target_checkpoint: CP1
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - select procedure only
+    - cannot grant authority
+    evidence_class: SOURCE_CLAIM
+- name: RepositorySnapshotReader
   source_family: PENDING_CANONICAL_REPORT
   source:
     reported_file: null
@@ -1894,12 +2006,18 @@ algorithms:
     target_checkpoints:
     - CP2
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: READ_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Immutable repository snapshot and bounded reads
+  - resolve exact SHA first
+  - bounded traversal
+  - provenance per source
   reject:
   - Mutable main revision and remote Python execution
   implementation:
@@ -1910,8 +2028,31 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Pin full revision, constrain paths and size, emit missing-reader evidence
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-006
-  name: IntegrationManifest
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-005
+  algorithm_id: ALG-REPO-SNAPSHOT-001
+  canonical_name: RepositorySnapshotReader
+  source_proposal:
+    algorithm_id: ALG-REPO-SNAPSHOT-001
+    canonical_name: RepositorySnapshotReader
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    source_examples:
+    - ai_bridge_repo_folder_structure_bridge.py
+    - github_api_bridge.py
+    decision: ADOPT_REWRITE
+    target_subsystem: repositories
+    target_checkpoint: CP2
+    priority: P0
+    authority_effect: READ_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - resolve exact SHA first
+    - bounded traversal
+    - provenance per source
+    evidence_class: SOURCE_CLAIM
+- name: IntegrationManifest
   source_family: tuyul_loop_sync_bridge.py
   source:
     reported_file: tuyul_loop_sync_bridge(1).py
@@ -1935,12 +2076,17 @@ algorithms:
     - CP2
     - CP5
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Exact revision and schema-bound integration declaration
+  - exact revision required
+  - no mutable main/latest identity
   reject:
   - Mutable branch binding and automatic synchronization
   implementation:
@@ -1951,8 +2097,28 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Validate digests, schema, provenance and explicit unsupported dependencies
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-007
-  name: PolicyRuleEngine
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-006
+  algorithm_id: ALG-INTEGRATION-MANIFEST-001
+  canonical_name: IntegrationManifest
+  source_proposal:
+    algorithm_id: ALG-INTEGRATION-MANIFEST-001
+    canonical_name: IntegrationManifest
+    donor_batches:
+    - ARCH-ALG-05
+    source_examples:
+    - tuyul_loop_sync_bridge.yaml-like donor
+    decision: ADOPT_REWRITE
+    target_subsystem: repositories/capabilities
+    target_checkpoint: CP2
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - exact revision required
+    - no mutable main/latest identity
+    evidence_class: SOURCE_CLAIM
+- name: PolicyRuleEngine
   source_family: wolf_psychological_control_system.py
   source:
     reported_file: wolf_psychological_control_system(1).py
@@ -1974,12 +2140,18 @@ algorithms:
     target_checkpoints:
     - CP3
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: CONTROL_KERNEL_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Rule identity, criticality, result and reason
+  - critical fail is fail-closed
+  - missing input is NOT_MEASURED
+  - score cannot override critical fail
   reject:
   - Owner psychology scoring and trading rules
   implementation:
@@ -1990,8 +2162,34 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Critical violations deny; evidence gaps cannot pass
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-008
-  name: Sequential Gate Cascade
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-007
+  algorithm_id: ALG-POLICY-RULES-001
+  canonical_name: PolicyRuleEngine
+  source_proposal:
+    algorithm_id: ALG-POLICY-RULES-001
+    canonical_name: PolicyRuleEngine
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-04
+    - ARCH-ALG-05
+    source_examples:
+    - constitutional_orchestrator_ultra_precision.py
+    - super_engine.py
+    - wolf_psychological_control_system.py
+    - verdict_engine_patch.py
+    decision: ADOPT_REWRITE
+    target_subsystem: control
+    target_checkpoint: CP3
+    priority: P0
+    authority_effect: CONTROL_KERNEL_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - critical fail is fail-closed
+    - missing input is NOT_MEASURED
+    - score cannot override critical fail
+    evidence_class: SOURCE_CLAIM
+- name: Sequential Gate Cascade
   source_family: verdict_engine_patch.py
   source:
     reported_file: verdict_engine_patch.py
@@ -2014,12 +2212,17 @@ algorithms:
     target_checkpoints:
     - CP3
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: CONTROL_KERNEL_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Ordered typed gates and explicit deny/hold reasons
+  - explicit PASS/HOLD/DENY receipt
+  - no EXECUTE_REDUCED after failed mandatory gate
   reject:
   - Trading thresholds, substring verdicts and reduced execution after mandatory failure
   implementation:
@@ -2030,8 +2233,32 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Test short-circuit versus evaluate-all policy, all missing states and mandatory failure
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-009
-  name: CircuitBreaker
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-008
+  algorithm_id: ALG-GATE-CASCADE-001
+  canonical_name: DeterministicGateCascade
+  source_proposal:
+    algorithm_id: ALG-GATE-CASCADE-001
+    canonical_name: DeterministicGateCascade
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-04
+    - ARCH-ALG-05
+    source_examples:
+    - constitutional_orchestrator_ultra_precision.py
+    - super_engine.py
+    - verdict_engine_patch.py
+    decision: ADOPT_REWRITE
+    target_subsystem: control/gates
+    target_checkpoint: CP3
+    priority: P0
+    authority_effect: CONTROL_KERNEL_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - explicit PASS/HOLD/DENY receipt
+    - no EXECUTE_REDUCED after failed mandatory gate
+    evidence_class: SOURCE_CLAIM
+- name: CircuitBreaker
   source_family: wolf_psychological_control_system.py
   source:
     reported_file: wolf_psychological_control_system(1).py
@@ -2046,7 +2273,7 @@ algorithms:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Failure reason, severity, cooldown and verified resume conditions
   decision:
-    status: ADOPT_REWRITE
+    status: ADOPT_ABSTRACTION
     basis: Owner addendum brief; generic principle only
     target_subsystem: control
     related_subsystems:
@@ -2054,12 +2281,17 @@ algorithms:
     target_checkpoints:
     - CP3
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: RESTRICT_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Failure reason, severity, cooldown and verified resume conditions
+  - reason/severity/cooldown/resume conditions
+  - never increase authority
   reject:
   - Psychological diagnosis and confidence-driven authority
   implementation:
@@ -2070,8 +2302,28 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Verify hold/locked transitions, monotonic cooldown and approved resume
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-010
-  name: RetryEscalationGuard
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-009
+  algorithm_id: ALG-CIRCUIT-BREAKER-001
+  canonical_name: CircuitBreaker
+  source_proposal:
+    algorithm_id: ALG-CIRCUIT-BREAKER-001
+    canonical_name: CircuitBreaker
+    donor_batches:
+    - ARCH-ALG-05
+    source_examples:
+    - wolf_psychological_control_system.py
+    decision: ADOPT_ABSTRACTION
+    target_subsystem: control/recovery
+    target_checkpoint: CP3
+    priority: P1
+    authority_effect: RESTRICT_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - reason/severity/cooldown/resume conditions
+    - never increase authority
+    evidence_class: SOURCE_CLAIM
+- name: RetryEscalationGuard
   source_family: tuyulagibot-tjx.py
   source:
     reported_file: tuyulagibot-tjx(1).py
@@ -2087,7 +2339,7 @@ algorithms:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Bounded retries and explicit escalation receipts
   decision:
-    status: ADOPT_REWRITE
+    status: ADOPT_ABSTRACTION
     basis: Owner addendum brief; generic principle only
     target_subsystem: control
     related_subsystems:
@@ -2095,12 +2347,17 @@ algorithms:
     target_checkpoints:
     - CP3
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
     future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: RESTRICT_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
   adopt:
   - Bounded retries and explicit escalation receipts
+  - detect rapid retries/failure streak/scope widening
+  - HOLD or cooldown only
   reject:
   - Missing audit treated as zero health and automatic repair subprocess
   implementation:
@@ -2111,7 +2368,1476 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Missing health produces NOT_MEASURED/HOLD and no implicit retry of ambiguous effects
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-011
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-010
+  algorithm_id: ALG-RETRY-GUARD-001
+  canonical_name: RetryEscalationGuard
+  source_proposal:
+    algorithm_id: ALG-RETRY-GUARD-001
+    canonical_name: RetryEscalationGuard
+    donor_batches:
+    - ARCH-ALG-05
+    source_examples:
+    - wolf_psychological_control_system.py
+    decision: ADOPT_ABSTRACTION
+    target_subsystem: control/observability
+    target_checkpoint: CP3
+    priority: P1
+    authority_effect: RESTRICT_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - detect rapid retries/failure streak/scope widening
+    - HOLD or cooldown only
+    evidence_class: SOURCE_CLAIM
+- name: SentientEvent Envelope
+  source_family: repo_bridge_client.py
+  source:
+    reported_file: repo_bridge_client.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-01
+    local_candidate_ids:
+    - DONOR-3ade868a016eb88f
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Typed event identity, generations and processing receipt
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: contracts
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Typed event identity, generations and processing receipt
+  - event_id
+  - sequence
+  - causation_id
+  - payload_digest
+  - observed_at
+  - expiry
+  reject:
+  - HTTP acceptance reported as completed application
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Distinguish dispatched, accepted, processed, failed and unknown
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-012
+  algorithm_id: ALG-EVENT-ENVELOPE-001
+  canonical_name: SentientEvent
+  source_proposal:
+    algorithm_id: ALG-EVENT-ENVELOPE-001
+    canonical_name: SentientEvent
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    source_examples:
+    - core_meta_unified.py
+    - neural_connector.py
+    decision: ADOPT_REWRITE
+    target_subsystem: contracts/observability
+    target_checkpoint: CP3
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - event_id
+    - sequence
+    - causation_id
+    - payload_digest
+    - observed_at
+    - expiry
+    evidence_class: SOURCE_CLAIM
+- name: ProviderAdapterResult
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: ProviderAdapterResult
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: integrations
+    related_subsystems:
+    - models
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: ADOPT_REWRITE
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - timeout
+  - typed result
+  - provider/version identity
+  - explicit error state
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-SERVICE-ADAPTER-001
+  canonical_name: ProviderAdapterResult
+  source_proposal:
+    algorithm_id: ALG-SERVICE-ADAPTER-001
+    canonical_name: ProviderAdapterResult
+    donor_batches:
+    - ARCH-ALG-03
+    - ARCH-ALG-04
+    source_examples:
+    - railway_server_bridge.py
+    - reflective_live_bridge.py
+    - tuyul_data_bridge.py
+    decision: ADOPT_REWRITE
+    target_subsystem: integrations/models
+    target_checkpoint: CP3
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - timeout
+    - typed result
+    - provider/version identity
+    - explicit error state
+    evidence_class: SOURCE_CLAIM
+- name: EpisodeJournal
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: EpisodeJournal
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: memory
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: ADOPT_REWRITE
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - persist decisions/refs/outcomes
+  - no hidden CoT
+  - durability state explicit
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-EPISODE-JOURNAL-001
+  canonical_name: EpisodeJournal
+  source_proposal:
+    algorithm_id: ALG-EPISODE-JOURNAL-001
+    canonical_name: EpisodeJournal
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    source_examples:
+    - agi_learning_engine.py
+    - journal.py
+    decision: ADOPT_REWRITE
+    target_subsystem: memory/episodic
+    target_checkpoint: CP3
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - persist decisions/refs/outcomes
+    - no hidden CoT
+    - durability state explicit
+    evidence_class: SOURCE_CLAIM
+- name: ResponseProfile
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: ResponseProfile
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: sentient
+    related_subsystems:
+    - personal
+    target_checkpoints:
+    - CP4
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: ADOPT_REWRITE
+    priority: P2
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - tone/format/voice only
+  - pin version+digest per run
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-RESPONSE-PROFILE-001
+  canonical_name: ResponseProfile
+  source_proposal:
+    algorithm_id: ALG-RESPONSE-PROFILE-001
+    canonical_name: ResponseProfile
+    donor_batches:
+    - ARCH-ALG-01
+    source_examples:
+    - core_personality_alpha_serigala_loader.py
+    decision: ADOPT_REWRITE
+    target_subsystem: sentient/response
+    target_checkpoint: CP4
+    priority: P2
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - tone/format/voice only
+    - pin version+digest per run
+    evidence_class: SOURCE_CLAIM
+- name: ToolDescriptor
+  source_family: tools.py
+  source:
+    reported_file: tools.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-14
+    local_candidate_ids:
+    - DONOR-2e9857a50324bed6
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Versioned input/output schema and declared effect class
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: tools
+    related_subsystems:
+    - capabilities
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Versioned input/output schema and declared effect class
+  - input/output schema
+  - side-effect class
+  - required authority
+  - privacy/network class
+  reject:
+  - Tool registration treated as execution permission
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Validate descriptor identity, compatibility and unchanged authority
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-013
+  algorithm_id: ALG-TOOL-DESCRIPTOR-001
+  canonical_name: ToolDescriptor
+  source_proposal:
+    algorithm_id: ALG-TOOL-DESCRIPTOR-001
+    canonical_name: ToolDescriptor
+    donor_batches:
+    - ARCH-ALG-03
+    - ARCH-ALG-04
+    source_examples:
+    - reflective_mcp_handler.py
+    - tools.py
+    decision: ADOPT_REWRITE
+    target_subsystem: tools/capabilities
+    target_checkpoint: CP5
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - input/output schema
+    - side-effect class
+    - required authority
+    - privacy/network class
+    evidence_class: SOURCE_CLAIM
+- name: ProviderDescriptor
+  source_family: PENDING_CANONICAL_REPORT
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Immutable provider identity, version and supported contracts
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: capabilities
+    related_subsystems:
+    - models
+    - tools
+    - mcp
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Immutable provider identity, version and supported contracts
+  - capability_id
+  - provider_id
+  - version
+  - exact revision
+  - qualification state
+  reject:
+  - Registry presence treated as readiness or permission
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Bind exact implementation/config and qualification receipt
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-027
+  algorithm_id: ALG-CAPABILITY-PROVIDER-001
+  canonical_name: CapabilityProviderDescriptor
+  source_proposal:
+    algorithm_id: ALG-CAPABILITY-PROVIDER-001
+    canonical_name: CapabilityProviderDescriptor
+    donor_batches:
+    - ARCH-ALG-02
+    source_examples:
+    - core_meta_unified.py
+    - neural_connector.py
+    decision: ADOPT_REWRITE
+    target_subsystem: capabilities
+    target_checkpoint: CP5
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - capability_id
+    - provider_id
+    - version
+    - exact revision
+    - qualification state
+    evidence_class: SOURCE_CLAIM
+- name: CapabilityResolver
+  source_family: reflective_mcp_handler.py
+  source:
+    reported_file: reflective_mcp_handler.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-17
+    local_candidate_ids:
+    - DONOR-00c9c978236f72d5
+    - DONOR-a0f7c03c7fd1e28d
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Resolve qualified providers from explicit requirements
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: capabilities
+    related_subsystems: []
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Resolve qualified providers from explicit requirements
+  - qualified providers only
+  - provider pinned per run
+  - donor order cannot define priority
+  reject:
+  - Keyword routing and synthetic hash-based coherence
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Reject unqualified, mismatched and ambiguous candidates
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-014
+  algorithm_id: ALG-CAPABILITY-RESOLVER-001
+  canonical_name: CapabilityResolver
+  source_proposal:
+    algorithm_id: ALG-CAPABILITY-RESOLVER-001
+    canonical_name: CapabilityResolver
+    donor_batches:
+    - ARCH-ALG-02
+    source_examples:
+    - neural_orchestrator.py
+    decision: ADOPT_REWRITE
+    target_subsystem: capabilities
+    target_checkpoint: CP5
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - qualified providers only
+    - provider pinned per run
+    - donor order cannot define priority
+    evidence_class: SOURCE_CLAIM
+- name: StructuredDataConversionToolpack
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: StructuredDataConversionToolpack
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: tools
+    related_subsystems:
+    - skills
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: ADOPT_AS_CAPABILITY
+    priority: P2
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: TOOL_SCOPED
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - deterministic
+  - schema validation
+  - safe parsing
+  - domain rules remain domain-specific
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-CONVERTER-TOOLS-001
+  canonical_name: StructuredDataConversionToolpack
+  source_proposal:
+    algorithm_id: ALG-CONVERTER-TOOLS-001
+    canonical_name: StructuredDataConversionToolpack
+    donor_batches:
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    source_examples:
+    - file_converters.py
+    - technical_data_processor.py
+    decision: ADOPT_AS_CAPABILITY
+    target_subsystem: tools/skills
+    target_checkpoint: CP5
+    priority: P2
+    authority_effect: TOOL_SCOPED
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - deterministic
+    - schema validation
+    - safe parsing
+    - domain rules remain domain-specific
+    evidence_class: SOURCE_CLAIM
+- name: Safe Provider Acquisition
+  source_family: PENDING_CANONICAL_REPORT
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Provenance, rights, isolation and independent admission
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: capability_factory
+    related_subsystems:
+    - capabilities
+    target_checkpoints:
+    - CP6
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Provenance, rights, isolation and independent admission
+  - discover->exact SHA->provenance->license->security->sandbox->eval->shadow
+  - never direct remote import
+  reject:
+  - Download followed by execution or automatic admission
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Verify exact source/package, usage rights, isolation and independent qualification
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-016
+  algorithm_id: ALG-SAFE-ACQUISITION-001
+  canonical_name: SafeProviderAcquisition
+  source_proposal:
+    algorithm_id: ALG-SAFE-ACQUISITION-001
+    canonical_name: SafeProviderAcquisition
+    donor_batches:
+    - ARCH-ALG-02
+    source_examples:
+    - fusion_bridge_runtime.py
+    decision: ADOPT_REWRITE
+    target_subsystem: capability_factory
+    target_checkpoint: CP6
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - discover->exact SHA->provenance->license->security->sandbox->eval->shadow
+    - never direct remote import
+    evidence_class: SOURCE_CLAIM
+- name: ContractSurfaceValidator
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: ContractSurfaceValidator
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: evaluation
+    related_subsystems:
+    - capability_factory
+    target_checkpoints:
+    - CP6
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: ADOPT_HARDEN
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - versioned expected surface
+  - semantic validation beyond endpoint counts
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-CONTRACT-VALIDATOR-001
+  canonical_name: ContractSurfaceValidator
+  source_proposal:
+    algorithm_id: ALG-CONTRACT-VALIDATOR-001
+    canonical_name: ContractSurfaceValidator
+    donor_batches:
+    - ARCH-ALG-03
+    - ARCH-ALG-05
+    source_examples:
+    - validate_openapi_v540.py
+    decision: ADOPT_HARDEN
+    target_subsystem: evaluation/capability_factory
+    target_checkpoint: CP6
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - versioned expected surface
+    - semantic validation beyond endpoint counts
+    evidence_class: SOURCE_CLAIM
+- name: DriftAnalyzer
+  source_family: ree_adaptive_analysis.py
+  source:
+    reported_file: ree_adaptive_analysis.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-11
+    local_candidate_ids:
+    - DONOR-13e44a9bded03558
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Deterministic drift and dispersion candidates
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - ree
+    - evaluation
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Deterministic drift and dispersion candidates
+  - real telemetry only
+  - insufficient data -> NOT_MEASURED
+  - calibrate thresholds
+  reject:
+  - Cancellation-prone drift and healthy defaults for insufficient samples
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Prove cancellation guards, finite metrics and unknown/healthy separation
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-020
+  algorithm_id: ALG-DRIFT-001
+  canonical_name: DriftAnalyzer
+  source_proposal:
+    algorithm_id: ALG-DRIFT-001
+    canonical_name: DriftAnalyzer
+    donor_batches:
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    - ARCH-ALG-05
+    source_examples:
+    - hybrid_quantum.py
+    - ree_adaptive_analysis.py
+    decision: ADOPT_REWRITE
+    target_subsystem: sentient/cognition
+    target_checkpoint: CP8
+    priority: P1
+    authority_effect: ADVISORY_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - real telemetry only
+    - insufficient data -> NOT_MEASURED
+    - calibrate thresholds
+    evidence_class: SOURCE_CLAIM
+- name: MultiHorizonStateAnalyzer
+  source_family: trq3d_unified_engine.py
+  source:
+    reported_file: trq3d_unified_engine.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-16
+    local_candidate_ids:
+    - DONOR-d9812dd1f9d8cd56
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Measured state across explicitly bounded time horizons
+  decision:
+    status: ADOPT_ABSTRACTION
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Measured state across explicitly bounded time horizons
+  - single observation != perfect alignment
+  - typed state vector
+  - finite inputs
+  reject:
+  - Trading wave thresholds and synthetic integrity
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Missing windows stay NOT_MEASURED; validate lifecycle and profile generations
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-018
+  algorithm_id: ALG-MULTIHORIZON-STATE-001
+  canonical_name: MultiHorizonStateAnalyzer
+  source_proposal:
+    algorithm_id: ALG-MULTIHORIZON-STATE-001
+    canonical_name: MultiHorizonStateAnalyzer
+    donor_batches:
+    - ARCH-ALG-04
+    source_examples:
+    - trq3d_unified_engine.py
+    decision: ADOPT_ABSTRACTION
+    target_subsystem: sentient/cognition
+    target_checkpoint: CP8
+    priority: P1
+    authority_effect: ADVISORY_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - single observation != perfect alignment
+    - typed state vector
+    - finite inputs
+    evidence_class: SOURCE_CLAIM
+- name: TelemetryPersistenceAnalyzer
+  source_family: pattern_reporter.py
+  source:
+    reported_file: pattern_reporter.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-02
+    local_candidate_ids:
+    - DONOR-5f81a3b7f32ab9ad
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Windowed persistence, sample count and provenance
+  decision:
+    status: ADOPT_ABSTRACTION
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P2
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Windowed persistence, sample count and provenance
+  - minimum sample size
+  - constant series -> NOT_MEASURED
+  - no NaN propagation
+  reject:
+  - Empty sample statistics and silent synchronization errors
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Reject insufficient/invalid samples and expose persistence limitations
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-019
+  algorithm_id: ALG-PERSISTENCE-001
+  canonical_name: TelemetryPersistenceAnalyzer
+  source_proposal:
+    algorithm_id: ALG-PERSISTENCE-001
+    canonical_name: TelemetryPersistenceAnalyzer
+    donor_batches:
+    - ARCH-ALG-05
+    source_examples:
+    - volatility_clustering_model.py
+    decision: ADOPT_ABSTRACTION
+    target_subsystem: observability/sentient-cognition
+    target_checkpoint: CP8
+    priority: P2
+    authority_effect: ADVISORY_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - minimum sample size
+    - constant series -> NOT_MEASURED
+    - no NaN propagation
+    evidence_class: SOURCE_CLAIM
+- name: Disagreement/Fusion Analyzer
+  source_family: phase_resonance.py
+  source:
+    reported_file: phase_resonance.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-03
+    local_candidate_ids:
+    - DONOR-513aaf8aed549036
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Pairwise disagreement alongside aggregate scores
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - evaluation
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Pairwise disagreement alongside aggregate scores
+  - preserve component disagreement
+  - do not average away conflict
+  reject:
+  - Domain PRI thresholds and integrity floor
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Conflicting evidence remains visible with measured coverage
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-021
+  algorithm_id: ALG-DISAGREEMENT-001
+  canonical_name: CognitiveDisagreementIndex
+  source_proposal:
+    algorithm_id: ALG-DISAGREEMENT-001
+    canonical_name: CognitiveDisagreementIndex
+    donor_batches:
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    source_examples:
+    - equilibrium.py
+    - phase_resonance.py
+    decision: ADOPT_REWRITE
+    target_subsystem: evaluation/sentient-cognition
+    target_checkpoint: CP8
+    priority: P1
+    authority_effect: ADVISORY_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - preserve component disagreement
+    - do not average away conflict
+    evidence_class: SOURCE_CLAIM
+- name: ExplainableWeightedFusion
+  source_family: wlwci_calculator.py
+  source:
+    reported_file: wlwci_calculator(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-19
+    local_candidate_ids:
+    - DONOR-27b3710721652ce0
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Per-component contribution and versioned weights
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: evaluation
+    related_subsystems:
+    - sentient/cognition
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Per-component contribution and versioned weights
+  - component contributions retained
+  - weights calibrated
+  - score != confidence until validated
+  reject:
+  - Trading weights and uncalibrated confidence labels
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Finite/normalization guards, missing inputs and reproducible contributions
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-022
+  algorithm_id: ALG-FUSION-EXPLAIN-001
+  canonical_name: ExplainableWeightedFusion
+  source_proposal:
+    algorithm_id: ALG-FUSION-EXPLAIN-001
+    canonical_name: ExplainableWeightedFusion
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-04
+    - ARCH-ALG-05
+    source_examples:
+    - core_fusion_unified.py
+    - tuyul_integrated_reflective_analyzer.py
+    - wlwci_calculator.py
+    decision: ADOPT_REWRITE
+    target_subsystem: evaluation
+    target_checkpoint: CP8
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - component contributions retained
+    - weights calibrated
+    - score != confidence until validated
+    evidence_class: SOURCE_CLAIM
+- name: StateTransitionHysteresis
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: StateTransitionHysteresis
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - control
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: DEFER_UNTIL_CALIBRATED
+    priority: P2
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - transition persistence/cooldown
+  - cannot bypass hard gates
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-HYSTERESIS-001
+  canonical_name: StateTransitionHysteresis
+  source_proposal:
+    algorithm_id: ALG-HYSTERESIS-001
+    canonical_name: StateTransitionHysteresis
+    donor_batches:
+    - ARCH-ALG-01
+    source_examples:
+    - core_reflective_unified.py
+    decision: DEFER_UNTIL_CALIBRATED
+    target_subsystem: sentient/cognition
+    target_checkpoint: CP8
+    priority: P2
+    authority_effect: ADVISORY_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - transition persistence/cooldown
+    - cannot bypass hard gates
+    evidence_class: SOURCE_CLAIM
+- name: Replay/Monte-Carlo Evaluator
+  source_family: probability_core.py
+  source:
+    reported_file: probability_core.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-06
+    local_candidate_ids:
+    - DONOR-a3ce082fded5abfe
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Once-per-input evaluation with pinned seed/profile
+  decision:
+    status: ADOPT_METHODOLOGY
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: evaluation
+    related_subsystems:
+    - ree
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Once-per-input evaluation with pinned seed/profile
+  - seeded/reproducible
+  - evaluate candidate vs baseline
+  - not a truth/authority score
+  reject:
+  - Random probability unrelated to evidence
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Bind evaluation ID, inputs, seed, profile and baseline; quantify uncertainty
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-024
+  algorithm_id: ALG-REPLAY-EVAL-001
+  canonical_name: ReplayMonteCarloEvaluator
+  source_proposal:
+    algorithm_id: ALG-REPLAY-EVAL-001
+    canonical_name: ReplayMonteCarloEvaluator
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    source_examples:
+    - core_cognitive_unified.py
+    - core_fusion_unified.py
+    decision: ADOPT_METHODOLOGY
+    target_subsystem: evaluation/ree
+    target_checkpoint: CP8
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - seeded/reproducible
+    - evaluate candidate vs baseline
+    - not a truth/authority score
+    evidence_class: SOURCE_CLAIM
+- name: TemporalGeneralizationEvaluator
+  source_family: walk_forward_validation_engine.py
+  source:
+    reported_file: walk_forward_validation_engine.py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-18
+    local_candidate_ids:
+    - DONOR-9e808fe4d238641c
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Past versus unseen later task windows
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: evaluation
+    related_subsystems:
+    - ree
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P0
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Past versus unseen later task windows
+  - temporal held-out windows
+  - no empty-window mean
+  - metrics explicitly defined
+  reject:
+  - Trading thresholds, unused training phase and skipped exact-size window
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Test temporal leakage, exact-size boundaries, invalid window sizes and nonempty evaluation
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-023
+  algorithm_id: ALG-TEMPORAL-GEN-001
+  canonical_name: TemporalGeneralizationEvaluator
+  source_proposal:
+    algorithm_id: ALG-TEMPORAL-GEN-001
+    canonical_name: TemporalGeneralizationEvaluator
+    donor_batches:
+    - ARCH-ALG-05
+    source_examples:
+    - walk_forward_validation_engine.py
+    decision: ADOPT_REWRITE
+    target_subsystem: evaluation/ree
+    target_checkpoint: CP8
+    priority: P0
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - temporal held-out windows
+    - no empty-window mean
+    - metrics explicitly defined
+    evidence_class: SOURCE_CLAIM
+- name: Bounded Candidate Optimizer
+  source_family: reflective evolution engine (ree).py
+  source:
+    reported_file: Reflective Evolution Engine (REE).py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-12
+    local_candidate_ids:
+    - DONOR-28e9608a62819e6a
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Offline bounded candidate generation
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: ree
+    related_subsystems:
+    - learning
+    - evaluation
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: P1
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Offline bounded candidate generation
+  - produces candidate only
+  - bounded deltas
+  - no self-activation
+  reject:
+  - Live learning and automatic parameter mutation
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Validate constraints, provenance, evaluation and independent promotion
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: ALG-025
+  algorithm_id: ALG-BOUNDED-OPT-001
+  canonical_name: BoundedCandidateOptimizer
+  source_proposal:
+    algorithm_id: ALG-BOUNDED-OPT-001
+    canonical_name: BoundedCandidateOptimizer
+    donor_batches:
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    source_examples:
+    - core_meta_unified.py
+    - agi_learning_engine.py
+    decision: ADOPT_REWRITE
+    target_subsystem: ree
+    target_checkpoint: CP8
+    priority: P1
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - produces candidate only
+    - bounded deltas
+    - no self-activation
+    evidence_class: SOURCE_CLAIM
+- name: InvarianceEvaluator
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: InvarianceEvaluator
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: evaluation
+    related_subsystems: []
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: ADOPT_ABSTRACTION
+    priority: P2
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: NONE
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - source ordering invariance
+  - file ordering invariance
+  - provider order cannot alter truth
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-INVARIANCE-001
+  canonical_name: InvarianceEvaluator
+  source_proposal:
+    algorithm_id: ALG-INVARIANCE-001
+    canonical_name: InvarianceEvaluator
+    donor_batches:
+    - ARCH-ALG-03
+    source_examples:
+    - reflective_symmetry_patch_v6.py
+    decision: ADOPT_ABSTRACTION
+    target_subsystem: evaluation
+    target_checkpoint: CP8
+    priority: P2
+    authority_effect: NONE
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - source ordering invariance
+    - file ordering invariance
+    - provider order cannot alter truth
+    evidence_class: SOURCE_CLAIM
+- name: DistributionImbalanceAnalyzer
+  source_family: PENDING_SOURCE_BINDING
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: DistributionImbalanceAnalyzer
+  decision:
+    basis: Owner-supplied proposed package; generic principle only
+    target_subsystem: observability
+    related_subsystems:
+    - evaluation
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    status: ADOPT_ABSTRACTION
+    priority: P2
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - degenerate distribution handling
+  - no market-specific semantics in core
+  reject:
+  - Direct source copy, self-promotion, authority escalation and favorable missing-evidence defaults
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: SOURCE_CLAIM_ONLY
+    required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
+    qualification: NOT_EXECUTED
+    proposal_source: INPUT-REGISTRY
+  previous_draft_id: null
+  algorithm_id: ALG-DISTRIBUTION-001
+  canonical_name: DistributionImbalanceAnalyzer
+  source_proposal:
+    algorithm_id: ALG-DISTRIBUTION-001
+    canonical_name: DistributionImbalanceAnalyzer
+    donor_batches:
+    - ARCH-ALG-03
+    source_examples:
+    - reflective_volume_quadrant_engine.py
+    decision: ADOPT_ABSTRACTION
+    target_subsystem: observability/evaluation
+    target_checkpoint: CP8
+    priority: P2
+    authority_effect: ADVISORY_ONLY
+    implementation_status: NOT_IMPLEMENTED
+    rules:
+    - degenerate distribution handling
+    - no market-specific semantics in core
+    evidence_class: SOURCE_CLAIM
+- algorithm_id: ALG-REASON-PROCEDURE-001
+  name: ReasoningProcedure DSL
+  source_family: advanced reasoning framework examples.py
+  source:
+    reported_file: Advanced Reasoning Framework Examples.py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-01
+    local_candidate_ids:
+    - DONOR-890d70774ceaea33
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Versioned declarative proposal steps
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: orchestration
+    related_subsystems:
+    - sentient
+    target_checkpoints:
+    - CP1
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: PENDING_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Versioned declarative proposal steps
+  reject:
+  - Arbitrary callables and a second workflow authority chain
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Reject unknown steps and prove proposal-only outputs
+    qualification: NOT_EXECUTED
+    proposal_source: ORIGINAL_ADDENDUM_BRIEF
+  previous_draft_id: ALG-002
+  canonical_name: ReasoningProcedure DSL
+  source_proposal: null
+- algorithm_id: ALG-MODEL-ADAPTER-001
   name: ProviderAdapter
   source_family: reflective_live_bridge.py
   source:
@@ -2138,6 +3864,7 @@ algorithms:
     - CP1
     - CP3
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: PENDING_REVIEW
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2154,127 +3881,11 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Pin provider/config and validate schemas, timeouts and failure provenance
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-012
-  name: SentientEvent Envelope
-  source_family: repo_bridge_client.py
-  source:
-    reported_file: repo_bridge_client.py
-    donor_batches:
-    - ARCH-ALG-04
-    reference_ids:
-    - ARCH-ALG-04-01
-    local_candidate_ids:
-    - DONOR-3ade868a016eb88f
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Typed event identity, generations and processing receipt
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: contracts
-    related_subsystems:
-    - observability
-    target_checkpoints:
-    - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Typed event identity, generations and processing receipt
-  reject:
-  - HTTP acceptance reported as completed application
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Distinguish dispatched, accepted, processed, failed and unknown
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-013
-  name: ToolDescriptor
-  source_family: tools.py
-  source:
-    reported_file: tools.py
-    donor_batches:
-    - ARCH-ALG-04
-    reference_ids:
-    - ARCH-ALG-04-14
-    local_candidate_ids:
-    - DONOR-2e9857a50324bed6
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Versioned input/output schema and declared effect class
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: tools
-    related_subsystems:
-    - capabilities
-    target_checkpoints:
-    - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Versioned input/output schema and declared effect class
-  reject:
-  - Tool registration treated as execution permission
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Validate descriptor identity, compatibility and unchanged authority
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-014
-  name: CapabilityResolver
-  source_family: reflective_mcp_handler.py
-  source:
-    reported_file: reflective_mcp_handler.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-17
-    local_candidate_ids:
-    - DONOR-00c9c978236f72d5
-    - DONOR-a0f7c03c7fd1e28d
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Resolve qualified providers from explicit requirements
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: capabilities
-    related_subsystems: []
-    target_checkpoints:
-    - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Resolve qualified providers from explicit requirements
-  reject:
-  - Keyword routing and synthetic hash-based coherence
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Reject unqualified, mismatched and ambiguous candidates
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-015
+    proposal_source: ORIGINAL_ADDENDUM_BRIEF
+  previous_draft_id: ALG-011
+  canonical_name: ProviderAdapter
+  source_proposal: null
+- algorithm_id: ALG-PROCEDURE-SKILL-001
   name: Reasoning Procedure as Skill
   source_family: prompt_engineering_framework.py
   source:
@@ -2298,6 +3909,7 @@ algorithms:
     target_checkpoints:
     - CP5
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: PENDING_REVIEW
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2314,44 +3926,11 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Qualify exact package and preserve Kernel-owned lifecycle
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-016
-  name: Safe Provider Acquisition
-  source_family: PENDING_CANONICAL_REPORT
-  source:
-    reported_file: null
-    donor_batches: []
-    reference_ids: []
-    local_candidate_ids: []
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Provenance, rights, isolation and independent admission
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: capability_factory
-    related_subsystems:
-    - capabilities
-    target_checkpoints:
-    - CP6
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Provenance, rights, isolation and independent admission
-  reject:
-  - Download followed by execution or automatic admission
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Verify exact source/package, usage rights, isolation and independent qualification
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-017
+    proposal_source: ORIGINAL_ADDENDUM_BRIEF
+  previous_draft_id: ALG-015
+  canonical_name: Reasoning Procedure as Skill
+  source_proposal: null
+- algorithm_id: ALG-DUPLICATE-OVERLAP-001
   name: Duplicate/Overlap Detector
   source_family: PENDING_CANONICAL_REPORT
   source:
@@ -2371,6 +3950,7 @@ algorithms:
     target_checkpoints:
     - CP6
     ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    priority: PENDING_REVIEW
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2387,407 +3967,10 @@ algorithms:
     validation_status: HISTORICAL_BINDING_INCOMPLETE
     required_acceptance: Same bytes share one donor; semantic similarity cannot imply byte identity
     qualification: NOT_EXECUTED
-- algorithm_id: ALG-018
-  name: MultiHorizonStateAnalyzer
-  source_family: trq3d_unified_engine.py
-  source:
-    reported_file: trq3d_unified_engine.py
-    donor_batches:
-    - ARCH-ALG-04
-    reference_ids:
-    - ARCH-ALG-04-16
-    local_candidate_ids:
-    - DONOR-d9812dd1f9d8cd56
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Measured state across explicitly bounded time horizons
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: sentient/cognition
-    related_subsystems:
-    - observability
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Measured state across explicitly bounded time horizons
-  reject:
-  - Trading wave thresholds and synthetic integrity
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Missing windows stay NOT_MEASURED; validate lifecycle and profile generations
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-019
-  name: TelemetryPersistenceAnalyzer
-  source_family: pattern_reporter.py
-  source:
-    reported_file: pattern_reporter.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-02
-    local_candidate_ids:
-    - DONOR-5f81a3b7f32ab9ad
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Windowed persistence, sample count and provenance
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: sentient/cognition
-    related_subsystems:
-    - observability
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Windowed persistence, sample count and provenance
-  reject:
-  - Empty sample statistics and silent synchronization errors
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Reject insufficient/invalid samples and expose persistence limitations
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-020
-  name: DriftAnalyzer
-  source_family: ree_adaptive_analysis.py
-  source:
-    reported_file: ree_adaptive_analysis.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-11
-    local_candidate_ids:
-    - DONOR-13e44a9bded03558
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Deterministic drift and dispersion candidates
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: sentient/cognition
-    related_subsystems:
-    - ree
-    - evaluation
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Deterministic drift and dispersion candidates
-  reject:
-  - Cancellation-prone drift and healthy defaults for insufficient samples
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Prove cancellation guards, finite metrics and unknown/healthy separation
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-021
-  name: Disagreement/Fusion Analyzer
-  source_family: phase_resonance.py
-  source:
-    reported_file: phase_resonance.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-03
-    local_candidate_ids:
-    - DONOR-513aaf8aed549036
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Pairwise disagreement alongside aggregate scores
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: sentient/cognition
-    related_subsystems:
-    - evaluation
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Pairwise disagreement alongside aggregate scores
-  reject:
-  - Domain PRI thresholds and integrity floor
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Conflicting evidence remains visible with measured coverage
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-022
-  name: ExplainableWeightedFusion
-  source_family: wlwci_calculator.py
-  source:
-    reported_file: wlwci_calculator(1).py
-    donor_batches:
-    - ARCH-ALG-05
-    reference_ids:
-    - ARCH-ALG-05-19
-    local_candidate_ids:
-    - DONOR-27b3710721652ce0
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Per-component contribution and versioned weights
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: evaluation
-    related_subsystems:
-    - sentient/cognition
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Per-component contribution and versioned weights
-  reject:
-  - Trading weights and uncalibrated confidence labels
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Finite/normalization guards, missing inputs and reproducible contributions
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-023
-  name: TemporalGeneralizationEvaluator
-  source_family: walk_forward_validation_engine.py
-  source:
-    reported_file: walk_forward_validation_engine.py
-    donor_batches:
-    - ARCH-ALG-05
-    reference_ids:
-    - ARCH-ALG-05-18
-    local_candidate_ids:
-    - DONOR-9e808fe4d238641c
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Past versus unseen later task windows
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: evaluation
-    related_subsystems:
-    - ree
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Past versus unseen later task windows
-  reject:
-  - Trading thresholds, unused training phase and skipped exact-size window
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Test temporal leakage, exact-size boundaries, invalid window sizes and nonempty evaluation
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-024
-  name: Replay/Monte-Carlo Evaluator
-  source_family: probability_core.py
-  source:
-    reported_file: probability_core.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-06
-    local_candidate_ids:
-    - DONOR-a3ce082fded5abfe
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Once-per-input evaluation with pinned seed/profile
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: evaluation
-    related_subsystems:
-    - ree
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Once-per-input evaluation with pinned seed/profile
-  reject:
-  - Random probability unrelated to evidence
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Bind evaluation ID, inputs, seed, profile and baseline; quantify uncertainty
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-025
-  name: Bounded Candidate Optimizer
-  source_family: reflective evolution engine (ree).py
-  source:
-    reported_file: Reflective Evolution Engine (REE).py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-12
-    local_candidate_ids:
-    - DONOR-28e9608a62819e6a
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Offline bounded candidate generation
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: ree
-    related_subsystems:
-    - learning
-    - evaluation
-    target_checkpoints:
-    - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Offline bounded candidate generation
-  reject:
-  - Live learning and automatic parameter mutation
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Validate constraints, provenance, evaluation and independent promotion
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-026
-  name: ReasoningPlan
-  source_family: tuyul_reasoning_engine.py
-  source:
-    reported_file: tuyul_reasoning_engine(1).py
-    donor_batches:
-    - ARCH-ALG-05
-    reference_ids:
-    - ARCH-ALG-05-06
-    local_candidate_ids:
-    - DONOR-fed806a7495afba8
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Typed bounded plan with evidence requirements
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: sentient
-    related_subsystems:
-    - orchestration
-    target_checkpoints:
-    - CP1
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Typed bounded plan with evidence requirements
-  reject:
-  - A plan controlling execution or manufacturing missing facts
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Kernel validates proposals; unsupported evidence requests remain explicit
-    qualification: NOT_EXECUTED
-- algorithm_id: ALG-027
-  name: ProviderDescriptor
-  source_family: PENDING_CANONICAL_REPORT
-  source:
-    reported_file: null
-    donor_batches: []
-    reference_ids: []
-    local_candidate_ids: []
-    historical_hash_binding: NOT_VERIFIED
-  classification:
-    source_domain: Mixed legacy trading and generic software research
-    extracted_principle: Immutable provider identity, version and supported contracts
-  decision:
-    status: ADOPT_REWRITE
-    basis: Owner addendum brief; generic principle only
-    target_subsystem: capabilities
-    related_subsystems:
-    - models
-    - tools
-    - mcp
-    target_checkpoints:
-    - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
-  authority:
-    source_authority_model: NOT_VERIFIED
-    wolf15_authority_effect: NONE
-    future_boundary: Control Kernel alone owns authority and workflow transitions
-  adopt:
-  - Immutable provider identity, version and supported contracts
-  reject:
-  - Registry presence treated as readiness or permission
-  implementation:
-    status: NOT_IMPLEMENTED
-    runtime_active: false
-    status_scope: Donor adoption only, not all existing baseline contracts
-  evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
-    required_acceptance: Bind exact implementation/config and qualification receipt
-    qualification: NOT_EXECUTED
+    proposal_source: ORIGINAL_ADDENDUM_BRIEF
+  previous_draft_id: ALG-017
+  canonical_name: Duplicate/Overlap Detector
+  source_proposal: null
 anti_patterns:
 - anti_pattern_id: DOMAIN-01
   decision: REJECT
@@ -2870,3 +4053,89 @@ overlap_clusters:
   - multi-horizon evidence
   authority: ADVISORY_ONLY
   binding: SEMANTIC_OVERLAP_ONLY
+received_package:
+  status: PARTIAL_PACKAGE_RECEIVED
+  files:
+  - input_id: INPUT-PACKAGE_MANIFEST-MD
+    file: PACKAGE_MANIFEST.md
+    source_path: C:\Users\INTEL\Downloads\PACKAGE_MANIFEST.md
+    sha256: 443e07ca5e08fd97cf01fe95d8f65f2bbf9ef54022627d26846d4695522166f1
+    size_bytes: 1139
+    read_status: READ_COMPLETE
+  - input_id: INPUT-ALGORITHM-ADOPTION-CANON-MD
+    file: algorithm-adoption-canon.md
+    source_path: C:\Users\INTEL\Downloads\algorithm-adoption-canon.md
+    sha256: e1bc33d9a1e1a203b0b6964654a7dbfb49fb297f3d1c0d9375e95c13cbdf3546
+    size_bytes: 2757
+    read_status: READ_COMPLETE
+  - input_id: INPUT-REGISTRY
+    file: adoption-registry.yaml
+    source_path: C:\Users\INTEL\Downloads\adoption-registry.yaml
+    sha256: 77841140b4a1718d894a389469b88a030bdf3c30739e43c4643a1cc4beab7fbc
+    size_bytes: 15094
+    read_status: READ_COMPLETE
+  - input_id: INPUT-CHECKPOINT-ADOPTION-MATRIX-MD
+    file: checkpoint-adoption-matrix.md
+    source_path: C:\Users\INTEL\Downloads\checkpoint-adoption-matrix.md
+    sha256: f2089151f96da339a436135b2325d15e1ae11a8ded08504f6caaa10991f7a4c7
+    size_bytes: 4089
+    read_status: READ_COMPLETE
+  - input_id: INPUT-ANTI-PATTERN-REGISTRY-MD
+    file: anti-pattern-registry.md
+    source_path: C:\Users\INTEL\Downloads\anti-pattern-registry.md
+    sha256: 21b00be56b0fd7e581eb7caf3098f56a7aa135965d1664c472885e9082bc2e96
+    size_bytes: 2642
+    read_status: READ_COMPLETE
+  - input_id: INPUT-CODEX-DESKTOP-IMPLEMENTATION-CONTRACT-MD
+    file: codex-desktop-implementation-contract.md
+    source_path: C:\Users\INTEL\Downloads\codex-desktop-implementation-contract.md
+    sha256: b3510b8fdcd1b63978e5a785973f3d588527f9e6353250610d2543856d2960bd
+    size_bytes: 4534
+    read_status: READ_COMPLETE
+  registry_records: 31
+  supplemental_original_scope_records: 4
+  merged_design_records: 35
+  declared_missing_files:
+  - docs/research/algorithm-donors/README.md
+  - docs/research/algorithm-donors/batch-01-cognitive-constitutional.md
+  - docs/research/algorithm-donors/batch-02-neural-capability.md
+  - docs/research/algorithm-donors/batch-03-reflective-evaluation.md
+  - docs/research/algorithm-donors/batch-04-cognitive-contract-runtime.md
+  - docs/research/algorithm-donors/batch-05-reasoning-policy-evaluation.md
+  - docs/research/algorithm-donors/source-provenance.md
+  zip:
+    filename: wolf15-sentient-docs-official.zip
+    reported_sha256: fadc573aaf91e31a3dca81787ff6a9a99c3a0c8ffa8897251caabbdd1d600425
+    verified_sha256: null
+    status: NOT_AVAILABLE
+reconciliation:
+  status: INCOMPLETE
+  source_claims_do_not_prove_historical_bindings: true
+  issues:
+  - id: REC-01
+    topic: Package completeness
+    status: MISSING_SOURCE
+    detail: Seven declared documents, original snapshots and ZIP bytes remain unavailable
+  - id: REC-02
+    topic: Ownership
+    status: REVIEW_REQUIRED
+    detail: Retain one proposed owner plus collaborators; incoming slash-combined labels are preserved as source
+      claims, not interpreted as new packages. ReasoningPlan placement and ModelGateway owner require canonical
+      review.
+  - id: REC-03
+    topic: Checkpoint differences
+    status: EXPLICIT_STAGE_SPLIT
+    detail: CP1 bounded ModelGateway adapter stays separate from CP3 service ProviderAdapterResult. CP3 contract
+      preflight does not admit the CP6 Foundry validator. CP3 measured saturation telemetry does not activate CP8
+      adaptive control.
+  - id: REC-04
+    topic: Donor batch claims
+    status: NOT_VERIFIED
+    detail: Incoming StructuredDataConversionToolpack lists ARCH-ALG-02/03 but includes technical_data_processor.py,
+      observed historically in ARCH-ALG-04. ContractSurfaceValidator lists ARCH-ALG-03/05 while the available inventory
+      identifies validate_openapi_v540.py in ARCH-ALG-05. Recover complete reports before resolving.
+  - id: REC-05
+    topic: RuntimeSaturationDetector and correlation
+    status: MISSING_RECORD_DETAIL
+    detail: Narrative names telemetry correlation/saturation but the incoming 31-record YAML has no explicit records
+      for them; do not invent source bindings or imply readiness.

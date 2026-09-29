@@ -1,34 +1,42 @@
 # Algorithm to canonical subsystem matrix
 
-Proposed view of [the registry](adoption-registry.yaml). One primary owner per
-algorithm; collaborators gain no authority. Final ownership review remains open.
+Generated proposed view of [the registry](adoption-registry.yaml). One primary
+owner; collaborators gain no authority. Final ownership review remains open.
 
 | ID | Algorithm | Primary owner | Collaborators |
 | --- | --- | --- | --- |
-| ALG-001 | ConceptGraph | context | knowledge |
-| ALG-002 | ReasoningProcedure DSL | orchestration | sentient |
-| ALG-003 | ReasoningTrace | orchestration | observability |
-| ALG-004 | ProcedureSelector | orchestration | — |
-| ALG-005 | RepositorySnapshotReader | repositories | execution/repo_reader |
-| ALG-006 | IntegrationManifest | repositories | capabilities |
-| ALG-007 | PolicyRuleEngine | control | — |
-| ALG-008 | Sequential Gate Cascade | control | control/gates |
-| ALG-009 | CircuitBreaker | control | execution |
-| ALG-010 | RetryEscalationGuard | control | observability |
-| ALG-011 | ProviderAdapter | models | integrations |
-| ALG-012 | SentientEvent Envelope | contracts | observability |
-| ALG-013 | ToolDescriptor | tools | capabilities |
-| ALG-014 | CapabilityResolver | capabilities | — |
-| ALG-015 | Reasoning Procedure as Skill | skills | orchestration |
-| ALG-016 | Safe Provider Acquisition | capability_factory | capabilities |
-| ALG-017 | Duplicate/Overlap Detector | capability_factory | — |
-| ALG-018 | MultiHorizonStateAnalyzer | sentient/cognition | observability |
-| ALG-019 | TelemetryPersistenceAnalyzer | sentient/cognition | observability |
-| ALG-020 | DriftAnalyzer | sentient/cognition | ree, evaluation |
-| ALG-021 | Disagreement/Fusion Analyzer | sentient/cognition | evaluation |
-| ALG-022 | ExplainableWeightedFusion | evaluation | sentient/cognition |
-| ALG-023 | TemporalGeneralizationEvaluator | evaluation | ree |
-| ALG-024 | Replay/Monte-Carlo Evaluator | evaluation | ree |
-| ALG-025 | Bounded Candidate Optimizer | ree | learning, evaluation |
-| ALG-026 | ReasoningPlan | sentient | orchestration |
-| ALG-027 | ProviderDescriptor | capabilities | models, tools, mcp |
+| ALG-REASON-PLAN-001 | ReasoningPlanContract | sentient | orchestration |
+| ALG-REASON-TRACE-001 | ReasoningTrace | orchestration | observability |
+| ALG-CONCEPT-GRAPH-001 | ConceptGraph | context | knowledge |
+| ALG-PROCEDURE-SELECTOR-001 | ProcedureSelector | orchestration | — |
+| ALG-REPO-SNAPSHOT-001 | RepositorySnapshotReader | repositories | execution/repo_reader |
+| ALG-INTEGRATION-MANIFEST-001 | IntegrationManifest | repositories | capabilities |
+| ALG-POLICY-RULES-001 | PolicyRuleEngine | control | — |
+| ALG-GATE-CASCADE-001 | DeterministicGateCascade | control | control/gates |
+| ALG-CIRCUIT-BREAKER-001 | CircuitBreaker | control | execution |
+| ALG-RETRY-GUARD-001 | RetryEscalationGuard | control | observability |
+| ALG-EVENT-ENVELOPE-001 | SentientEvent | contracts | observability |
+| ALG-SERVICE-ADAPTER-001 | ProviderAdapterResult | integrations | models |
+| ALG-EPISODE-JOURNAL-001 | EpisodeJournal | memory | observability |
+| ALG-RESPONSE-PROFILE-001 | ResponseProfile | sentient | personal |
+| ALG-TOOL-DESCRIPTOR-001 | ToolDescriptor | tools | capabilities |
+| ALG-CAPABILITY-PROVIDER-001 | CapabilityProviderDescriptor | capabilities | models, tools, mcp |
+| ALG-CAPABILITY-RESOLVER-001 | CapabilityResolver | capabilities | — |
+| ALG-CONVERTER-TOOLS-001 | StructuredDataConversionToolpack | tools | skills |
+| ALG-SAFE-ACQUISITION-001 | SafeProviderAcquisition | capability_factory | capabilities |
+| ALG-CONTRACT-VALIDATOR-001 | ContractSurfaceValidator | evaluation | capability_factory |
+| ALG-DRIFT-001 | DriftAnalyzer | sentient/cognition | ree, evaluation |
+| ALG-MULTIHORIZON-STATE-001 | MultiHorizonStateAnalyzer | sentient/cognition | observability |
+| ALG-PERSISTENCE-001 | TelemetryPersistenceAnalyzer | sentient/cognition | observability |
+| ALG-DISAGREEMENT-001 | CognitiveDisagreementIndex | sentient/cognition | evaluation |
+| ALG-FUSION-EXPLAIN-001 | ExplainableWeightedFusion | evaluation | sentient/cognition |
+| ALG-HYSTERESIS-001 | StateTransitionHysteresis | sentient/cognition | control |
+| ALG-REPLAY-EVAL-001 | ReplayMonteCarloEvaluator | evaluation | ree |
+| ALG-TEMPORAL-GEN-001 | TemporalGeneralizationEvaluator | evaluation | ree |
+| ALG-BOUNDED-OPT-001 | BoundedCandidateOptimizer | ree | learning, evaluation |
+| ALG-INVARIANCE-001 | InvarianceEvaluator | evaluation | — |
+| ALG-DISTRIBUTION-001 | DistributionImbalanceAnalyzer | observability | evaluation |
+| ALG-REASON-PROCEDURE-001 | ReasoningProcedure DSL | orchestration | sentient |
+| ALG-MODEL-ADAPTER-001 | ProviderAdapter | models | integrations |
+| ALG-PROCEDURE-SKILL-001 | Reasoning Procedure as Skill | skills | orchestration |
+| ALG-DUPLICATE-OVERLAP-001 | Duplicate/Overlap Detector | capability_factory | — |

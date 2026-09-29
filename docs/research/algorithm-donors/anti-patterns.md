@@ -20,3 +20,10 @@ governed responsibilities. Algorithm records add donor-specific exclusions.
 | GRAPH-01 | Unbounded graph paths and graph size as confidence | Bound traversal and evaluate against independent evidence |
 | EVALUATION-01 | Cancellation-prone metrics, invalid normalization and empty windows | Test finite values, missingness, boundary sizes and temporal separation |
 | OVERLAP-01 | Multiple donor orchestrators become competing kernels | One canonical Control Kernel |
+
+
+## Expanded package guidance
+
+See the [supplied anti-pattern policy](anti-pattern-registry.md) for additional
+measurement, logging, state and domain restrictions. Both apply within the
+existing canonical authority boundary; neither grants runtime capability.
