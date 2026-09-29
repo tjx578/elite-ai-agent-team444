@@ -2,8 +2,9 @@
 
 ## Status
 
-**M1-B target design, merged at `main`
-`7ffac9a8254688649ecf8bca57e2ae7757bd9f32`; not a deployment plan.**
+**Historical architecture source. Master checkpoint owner: CP3.** The original
+M1-B label below identifies the historical source snapshot only; it is not a
+current roadmap identifier.
 That historical snapshot has a local FastAPI app, in-memory deterministic
 `READ_ONLY` workflow, and CI. It has no
 authenticated caller boundary, durable task store, production database,
@@ -38,7 +39,9 @@ both CodeQL steps to the verified `v4.38.2` commit
 dependency updates. A successful run at one commit remains evidence for that
 commit only.
 
-## M5 read-only service target
+The [Master Roadmap](roadmap.md) is the only normative checkpoint sequence.
+
+## CP3 Production Grade v1 read-only service target
 
 ```text
 authenticated client
@@ -82,6 +85,7 @@ after these gates are demonstrated; it does not include autonomous merge,
 messaging, trading, or REE activation.
 
 Deployment, Railway changes, production database writes, broker actions, and
-capability or REE activation remain outside M1-C. None is established by the
+capability or REE activation remain outside the historical trust-foundation
+slice. None is established by the
 M1-B source or CI receipt; any future operation requires separate
 exact-artifact authorization and runtime evidence.
