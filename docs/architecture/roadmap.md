@@ -145,7 +145,7 @@ Control Kernel
 
 ### Primary donor input
 
-`ARCH-DONOR-PYDANTIC-AI-01` is the highest-value current CP1 donor:
+[`ARCH-DONOR-PYDANTIC-AI-01`](../research/pydantic-ai-donor/README.md) is the highest-value current CP1 donor:
 
 - repository: `tjx578/pydantic-ai-sentient`;
 - reviewed snapshot:
@@ -426,7 +426,7 @@ research may exist earlier, but it does not substitute for CP6 qualification.
 ### Donor sets already researched
 
 - Pydantic AI donor;
-- WebMCP specification/skills/runtime/evaluation donors;
+- [WebMCP specification/skills/runtime/evaluation donors](../research/webmcp-donors/README.md);
 - frozen `ALG-REG-001` algorithm donor corpus;
 - other future donors recorded as research inputs.
 
