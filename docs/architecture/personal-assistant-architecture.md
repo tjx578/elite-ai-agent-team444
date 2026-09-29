@@ -21,8 +21,8 @@ brief or draft, but a connector acts only after the Kernel's boundary check.
 
 | Phase | Example | Authority ceiling |
 | --- | --- | --- |
-| M6 read-only | Read calendar/mail/Drive/web/news/project status; discover and invoke qualified read-only WebMCP tools in an isolated or explicitly owner-scoped browser session | Scoped reads only |
-| M9 prepare / CP7 browser action | Draft a message/calendar change or prepare a consequential WebMCP action | Owner-visible draft/plan; no effect without exact approval |
+| CP4 read-only | Read calendar/mail/Drive/web/news/project status; discover and invoke qualified read-only WebMCP tools in an isolated or explicitly owner-scoped browser session | Scoped reads only |
+| CP7 controlled action | Draft a message/calendar change or prepare a consequential WebMCP action | Owner-visible draft/plan; no effect without exact approval |
 | Later approved action | Send or create an exact reviewed artifact | Separate action-specific approval and adapter enforcement |
 
 The first end-to-end use case is a **Morning Intelligence Brief** assembled
@@ -54,11 +54,11 @@ delivery destination, and notification policy. No schedule is active here.
   sanitized receipt when that adapter exists.
 - A partial source outage yields a clearly partial brief; required evidence
   remains missing. No retry of an ambiguous external mutation is automatic.
-- M6 is accepted only after authenticated read-only connector tests,
+- CP4 is accepted only after authenticated read-only connector tests,
   provenance/freshness checks, an owner-visible brief on real permitted data,
   and a bounded browser vertical slice proving WebMCP discovery plus read-only
   invocation with origin/session/tool receipts.
-- M9/CP7 needs draft validation, consequential browser-action classification,
+- CP7 needs draft validation, consequential browser-action classification,
   exact owner approval, idempotency/recovery where relevant, and independent
   verification of authoritative state.
 
