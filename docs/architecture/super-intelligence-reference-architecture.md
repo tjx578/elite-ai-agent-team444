@@ -2,6 +2,11 @@
 
 ## Status and evidence
 
+**Roadmap authority:** [Master Roadmap — CP0 to CP9](roadmap.md). Historical
+M1/M2/M3/M4–M10 labels in this document identify source snapshots or prior
+design vocabulary only; they do not define a parallel checkpoint sequence.
+
+
 The [CP0 canonical ownership map](canonical-ownership.md) aligns the current
 packages with this North Star and freezes ten architecture invariants. The
 historical baseline below remains its original evidence snapshot; later
