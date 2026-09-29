@@ -2,6 +2,11 @@
 
 ## Scope
 
+**Roadmap authority:** this file describes the current/historical deterministic
+flow only. Future checkpoint order comes exclusively from the
+[Master Roadmap](roadmap.md).
+
+
 PR-2 implements the deterministic, in-memory control flow through `FINALIZE`. It uses LangGraph `1.2.10` as a state-machine runtime; Python policy owns transitions, gates, revision limits, typed validation, and finalization. Model reasoning and all external execution remain out of scope.
 
 ## End-to-end flow
