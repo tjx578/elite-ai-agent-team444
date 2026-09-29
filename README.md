@@ -8,7 +8,7 @@ Repository resmi: [tjx578/wolf15-sentient](https://github.com/tjx578/wolf15-sent
 
 > **README.md pada root branch `main` adalah SSoT rancangan sistem.** Dokumen ini menetapkan identitas, tujuan, batas sistem, kepemilikan komponen, urutan checkpoint, struktur repository, dan aturan perubahan. Rancangan berlaku sebagai acuan utama setelah perubahan README masuk `main`. Rancangan target tidak menyatakan bahwa seluruh kemampuan sudah diimplementasikan.
 
-Revisi rancangan: **SSOT-2026-09-29.1**. Baseline implementasi yang diperiksa: [`dd5cf74ce47e395cf859a2b5130790129af01e16`](https://github.com/tjx578/wolf15-sentient/tree/dd5cf74ce47e395cf859a2b5130790129af01e16). SHA ini adalah baseline sebelum pembaruan README, bukan klaim tip `main` selamanya.
+Revisi rancangan: **SSOT-2026-09-29.2**. Pembaruan roster/skill ini bertolak dari README yang telah merged pada [`288c9bb063dac14070323ac4c82a6ea9c152757e`](https://github.com/tjx578/wolf15-sentient/tree/288c9bb063dac14070323ac4c82a6ea9c152757e). Baseline implementasi yang diperiksa: [`dd5cf74ce47e395cf859a2b5130790129af01e16`](https://github.com/tjx578/wolf15-sentient/tree/dd5cf74ce47e395cf859a2b5130790129af01e16). SHA ini adalah baseline sebelum pembaruan README, bukan klaim tip `main` selamanya.
 
 ## Navigasi
 
@@ -196,11 +196,96 @@ Path target berikut berada di `src/wolf15_sentient/`, kecuali yang ditulis sebag
 
 **Kejelasan istilah:** Neural Orchestrator adalah alias fungsi kognitif Sentient Core dalam rancangan sekarang. Sebutan historis yang menggunakannya untuk controller dibaca dalam konteks revision lama. Control Kernel tetap satu pemilik authority dan lifecycle **task/workflow**; lifecycle **provider/capability** dikelola Fabric dengan admission yang ditegakkan Kernel.
 
-### Organisasi spesialis
+### Organisasi spesialis: enam divisi dan 28 peran
 
-Enam divisi target adalah **Intelligence, Architect, Engineering, Reviewer, Optimizer, dan Maintenance**. Angka **28 spesialis** dipertahankan sebagai target organisasi yang masih memerlukan roster dan kontrak peran resmi; daftar lengkapnya belum dibuktikan pada repo. Gambar lama lima divisi/23 agent adalah referensi historis. Security, testing, performance, dokumentasi, dan operasi adalah keahlian lintas divisi yang ditempatkan melalui kontrak peran, bukan tambahan divisi tanpa keputusan.
+**Roster target: Intelligence 5 + Architect 4 + Engineering 4 + Reviewer 5 + Optimizer 5 + Maintenance 5 = 28 spesialis.** Sentient Core / Neural Orchestrator berada di luar hitungan tersebut. Roster adalah pembagian tanggung jawab; tidak mewajibkan 28 proses/model berjalan sekaligus. Routing memilih peran yang diperlukan sesuai kontrak, budget, dependensi, dan izin task.
 
-Assignment minimal memuat tujuan, sumber/revision, keluaran, acceptance criteria, scope izin, kepemilikan file, dependensi, budget, serta kondisi berhenti. Sintesis menjaga dissent dan error; voting tidak dapat menutupi hard failure.
+**Asal rancangan:** 23 nama pada lima divisi teknis mengikuti blueprint awal dan sheet `Agent_Curriculum` dalam `20-Elite_AI_Agent_Team_OS_Literature_Canon-1-.xlsx`. Lima nama Intelligence berasal dari usulan percakapan rancangan 27 September 2026 dan dirinci sebagai perluasan target pada revisi README ini. Kelimanya tidak diklaim berasal dari gambar lama atau telah disahkan pada percakapan sebelumnya. ID peran dan pemetaan skill di bawah adalah kontrak desain baru. Seluruh 28 peran berstatus **TARGET / NOT_IMPLEMENTED sebagai roster runtime**; tiga stub baseline tidak dihitung sebagai implementasi lengkap peran-peran ini.
+
+| Divisi | Jumlah | Fungsi utama dan hasil bersama | Batas tanggung jawab |
+| --- | --- | --- | --- |
+| Intelligence | 5 | Memeriksa sumber, menyusun pengetahuan/konteks, dan menghasilkan intelligence brief serta usulan learning bersumber | Menggunakan layanan Knowledge, Context, Memory dan Learning; tidak memiliki database, state workflow, evaluator, atau admission sendiri |
+| Architect | 4 | Mengubah tujuan dan kendala menjadi batas sistem, kontrak, alternatif, serta keputusan arsitektur | Mengusulkan desain; implementasi, verifikasi independen, dan izin eksekusi tetap terpisah |
+| Engineering | 4 | Membuat implementasi, antarmuka, integrasi dan bukti pengujian sesuai acceptance | Mengubah artefak hanya dalam scope; hasil implementasi belum menjadi persetujuan merge/deploy |
+| Reviewer | 5 | Mencari cacat, akar masalah, risiko keamanan/maintainability, serta pelanggaran perilaku | Memberi temuan dan verdict bersumber; tidak mengubah kebijakan atau menyetujui kandidat buatannya sendiri |
+| Optimizer | 5 | Mengukur lalu memperbaiki kinerja, kapasitas, rendering, akses data, dan efisiensi resource | Perbaikan harus mempertahankan correctness, security dan batas biaya; angka manfaat memerlukan benchmark |
+| Maintenance | 5 | Menyiapkan delivery, reliability, telemetry, incident response dan keamanan operasi | Tindakan produksi, perubahan akses dan komunikasi eksternal memerlukan adapter serta grant yang sesuai |
+
+#### Intelligence — 5 peran perluasan target
+
+| ID / spesialis | Masukan utama | Fungsi dan keluaran wajib | Keluarga skill |
+| --- | --- | --- | --- |
+| `INT-01` — Research & Source Intelligence | Pertanyaan riset, repo/media/dokumen yang diizinkan, revision dan freshness requirements | Menemukan serta membandingkan sumber; menghasilkan source ledger, temuan dengan locator, konflik dan gap bukti | `F-SOURCE`, `F-AUDIT` |
+| `INT-02` — Knowledge Curator & Canon | Source ledger, konsep/ADR dan versi pengetahuan yang berlaku | Mengusulkan canonical concepts, deduplikasi, lineage dan penyelesaian konflik; keluaran curated knowledge candidate untuk pemilik Knowledge | `F-KNOW`, `F-SOURCE` |
+| `INT-03` — Retrieval & Context Engineer | Objective, hak akses, knowledge generation dan context budget | Menyusun strategi retrieval/reranking dan konteks relevan; keluaran `ContextBundle` candidate beserta sumber, freshness, konflik dan batas cakupan | `F-CONTEXT`, `F-KNOW`, `F-TEST` |
+| `INT-04` — Validated Memory & Learning | Outcome terverifikasi, kegagalan, koreksi, consent/retention dan applicability | Mengusulkan episode, pola sukses/gagal dan hipotesis skill improvement; keluaran memory/learning candidate, kontraindikasi dan rencana evaluasi | `F-LEARN`, `F-KNOW`, `F-TEST` |
+| `INT-05` — Intelligence Synthesis | Temuan, konteks, dissent, tujuan dan kendala keputusan | Menyatukan intelligence brief, opsi, risiko dan rekomendasi bersumber; mempertahankan ketidakpastian serta keputusan yang menunggu pemilik | `F-SYNTH`, `F-SOURCE`, `F-CONTEXT` |
+
+`INT-02` tidak menulis canon tanpa kontrak admission Knowledge; `INT-03` tidak membuat sumber/claim menjadi VERIFIED hanya karena terambil; `INT-04` tidak mengaktifkan skill, menulis memory permanen, atau mengendalikan evaluator. `INT-05` menyusun briefing domain; sintesis lintas divisi dan proposal rencana task tetap milik Sentient Core.
+
+#### Architect — 4 peran dari blueprint awal
+
+| ID / spesialis | Masukan utama | Fungsi dan keluaran wajib | Keluarga skill |
+| --- | --- | --- | --- |
+| `ARC-01` — Startup MVP Systems Architect | Masalah pemilik/pengguna, hipotesis nilai, kendala dan risiko | Membatasi MVP dan feasibility; menghasilkan MVP boundary, hypothesis map dan arsitektur vertical slice terkecil yang dapat diuji | `F-ARCH`, `F-SOURCE`, `F-SYNTH` |
+| `ARC-02` — Clean Architecture Refactor Architect | Snapshot modul/dependensi, invariants dan bukti perilaku lama | Merancang modularitas, dependency rules dan urutan refactor; menghasilkan module map serta migration plan dengan characterization requirements | `F-ARCH`, `F-AUDIT`, `F-TEST` |
+| `ARC-03` — Backend Systems Architect | Domain, data, kontrak API, skala dan failure requirements | Merancang batas layanan, konsistensi, messaging dan recovery; menghasilkan data/consistency model serta failure-mode architecture | `F-ARCH`, `F-DATA`, `F-SEC` |
+| `ARC-04` — Technical Decision Architect | Alternatif teknologi, constraints, evidence dan biaya perubahan | Menilai trade-off/reversibility; menghasilkan option matrix, ADR dan fitness functions dengan owner serta waktu review | `F-ARCH`, `F-SOURCE`, `F-SYNTH` |
+
+#### Engineering — 4 peran dari blueprint awal
+
+| ID / spesialis | Masukan utama | Fungsi dan keluaran wajib | Keluarga skill |
+| --- | --- | --- | --- |
+| `ENG-01` — Full-Stack Product Engineer | Slice arsitektur, user flow, API dan acceptance criteria | Membangun alur end-to-end yang dapat digunakan/diuji; menghasilkan patch vertical slice, acceptance evidence dan catatan operabilitas | `F-BUILD`, `F-UI`, `F-TEST` |
+| `ENG-02` — Backend Implementation Engineer | Kontrak domain/API, transaction boundary dan failure semantics | Mengimplementasikan service, persistence, concurrency serta integrasi; menghasilkan API/service patch, contract tests dan telemetry yang relevan | `F-BUILD`, `F-DATA`, `F-TEST` |
+| `ENG-03` — Frontend UI Systems Engineer | User flow, desain interaksi, API state dan kebutuhan aksesibilitas | Membangun UI responsif/konsisten; menghasilkan komponen/design system, state loading/error dan bukti accessibility/browser checks | `F-UI`, `F-BUILD`, `F-TEST` |
+| `ENG-04` — Integration & Test Engineer | Kontrak lintas komponen, risk map, fixture dan environment | Merancang pengujian yang membuktikan perilaku/integrasi; menghasilkan executable test strategy, hasil aktual dan daftar risiko yang belum teruji | `F-TEST`, `F-BUILD`, `F-OBS` |
+
+#### Reviewer — 5 peran dari blueprint awal
+
+| ID / spesialis | Masukan utama | Fungsi dan keluaran wajib | Keluarga skill |
+| --- | --- | --- | --- |
+| `REV-01` — Codebase Audit Reviewer | Exact repository snapshot/diff, dependency dan standar repo | Mengaudit struktur, readability, correctness serta konsistensi; menghasilkan temuan berlokasi, dampak, bukti/reproduksi dan remediasi | `F-AUDIT`, `F-SOURCE`, `F-TEST` |
+| `REV-02` — Debugging & Root Cause Reviewer | Repro, log/trace tersanitasi, hipotesis dan perubahan terkait | Memisahkan gejala dari sebab melalui eksperimen; menghasilkan minimal reproduction, causal analysis dan bukti validasi fix | `F-AUDIT`, `F-TEST`, `F-OBS` |
+| `REV-03` — Security Audit Reviewer | Trust boundary, threat model, artefak/dependensi dan permitted effects | Mengaudit aplikasi/supply chain dan abuse cases; menghasilkan security findings, attack paths serta remediation checks | `F-SEC`, `F-AUDIT`, `F-TEST` |
+| `REV-04` — Maintainability Reviewer | Module/change history, coupling, debt dan constraint tim | Menilai evolvability serta biaya perubahan; menghasilkan maintainability risk map dan debt register dengan owner/trigger/remediation | `F-AUDIT`, `F-ARCH`, `F-SYNTH` |
+| `REV-05` — Behavior Preservation Reviewer | Invariants, kontrak lama/baru, model dan input domain | Memeriksa regression serta sifat temporal; menghasilkan behavioral contract dan characterization/property/model-check evidence sesuai cakupan | `F-TEST`, `F-AUDIT`, `F-ARCH` |
+
+#### Optimizer — 5 peran dari blueprint awal
+
+| ID / spesialis | Masukan utama | Fungsi dan keluaran wajib | Keluarga skill |
+| --- | --- | --- | --- |
+| `OPT-01` — Performance Optimization Engineer | Profile, workload, baseline dan environment terikat | Mengoptimalkan critical path terukur; menghasilkan profile, benchmark before/after dan optimization diff dengan regression guard | `F-PERF`, `F-TEST`, `F-BUILD` |
+| `OPT-02` — Scalability Optimization Engineer | Capacity/SLO, pola beban, queue dan failure model | Menguji saturation, contention, partition dan backpressure; menghasilkan capacity model, load/failure evidence dan degradation plan | `F-PERF`, `F-ARCH`, `F-OBS` |
+| `OPT-03` — Frontend Rendering Optimizer | Rendering/network traces, user interaction serta device/network cohorts | Memperbaiki loading, rendering, assets dan interaksi; menghasilkan lab/field performance profile, patch dan budget tanpa merusak accessibility | `F-PERF`, `F-UI`, `F-TEST` |
+| `OPT-04` — Backend Query & Cache Optimizer | Query plans, data shape, cache semantics dan workload | Memperbaiki index/query/cache; menghasilkan query-plan comparison, cache invalidation/consistency contract dan load/correctness evidence | `F-DATA`, `F-PERF`, `F-TEST` |
+| `OPT-05` — Resource Efficiency Optimizer | Penggunaan compute/memory/storage, biaya dan functional unit | Mengukur efisiensi per tugas/transaksi; menghasilkan resource/cost model dan opsi penghematan; energi/carbon hanya bila data serta metode tersedia | `F-PERF`, `F-OBS`, `F-SYNTH` |
+
+#### Maintenance — 5 peran dari blueprint awal
+
+| ID / spesialis | Masukan utama | Fungsi dan keluaran wajib | Keluarga skill |
+| --- | --- | --- | --- |
+| `MNT-01` — DevOps Deployment Engineer | Build artefact, pipeline/infra contract, target environment dan grant | Merancang delivery reproducible, provenance serta recovery; menghasilkan pipeline/config candidate dan deployment/rollback receipt hanya jika aksi diizinkan/dijalankan | `F-OPS`, `F-SEC`, `F-TEST` |
+| `MNT-02` — Reliability / SRE Engineer | User-visible SLI, SLO, error budget, capacity dan insiden | Menilai reliability/toil dan trade-off; menghasilkan SLI/SLO set, resilience plan, capacity recommendation dan recovery validation | `F-OPS`, `F-OBS`, `F-PERF` |
+| `MNT-03` — Monitoring & Logging Engineer | Event/schema, trace correlation, privacy dan signal budget | Mendesain logs/metrics/traces yang dapat ditindaklanjuti; menghasilkan telemetry schema, dashboard/alert specification serta runbook ber-owner | `F-OBS`, `F-OPS`, `F-SEC` |
+| `MNT-04` — Incident Response Engineer | Alert/incident evidence, severity, scope akses dan recovery options | Menyiapkan containment/recovery dan koordinasi; menghasilkan timeline, decision log, recovery evidence serta learning review; pengiriman komunikasi mengikuti grant | `F-OPS`, `F-AUDIT`, `F-SYNTH` |
+| `MNT-05` — Production Security Ops Engineer | Identity/access, secrets/workload controls, detection dan runtime evidence | Menilai dan menjaga kontrol operasi; menghasilkan least-privilege control plan, detection/playbook serta verification evidence pada lingkungan yang diizinkan | `F-SEC`, `F-OPS`, `F-OBS` |
+
+#### Kontrak peran, assignment, dan handoff
+
+Peran menjaga **mandat**, sementara skill menyediakan **prosedur yang dapat diganti versi**. Satu peran dapat memakai banyak skill, dan satu skill dapat dipakai lintas divisi. Penambahan skill tidak menambah jumlah spesialis; perubahan mandat/jumlah divisi memerlukan revisi roster dan ownership dalam README ini.
+
+| Kontrak target | Isi minimum |
+| --- | --- |
+| Role manifest | `role_id`, versi, divisi, mandat, input/output schemas, acceptance criteria, keluarga skill, effects ceiling, dependencies dan checkpoint owner |
+| Assignment | Task/run ID, tujuan, source/revision/digests, scope/grant, peran yang dipilih, owner artefak/file, dependensi, budget/deadline, cancellation dan kondisi berhenti |
+| Skill binding per run | Skill/package ID dan versi/digest, admission/receipt refs, registry generation, provider/model/dependency bindings, target environment dan data boundary |
+| Handoff | Output refs/digests, hasil pemeriksaan, temuan/dissent, limitations, error/unknown effects, next owner dan postconditions |
+| Review | Author/reviewer identity, metode pemeriksaan, independence scope dan evidence; review berurutan oleh agen yang sama diberi `review_independence=LIMITED` |
+
+Core mengusulkan pembagian kerja dan menyatukan hasil; Kernel memegang dispatch/authority. Tidak ada writer ganda pada artefak yang sama tanpa owner integrasi. Specialist/Reviewer tidak menjadi admission authority. Voting tidak menutupi hard failure; output belum terverifikasi tetap candidate. Skill/provider yang tidak tersedia menghasilkan gap atau fallback yang berlabel.
+
+Peran dapat diperkenalkan bertahap pada checkpoint pemiliknya: reasoning Core di CP1, analisis repository di CP2, layanan/observability di CP3, intelligence personal/media di CP4, resolusi skill dinamis di CP5, akuisisi donor di CP6, perubahan repo terkendali di CP7, dan outcome learning di CP8. Ini pemetaan tanggung jawab, bukan penutupan CP atau izin mengeksekusi peran masa depan.
 
 ### Invarian sistem
 
@@ -332,17 +417,112 @@ Registry berversi menyimpan identitas, kontrak input/output, effects, provenance
 
 ### Capability Foundry
 
-Discovery → exact revision → provenance/rights/license → dependency/security → rekonstruksi arsitektur → ekstraksi prinsip/kontrak → overlap → packaging terisolasi → sandbox/offline/shadow evaluation → candidate manifest → keputusan admission terpisah.
+Discovery → exact revision → provenance/rights/license → dependency/security → rekonstruksi arsitektur → ekstraksi prinsip/kontrak → overlap → packaging terisolasi → isolated offline evaluation (shadow hanya setelah jalur tersendiri disetujui) → candidate manifest → keputusan admission terpisah.
 
 Overlap memakai `NEW`, `EQUIVALENT`, `PARTIAL_OVERLAP`, `SUPERSET`, `SUBSET`, `COMPLEMENTARY`, `CONFLICTING` berdasarkan kontrak/perilaku. Foundry tidak mengaktifkan dirinya. Rights/provenance yang belum jelas menahan adopsi kode. Membaca donor tidak menjalankan instruksi instalasinya.
 
 ### Learning / REE
 
-Verified outcome menjadi episode, lalu candidate dinilai terhadap baseline dengan evaluator/rubric tetap, replay, held-out dan temporal validation, shadow, independent review, persetujuan, dan versioned activation. Regression/hard failure tidak dapat dirata-ratakan menjadi PASS. Rollback mempertahankan revocation terbaru dan run aktif tetap memakai generation aslinya.
+Verified outcome menjadi episode, lalu candidate dinilai terhadap baseline dengan evaluator/rubric tetap, replay, held-out dan temporal validation, independent review, persetujuan, dan versioned activation. Shadow merupakan tahap target setelah jalur qualification serta containment-nya disetujui; belum didukung kebijakan sekarang. Regression/hard failure tidak dapat dirata-ratakan menjadi PASS. Rollback mempertahankan revocation terbaru dan run aktif tetap memakai generation aslinya.
 
 Lifecycle candidate pada kontrak mencakup `DRAFT`, `REJECTED`, `OFFLINE_EVALUATED`, `SHADOW`, `APPROVAL_PENDING`, `ACTIVE_WORKFLOW`, `DISABLED`, `SUPERSEDED`. Keberadaan enum serta string `approval_ref` belum membuktikan promotion engine atau autentikasi approval.
 
 SCRS, drift/correlation/saturation, explainable fusion, replay/Monte Carlo, dan REE menjadi alat observasi/evaluasi jika telah dikalibrasi untuk workload Sentient. Formula dan threshold trading lama tidak menjadi ukuran kecerdasan, kebenaran, atau izin release. Model training/weight update tidak diklaim hanya karena tersedia refleksi atau episode.
+
+### Matriks agent–skill dan keluarga prosedur
+
+Kolom skill pada seluruh 28 peran di bagian [organisasi spesialis](#organisasi-spesialis-enam-divisi-dan-28-peran) membentuk matriks kebutuhan awal. ID `F-*` di bawah adalah **keluarga kapabilitas rancangan**, bukan nama package terpasang, entri qualified registry, atau pengganti ID pada katalog SK-01. Package nyata dipilih kemudian berdasarkan kontrak dan evidence; beberapa package dapat melayani satu keluarga, dan satu package dapat melayani beberapa peran.
+
+| Keluarga | Prosedur dan bukti yang diharapkan |
+| --- | --- |
+| `F-SOURCE` | Repository/source inspection, provenance, freshness, riset dan pemeriksaan klaim; hasil menunjuk sumber serta revision |
+| `F-KNOW` | Kurasi konsep/ADR, deduplikasi, lineage, konflik, applicability dan retensi; menghasilkan knowledge candidate |
+| `F-CONTEXT` | Retrieval, context assembly, ranking dan conflict checks dengan budget; uji dukungan sumber dan cakupan konteks |
+| `F-LEARN` | Distilasi episode terverifikasi, ekstraksi workflow/operator dan hipotesis perbaikan; menghasilkan kandidat beserta baseline dan evaluation plan |
+| `F-SYNTH` | Sintesis, option/trade-off analysis, briefing dan dokumentasi keputusan; dissent serta ketidakpastian tetap terlihat |
+| `F-ARCH` | System/module/data architecture, GOAP plan, ADR, dependency/failure boundaries dan migration contracts |
+| `F-BUILD` | Implementasi/patch, API/domain/integration logic, perubahan terisolasi dan postcondition checks sesuai grant |
+| `F-UI` | User flow, design system, accessibility, responsive/browser states dan interaksi UI |
+| `F-TEST` | Contract, characterization, property, integration, regression serta negative/failure testing; hasil terikat subject dan environment |
+| `F-AUDIT` | Code review, debugging, root-cause analysis, maintainability serta behavior audit dengan lokasi dan reproduksi |
+| `F-SEC` | Threat modeling, supply-chain/identity/access/secrets review, injection/egress checks dan abuse-case verification |
+| `F-PERF` | Profiling, benchmark, load/capacity dan resource optimization terhadap workload/baseline tetap |
+| `F-DATA` | Data modeling, persistence/query/index, cache consistency, transaction dan idempotency contracts |
+| `F-OPS` | CI/delivery, infra/recovery, SRE, incident planning dan controlled operations melalui adapter yang diizinkan |
+| `F-OBS` | Telemetry schema, trace correlation, metrics/logs, alert/runbook dan pengukuran biaya/kinerja dengan redaction |
+
+Daftar ini dapat berkembang. Memperluas keluarga atau memasang package harus menunjukkan gap yang dilayani, peran konsumen, overlap, prasyarat serta checkpoint. Paket host/workbench yang tersedia saat menyusun dokumen ini tidak otomatis tersedia dalam produk Sentient. Katalog riset tetap **DESIGN_CANDIDATE_ONLY** sampai ada qualification dan admission untuk exact package serta scope yang dimaksud.
+
+### Kontrak skill yang dapat berkembang
+
+**Mandat agent stabil; implementasi skill dapat terus diperbaiki dan ditambah melalui versi kandidat.** Pembelajaran terhadap repo baru dapat memperbaiki pengetahuan, prosedur, atau pilihan provider. Tidak setiap repo perlu menghasilkan skill baru, dan tidak setiap hasil belajar layak diaktifkan.
+
+| Manifest/record target | Binding minimum |
+| --- | --- |
+| Identitas | `skill_id`, versi, schema version, immutable full-package/tree digest; build/installed artifact dan security metadata bila relevan |
+| Asal dan lineage | Source repo/document, exact commit/artifact revision, provenance/rights decision, parent version, change reason dan `supersedes` |
+| Pemilik dan konsumen | Satu accountable maintainer/divisi, role IDs yang dapat memakai skill, keluarga capability dan checkpoint owner |
+| Kontrak prosedur | Trigger/applicability, input/output schema, preconditions/postconditions, kontraindikasi, error/failure semantics dan fallback |
+| Dependency | Package/tool/provider/model compatibility, resolved dependency artifacts, environment serta built/installed bindings |
+| Batas efek | Permitted operations, authority ceiling, read/write/data/egress scope, resource limits, timeout, cancellation dan idempotency |
+| Evaluasi | Hipotesis kontribusi, qualification corpus/expected outcomes, baseline/harness, independent collector, evaluator/profile/policy identities, run ID dan evidence digests |
+| Admission | Authenticated receipt dan owner/authorized-policy decision, exact evaluated scope, target environment, allowed effects, issued/expiry time dan revocation path |
+| Aktivasi | Registry generation, immutable active version, run pinning dan validitas grant saat penggunaan |
+| Pemeliharaan | Regression findings, feedback/verified episodes, review trigger, disable/supersession dan rollback target yang masih sah |
+
+Tabel merupakan minimum kontrak target. Detail canonical digest, receipt-v1, authenticity, bootstrap evaluator dan pemeriksaan penggunaan mengikuti [skill qualification policy](docs/governance/skill-qualification-policy.md); ringkasan ini tidak mengendurkan syaratnya. Hash `SKILL.md` saja tidak mewakili seluruh package, scripts, references, assets dan dependencies. Kandidat tidak boleh menulis harness, fixture, collector, evaluator maupun evidence store yang menilai dirinya.
+
+### Pembelajaran adaptif dari repo baru
+
+| Tahap | Proses dan keluaran | Pemilik / checkpoint |
+| --- | --- | --- |
+| 1. Bind source | Ikat repo, exact commit, scope akses, file/artifact digests dan tujuan; instruksi donor tetap data | Repository Intelligence dan execution reader / CP2 |
+| 2. Pahami konteks | Rekonstruksi architecture/contracts, pola implementasi, kegagalan, constraints dan sumber pengetahuan; pisahkan fakta dari klaim | Intelligence bersama Architect/Reviewer, melalui Knowledge/Context / CP2 dan capability yang tersedia |
+| 3. Tentukan kontribusi | Bandingkan kebutuhan task dengan generation yang dipin: knowledge saja, reuse skill existing, kandidat update/new skill, provider gap, atau tidak ada perubahan | Core mengusulkan; resolver/Fabric memberi gap classification / CP5 |
+| 4. Saring donor | Periksa rights/license, dependencies, security, data egress serta overlap berdasarkan perilaku; konflik/rights yang tidak jelas menahan adopsi | Foundry dengan input Reviewer / CP6 |
+| 5. Bentuk kandidat | Ekstrak prinsip/workflow/operator yang reusable; pertahankan applicability/kontraindikasi; kemas versi terpisah dengan lineage ke parent dan source | Foundry dan maintainer keluarga skill / CP6 |
+| 6. Kualifikasi offline | Uji positive/negative, malformed input, missing dependency, timeout, cancellation, effects dan kontribusi terhadap baseline dengan containment yang ditegakkan | Harness/collector independen dan evaluator yang sudah qualified / CP6 |
+| 7. Tinjau dan admit | Review evidence, compatibility, rights dan bound scope; hasil gagal/tidak lengkap tetap HOLD/REJECTED; admission oleh pemilik atau policy yang memang berwenang | Governance decision; enforcement Kernel; registry generation oleh Fabric / CP5–CP6 |
+| 8. Gunakan versi sah | Run baru mengikat admitted package dan generation; per-call authority, integrity, expiry/revocation tetap diperiksa | Fabric, loader dan Kernel / CP5; efek perubahan repo hanya CP7 |
+| 9. Pelajari outcome | Outcome penggunaan yang diverifikasi menjadi episode; evaluasi retensi/generalization terhadap data terpisah sebelum kandidat berikutnya | Learning/REE dan evaluator independen / CP8 |
+
+Urutan tersebut adalah **alur target lintas checkpoint**; CP2 tidak langsung membuka CP5/CP6/CP8. Jika prasyarat belum ada, hasil berhenti sebagai temuan, knowledge candidate atau capability-gap proposal dengan status DEFER. Akuisisi dari source/demonstrasi di CP6 berbeda dari perbaikan berbasis pengalaman runtime terverifikasi di CP8. Jalur knowledge-only mengikuti akses, freshness, consent, retention dan admission Knowledge/Memory; tidak perlu dikemas sebagai skill.
+
+**Batas evaluasi yang berlaku sekarang:** kebijakan repository hanya mendukung qualification offline. Connected/shadow qualification tetap **UNSUPPORTED / BLOCKED** sampai desain, containment, evidence profile dan jalur evaluasinya disetujui terpisah. `SHADOW` pada lifecycle/roadmap adalah target masa depan, bukan mode yang sudah boleh dijalankan. Evaluator `common-skill/v1` harus dikualifikasi terpisah; membaca paket Advanced AGI maupun menjalankan pemeriksaan Markdown tidak mengkualifikasi skill.
+
+Update dapat diusulkan secara berulang tanpa mengubah mandat agent. Aktivasi membutuhkan admission yang cocok dengan exact bytes, dependency closure, scope dan lingkungan. Scope yang sudah sah tidak membutuhkan konfirmasi ulang untuk setiap langkah rutin; scope/effects baru tetap perlu keputusan baru. Versi aktif tidak ditimpa: run berjalan mempertahankan binding aslinya, sedangkan run berikutnya dapat memilih versi baru yang admitted. Bila versi yang dipin dicabut atau integrity check gagal, run berhenti pada batas yang diatur; pinning tidak mengabaikan revocation. Rollback hanya menuju versi yang masih valid dan tidak memulihkan izin yang telah dicabut.
+
+Perubahan package/built artefact, dependency, harness, corpus kualifikasi, baseline, environment, policy atau permission serta receipt expiry memicu evaluasi sesuai policy. **Input task baru yang masih berada di kelas/scope admitted tidak otomatis memerlukan kualifikasi ulang.** Source repo yang berubah dinilai dampaknya: bila hanya menjadi input baru dalam scope, ikat revision baru; bila mengubah bytes/kontrak skill atau binding kualifikasi, buat kandidat dan evaluasi ulang.
+
+#### Acceptance pembelajaran dan pembaruan skill
+
+| ID | Kondisi yang harus dibuktikan pada implementasi |
+| --- | --- |
+| AS-01 | Ke-28 role IDs memiliki satu divisi/mandat dan mapping skill yang dapat di-resolve; dependency yang hilang menghasilkan gap, bukan tool availability palsu |
+| AS-02 | Input repo yang setara memakai reuse/overlap result dengan lineage; nama baru saja tidak membuat capability baru |
+| AS-03 | Prompt injection, rights tidak jelas, stale source dan konflik tidak menambah authority atau lolos sebagai knowledge/skill verified |
+| AS-04 | Update skill dapat melayani beberapa agent tanpa menyalin package atau mengubah mandat mereka; compatibility diperiksa per konsumen |
+| AS-05 | Source/demonstrasi pembentukan kandidat terpisah dari held-out/replay evaluation; outcome buruk dan regresi tidak disembunyikan |
+| AS-06 | Evidence/receipt yang hilang, kedaluwarsa, palsu atau berbeda binding memblokir admission; candidate author tidak menyetujui dirinya |
+| AS-07 | Aktivasi menghasilkan generation baru; run pinning, integrity, cancellation, revocation, disable dan rollback sah terbukti pada kasus normal maupun gagal |
+| AS-08 | Quality, generalization, retention, latency, token/cost dan resource dilaporkan terhadap baseline serta workload; nilai yang belum diukur tetap NOT_MEASURED |
+
+AS-* adalah acceptance rancangan, **belum hasil test**. Hard gate tidak dikompensasi skor rata-rata. Tidak ada klaim peningkatan AGI, kesadaran, autonomous self-install atau perubahan bobot model dari pembaruan prosedur ini.
+
+### Kedudukan Advanced AGI pada Sentient Core
+
+`advanced-agi` versi `2.0.0-candidate.1` merupakan referensi prosedural dengan metadata **CANDIDATE_NOT_ACTIVATED / operational-authority NONE**. Pada rancangan ini ia membantu Neural Orchestrator / AI Tech Lead Core mengurai persoalan dan menyiapkan usulan teruji. Ia tidak menjadi agent ke-29, control plane baru, evaluator yang otomatis qualified, ataupun dependency runtime yang sudah dipasang.
+
+| Metode sumber | Adaptasi target dan batas |
+| --- | --- |
+| MMRE | Representasi tujuan, cabang masalah, constraints, relasi bukti dan sintesis keputusan; keluaran berupa ringkasan yang dapat diperiksa |
+| CNRS | Validasi observasi, penggabungan evidence, risk checks, refleksi error dan konteks memori; runtime enforcement tetap milik Kernel/adapter |
+| SPARC–GOAP | Specification/acceptance, desain kontrak, dependency plan, refinement serta completion; replan dan retry dibatasi |
+| A2Flow | Ekstraksi kandidat operator dari demonstrasi, pengelompokan fungsi, abstraction dan composition checks; tidak langsung mengeksekusi kode donor |
+| SAFLA / ReasoningBank | Pola konteks sesi, semantic/episodic memory dan koordinasi; storage serta truth state tetap pada pemilik Knowledge/Memory/Kernel |
+| Controlled learning | Hipotesis perubahan, baseline tetap, held-out/regression, independent review dan kandidat versi baru; model-weight training membutuhkan runtime/data/izin terpisah |
+
+Untuk pekerjaan WOLF15, pemakaian prosedur ini berada dalam mode DESIGN/offline plan-only; delivery repository mengikuti workflow dan otorisasi pemilik yang terpisah. Tanpa backend hanya ada proposal/artefak, bukan memory persisten, swarm atau solver aktif. Dokumen ini menggunakan istilah metode sebagai rancangan yang akan diuji, tanpa mewarisi threshold trading, janji akurasi, atau klaim AGI terukur dari sumber.
 
 ## 10. Roadmap master CP0–CP9
 
@@ -454,11 +634,11 @@ Satu plane capability untuk skills, tools, backend MCP, models/providers, dan ep
 
 | Substep | Isi |
 | --- | --- |
-| CP5.1 | Contracts, canonical IDs, ToolDescriptor, CapabilityProvider, gap semantics |
+| CP5.1 | Contracts, canonical IDs, ToolDescriptor, CapabilityProvider, role–skill bindings dan gap semantics |
 | CP5.2 | Versioned registry generation dan lifecycle capability/provider |
 | CP5.3 | Task-scoped resolver, explicit no-provider result, pinned gap classification |
 | CP5.4 | Tool/MCP/model/provider integration termasuk ephemeral WebMCP descriptors |
-| CP5.5 | Unified Skills runtime, progressive disclosure dan bounded tool search |
+| CP5.5 | Unified Skills runtime, manifest/loader, pemetaan 28 peran ke package qualified, progressive disclosure dan bounded tool search |
 | CP5.6 | Pinning, health, revocation, stale generation, denial, replay dan per-call policy tests |
 | CP5.7 | Exact-main acceptance |
 
@@ -472,11 +652,11 @@ Discovery donor dan akuisisi capability yang terkontrol menghasilkan kandidat ya
 | --- | --- |
 | CP6.1 | Donor manifest, provenance, media-origin discovery request, exact source/revision |
 | CP6.2 | Rights/license, dependency, security dan data-egress gates |
-| CP6.3 | Architecture reconstruction serta capability/principle extraction |
+| CP6.3 | Architecture reconstruction serta ekstraksi knowledge/principle/workflow; pisahkan knowledge-only, reuse, update/new skill dan provider gap |
 | CP6.4 | Contract-based overlap/dedup/conflict |
 | CP6.5 | Isolated packaging, mount/network/resource limits dan sandbox |
-| CP6.6 | Independent offline evaluation dan shadow qualification |
-| CP6.7 | Candidate manifest; admission terpisah untuk registry generation baru |
+| CP6.6 | Independent offline evaluation terhadap baseline; shadow qualification hanya setelah desain, containment dan evidence path tersendiri disetujui |
+| CP6.7 | Versioned candidate manifest, parent/source lineage dan consumer roles; admission terpisah untuk registry generation baru |
 | CP6.8 | Exact-main acceptance |
 
 **Acceptance:** discovery lead diverifikasi independen; source dapat direproduksi; rights/security unknown menahan adopsi; kode donor tidak dieksekusi hanya karena dibaca; kandidat tidak self-activate. Tidak ada `fetch → import → ACTIVE` atau bulk skill overwrite.
@@ -507,9 +687,9 @@ Perbaikan berasal dari outcome yang terbukti dan dievaluasi independen, dengan p
 | CP8.1 | Verified episode/outcome contracts dan journal |
 | CP8.2 | Fixed versioned evaluator/rubric dan baseline |
 | CP8.3 | SCRS calibration datasets serta ukuran drift/correlation/saturation yang bermakna |
-| CP8.4 | Bounded candidate generators/REE |
+| CP8.4 | Bounded candidate generators/REE dari verified outcomes; usulan update skill/prompt/workflow dengan applicability dan kontraindikasi |
 | CP8.5 | Replay, held-out dan temporal generalization; provider/skill/retrieval/browser regression |
-| CP8.6 | Shadow evaluation |
+| CP8.6 | Shadow evaluation setelah jalur qualification/containment tersendiri disetujui; bukan mode yang telah tersedia |
 | CP8.7 | Independent review, owner/governance promotion dan version pinning |
 | CP8.8 | Regression, disable/supersession dan rollback |
 | CP8.9 | Exact-main acceptance |
@@ -736,6 +916,8 @@ wolf15-sentient/:
       core.md: target CP1
   scripts/:
   skills/:
+    README.md: target CP5; package format and lifecycle
+    packages/: # target CP5-CP6; versioned procedure packages
     webmcp/:
       procedures/:
         fallback.md: target
@@ -795,7 +977,8 @@ wolf15-sentient/:
         provider.py: target
         reasoning.py: current; preserve or migrate explicitly
         repository.py: target
-        skill.py: target
+        skill.py: target CP5; package and qualification bindings
+        specialist.py: target CP2-CP5; role, assignment and handoff contracts
         task.py: current; future extensions gated
         webmcp.py: target
       control/:
@@ -809,12 +992,20 @@ wolf15-sentient/:
         termination/:
         transitions/:
       elite_team/:
+        README.md: target; roster derives from root SSoT
+        catalog.yaml: target CP2-CP5; 28 role IDs and manifest locations
         architect/:
+          roles.yaml: target; ARC-01 through ARC-04
         engineering/:
+          roles.yaml: target; ENG-01 through ENG-04
         intelligence/:
+          roles.yaml: target; INT-01 through INT-05
         maintenance/:
+          roles.yaml: target; MNT-01 through MNT-05
         optimizer/:
+          roles.yaml: target; OPT-01 through OPT-05
         reviewer/:
+          roles.yaml: target; REV-01 through REV-05
       evaluation/:
       evidence/:
       execution/:
@@ -955,6 +1146,8 @@ Snapshot 29 September 2026 **sebelum branch pembaruan README dibuat**. `TERCAKUP
 
 PR #17 mencakup pembaruan dokumentasi/riset dan target skeleton; tidak mengubah runtime Python pada head yang diperiksa. Materi desainnya diintegrasikan secara konseptual di README ini, sedangkan status merge PR tetap terpisah. Saat PR itu dilanjutkan, rebase/reconcile README dan hierarki dokumennya terhadap SSoT ini; jangan menimpa README baru dengan ringkasan lama atau mempertahankan dua master roadmap.
 
+Pada pembaruan roster/skill, README revisi pertama telah masuk `main` melalui [PR #18](https://github.com/tjx578/wolf15-sentient/pull/18), resulting-main [`288c9bb063dac14070323ac4c82a6ea9c152757e`](https://github.com/tjx578/wolf15-sentient/commit/288c9bb063dac14070323ac4c82a6ea9c152757e). Inventaris di atas tetap snapshot historis sebelum PR tersebut; status/head setelahnya diperiksa melalui GitHub, bukan disimpulkan dari tabel lama. Pembaruan dokumentasi berikutnya menggunakan exact main terbaru tanpa mengganti SHA penerimaan CP0.
+
 ### Aturan delivery ke main
 
 1. Ikat pekerjaan ke objective, active CP/substep atau addendum dokumentasi, exact base SHA, working branch, acceptance, scope dan exclusions.
@@ -1027,7 +1220,7 @@ Baseline memiliki test untuk API, workflow invariants, evidence, learning contra
 
 ### Keputusan yang masih perlu ditetapkan
 
-Provider/model CP1 dan budget terukur; roster lengkap 28 spesialis; backend auth/storage, data retention dan migration policy; pilihan connector/STT/TTS; provider/browser compatibility; deployment environment, SLO, recovery/cost target; dataset/evaluator persona dan learning. Keputusan ini diselesaikan pada CP pemiliknya, dicatat dalam ADR yang tepat, lalu tercermin di README. Tidak boleh diisi seolah sudah dipilih hanya karena muncul di donor.
+Provider/model CP1 dan budget terukur; implementasi role manifests, pemilihan/qualification package nyata untuk 28 peran serta data/evaluator penerimaannya; backend auth/storage, data retention dan migration policy; pilihan connector/STT/TTS; provider/browser compatibility; deployment environment, SLO, recovery/cost target; dataset/evaluator persona dan learning. Keputusan ini diselesaikan pada CP pemiliknya, dicatat dalam ADR yang tepat, lalu tercermin di README. Tidak boleh diisi seolah sudah dipilih hanya karena muncul di donor.
 
 ## 15. Sumber rancangan dan hasil rekonsiliasi
 
@@ -1080,8 +1273,21 @@ SHA-256 master yang diterima cocok dengan receipt: `da4f00bbe1fe16b3220dca52c23e
 | Approval browser belum mengikat perubahan dokumen/schema | Binding document/navigation dan schema/descriptor generation/digest ditambahkan sebagai syarat CP7 |
 | Ownership lifecycle terlalu luas | Kernel memiliki lifecycle task/workflow; Fabric memiliki lifecycle provider/capability di bawah Kernel admission |
 | Persona lama hanya mengetahui M2 | Current state mengakui M3-A dan SCRS offline serta tetap membedakannya dari endpoint aktif |
-| Gambar lima divisi/23 agent vs target enam divisi/28 | Roster lama dipertahankan sebagai sejarah; 28 belum dinyatakan roster lengkap/aktif |
+| Gambar lima divisi/23 agent vs target enam divisi/28 | 23 nama lama dipertahankan; 5 nama Intelligence dari usulan lanjutan dirinci sebagai perluasan target revisi ini. Roster, input, fungsi, output dan matriks skill kini lengkap; runtime tetap NOT_IMPLEMENTED |
+| Skill tiap agent belum dipetakan dan adaptive update masih umum | Matriks 28 peran ke keluarga skill, manifest/version contract, repo-learning flow, acceptance AS-01–AS-08 dan checkpoint owner ditambahkan |
+| Shadow disebut tanpa batas kebijakan sekarang | Qualification saat ini offline-only; connected/shadow tetap blocked sampai jalur terpisah disetujui |
 | Arsip trading, corpus, scoring, SPARC/SAFLA/GOAP, VIGIL/MMRE | Adaptasi disiplin evidence/planning/review sesuai kontrak; angka win rate, truth threshold, sizing, broker, auto-deploy dan klaim sensor tidak diwariskan |
+
+### Sumber roster dan prosedur adaptif
+
+| Sumber input | Cakupan dan status |
+| --- | --- |
+| `15-elite-ai-agent-team-os.png` dan `16-The_Synthetic_AI_Blueprint.pdf` | Blueprint historis lima divisi teknis/23 spesialis; Neural Orchestrator terpisah |
+| `20-Elite_AI_Agent_Team_OS_Literature_Canon-1-.xlsx`, sheet `Agent_Curriculum` | Mandat, required output dan gate contract bagi 23 spesialis; baris Orchestrator tidak ikut hitungan spesialis; status kurikulum bukan bukti runtime |
+| Usulan percakapan rancangan 27 September 2026 | Lima nama Intelligence; asalnya usulan assistant, bukan roster blueprint atau keputusan lama yang terverifikasi. Fungsi/batasnya dirinci pada revisi ini |
+| `advanced-agi` / `SKILL.md` versi `2.0.0-candidate.1` beserta referensi kontrak, knowledge/memory, planning dan learning | Referensi prosedur Core, versioned candidate learning dan evidence boundaries; metadata CANDIDATE_NOT_ACTIVATED / authority NONE, bukan qualification receipt |
+
+Berkas unggahan di tabel adalah sumber yang diperiksa untuk dokumentasi; tidak diasumsikan tersedia sebagai path di checkout publik. README menyimpan keputusan dan atribusi yang diperlukan. Implementasi/adopsi package kelak wajib mengikat full package/revision/digest dan rights; nama sumber atau pembacaan dokumen tidak menjadi admission.
 
 ### Donor dan batas adopsi
 
@@ -1108,12 +1314,14 @@ README ini menjadi pondasi awal dan tujuan akhir yang hidup. Perubahan desain bo
 | Persona/model/provider | Prompt/profile version/hash, schema, policy, acceptance scenarios dan provider evidence |
 | Roadmap/substep/dependensi | Bagian CP master ini, rincian turunan, migration/rollback, dan impact pada urutan |
 | Otorisasi/effects/akses data | Authority model, adapter gate, approval binding, negative tests, privacy/retention |
+| Peran/divisi atau skill binding | Roster 28, fungsi/input/output, matriks keluarga skill, role manifest target, checkpoint dan batas ownership; perubahan nama/ID memakai migration mapping |
+| Versi skill atau hasil learning | Parent/source lineage, package/dependency digests, consumer compatibility, evaluation/admission receipts serta registry generation; versi berjalan tidak ditimpa |
 | Donor baru | Research/admission record dengan exact source; generation baru jika artefak sebelumnya frozen |
 | Branch/merge/closure | Inventory snapshot bila diperbarui, resulting-main receipt dan next action |
 
 Setiap PR rancangan menjelaskan **masalah, keputusan, tujuan hasil, CP pemilik, source binding, dampak README/ADR/kontrak, verifikasi, dan gap**. Dokumen turunan tidak boleh mengubah keputusan tingkat sistem sendirian. Tidak ada major subsystem tanpa README contract; tidak ada perubahan responsibility tanpa README impact review.
 
-Revisi ini menetapkan root README sebagai SSoT, memperbarui posisi CP0/CP1, menyatukan persona dan arah CP0–CP9, memasukkan CCKA/media serta browser constraints, dan mendokumentasikan struktur main/branch/target. Perubahan ini adalah **dokumentasi**; tidak mengaktifkan model, tool, connector, memory, learning, atau produksi.
+Revisi pertama menetapkan SSoT, persona, arah CP0–CP9, CCKA/media, browser constraints serta struktur main/branch/target. Revisi **SSOT-2026-09-29.2** melengkapi enam divisi/28 peran, input/fungsi/output, matriks agent–skill, kontrak pembelajaran adaptif, skeleton role manifests dan batas Advanced AGI. Perubahan ini adalah **dokumentasi**; status runtime dan checkpoint tetap berdasarkan implementasi serta receipt masing-masing.
 
 ### Keamanan dan lisensi repository
 
