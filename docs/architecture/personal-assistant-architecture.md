@@ -2,7 +2,7 @@
 
 ## Status
 
-**M1-B target design.** The current runtime has no Gmail, Calendar, Drive,
+**Target design. Master checkpoint owner: CP4 for read-only Personal JARVIS; CP7 for approved effects.** The current runtime has no Gmail, Calendar, Drive,
 contacts, search, YouTube, news, messaging, reminder, or background-event
 adapter. The only current HTTP task path is the deterministic in-memory
 kernel described in [`current-state.md`](current-state.md). This document
