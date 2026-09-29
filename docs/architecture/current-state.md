@@ -24,11 +24,11 @@ without creating another sequence.
 
 | Step | Integrated PR / resulting main | Resulting-main evidence |
 | --- | --- | --- |
-| CP0.1 SK-01 governance | #12 / `474f42aa15c3db69642303da053958ac80ce3024` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463187032), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463186823): PASS; 74 tests per Python version |
-| CP0.2 M3-A | #13 / `ded797af5739ca6b16f50823049e143657dd50c0` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840252), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840264): PASS; 114 tests per Python version |
-| CP0.3 SCRS v0 | #14 / `a53388f60b34372c5c3f43a31d8a5157add54379` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209386), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209366): PASS; 198 tests per Python version |
-| CP0.4 architecture alignment | #15 / `bad73335f518d89356b88cba1cc26730808cd224` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36466389862), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36466389865): PASS |
-| CP0-ADDENDUM-01 ALG-REG-001 freeze | #16 / `dd5cf74ce47e395cf859a2b5130790129af01e16` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36540153553), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36540153487): PASS; jobs executed |
+| Historical CP0 slice — SK-01 governance | #12 / `474f42aa15c3db69642303da053958ac80ce3024` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463187032), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463186823): PASS; 74 tests per Python version |
+| Historical CP0 slice — offline reasoning contracts | #13 / `ded797af5739ca6b16f50823049e143657dd50c0` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840252), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840264): PASS; 114 tests per Python version |
+| Historical CP0 slice — SCRS v0 | #14 / `a53388f60b34372c5c3f43a31d8a5157add54379` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209386), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209366): PASS; 198 tests per Python version |
+| CP0 accepted architecture alignment | #15 / `bad73335f518d89356b88cba1cc26730808cd224` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36466389862), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36466389865): PASS |
+| Post-CP0 addendum — ALG-REG-001 freeze | #16 / `dd5cf74ce47e395cf859a2b5130790129af01e16` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36540153553), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36540153487): PASS; jobs executed |
 
 Python versions above are 3.11, 3.12 and 3.13. Each CI also passed Ruff,
 Pyright, build/isolated install, dependency audit and secret scan. Independent
