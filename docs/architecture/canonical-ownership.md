@@ -42,16 +42,17 @@ All package paths below are relative to `src/wolf15_sentient/` unless qualified.
 | Capability Fabric and multi-provider registry | Offline reasoning protocol only; no provider registry | `capabilities/`, `models/`, `tools/`, `mcp/` | CP5 TARGET; one narrow real model provider begins in CP1 |
 | Capability Foundry | Design and qualification policy | `capability_factory/` | CP6 TARGET; donors require provenance, rights, isolation and independent admission |
 | Learning and REE | `contracts/learning.py`; separate offline REE development lane | `learning/`, `ree/`, `evaluation/` | CP8 TARGET; no current evaluator activation or profile mutation |
-| Personal assistant | Architecture documents only | `owner/`, `personal/`, `intelligence/`, `integrations/` | CP4 TARGET, initially read-only |
+| Personal assistant | Architecture documents only | `owner/`, `personal/`, `intelligence/media/`, `integrations/media/`, `integrations/speech/`, personal connectors | CP4 TARGET, initially read-only |
 | Browser Capability Plane / WebMCP | Research and architecture only; no browser provider | `integrations/browser/webmcp/`, `capabilities/providers/webmcp/`, `contracts/webmcp.py`, root `apps/owner-console/features/browser/` | CP4 read-only discovery/invocation; CP5 provider resolution; CP7 consequential actions; runtime absent |
 | Owner-controlled execution | Authority and approval design only | `execution/` controlled boundary plus Kernel approval contracts | CP7 TARGET; no current writer/executor |
 | Owner interface | External HTML design reference; no tracked console application | root `apps/owner-console/` | CP4 interface track TARGET; Next.js/TypeScript and SSE |
 
-The post-CP0 addendum selects sentient/model_gateway/ as the single
+The post-CP0 addendum selects `sentient/model_gateway/` as the single
 cognitive-facing gateway owner. Concrete provider implementations belong to
-models/providers/. The earlier models/gateway/ blueprint name must not become
-a competing gateway. These are target responsibilities; this change adds no
-runtime packages.
+`models/providers/`; technical model-family capability/quirk facts belong to
+`models/profiles/`. Profile metadata cannot grant authority. The earlier
+`models/gateway/` blueprint name must not become a competing gateway. These
+are target responsibilities; this change adds no runtime packages.
 
 ReasoningPlan has one contract owner, contracts/. Sentient produces proposals;
 orchestration coordinates workflow semantics through Control Kernel-owned
