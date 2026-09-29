@@ -90,7 +90,62 @@ No silent in-place mutation of active configuration.
 - Do not execute donor source during discovery/analysis.
 - Capability candidate lifecycle is evaluation → shadow → admission, never direct active.
 
-## 8. Required minimum tests for donor-derived code
+
+## 8. Mandatory prohibition coverage
+
+The prohibition sources below are **normative implementation constraints**, not optional research notes:
+
+1. `docs/research/algorithm-donors/anti-pattern-registry.md`;
+2. `docs/research/algorithm-donors/anti-patterns.md`;
+3. the selected algorithm record's `reject` list in `adoption-registry.yaml`;
+4. any checkpoint- or subsystem-specific prohibition explicitly referenced by the selected record.
+
+Before implementation begins, Codex must build a **Prohibition Compliance Matrix** for the selected `ALGORITHM_ID`. Every prohibition from the normative sources above must be classified as exactly one of:
+
+- `APPLIES` — the prohibition is relevant to the proposed implementation;
+- `NOT_APPLICABLE` — the prohibition cannot apply to this implementation, with a concrete reason;
+- `UNRESOLVED` — applicability cannot yet be established.
+
+`UNRESOLVED` is a stop condition. Codex must not implement or claim completion until it is resolved.
+
+Minimum matrix fields:
+
+```text
+ALGORITHM_ID
+PROHIBITION_SOURCE
+PROHIBITION_ID_OR_RULE
+APPLICABILITY = APPLIES | NOT_APPLICABLE | UNRESOLVED
+IMPLEMENTATION_BOUNDARY
+ENFORCEMENT_MECHANISM
+VERIFICATION_EVIDENCE
+STATUS = PASS | FAIL | NOT_EXECUTED | NOT_APPLICABLE
+RATIONALE
+```
+
+For every `APPLIES` rule:
+
+- identify the exact implementation boundary that prevents the prohibited behavior;
+- provide evidence appropriate to that rule, such as a negative test, contract/schema test, static scan, configuration validation, architecture-boundary review, or exact-source review;
+- record the exact test path, command, receipt, or reviewed source location;
+- treat `NOT_EXECUTED` as not satisfied;
+- treat missing evidence as `NOT_MEASURED`, never as PASS.
+
+For every `NOT_APPLICABLE` rule, Codex must state why the selected algorithm, subsystem, checkpoint, and side-effect surface make that prohibition inapplicable. A blanket statement such as "not relevant" is insufficient.
+
+The selected record's `reject` list is mandatory even when a similar prohibition already exists in the global anti-pattern documents. The record-level rejection is the donor-specific contract and must be mapped explicitly.
+
+At minimum, when relevant, verification must demonstrate that the implementation does **not** introduce:
+
+- raw tool payload logging or placeholder-secret fallbacks;
+- majority vote, latency, graph size, node count, or other uncalibrated signals as factual-truth/confidence authority;
+- adaptive mutation without the required baseline → replay/held-out evaluation → shadow → rollback → approval lifecycle;
+- blocking `time.sleep()` or equivalent blocking waits in async workers;
+- trading entry/exit, lot sizing, SL/TP, broker execution, or other excluded domain logic inside the WOLF15 Sentient cognitive core;
+- any other prohibition present in the two normative anti-pattern documents or the selected record's `reject` list.
+
+A donor-derived implementation is **not complete** while any applicable prohibition is unmapped, has `FAIL`, or lacks executed evidence.
+
+## 9. Required minimum tests for donor-derived code
 
 As applicable:
 
@@ -107,9 +162,11 @@ As applicable:
 11. authority-escalation negative test;
 12. unsupported side-effect negative test;
 13. config/profile digest mismatch;
-14. rollback/fallback where checkpoint requires it.
+14. rollback/fallback where checkpoint requires it;
+15. negative tests or equivalent verification for every applicable prohibition in the Prohibition Compliance Matrix;
+16. explicit verification of every selected-record `reject` item that can be enforced or observed at this checkpoint.
 
-## 9. Do not overclaim validation
+## 10. Do not overclaim validation
 
 Use exact language:
 
@@ -118,7 +175,7 @@ Use exact language:
 - synthetic/replay result → `SIMULATED` or `REPLAY`, not measured production evidence;
 - source review → `SOURCE_REVIEWED`, not qualified provider.
 
-## 10. Update registry after implementation
+## 11. Update registry after implementation
 
 A donor-derived implementation is not complete until `adoption-registry.yaml` is updated with:
 
@@ -129,7 +186,7 @@ A donor-derived implementation is not complete until `adoption-registry.yaml` is
 - known limitations;
 - whether the source donor is now superseded by canonical WOLF15 implementation.
 
-## 11. Branch/PR discipline
+## 12. Branch/PR discipline
 
 - one checkpoint-owned change at a time;
 - no unrelated subsystem expansion;
@@ -137,7 +194,7 @@ A donor-derived implementation is not complete until `adoption-registry.yaml` is
 - exact-head CI/review evidence before merge;
 - no deployment unless explicitly in checkpoint scope and authorized.
 
-## 12. Stop conditions
+## 13. Stop conditions
 
 Codex must stop and report rather than guess when:
 
@@ -147,7 +204,10 @@ Codex must stop and report rather than guess when:
 - implementation would activate a later checkpoint;
 - source and documentation disagree materially;
 - a required capability/provider is unavailable;
-- the change would raise authority or add side effects beyond the checkpoint.
+- the change would raise authority or add side effects beyond the checkpoint;
+- either normative anti-pattern document is missing/unreadable;
+- a selected-record `reject` list cannot be reconciled with the proposed implementation;
+- any prohibition remains `UNRESOLVED`, `FAIL`, or lacks required executed evidence.
 
 
 ## Reconciled repository status
