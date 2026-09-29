@@ -9,13 +9,17 @@
 ## Status at a glance
 
 **CP0 foundation:** SK-01 governance, M3-A offline reasoning contracts, and
-SCRS advisory observability are integrated at
-`main@a53388f60b34372c5c3f43a31d8a5157add54379`. Resulting-main
-[CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209386) and
-[CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209366)
-passed, with 198 tests per Python 3.11/3.12/3.13. CP0 closure still requires
-architecture alignment and the final exact-main acceptance receipt. See the
+SCRS advisory observability remain the latest runtime foundation at
+`a53388f60b34372c5c3f43a31d8a5157add54379`. CP0.4 architecture alignment
+merged in PR #15 at `bad73335f518d89356b88cba1cc26730808cd224`; the
+CP0-ADDENDUM-01 `ALG-REG-001` freeze merged in PR #16 at
+`dd5cf74ce47e395cf859a2b5130790129af01e16`. Exact-main CI and CodeQL
+passed on the latter commit. CP0 closure still requires the CP0.5
+exact-resulting-main acceptance receipt after the current architecture
+amendments. See the
 [architecture index](docs/architecture/README.md),
+[Final Target Skeleton](docs/architecture/final-target-skeleton.md),
+[Browser Capability Plane / WebMCP](docs/architecture/webmcp-browser-capability-plane.md),
 [current-to-target ownership map](docs/architecture/canonical-ownership.md),
 and [checkpoint roadmap](docs/architecture/roadmap.md). Real model/provider,
 repository-reader, execution, capability/REE activation and deployment are
@@ -125,6 +129,8 @@ See [Current State](docs/architecture/current-state.md) for the exact evidence b
 - persistence, checkpoints, Supabase, durable approval/resume, or long-term memory;
 - optimizer or maintenance agents;
 - an Owner Console or dashboard;
+- a browser session manager, WebMCP discovery/invocation provider, WebMCP
+  polyfill/runtime, or browser-automation fallback;
 - Docker, deployment, or production operations.
 
 The role classes are deterministic stubs, not AI agents. A repository string remains classification input only and is never opened. Technology names in the target architecture are planned choices unless explicitly listed above as current.
@@ -186,7 +192,10 @@ Security / Performance      Deployment (separate approval)
 
 The orchestrator controls state and transitions deterministically. Model-backed roles produce schema-constrained proposals; they do not control the workflow or grant themselves tools. Target repositories remain external systems reached through constrained adapters.
 
-Read the complete [Target Architecture](docs/architecture/target-architecture.md) and [Execution Flow](docs/architecture/execution-flow.md).
+Read the complete [Target Architecture](docs/architecture/target-architecture.md),
+[Final Target Skeleton](docs/architecture/final-target-skeleton.md),
+[Browser Capability Plane / WebMCP](docs/architecture/webmcp-browser-capability-plane.md),
+and [Execution Flow](docs/architecture/execution-flow.md).
 
 ## Project modes
 
