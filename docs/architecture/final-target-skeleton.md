@@ -5,7 +5,10 @@
 **Canonical target tree after merge; implementation remains checkpoint-gated.**
 
 This document replaces the former external skeleton as the in-repository target
-tree. It is a destination map, not proof that every folder exists. Future
+tree. It is a destination map, not proof that every folder exists.
+
+It maps target paths to the [Master Roadmap](roadmap.md) but does not define a
+second checkpoint sequence. CP numbering/order exists only in `roadmap.md`. Future
 subsystems and README contracts are created only when the owning checkpoint
 implements them.
 
