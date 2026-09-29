@@ -1,0 +1,22 @@
+schema_version: '1.0'
+portfolio_id: ARCH-DONOR-WEBMCP-01
+status: RESEARCH_ONLY
+observed_at: '2026-09-29'
+runtime_effect: NONE
+authority_effect: NONE
+whole_runtime_import: REJECTED
+canonical_protocol_source:
+  repository: webmachinelearning/webmcp
+  revision: 0957b0b8f1e32c401d4248424719a4851d4202c4
+  role: KNOWLEDGE_SOURCE
+donors:
+  - {repository: webmachinelearning/webmcp-types, revision: a8d8292ff645b691bfdb529484d3c089e81e8c28, role: CONTRACT_DONOR, target_cp: CP4/CP5}
+  - {repository: GoogleChromeLabs/webmcp-tools, revision: a66c1be1caee78bb98b9781bf5cb4413ad2ccac7, role: IMPLEMENTATION_EVAL_DONOR, target_cp: CP4/CP8}
+  - {repository: GoogleChromeLabs/use-webmcp-tool, revision: 9f0dc6eddf88cff65ebe877f199d4547e74ab31e, role: UI_LIFECYCLE_DONOR, target_cp: CP4}
+  - {repository: webmaxru/web-ai-agent-skills, revision: 03b778c8ef822c98b112fd3617050c72d78f4d60, role: SKILL_DONOR, target_cp: CP5/CP6}
+  - {repository: TueJon/webmcpify, revision: c17d1f1382e306296becc0e8294106c477e13d40, role: RETROFIT_SKILL_DONOR, target_cp: CP6}
+  - {repository: nekuda-ai/webmcp-kit, revision: f0298ec9f26af13e477b9141ab4d8f2a6c23426d, role: RETROFIT_VERIFY_DONOR, target_cp: CP6}
+  - {repository: signettai/signett, revision: cb9be5ff2e9ca669c14e596673355d1ce58d3924, role: SECURE_EXECUTION_DONOR, target_cp: CP3/CP7}
+  - {repository: WebMCP-org/npm-packages, revision: 1c7a398a77fa54e54b4d3fdd7ed05d19efb067d5, role: RUNTIME_COMPATIBILITY_DONOR, target_cp: CP4/CP5/CP6}
+  - {repository: opentiny/webmcp-sdk, revision: 47a2b031dfd77db19e18b5e7621976c5885bd924, branch: dev, role: BROWSER_FALLBACK_SKILL_DONOR, target_cp: CP4/CP6/CP7}
+  - {repository: nekuda-ai/WindTunnel, revision: 5ca8644e23826ebb30108e7bad240b61043bfe67, role: EVALUATION_DONOR, target_cp: CP8}
