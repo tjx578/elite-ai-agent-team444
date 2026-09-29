@@ -589,6 +589,10 @@ The uploaded planning draft that defined `CP-00` through `CP-12` is
 **retired as a checkpoint authority**. Its useful responsibilities are folded
 into this master sequence as follows:
 
+The donor/source content retained from that draft is recorded separately in
+the [normalized donor adaptation register](../research/donor-adaptation-register-20260929.md),
+which is explicitly not a roadmap.
+
 | Retired draft | Master owner |
 | --- | --- |
 | CP-00 baseline/status | **CP0** |
