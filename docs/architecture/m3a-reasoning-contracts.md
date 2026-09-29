@@ -67,18 +67,24 @@ M3-B must implement an approved provider runner with deadlines, cancellation,
 token/output/cost limits, and separate live receipts. Real model behavior,
 including source-instruction containment, remains NOT_EXECUTED here.
 
-## Skeleton and roadmap mapping
+## Master checkpoint mapping
 
-| Target | Implementation | Status / stage |
+The M2/M3-A/M3-B/M4/M5/M7/M8/M10 labels in this historical implementation
+record identify earlier slices only. Current planning uses the
+[Master Roadmap](roadmap.md).
+
+| Target | Current implementation | Master CP |
 | --- | --- | --- |
-| Sentient Core intake | contracts/reasoning.py; reasoning/runtime.py | M3-A offline |
-| Evidence/context | evidence/context.py through the bridge | M2 reused |
-| Control Kernel | Mode selection and deterministic proposal checks | READ_ONLY |
-| Real model adapter | Protocol and output schema | M3-B pending |
-| Repository intelligence | Explicit missing-reader limitation | M4 pending |
-| Durable authenticated service | No new storage or HTTP wiring | M5 pending |
-| Skills / Foundry | No activation | M7 / M8 |
-| Learning / REE | No profile or memory writes | M10 |
+| Offline reasoning intake/proposal contracts | `contracts/reasoning.py`; `reasoning/runtime.py` | CP0 historical foundation |
+| Caller-supplied evidence bridge | `evidence/context.py` | CP0 historical foundation; external source/repository resolution expands in CP2 |
+| Real model adapter | Protocol/output schema only | **CP1** |
+| Repository intelligence | Reader unavailable | **CP2** |
+| Durable authenticated service | No storage/runtime wiring | **CP3** |
+| Personal JARVIS/voice/browser | Not present | **CP4** |
+| Skills / Capability OS | Not active | **CP5** |
+| Capability Foundry | Not active | **CP6** |
+| Controlled writes | Not active | **CP7** |
+| Learning / REE | No active profile or memory writes | **CP8** |
 
 Old uncommitted `elite_team` adapter work was inspected without modification.
 Reusable patterns are provider-neutral generation, controller-owned schema,
