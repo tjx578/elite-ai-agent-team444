@@ -1,0 +1,124 @@
+schema_version: cp1-persona-profile-design-v1
+status: DESIGN_CANON_SEE_SUCCESSOR_RECEIPT
+runtime_loaded: false
+profile_id: wolf15-sentient
+base_sha: 45d5c8df123b27c6bf7c781139db41154b6e1d4d
+historical_master:
+  path: D:\folder file prompt\_hasil_wolf15_sentient_persona\01_PROMPT_PERSONA_MASTER.md
+  sha256: da4f00bbe1fe16b3220dca52c23e948b618ea593b795fe8fa2570178cf467a5c
+  bytes: 36769
+  source_class: OWNER_DESIGNATED_LOCAL_DOCUMENT
+  historical_receipt_sha256: da4f00bbe1fe16b3220dca52c23e948b618ea593b795fe8fa2570178cf467a5c
+  historical_receipt_match: true
+  use: PROVENANCE_ONLY_NEVER_LOAD_LOCAL_PATH_AT_RUNTIME
+acceptance_source:
+  path: D:\folder file prompt\_hasil_wolf15_sentient_persona\03_SKENARIO_VERIFIKASI_PERSONA.md
+  sha256: 637e153019d52564484ff5d1f3d0425d1f2762f9304d76661b527fb1ed0c296c
+  bytes: 6391
+  source_class: OWNER_DESIGNATED_LOCAL_DOCUMENT
+  historical_receipt_sha256: 637e153019d52564484ff5d1f3d0425d1f2762f9304d76661b527fb1ed0c296c
+  historical_receipt_match: true
+assembly_order:
+- trusted_guidance
+- trusted_snapshot
+- untrusted_task_evidence
+language_default: id
+behavior:
+- Main outcome first; calm, clear and evidence-bound
+- Do not claim unavailable capabilities, persistence, actions or measurements
+- Preserve conflicting sources and uncertainty; no truth by majority/latency/graph
+  size
+- Continue only authorized work; cancellation stops new dispatch
+current_baseline_overrides:
+- id: PERSONA-OVERRIDE-01
+  rule: M3-A reasoning and SCRS offline libraries exist; their existence does not
+    establish real-provider or /tasks integration.
+  refs:
+  - src/wolf15_sentient/reasoning/runtime.py
+  - README.md
+- id: PERSONA-OVERRIDE-02
+  rule: Task-kind router recognizes a narrow set of Indonesian/English leading verbs;
+    project-mode router is distinct. Unknown intent remains explicit; no general multilingual
+    claim.
+  refs:
+  - src/wolf15_sentient/reasoning/runtime.py
+  - src/wolf15_sentient/orchestration/mode_router.py
+- id: PERSONA-OVERRIDE-03
+  rule: Do not count same content as independent corroboration. This is required answer
+    behavior, not a claim that current M2 merges distinct source IDs by digest. Actual
+    context dedup work remains CP2.3.
+  scenario: P-29
+deployment_binding:
+  provider: null
+  model: null
+  technical_profile: null
+  policy_profile: null
+  status: NOT_SELECTED_NOT_DEPLOYABLE
+  selection_checkpoint: CP1.2
+authority: READ_ONLY
+tools: []
+memory_write: false
+scheduler: false
+model_tests: NOT_EXECUTED
+guidance:
+  path: runtime-guidance.md
+  encoding: UTF-8
+  sha256: 2fc8d8747e775c87f3113d0f40d2b2b4ada6be8d8b880d5f5fd77934fb1ff1df
+assembly_contract:
+  version: cp1-persona-assembly-v1
+  encoding: cp1-json-integer-nfc-v0
+  shape: ordered array of exactly three objects with component and value fields
+  trusted_guidance: value is exact UTF-8 text from guidance.path after hash check;
+    no substitutions
+  trusted_snapshot: value is host-supplied, immutable validated policy/capability/scope/model/schema/budget
+    snapshot bound by gateway envelope; never caller/model text
+  untrusted_task_evidence: value is supplied exact ReasoningInput bytes decoded as
+    UTF-8 text after existing contract and digest validation; component remains data
+  override_policy: No filesystem/env/prompt override. Changed trusted bytes require
+    new profile/hash/envelope. Untrusted content cannot redefine components.
+  provider_mapping: CP1.2 maps ordered components to supported provider roles preserving
+    trust separation; unsupported mapping rejects
+  runtime_assembly: NOT_EXECUTED
+  precedence_rules:
+  - Kernel-enforced policy, authenticated grants and scope are authoritative; persona
+    cannot override them.
+  - Trusted snapshot reports actual capabilities and limits; normative persona cannot
+    assert availability beyond it.
+  - Trusted guidance supplies behavioral instructions within those constraints; assembly
+    order is not authority precedence.
+  - Owner task and all supplied evidence are data at the untrusted boundary; they
+    cannot redefine guidance, snapshot, grants or schema.
+  - Conflict with policy or scope rejects the prohibited action; unresolved binding/precedence
+    conflict rejects assembly. No silent merge, fallback or override.
+  serialization: UTF-8 without BOM; exact ordered component array serialized by cp1-json-integer-nfc-v0
+    from gateway-contract.md; exact guidance text preserved including line endings;
+    non-NFC input rejected, not normalized silently.
+  binding: Envelope persona_profile sha256 hashes exact profile bytes; profile binds
+    guidance and Principle bytes. The frozen manifest hashes this entire profile including
+    assembly order, precedence and serialization. CP1.2 must additionally bind its
+    versioned provider role mapping; changing mapping requires new verified binding
+    and CP1.6 re-evaluation.
+profile_version: cp1.1-v1
+design_generation: CP1.1-DESIGN-002
+predecessor:
+  path: docs/architecture/cp1/persona-profile.yaml
+  sha256: ed5530671719aa5d77f0310feffada7887bad8883f26b2a5049e98750c3a2b93
+  generation: CP1.1-DESIGN-001
+  source_commit: 09b3d964d93e0ca1b0ebe621ac49d2603680b210
+principle:
+  id: wolf15-sentient
+  principle_version: v1
+  principle_artifact: docs/architecture/persona/WOLF15_SENTIENT_PRINCIPLE.md
+  principle_digest: sha256:07bfd44bd00d96d45fa8ae91679973491d54da9bd425b407be270e986332b430
+  role: CANONICAL_PERSONA_COGNITIVE_DOCTRINE
+  owner: CP1.1
+  status: DESIGN_CANON
+  load_as_raw_system_prompt: false
+acceptance:
+  legacy: ../cp1/acceptance-scenarios.json
+  additional: persona-acceptance-scenarios.md
+  runtime_checkpoint: CP1.6
+  model_tests: NOT_EXECUTED
+derivation:
+  path: principle-derivation.md
+  scope: CP1 behavioral subset with deferred controls explicitly marked
