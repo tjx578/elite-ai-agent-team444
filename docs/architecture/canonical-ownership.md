@@ -40,10 +40,19 @@ All package paths below are relative to `src/wolf15_sentient/` unless qualified.
 | Owner-controlled execution | Authority and approval design only | `execution/` controlled boundary plus Kernel approval contracts | CP7/M9 TARGET; no current writer/executor |
 | Owner interface | External HTML design reference; no tracked console application | root `apps/owner-console/` | CP4 interface track TARGET; Next.js/TypeScript and SSE |
 
-The future `sentient/model_gateway/` and `models/gateway/` names describe
-consumer and provider responsibilities in the blueprint. CP1 must select one
-implementation owner before adding code. Likewise `control/` and
-`orchestration/` must not become competing authority chains. Current `api/`
+The post-CP0 addendum selects sentient/model_gateway/ as the single
+cognitive-facing gateway owner. Concrete provider implementations belong to
+models/providers/. The earlier models/gateway/ blueprint name must not become
+a competing gateway. These are target responsibilities; this change adds no
+runtime packages.
+
+ReasoningPlan has one contract owner, contracts/. Sentient produces proposals;
+orchestration coordinates workflow semantics through Control Kernel-owned
+state, authorization, transitions and termination. Neither plans nor model
+outputs grant tool authority. See the [adoption canon](algorithm-adoption-canon.md).
+
+Control and orchestration must not become competing authority chains.
+Current `api/`
 and `contracts/` stay in place; `agents/` to `elite_team/` is a later migration.
 
 ## Frozen North Star

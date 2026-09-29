@@ -1,68 +1,221 @@
-"""Fail closed on secret-scan findings outside four immutable evidence digests."""
+"""Fail closed except for exact, immutable evidence findings.
+
+Bindings were reviewed at ALG-REG-001 freeze commit (1195824) and include
+102 addendum findings plus four existing identity-receipt findings.
+Changing an evidence file, field, line, finding type or fingerprint fails.
+Fingerprints are stored as byte tuples so this validator is itself scannable.
+"""
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
 from pathlib import Path
 
-EVIDENCE_PATH = "docs/verification/sentient-identity-20260928.json"
-KNOWN_DIGESTS = {
-    2: ("base_sha", (212, 23, 177, 43, 109, 225, 121, 113, 95, 26, 1, 122, 52, 232, 212, 94, 21, 129, 180, 186)),
-    4: ("source_manifest_sha256", (61, 235, 121, 179, 44, 4, 177, 65, 138, 132, 219, 88, 46, 1, 197, 247, 236, 21, 186, 55)),
-    26: ("wheel_sha256", (2, 51, 125, 65, 54, 239, 8, 6, 76, 170, 142, 216, 250, 49, 164, 85, 105, 201, 56, 158)),
-    56: ("git_source_manifest_sha256", (104, 157, 45, 51, 189, 135, 94, 135, 252, 228, 193, 151, 147, 63, 74, 82, 119, 159, 205, 112)),
+FINDING_TYPE = "Hex High Entropy String"
+# SHA-256 of full evidence text with CRLF normalized to LF, matching Git blobs.
+FILE_DIGESTS: dict[str, tuple[int, ...]] = {
+    'docs/research/algorithm-donors/adoption-registry.yaml': (232, 38, 225, 155, 241, 135, 92, 224, 205, 94, 3, 99, 125, 166, 47, 56, 65, 169, 252, 91, 129, 74, 130, 139, 97, 154, 13, 132, 124, 76, 181, 221),
+    'docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml': (204, 114, 241, 206, 13, 41, 36, 105, 61, 51, 4, 251, 7, 48, 118, 172, 131, 51, 46, 173, 231, 211, 247, 84, 81, 90, 124, 202, 250, 114, 162, 39),
+    'docs/research/algorithm-donors/receipts/CP0_ADDENDUM_01_A01_REVIEW_a6c2f24.json': (73, 192, 23, 27, 18, 117, 73, 21, 134, 87, 88, 162, 41, 95, 14, 175, 173, 129, 86, 102, 233, 66, 139, 2, 61, 156, 252, 48, 21, 149, 178, 170),
+    'docs/verification/sentient-identity-20260928.json': (90, 18, 91, 128, 73, 58, 71, 103, 30, 66, 166, 105, 201, 235, 107, 135, 59, 159, 73, 222, 79, 120, 122, 152, 239, 45, 16, 104, 225, 15, 202, 7),
+}
+
+# path -> line -> (expected field, detect-secrets SHA-1 fingerprint).
+KNOWN_DIGESTS: dict[str, dict[int, tuple[str, tuple[int, ...]]]] = {
+    'docs/research/algorithm-donors/adoption-registry.yaml': {
+        5: ('cp0_accepted_sha', (129, 133, 207, 144, 133, 204, 55, 202, 173, 209, 206, 101, 48, 121, 59, 94, 101, 28, 88, 255)),
+        21: ('sha256', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190)),
+        38: ('sha256', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238)),
+        59: ('reported_donor_manifest_sha256', (222, 120, 222, 172, 138, 175, 143, 175, 200, 78, 126, 3, 9, 2, 144, 114, 137, 238, 167, 8)),
+        64: ('sha256', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132)),
+        79: ('reported_donor_manifest_sha256', (232, 42, 165, 115, 126, 38, 51, 149, 154, 178, 67, 43, 13, 83, 155, 0, 139, 92, 104, 241)),
+        84: ('sha256', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85)),
+        99: ('reported_donor_manifest_sha256', (152, 130, 38, 168, 46, 64, 69, 105, 182, 161, 167, 214, 41, 230, 66, 232, 54, 58, 235, 151)),
+        104: ('sha256', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49)),
+        592: ('source_sha256', (85, 31, 156, 99, 254, 24, 229, 27, 42, 159, 219, 193, 181, 71, 148, 99, 158, 251, 176, 36)),
+        609: ('source_sha256', (213, 26, 72, 48, 174, 186, 234, 179, 201, 110, 203, 159, 178, 65, 171, 227, 236, 39, 223, 148)),
+        626: ('source_sha256', (121, 76, 47, 204, 224, 84, 102, 156, 134, 92, 169, 192, 111, 71, 36, 197, 118, 113, 235, 179)),
+        643: ('source_sha256', (131, 138, 110, 131, 10, 90, 1, 127, 31, 65, 159, 150, 119, 166, 184, 95, 200, 97, 142, 5)),
+        660: ('source_sha256', (68, 107, 82, 85, 218, 84, 240, 32, 207, 241, 252, 168, 78, 205, 213, 231, 89, 35, 34, 1)),
+        677: ('source_sha256', (98, 180, 225, 134, 120, 107, 4, 19, 246, 51, 247, 42, 216, 250, 118, 182, 116, 2, 145, 48)),
+        694: ('source_sha256', (3, 0, 154, 159, 95, 136, 141, 20, 234, 207, 1, 145, 59, 240, 190, 98, 90, 27, 94, 249)),
+        711: ('source_sha256', (151, 62, 204, 164, 81, 205, 255, 119, 205, 67, 31, 10, 135, 129, 3, 118, 140, 131, 245, 120)),
+        728: ('source_sha256', (57, 163, 83, 254, 219, 80, 166, 172, 129, 130, 204, 228, 154, 152, 48, 206, 38, 164, 159, 214)),
+        745: ('source_sha256', (127, 15, 11, 173, 173, 225, 161, 174, 42, 188, 43, 174, 105, 24, 96, 69, 64, 240, 13, 166)),
+        764: ('source_sha256', (85, 38, 87, 181, 73, 246, 75, 96, 166, 22, 93, 84, 242, 141, 243, 65, 97, 2, 50, 160)),
+        781: ('source_sha256', (207, 101, 120, 159, 80, 70, 174, 145, 206, 86, 40, 225, 248, 166, 217, 32, 131, 147, 243, 247)),
+        798: ('source_sha256', (255, 77, 112, 150, 91, 139, 112, 213, 134, 41, 56, 161, 122, 51, 115, 102, 251, 210, 148, 93)),
+        815: ('source_sha256', (213, 61, 79, 184, 174, 149, 7, 132, 54, 223, 47, 183, 230, 206, 156, 203, 10, 18, 202, 81)),
+        832: ('source_sha256', (204, 252, 105, 209, 34, 223, 203, 232, 111, 189, 38, 73, 42, 165, 60, 254, 229, 238, 254, 48)),
+        849: ('source_sha256', (152, 73, 62, 132, 25, 121, 141, 251, 40, 99, 211, 39, 56, 13, 214, 128, 243, 194, 255, 204)),
+        866: ('source_sha256', (233, 39, 50, 154, 248, 81, 4, 106, 126, 13, 242, 214, 119, 251, 111, 157, 78, 1, 40, 91)),
+        883: ('source_sha256', (68, 235, 248, 140, 88, 23, 164, 71, 83, 27, 129, 247, 32, 195, 143, 132, 25, 16, 100, 211)),
+        900: ('source_sha256', (89, 203, 177, 122, 42, 16, 183, 57, 203, 224, 139, 55, 20, 21, 208, 150, 49, 108, 236, 15)),
+        917: ('source_sha256', (96, 211, 136, 205, 110, 69, 189, 62, 63, 95, 187, 90, 141, 25, 186, 200, 250, 6, 176, 101)),
+        934: ('source_sha256', (45, 70, 92, 199, 63, 40, 153, 62, 227, 85, 46, 22, 51, 113, 19, 183, 145, 194, 143, 226)),
+        951: ('source_sha256', (232, 243, 196, 253, 251, 156, 83, 9, 232, 93, 228, 93, 30, 99, 215, 213, 51, 244, 254, 117)),
+        968: ('source_sha256', (72, 32, 143, 76, 255, 135, 207, 251, 54, 71, 224, 25, 183, 161, 101, 0, 217, 245, 73, 120)),
+        985: ('source_sha256', (87, 117, 253, 132, 136, 228, 232, 98, 240, 160, 108, 194, 199, 143, 133, 239, 36, 42, 109, 10)),
+        1002: ('source_sha256', (125, 237, 108, 164, 56, 133, 81, 232, 15, 45, 107, 82, 100, 132, 113, 150, 232, 73, 255, 245)),
+        1019: ('source_sha256', (247, 47, 194, 29, 90, 141, 136, 172, 11, 35, 101, 191, 76, 108, 195, 64, 227, 121, 173, 215)),
+        1036: ('source_sha256', (79, 141, 246, 76, 238, 6, 75, 134, 113, 48, 193, 255, 55, 22, 150, 13, 27, 108, 38, 128)),
+        1053: ('source_sha256', (248, 15, 154, 153, 169, 231, 245, 244, 79, 128, 5, 193, 192, 174, 236, 77, 52, 28, 255, 41)),
+        1070: ('source_sha256', (176, 115, 227, 189, 44, 179, 187, 187, 59, 50, 18, 216, 242, 236, 182, 160, 15, 249, 248, 37)),
+        1087: ('source_sha256', (45, 248, 16, 195, 201, 122, 57, 107, 19, 89, 206, 21, 188, 147, 223, 71, 186, 114, 149, 188)),
+        1105: ('source_sha256', (117, 134, 156, 89, 175, 156, 141, 198, 18, 193, 38, 218, 43, 249, 184, 22, 143, 223, 15, 179)),
+        1122: ('source_sha256', (21, 167, 123, 37, 56, 227, 185, 32, 71, 21, 65, 73, 227, 72, 200, 126, 234, 66, 19, 252)),
+        1139: ('source_sha256', (6, 204, 247, 246, 110, 94, 209, 8, 18, 222, 114, 142, 59, 227, 49, 247, 179, 106, 41, 106)),
+        1156: ('source_sha256', (7, 178, 25, 70, 233, 135, 30, 192, 99, 28, 142, 196, 208, 249, 50, 165, 89, 170, 174, 37)),
+        1173: ('source_sha256', (155, 8, 206, 236, 40, 152, 238, 208, 113, 177, 206, 114, 225, 90, 255, 58, 29, 22, 230, 28)),
+        1190: ('source_sha256', (159, 230, 21, 8, 80, 180, 17, 62, 153, 64, 246, 252, 85, 72, 207, 72, 108, 68, 245, 204)),
+        1207: ('source_sha256', (245, 170, 65, 15, 91, 13, 197, 187, 144, 0, 219, 209, 154, 174, 181, 219, 85, 23, 46, 155)),
+        1226: ('source_sha256', (94, 245, 69, 220, 199, 3, 13, 156, 53, 157, 237, 1, 79, 41, 120, 72, 32, 79, 221, 155)),
+        1243: ('source_sha256', (181, 209, 211, 77, 71, 205, 180, 201, 61, 192, 92, 212, 57, 78, 200, 164, 191, 61, 101, 116)),
+        1260: ('source_sha256', (126, 249, 173, 145, 163, 155, 221, 20, 69, 153, 46, 79, 209, 23, 183, 96, 20, 206, 222, 110)),
+        1277: ('source_sha256', (152, 27, 143, 144, 103, 121, 139, 12, 249, 19, 150, 56, 175, 92, 145, 169, 238, 27, 136, 178)),
+        1294: ('source_sha256', (160, 254, 2, 194, 226, 224, 50, 119, 15, 134, 9, 181, 201, 58, 186, 138, 113, 168, 99, 67)),
+        1311: ('source_sha256', (46, 153, 17, 3, 35, 88, 111, 132, 183, 31, 13, 121, 85, 41, 216, 247, 24, 236, 182, 194)),
+        1328: ('source_sha256', (83, 203, 79, 62, 97, 119, 183, 14, 203, 179, 26, 139, 201, 127, 181, 46, 195, 160, 81, 222)),
+        1347: ('source_sha256', (5, 250, 41, 148, 47, 69, 25, 147, 130, 221, 121, 15, 96, 161, 170, 47, 192, 92, 153, 231)),
+        1364: ('source_sha256', (48, 114, 116, 46, 60, 230, 32, 105, 59, 221, 67, 239, 135, 222, 19, 168, 135, 52, 43, 72)),
+        1381: ('source_sha256', (85, 110, 179, 82, 143, 223, 233, 75, 188, 254, 31, 99, 17, 101, 68, 248, 0, 157, 190, 80)),
+        1398: ('source_sha256', (162, 65, 7, 182, 216, 204, 230, 235, 225, 215, 84, 50, 210, 147, 45, 20, 61, 26, 70, 67)),
+        1415: ('source_sha256', (44, 5, 186, 1, 141, 7, 241, 249, 36, 19, 223, 31, 94, 122, 34, 168, 44, 62, 189, 203)),
+        1432: ('source_sha256', (43, 153, 246, 174, 204, 111, 88, 53, 100, 218, 135, 196, 71, 12, 242, 154, 39, 223, 170, 253)),
+        1449: ('source_sha256', (56, 97, 8, 183, 4, 31, 164, 160, 225, 214, 241, 213, 90, 211, 192, 250, 130, 255, 241, 113)),
+        1466: ('source_sha256', (223, 92, 20, 50, 92, 205, 131, 110, 199, 38, 239, 125, 63, 219, 168, 27, 251, 224, 101, 32)),
+        1483: ('source_sha256', (152, 118, 167, 156, 171, 88, 141, 130, 122, 111, 162, 176, 250, 30, 50, 208, 85, 76, 135, 222)),
+        1500: ('source_sha256', (89, 97, 79, 26, 84, 4, 194, 81, 143, 18, 201, 1, 70, 143, 206, 74, 233, 41, 115, 219)),
+        1517: ('source_sha256', (176, 63, 183, 55, 91, 196, 180, 138, 235, 132, 240, 10, 210, 205, 177, 7, 126, 91, 189, 209)),
+        1534: ('source_sha256', (164, 39, 171, 177, 147, 78, 172, 144, 174, 153, 173, 136, 84, 111, 26, 166, 33, 133, 33, 114)),
+        1551: ('source_sha256', (22, 205, 135, 166, 79, 239, 83, 84, 248, 6, 132, 60, 188, 177, 75, 92, 83, 245, 217, 89)),
+        1568: ('source_sha256', (71, 11, 29, 134, 85, 90, 15, 37, 252, 87, 217, 57, 156, 157, 230, 121, 26, 110, 49, 169)),
+        1585: ('source_sha256', (184, 236, 172, 28, 92, 56, 192, 205, 35, 144, 80, 186, 204, 215, 104, 203, 74, 67, 150, 54)),
+        1602: ('source_sha256', (29, 108, 216, 86, 216, 0, 45, 158, 85, 204, 254, 228, 156, 175, 77, 184, 171, 54, 8, 110)),
+        1619: ('source_sha256', (83, 195, 23, 134, 187, 186, 224, 207, 156, 187, 39, 42, 32, 4, 232, 193, 115, 169, 139, 32)),
+        1636: ('source_sha256', (78, 33, 157, 204, 202, 188, 24, 31, 18, 43, 185, 32, 14, 20, 208, 192, 71, 26, 164, 249)),
+        1653: ('source_sha256', (213, 8, 128, 63, 36, 32, 93, 7, 11, 117, 120, 255, 249, 23, 229, 238, 67, 164, 201, 167)),
+        1670: ('source_sha256', (215, 234, 138, 210, 96, 47, 212, 21, 151, 96, 73, 129, 131, 78, 90, 138, 161, 50, 228, 208)),
+        1687: ('source_sha256', (223, 88, 105, 43, 177, 158, 205, 158, 251, 112, 83, 121, 92, 10, 182, 236, 232, 28, 129, 54)),
+        1704: ('source_sha256', (252, 252, 67, 242, 44, 221, 125, 16, 83, 117, 62, 250, 207, 22, 203, 168, 200, 35, 174, 182)),
+        1721: ('source_sha256', (178, 80, 81, 110, 136, 20, 139, 84, 129, 116, 62, 81, 162, 237, 206, 249, 29, 35, 97, 39)),
+        5681: ('sha256', (240, 101, 47, 37, 76, 76, 204, 31, 189, 216, 180, 216, 195, 99, 151, 182, 112, 231, 167, 104)),
+        5687: ('sha256', (171, 243, 130, 76, 66, 184, 217, 131, 244, 157, 221, 124, 55, 110, 189, 179, 54, 41, 15, 9)),
+        5693: ('sha256', (133, 86, 126, 204, 109, 55, 16, 93, 46, 89, 31, 100, 230, 176, 211, 177, 216, 135, 100, 24)),
+        5699: ('sha256', (208, 24, 26, 216, 134, 74, 93, 250, 31, 190, 53, 115, 111, 90, 135, 151, 160, 229, 49, 11)),
+        5705: ('sha256', (65, 205, 233, 160, 55, 190, 172, 180, 33, 161, 31, 92, 191, 200, 203, 174, 49, 138, 129, 244)),
+        5711: ('sha256', (48, 184, 155, 210, 21, 188, 134, 73, 238, 49, 141, 101, 50, 118, 91, 166, 96, 45, 233, 14)),
+        5720: ('reported_sha256', (171, 16, 49, 88, 110, 81, 76, 68, 140, 181, 27, 40, 116, 230, 184, 178, 5, 175, 222, 147)),
+        5726: ('sha256', (86, 135, 42, 80, 27, 248, 173, 134, 47, 210, 47, 35, 154, 51, 132, 127, 250, 74, 199, 171)),
+        5738: ('sha256', (147, 76, 11, 255, 157, 232, 186, 117, 162, 158, 113, 238, 223, 179, 26, 45, 167, 156, 242, 57)),
+        5778: ('sha256', (205, 122, 30, 174, 237, 24, 93, 101, 8, 105, 228, 16, 127, 50, 61, 109, 77, 11, 60, 214)),
+        5800: ('reviewed_sha', (219, 59, 95, 40, 117, 202, 163, 172, 210, 6, 167, 134, 161, 95, 180, 221, 51, 172, 153, 134)),
+        5816: ('review_receipt_sha256', (206, 220, 122, 51, 99, 176, 222, 193, 201, 254, 215, 215, 172, 166, 119, 156, 54, 156, 73, 1)),
+        5820: ('value', (11, 73, 201, 25, 121, 140, 80, 35, 238, 215, 117, 31, 152, 141, 108, 113, 201, 133, 61, 194)),
+    },
+    'docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml': {
+        4: ('reviewed_source_commit', (219, 59, 95, 40, 117, 202, 163, 172, 210, 6, 167, 134, 161, 95, 180, 221, 51, 172, 153, 134)),
+        10: ('review_receipt_sha256', (206, 220, 122, 51, 99, 176, 222, 193, 201, 254, 215, 215, 172, 166, 119, 156, 54, 156, 73, 1)),
+        31: ('accepted_sha', (129, 133, 207, 144, 133, 204, 55, 202, 173, 209, 206, 101, 48, 121, 59, 94, 101, 28, 88, 255)),
+        36: ('adoption-registry.yaml', (11, 73, 201, 25, 121, 140, 80, 35, 238, 215, 117, 31, 152, 141, 108, 113, 201, 133, 61, 194)),
+        37: ('anti-pattern-registry.md', (169, 224, 15, 15, 238, 176, 222, 242, 51, 183, 69, 53, 191, 32, 153, 246, 110, 229, 36, 197)),
+        38: ('anti-patterns.md', (82, 79, 178, 186, 38, 235, 247, 138, 198, 15, 174, 178, 40, 147, 58, 27, 241, 53, 136, 241)),
+        39: ('codex-desktop-implementation-contract.md', (161, 124, 171, 0, 251, 21, 124, 30, 92, 216, 115, 55, 25, 30, 199, 164, 117, 222, 121, 143)),
+        41: ('adoption-registry.yaml', (128, 118, 119, 117, 221, 1, 211, 208, 222, 8, 115, 237, 37, 38, 178, 253, 146, 14, 209, 8)),
+        53: ('external_original_review_receipt_sha256', (59, 208, 109, 246, 225, 237, 8, 15, 134, 123, 63, 8, 18, 98, 120, 137, 174, 238, 247, 130)),
+    },
+    'docs/research/algorithm-donors/receipts/CP0_ADDENDUM_01_A01_REVIEW_a6c2f24.json': {
+        2: ('reviewed_sha', (219, 59, 95, 40, 117, 202, 163, 172, 210, 6, 167, 134, 161, 95, 180, 221, 51, 172, 153, 134)),
+        3: ('previous_sha', (212, 222, 61, 218, 176, 157, 83, 9, 108, 132, 27, 13, 7, 255, 206, 254, 189, 14, 201, 162)),
+        4: ('cp0_accepted_sha', (129, 133, 207, 144, 133, 204, 55, 202, 173, 209, 206, 101, 48, 121, 59, 94, 101, 28, 88, 255)),
+        10: ('registry_sha256', (11, 73, 201, 25, 121, 140, 80, 35, 238, 215, 117, 31, 152, 141, 108, 113, 201, 133, 61, 194)),
+    },
+    'docs/verification/sentient-identity-20260928.json': {
+        2: ('base_sha', (212, 23, 177, 43, 109, 225, 121, 113, 95, 26, 1, 122, 52, 232, 212, 94, 21, 129, 180, 186)),
+        4: ('source_manifest_sha256', (61, 235, 121, 179, 44, 4, 177, 65, 138, 132, 219, 88, 46, 1, 197, 247, 236, 21, 186, 55)),
+        26: ('wheel_sha256', (2, 51, 125, 65, 54, 239, 8, 6, 76, 170, 142, 216, 250, 49, 164, 85, 105, 201, 56, 158)),
+        56: ('git_source_manifest_sha256', (104, 157, 45, 51, 189, 135, 94, 135, 252, 228, 193, 151, 147, 63, 74, 82, 119, 159, 205, 112)),
+    },
 }
 
 
-def main() -> int:
-    if len(sys.argv) != 2:
-        raise SystemExit("usage: check_secret_scan.py REPORT_JSON")
-    report = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
-    if not isinstance(report, dict):
-        raise TypeError("invalid secret scan report")
-    results = report.get("results")
-    if not isinstance(results, dict):
-        raise TypeError("secret scan report has no results map")
-
-    evidence_lines = Path(EVIDENCE_PATH).read_text(encoding="utf-8").splitlines()
+def validate_report(report: object, root: Path) -> tuple[int, list[tuple[str, int, str]]]:
+    """Validate report shape and exact allowlist; never print candidate values."""
+    if not isinstance(report, dict) or not isinstance(report.get("results"), dict):
+        raise TypeError("secret scan report requires a results map")
+    evidence: dict[str, list[str]] = {}
+    for path, expected in FILE_DIGESTS.items():
+        text = (root / path).read_bytes().replace(b"\r\n", b"\n")
+        if tuple(hashlib.sha256(text).digest()) != expected:
+            raise ValueError(f"evidence context changed: {path}")
+        evidence[path] = text.decode("utf-8").splitlines()
     allowed = 0
     findings: list[tuple[str, int, str]] = []
-    for raw_path, items in results.items():
-        if not isinstance(raw_path, str) or not isinstance(items, list):
-            raise TypeError("invalid secret scan results")
-        path = raw_path.replace("\\", "/")
+    seen: set[tuple[str, int, str, str]] = set()
+    for path, items in report["results"].items():
+        if not isinstance(path, str) or not path or not isinstance(items, list):
+            raise ValueError("invalid secret scan results")
+        path = path.replace("\\", "/")
         for item in items:
             if not isinstance(item, dict):
                 raise TypeError("invalid secret scan finding")
             line = item.get("line_number")
             kind = item.get("type")
             fingerprint = item.get("hashed_secret")
-            fingerprint_bytes: tuple[int, ...] = ()
-            if isinstance(fingerprint, str):
-                try:
-                    fingerprint_bytes = tuple(bytes.fromhex(fingerprint))
-                except ValueError:
-                    pass
-            known = (
-                KNOWN_DIGESTS.get(line)
-                if path == EVIDENCE_PATH and type(line) is int
-                else None
-            )
-            key = None
-            if known is not None and isinstance(line, int) and 1 <= line <= len(evidence_lines):
-                match = re.match(r'\s*"([^"]+)"\s*:', evidence_lines[line - 1])
-                key = match.group(1) if match else None
+            filename = item.get("filename")
+            if (
+                type(line) is not int or line < 1
+                or not isinstance(kind, str) or not kind
+                or not isinstance(fingerprint, str)
+                or re.fullmatch(r"[0-9a-f]{40}", fingerprint) is None
+                or not isinstance(filename, str)
+                or filename.replace("\\", "/") != path
+            ):
+                raise ValueError("malformed secret scan finding")
+            identity = (path, line, kind, fingerprint)
+            if identity in seen:
+                raise ValueError("duplicate secret scan finding")
+            seen.add(identity)
+            known = KNOWN_DIGESTS.get(path, {}).get(line)
+            field = None
+            if known is not None and line <= len(evidence[path]):
+                match = re.match(r"\s*[\"']?([^:\"']+)[\"']?\s*:", evidence[path][line - 1])
+                field = match.group(1) if match else None
             if (
                 known is not None
-                and key == known[0]
-                and kind == "Hex High Entropy String"
-                and fingerprint_bytes == known[1]
+                and field == known[0]
+                and kind == FINDING_TYPE
+                and tuple(bytes.fromhex(fingerprint)) == known[1]
             ):
                 allowed += 1
             else:
-                findings.append((path, line if isinstance(line, int) else -1, str(kind)))
+                findings.append((path, line, kind))
+    return allowed, findings
+
+
+def _unique_keys(pairs: list[tuple[str, object]]) -> dict[str, object]:
+    result: dict[str, object] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("duplicate JSON key")
+        result[key] = value
+    return result
+
+
+def main() -> int:
+    if len(sys.argv) != 2:
+        raise SystemExit("usage: check_secret_scan.py REPORT_JSON")
+    try:
+        report = json.loads(
+            Path(sys.argv[1]).read_text(encoding="utf-8"), object_pairs_hook=_unique_keys,
+        )
+        allowed, findings = validate_report(report, Path.cwd())
+    except (TypeError, ValueError, OSError):
+        print("Invalid scan report or changed/unreadable evidence context")
+        return 1
     print(f"Known evidence digests: {allowed}; unrecognized findings: {len(findings)}")
     for path, line, kind in findings:
         print(f"{path}:{line}: {kind}")
