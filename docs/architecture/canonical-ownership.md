@@ -12,6 +12,11 @@ Historical records in [Current State](current-state.md) remain bound to their
 own revisions. [Authority policy](../governance/authority-model.md) governs
 permissions; architecture names, README files and scores cannot grant them.
 
+
+The [Master Roadmap](roadmap.md) is the only normative checkpoint sequence.
+This ownership map may assign responsibilities to CP0–CP9 but does not define
+a second ordering, milestone alias, or checkpoint gate.
+
 The Control Kernel is the single owner of authority, workflow state, gates,
 transitions and termination. Reasoning, specialists, memory and learning
 provide proposals or evidence to it. Moving files requires a separate tested
@@ -27,19 +32,19 @@ All package paths below are relative to `src/wolf15_sentient/` unless qualified.
 | HTTP intake and health | `api/app.py`; `main.py` ASGI export | `api/`, future `apps/owner-console/` client | CURRENT deterministic `/tasks`; authenticated service CP3 |
 | Typed boundaries | `contracts/` task, execution, evidence, learning, reasoning, cognition schemas | `contracts/` | CURRENT; add schemas only with the owning subsystem |
 | Authority, gates, transitions and workflow state | `orchestration/workflow.py`, `state.py`, `transitions.py`, `mode_router.py` | `control/` owns policy/lifecycle; `orchestration/` composes work through it | FOUNDATION; one owner today, no physical split in CP0 |
-| Intent routing and reasoning proposals | `reasoning/runtime.py` with labelled stub and trusted offline adapter seam | `sentient/` intent/task_router/planner/synthesis; model gateway | M3-A CURRENT; one real provider CP1/M3-B |
-| Evidence and context assembly | `evidence/context.py`; caller-supplied source content | `evidence/` provenance/claims; `context/` assembly/budget/freshness | M2 CURRENT library; no fetch, repository resolver or workflow wiring |
+| Intent routing and reasoning proposals | `reasoning/runtime.py` with labelled stub and trusted offline adapter seam | `sentient/` intent/task_router/planner/synthesis; model gateway | CP0 historical offline foundation; one real provider belongs to CP1 |
+| Evidence and context assembly | `evidence/context.py`; caller-supplied source content | `evidence/` provenance/claims; `context/` assembly/budget/freshness | CP0 historical helper; external repository/source resolution belongs to CP2 |
 | Cognitive telemetry | `cognition/reflex.py`, cognition contracts | `sentient/cognition/` with observability integration | SCRS v0 CURRENT offline/advisory; calibration and mature use CP8 |
 | Specialist organization | `agents/stubs.py`: Architect, Engineer, Reviewer | `elite_team/`: six divisions and 28 roles | Three CURRENT deterministic stubs; full roster TARGET |
-| Repository intelligence | Repository reference and explicit missing-reader limitation only | `repositories/`; bounded `execution/repo_reader/` | CP2/M4 TARGET; no current reader |
-| Evidence-Grounded Second Brain | M2 evidence and learning/memory-class contracts | `context/`, `evidence/`, `knowledge/`, `memory/` | Partial contracts; retrieval/store/durable memory TARGET |
-| Unified Skill System | SK-01 catalog, assessment and qualification policy in `docs/` | package `skills/` engine; root `skills/` procedure packages | Governance CURRENT; 25 priority design candidates, zero qualified-by-catalog claims; registry CP5/M7 |
-| Capability Fabric and multi-provider registry | Offline reasoning protocol only; no provider registry | `capabilities/`, `models/`, `tools/`, `mcp/` | CP5/M7 TARGET; provider integration begins narrowly at CP1 |
-| Capability Foundry | Design and qualification policy | `capability_factory/` | CP6/M8 TARGET; donors require provenance, rights, isolation and independent admission |
-| Learning and REE | `contracts/learning.py`; separate offline REE development lane | `learning/`, `ree/`, `evaluation/` | CP8/M10 TARGET; no current evaluator activation or profile mutation |
-| Personal assistant | Architecture documents only | `owner/`, `personal/`, `intelligence/`, `integrations/` | CP4/M6 TARGET, initially read-only |
+| Repository intelligence | Repository reference and explicit missing-reader limitation only | `repositories/`; bounded `execution/repo_reader/` | CP2 TARGET; no current reader |
+| Evidence-Grounded Second Brain | CP0 evidence and learning/memory-class contracts | `context/`, `evidence/`, `knowledge/`, `memory/` | CP2 source/evidence expansion, CP3 durability, CP4 owner-scoped read intelligence |
+| Unified Skill System | SK-01 catalog, assessment and qualification policy in `docs/` | package `skills/` engine; root `skills/` procedure packages | Governance CURRENT; 25 priority design candidates, zero qualified-by-catalog claims; runtime registry CP5 |
+| Capability Fabric and multi-provider registry | Offline reasoning protocol only; no provider registry | `capabilities/`, `models/`, `tools/`, `mcp/` | CP5 TARGET; one narrow real model provider begins in CP1 |
+| Capability Foundry | Design and qualification policy | `capability_factory/` | CP6 TARGET; donors require provenance, rights, isolation and independent admission |
+| Learning and REE | `contracts/learning.py`; separate offline REE development lane | `learning/`, `ree/`, `evaluation/` | CP8 TARGET; no current evaluator activation or profile mutation |
+| Personal assistant | Architecture documents only | `owner/`, `personal/`, `intelligence/`, `integrations/` | CP4 TARGET, initially read-only |
 | Browser Capability Plane / WebMCP | Research and architecture only; no browser provider | `integrations/browser/webmcp/`, `capabilities/providers/webmcp/`, `contracts/webmcp.py`, root `apps/owner-console/features/browser/` | CP4 read-only discovery/invocation; CP5 provider resolution; CP7 consequential actions; runtime absent |
-| Owner-controlled execution | Authority and approval design only | `execution/` controlled boundary plus Kernel approval contracts | CP7/M9 TARGET; no current writer/executor |
+| Owner-controlled execution | Authority and approval design only | `execution/` controlled boundary plus Kernel approval contracts | CP7 TARGET; no current writer/executor |
 | Owner interface | External HTML design reference; no tracked console application | root `apps/owner-console/` | CP4 interface track TARGET; Next.js/TypeScript and SSE |
 
 The post-CP0 addendum selects sentient/model_gateway/ as the single
@@ -86,8 +91,8 @@ These are both design constraints and audit questions. Where the relevant
 subsystem is absent, compliance means it remains absent and cannot be
 activated by a score or document. It does not mean future provider pinning,
 durable approval, sandboxing or distributed replay protection has been tested.
-Current concrete bindings include M2 source revision/policy, M3-A input digest,
-and SCRS complete profile digest plus event lifecycle. Future generations need
+Current concrete bindings include the CP0 evidence helper source revision/policy,
+the historical offline reasoning input digest, and SCRS complete profile digest plus event lifecycle. Future generations need
 their own implementation and acceptance evidence.
 
 ## Local README contract policy
