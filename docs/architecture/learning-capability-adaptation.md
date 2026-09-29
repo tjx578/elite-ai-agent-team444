@@ -2,7 +2,10 @@
 
 ## Status
 
-Target architecture derived from the WOLF15 Neuro Network research corpus and adapted to WOLF15 Sentient. This document does not activate learning, persistence, repository execution, model training, or external mutation.
+Target architecture derived from the WOLF15 Neuro Network research corpus and
+adapted to WOLF15 Sentient. **Master checkpoint owner: CP8.** This document is
+not a roadmap and does not activate learning, persistence, repository
+execution, model training, or external mutation.
 
 ## Architectural decision
 
