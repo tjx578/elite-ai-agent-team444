@@ -1,133 +1,648 @@
-# WOLF15 Sentient architecture and delivery roadmap
+# WOLF15 Sentient Master Roadmap — CP0 to CP9
 
-## Checkpoint delivery order
+## Authority
 
-The in-repository [Final Target Skeleton](final-target-skeleton.md) is the North
-Star; delivery proceeds one checkpoint at a time. [Canonical ownership](canonical-ownership.md)
-maps implemented paths to that target. CP0.1–CP0.3 are integrated at
-`main@a53388f6`. CP0.4 architecture alignment merged in PR #15 at
-`bad73335f518d89356b88cba1cc26730808cd224`, and CP0-ADDENDUM-01
-froze `ALG-REG-001` in PR #16 at
-`dd5cf74ce47e395cf859a2b5130790129af01e16`; exact-main CI and CodeQL
-completed successfully on both resulting commits. CP0 remains open until CP0.5
-records a final exact-resulting-main acceptance receipt after the current
-architecture amendments. CP1 implementation starts only after that receipt.
-WebMCP is added here as a cross-checkpoint target lane; it does not reorder
-CP0–CP9 or activate browser authority.
+This file is the **single normative checkpoint roadmap** for WOLF15 Sentient.
 
-| Checkpoint | Target | Acceptance / dependency |
-| --- | --- | --- |
-| CP0 Cognitive Foundation Stabilized | M2 + SK-01 + M3-A + SCRS v0 | Ordered CP0.1 SK-01, CP0.2 M3-A, CP0.3 SCRS, CP0.4 architecture, CP0.5 exact-main acceptance; READ_ONLY |
-| CP1 Real Sentient Reasoning | M3-B | One real provider behind typed contracts, evidence binding, cancellation and limits; no tool authority |
-| CP2 Repository Intelligence | M4 | Exact-revision repository read and source-bound analysis |
-| CP3 Production Grade v1 | M5 | Authenticated durable observable read-only service and live acceptance |
-| CP4 Personal JARVIS | M6 | Personal assistant, neural interface, voice, read-only connectors, and read-only browser/WebMCP discovery plus invocation |
-| CP5 Capability OS | M7 | Capability registry/resolver plus Unified Skills; WebMCP page tools normalize as ephemeral, session-bound providers |
-| CP6 Capability Foundry | M8 | Donor provenance, rights, isolation, evaluation and shadow lifecycle, including WebMCP skills/polyfills/bridges |
-| CP7 Controlled Technology Builder | M9 | Prepare/review/approve/execute receipts for implementation, test, PR, personal actions, and consequential WebMCP invocations |
-| CP8 Adaptive Intelligence | M10 | Validated learning, REE, mature SCRS, and WebMCP/browser-provider evaluation; independent evaluation, no self-promotion |
-| CP9 Technology Company OS | Integrated product | End-to-end acceptance including the Browser Capability Plane; no shortcut around earlier gates |
+Only the checkpoint identifiers defined here are valid for current planning:
 
-All later checkpoints are frozen targets while CP0 is active. New ideas are
-classified as current-checkpoint scope, architecture amendment, future
-checkpoint, or out-of-architecture before implementation. The three
-[README rules](canonical-ownership.md#local-readme-contract-policy) apply from
-CP0.4 onward. Future subsystems get a README when their implementation appears.
+`CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CP8, CP9`.
 
-The owner-designated `WOLF15_Sentient.html` is a Neural Orchestrator UX Reference
-Prototype. Its relation to future `apps/owner-console/` (Next.js/TypeScript + SSE)
-is frozen in the [UX reference boundary](canonical-ownership.md#neural-orchestrator-ux-reference).
-No production console is built in CP0.
+Other documents may describe architecture, historical implementation slices,
+donor mappings, research batches, PR history, or legacy milestone names, but
+they **must not define another checkpoint sequence**. If any other document
+conflicts with this file, this file controls checkpoint ownership and ordering;
+the conflicting document must be corrected, reclassified as historical/research
+evidence, or removed.
 
-## Baseline and rule
+The [Final Target Skeleton](final-target-skeleton.md) defines where checkpoint
+responsibilities land. [Canonical ownership](canonical-ownership.md) defines
+which subsystem owns them. [Current State](current-state.md) records what is
+actually implemented. None of those documents may create a second roadmap.
 
-The canonical repository is `tjx578/wolf15-sentient`. PR #1–#7 are merged.
-The inspected M1-B `main` baseline is
-`7ffac9a8254688649ecf8bca57e2ae7757bd9f32`; its CI installed the
-package, passed 56 tests, and checked installed identity/entrypoint on Python
-3.11–3.13. M1-C merged at `main` commit
-`e14a96919dbd50350c4877393c40a069570d906c`; its
-[CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162914)
-and [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36379162867)
-passed on that commit. These are historical commit-bound receipts. At that
-checkpoint, the runtime was a deterministic `READ_ONLY` kernel with three
-stubs and contract-only evidence/learning types. The separate
-[M2 evidence/context evaluator](m2-evidence-context-runtime.md) subsequently
-merged in [PR #11](https://github.com/tjx578/wolf15-sentient/pull/11) at
-`main` commit `8cfabf70b2927c7eaf73ae8983df4f9ca7c069fb`; it is a pure
-read path, not workflow wiring. No deployment,
-Railway change, capability activation, or REE activation follows from these
-checkpoints.
-This roadmap does not turn a target into a current capability. Each milestone
-must update [`current-state.md`](current-state.md) with exact-source and test
-evidence.
+## Current position
 
-| Step | Delivery | Acceptance gate | Excluded at that step |
+- **CP0 — Cognitive Foundation:** `CLOSED / PASS`.
+  Accepted architecture baseline:
+  `bad73335f518d89356b88cba1cc26730808cd224`.
+  Post-close documentation/research addenda do not reopen CP0.
+- **CP1 — Real Sentient Reasoning:** `ACTIVE_NEXT / NOT_IMPLEMENTED`.
+- **CP2–CP9:** `LOCKED / FUTURE_CHECKPOINT`.
+- Current runtime authority remains `READ_ONLY`.
+- Browser/WebMCP, capability registry, Foundry, controlled writes, learning/REE,
+  and production deployment are not activated by this roadmap.
+
+PR #16 / `dd5cf74ce47e395cf859a2b5130790129af01e16` froze the
+documentation-only `ALG-REG-001` addendum after CP0. The current WebMCP/master
+roadmap documentation branch is also documentation-only and does not change
+the CP0 acceptance SHA.
+
+## Master sequence
+
+| CP | Official name | Primary outcome | Status |
 | --- | --- | --- | --- |
-| P0 — complete | PR #1–#4 consolidated; canonical repository name | Merge ancestry and CI on resulting main | Deployment |
-| M1-B — complete | Freeze responsibility, trust, data, and authority boundaries in architecture docs | Merged PR #6 and CI on resulting `main` `7ffac9a` | Runtime wiring |
-| M1-C — complete | Ownership and production trust foundation | Merged PR #7, active [main ruleset](https://github.com/tjx578/wolf15-sentient/rules/24097366), and CI plus CodeQL on resulting `main` `e14a969` | Production launch |
-| M2 | Evidence/context read path | SourceRef resolution, freshness/conflict policy, grounded claims, read-only replay | Automatic learning |
-| M3 | Schema-constrained reasoning adapters | Typed proposal contract, model-output validation, deterministic fallback and limits | Tool authority for models |
-| M4 | Read-only repository intelligence | Exact-revision repository snapshot, provenance, grounded report | Repository mutation |
-| M5 | Durable, authenticated, observable read-only service | Auth, idempotency, durable receipts, staging fault/rollback tests, live runtime evidence | Autonomous actions |
-| M6 | Personal Assistant read-only brief + Browser Capability Plane v0 | Owner-scoped connector reads, source-bound brief, isolated or explicitly owner-scoped browser session, WebMCP tool discovery and read-only invocation | Send/write or consequential browser actions |
-| M7 | Capability Fabric and Unified Skills | Versioned manifests, pinned resolver, denial/replay tests, ephemeral WebMCP provider normalization and lifecycle handling | Automatic provider activation |
-| M8 | Capability Foundry | Donor provenance, overlap, isolation, offline/shadow evaluation, WebMCP skill/polyfill/bridge qualification | Automatic code import |
-| M9 | Approved personal and browser actions | Prepare/review/approve/execute receipts bound to exact action, origin/session/tool identity and arguments | Unreviewed sending or consequential WebMCP execution |
-| M10 | Learning and REE lifecycle | Verified episodes, fixed-rubric offline/shadow evaluation, WebMCP interface/provider benchmarks, separate approval and profile pinning | Self-promotion |
+| **CP0** | Cognitive Foundation | Deterministic Control Kernel foundation, typed contracts, offline evidence/reasoning foundation, governance and architecture invariants | **CLOSED / PASS** |
+| **CP1** | Real Sentient Reasoning | One real model provider through the WOLF15 Model Gateway with typed output, cancellation and measurable budgets; no tool authority | **ACTIVE_NEXT** |
+| **CP2** | Repository Intelligence | Exact-revision repository/source reading, structural analysis, provenance and evidence-bound reports | **LOCKED** |
+| **CP3** | Production Grade v1 | Authenticated, durable, observable, recoverable **read-only** service | **LOCKED** |
+| **CP4** | Personal JARVIS & Read-Only Intelligence | Owner interface, voice, personal/media connectors, Second Brain read path and read-only Browser/WebMCP capability | **LOCKED** |
+| **CP5** | Capability OS | Versioned Capability Registry/Resolver, Unified Skills, tools, backend MCP and ephemeral WebMCP provider resolution | **LOCKED** |
+| **CP6** | Capability Foundry | Controlled donor discovery, provenance, rights, extraction, sandbox/evaluation and candidate qualification | **LOCKED** |
+| **CP7** | Controlled Technology Builder | Exact approved repository/personal/browser actions with prepare/review/approve/execute receipts | **LOCKED** |
+| **CP8** | Adaptive Intelligence | Verified episodes, independent evaluation, REE/adaptation candidates, temporal validation and controlled promotion | **LOCKED** |
+| **CP9** | Technology Company OS | End-to-end integration of all checkpoint-proven capabilities without weakening earlier authority/evidence gates | **LOCKED** |
 
-The [SK-01 skill selection assessment](../research/skill-selection/assessment.md)
-and [adoption plan](skill-adoption-plan.md) are versioned research inputs. They
-can guide qualification of development-workbench procedures during M2–M5.
-They do not change this milestone order or activate product skills. Governed
-runtime skill loading remains an M7 target; donor evaluation remains M8 work.
+Implementation gates are sequential:
 
-M1-C precedes production runtime work. M2 and M3 can be developed as
-separate increments. [M3-A](m3a-reasoning-contracts.md) establishes task routing,
-reasoning contracts, and the evidence bridge with offline adapters. M3-B must
-then prove one approved real provider within these boundaries. SK-01 is a
-supporting governance lane; completing all 25 candidate qualifications is not
-a prerequisite for M3. M2 and M3 remain
-separate bounded changes, but neither can claim a full cognitive service
-without evidence binding and Kernel-enforced policy. M4 is the first
-repository-intelligence vertical slice. M5's target is read-only Production
-Grade v1; M6–M9 add personal use and controlled capabilities after that
-foundation is demonstrated.
+~~~text
+CP0 -> CP1 -> CP2 -> CP3 -> CP4 -> CP5 -> CP6 -> CP7 -> CP8 -> CP9
+~~~
 
-The requested **Sentient REE contracts and offline score v0** remains a
-separate, side-effect-free increment. It may define typed metrics, exact
-`ΔR`, candidate `α/β/γ` updates, `|δ| ≤ 0.05`, missing-metric handling,
-normalization/cancellation guards, provenance, config versions, and
-synthetic tests. That increment cannot wire REE into LangGraph, change the
-active profile or `alpha_beta_gamma.yml`, write memory, activate
-`reflective_heuristics.json`, grant authority, or integrate trading.
-Later M10 promotion requires verified outcomes, an evaluator whose rubric
-cannot be changed by candidate weights, and owner-controlled approval.
+Research for later checkpoints may happen early, but its implementation status
+must remain:
 
-No date, cost, service-level target, provider, or deployment environment is
-committed by this roadmap. Each step needs its own design decision and
-measured acceptance evidence before it becomes the next current-state claim.
+~~~text
+FUTURE_CHECKPOINT
+-> DEFER
+-> NO RUNTIME ACTIVATION
+~~~
 
-## WebMCP cross-checkpoint lane
+Research discovery never changes checkpoint order.
 
-WebMCP is a browser capability protocol lane, not a new checkpoint and not a
-replacement for backend MCP. See
-[Browser Capability Plane / WebMCP](webmcp-browser-capability-plane.md),
-[Final Target Skeleton](final-target-skeleton.md), and the
-[WebMCP donor portfolio](../research/webmcp-donors/README.md).
+---
 
-| Checkpoint | WebMCP scope | Explicitly deferred |
-| --- | --- | --- |
-| CP1 | Research/spec knowledge only | Browser provider implementation or tool authority |
-| CP2 | Exact-revision donor/source inspection where needed | Browser execution |
-| CP3 | Generic receipt, cancellation, origin/session identity, idempotency/recovery and audit semantics | Live browser capability |
-| CP4 | **Primary runtime entry:** read-only discovery and invocation in isolated or explicitly owner-scoped browser sessions | Consequential/mutating actions |
-| CP5 | Normalize page tools as ephemeral providers and pin task/session/provider state | Registration becoming authority |
-| CP6 | Qualify SDKs, polyfills, bridges, skills and fallback providers | Whole-runtime donor import |
-| CP7 | Consequential actions with owner approval, exact invocation receipt and verification | Page-local approval as authority root |
-| CP8 | Task-success, latency, token/cost, fallback-quality and temporal/provider evaluation | Self-promotion |
-| CP9 | Integrated Browser Capability Plane | Bypassing earlier gates |
+## CP0 — Cognitive Foundation
 
-`WEBMCP_NATIVE` and `BROWSER_AUTOMATION_FALLBACK` are distinct execution
-classes and never equivalent evidence.
+### Objective
+
+Freeze the WOLF15 identity, deterministic authority chain, typed control
+contracts, source/evidence rules, offline reasoning seam, cognitive
+observability foundation, repository trust controls and architecture ownership.
+
+### Accepted foundation
+
+CP0 includes the already-integrated historical slices for:
+
+- deterministic API/router/state/trace foundation;
+- deterministic orchestration and bounded revision loops;
+- repository trust/CI/CodeQL foundation;
+- M2 caller-supplied evidence/context helper;
+- SK-01 governance/catalog work;
+- M3-A offline reasoning contracts and evidence bridge;
+- SCRS v0 advisory observability;
+- canonical ownership and final architecture invariants.
+
+Those labels are historical implementation names, **not separate current
+checkpoints**.
+
+### Acceptance
+
+CP0 is accepted at
+`bad73335f518d89356b88cba1cc26730808cd224`, with exact-main CI and
+CodeQL PASS recorded for that source. The Control Kernel remains the authority
+owner and runtime authority remains read-only.
+
+### Allowed after closeout
+
+Documentation-only research/addenda may:
+
+- pin donor source revisions;
+- record provenance and licenses;
+- define anti-patterns;
+- map research to CP1–CP9;
+- improve target architecture documentation.
+
+They may not activate providers, tools, skills, browser access, memory writes,
+repository writers, learning or deployment, and they do not reopen CP0.
+
+---
+
+## CP1 — Real Sentient Reasoning
+
+### Objective
+
+Replace the labelled offline/stub reasoning path with **one real model
+provider** behind a narrow WOLF15-owned cognitive gateway while keeping the
+Control Kernel, evidence spine and workflow authority unchanged.
+
+### Canonical ownership
+
+~~~text
+Control Kernel
+  -> Sentient reasoning
+  -> sentient/model_gateway/
+  -> models/providers/<provider>
+  -> real model API
+  -> WOLF15 typed validation
+  -> ReasoningProposal
+  -> evidence/controller checks
+  -> Control Kernel
+~~~
+
+`sentient/model_gateway/` is the single cognitive-facing gateway owner.
+`models/providers/` contains concrete providers. No second
+`models/gateway/` authority/gateway is created.
+
+### Primary donor input
+
+`ARCH-DONOR-PYDANTIC-AI-01` is the highest-value current CP1 donor:
+
+- repository: `tjx578/pydantic-ai-sentient`;
+- reviewed snapshot:
+  `05f2f35ca8af6f1382f06761c6a9a23dbd341728`;
+- license: MIT;
+- decision: selective adoption;
+- preferred CP1 pattern: `pydantic_ai.direct` / direct model/provider/profile
+  abstraction behind WOLF15's gateway;
+- full Pydantic AI `Agent` graph is **not** a WOLF15 orchestrator.
+
+### Required deliverables
+
+- provider-neutral `ModelGateway` request/response contract;
+- one concrete real provider adapter;
+- explicit Model / Provider / Profile separation;
+- schema-constrained `ReasoningProposal`;
+- cancellation propagation;
+- distinct deadline/timeout scopes;
+- bounded input/output/context/token/request/cost controls where measurable;
+- usage telemetry with missing cost represented as `NOT_MEASURED`, not zero;
+- typed provider failure taxonomy;
+- exact model/provider identity in execution receipts;
+- evidence binding preserved before/after model calls.
+
+### Acceptance
+
+CP1 passes only when a real provider proves:
+
+- valid typed output accepted;
+- invalid/malformed output rejected;
+- cancellation terminates the affected request;
+- timeout is distinguishable from provider/auth/rate-limit/policy failures;
+- token/context/usage limits are measurable and enforced where defined;
+- provider/model identity and usage are observable;
+- no model output can set workflow state, factual truth or authority;
+- no silent multi-provider fallback changes behavior mid-run;
+- no tool/MCP/repository/memory execution authority is introduced.
+
+### Explicitly excluded
+
+- repository reading or mutation;
+- runtime skill registry;
+- tool execution;
+- MCP capability activation;
+- durable personal memory;
+- voice/JARVIS runtime;
+- WebMCP/browser runtime;
+- adaptive/self-learning behavior.
+
+Pydantic AI patterns discovered for CP2, CP4, CP5 and CP8 remain
+`FUTURE_CHECKPOINT -> DEFER`.
+
+---
+
+## CP2 — Repository Intelligence
+
+### Objective
+
+Make repositories and approved technical sources readable as exact,
+source-bound evidence without granting write authority.
+
+### Required deliverables
+
+- `RepositorySnapshotReader` bound to exact revision/digest;
+- repository tree/source map;
+- language-aware parser/AST where justified;
+- dependency/import graph;
+- source location and provenance model;
+- read-only resolver producing `SourceRef` and bounded `ContextBundle`;
+- evidence-grounded repository findings;
+- context/chunking policy based on semantic/responsibility boundaries;
+- spill/handle strategy for oversized tool/repository output;
+- explicit freshness/conflict/missing-source behavior.
+
+Pydantic AI donor patterns that may inform CP2 include `RepoContext`,
+path/content-hash deduplication and context/tool-output spill patterns. They do
+not become donor-instruction authority.
+
+### Acceptance
+
+- requested repository resolves to an exact immutable revision;
+- material finding traces to file/source bytes and location;
+- stale/missing/conflicting evidence remains explicit;
+- donor `AGENTS.md`, `CLAUDE.md`, README and code comments are treated as data;
+- oversized source output does not silently overflow model context;
+- repository access is demonstrably read-only;
+- branch name alone is never runtime identity.
+
+### Explicitly excluded
+
+- repository/file writes;
+- worktree/branch creation;
+- shell/test execution as a mutation path;
+- automatic donor code execution;
+- capability activation.
+
+---
+
+## CP3 — Production Grade v1
+
+### Objective
+
+Turn the read-only cognitive system into an authenticated, durable, observable
+and recoverable service before adding personal or mutating capabilities.
+
+### Required deliverables
+
+- authenticated owner/caller boundary;
+- durable task/run/event persistence;
+- idempotent task submission and replay rules;
+- cancellation and restart recovery;
+- lease/fencing semantics where concurrency needs them;
+- durable audit/outbox/receipt semantics;
+- structured logging, tracing and metrics;
+- readiness checks tied to real dependencies;
+- secret/credential isolation;
+- staging and rollback evidence;
+- generic execution-reality envelope.
+
+The execution contract must preserve:
+
+~~~text
+HANDLER_RETURNED != EXECUTED
+EXECUTED != ACCEPTED
+ACCEPTED != VERIFIED
+SIMULATED != REAL
+FALLBACK != EQUIVALENT_SUCCESS
+~~~
+
+Pydantic AI OpenTelemetry patterns and Signett-style cancellation,
+idempotency/recovery ideas are research donors here; WOLF15 owns the contract.
+
+### Acceptance
+
+- duplicate requests do not create ambiguous duplicate canonical runs;
+- restart/cancellation/recovery preserves task truth;
+- auth/policy denial produces no side effect;
+- receipts bind source/config/provider/run identity;
+- required dependency failure changes readiness;
+- logs/traces do not leak credentials or private prompt/source payloads;
+- rollback restores exact software without restoring revoked authority.
+
+### Explicitly excluded
+
+- personal connector writes;
+- browser/WebMCP runtime actions;
+- dynamic Capability OS activation;
+- repository mutation;
+- learning-driven behavior changes.
+
+---
+
+## CP4 — Personal JARVIS & Read-Only Intelligence
+
+### Objective
+
+Give the owner a JARVIS-style read-only interface across voice, permitted
+personal/media sources and browser-native capabilities while preserving the
+same Kernel task/authority path as text/API requests.
+
+### Required deliverables
+
+- Owner Console interface over stable contracts;
+- voice/STT/TTS or realtime-voice transport with interruption/cancellation;
+- owner-scoped read-only personal connectors;
+- evidence-bound Second Brain retrieval for permitted personal/project sources;
+- YouTube/media intake with metadata, transcript/caption provenance,
+  segmentation, knowledge extraction and explicit limitations;
+- browser session abstraction;
+- WebMCP discovery and **read-only** invocation;
+- `WEBMCP_NATIVE` receipt with origin/session/document/tool identity;
+- explicit `BROWSER_AUTOMATION_FALLBACK` classification if a separately
+  qualified fallback is later used.
+
+Pydantic AI realtime-voice patterns may be a donor here. WebMCP donor patterns
+are defined in `docs/research/webmcp-donors/`.
+
+### Acceptance
+
+- voice and text resolve to the same typed task/authority path;
+- missing connector/media transcript remains partial/`NOT_MEASURED`;
+- third-party media/web/page text is data, never instruction authority;
+- one permitted real read-only personal source is proven end to end;
+- one allowed WebMCP page tool is discovered and invoked read-only with receipt;
+- navigation/tool removal/session change invalidates stale WebMCP descriptors;
+- isolated browser context is the default unless an owner explicitly authorizes
+  a higher-scope logged-in browser session.
+
+### Explicitly excluded
+
+- sending messages;
+- calendar/file/account writes;
+- purchases/bookings/approvals/deletes;
+- repository mutation;
+- page-local confirmation as owner authority.
+
+---
+
+## CP5 — Capability OS
+
+### Objective
+
+Create one governed capability plane for skills, tools, backend MCP, model
+providers and ephemeral browser/WebMCP providers.
+
+### Required deliverables
+
+- versioned Capability Registry;
+- task-scoped Capability Resolver;
+- Unified Skill registry/loader;
+- provider manifests and revocation;
+- canonical tool descriptors;
+- backend MCP gateway/registry contracts;
+- provider health/evidence metadata;
+- task/run generation pinning;
+- progressive disclosure so full procedures/tools load only when relevant;
+- bounded tool search;
+- WebMCP page tools normalized as ephemeral providers.
+
+Pydantic AI progressive disclosure, deferred tool loading and tool-search
+patterns may inform this checkpoint.
+
+### Core invariants
+
+~~~text
+DISCOVERED != QUALIFIED
+QUALIFIED != ACTIVE
+ACTIVE != AUTHORIZED_FOR_THIS_TASK
+CAPABILITY_LOADED != CAPABILITY_AUTHORIZED
+TOOL_SEARCH_RESULT != QUALIFIED_TOOL
+~~~
+
+### Acceptance
+
+- only qualified providers can be selected;
+- provider/capability generation is pinned for the run;
+- revoked/stale providers fail closed;
+- policy disagreement overrides provider/tool hints;
+- WebMCP session/origin/tool changes invalidate ephemeral provider state;
+- skill/tool instructions cannot raise authority or request unapproved secrets;
+- registry availability does not bypass per-call Kernel authorization.
+
+### Explicitly excluded
+
+- automatic donor acquisition;
+- self-installation;
+- consequential external actions;
+- candidate self-promotion.
+
+---
+
+## CP6 — Capability Foundry
+
+### Objective
+
+Allow WOLF15 to discover and qualify new knowledge/capability donors without
+copying entire frameworks or granting them runtime authority.
+
+### Required deliverables
+
+~~~text
+donor discovery
+  -> exact revision pin
+  -> provenance / rights / license
+  -> dependency / security inspection
+  -> architecture reconstruction
+  -> canonical capability extraction
+  -> overlap / conflict analysis
+  -> sandbox / offline evaluation
+  -> shadow qualification
+  -> candidate manifest
+  -> separate admission decision
+~~~
+
+This checkpoint owns operational donor qualification. Documentation-only donor
+research may exist earlier, but it does not substitute for CP6 qualification.
+
+### Donor sets already researched
+
+- Pydantic AI donor;
+- WebMCP specification/skills/runtime/evaluation donors;
+- frozen `ALG-REG-001` algorithm donor corpus;
+- other future donors recorded as research inputs.
+
+### Acceptance
+
+- exact source/revision and provenance are reproducible;
+- rights/license uncertainty blocks code adoption;
+- donor instructions never execute by being read;
+- overlap/equivalence is compared by contract/behavior, not name;
+- security, dependency and data-egress boundaries are recorded;
+- sandbox/offline/shadow evaluation is independent of candidate claims;
+- only a candidate manifest emerges; Foundry cannot activate itself.
+
+### Explicitly excluded
+
+- fetch -> import -> execute;
+- bulk skill overwrite;
+- mutable/latest runtime dependency by default;
+- automatic production installation;
+- direct capability activation.
+
+---
+
+## CP7 — Controlled Technology Builder
+
+### Objective
+
+Permit exact owner-approved effects after the read-only system, Capability OS
+and Foundry have proven their boundaries.
+
+### Required deliverables
+
+- action proposal and preview;
+- exact task/owner/target/resource/action binding;
+- artifact/input digest binding;
+- expiry/revocation/replay protection;
+- isolated worktree;
+- bounded file/shell/test/Git operations;
+- feature branch and draft PR workflow;
+- controlled personal actions;
+- consequential WebMCP/browser actions;
+- idempotency/operation journal where an effect can be ambiguous;
+- execution receipt and independent postcondition verification.
+
+### Acceptance
+
+- no write occurs without the exact required grant;
+- `READ_ONLY` is enforced by operation allowlist, not a label;
+- list-time tool filtering never replaces call-time authorization;
+- ambiguous mutation outcomes reconcile against authoritative state;
+- repository work cannot directly mutate protected/default main;
+- browser/page approval alone cannot authorize WOLF15;
+- every effect is auditable and reversible where the domain allows it.
+
+### Explicitly excluded
+
+- autonomous merge;
+- autonomous deployment;
+- unreviewed sending/purchase/booking/delete;
+- unrestricted shell or credential access.
+
+---
+
+## CP8 — Adaptive Intelligence
+
+### Objective
+
+Learn from verified outcomes without allowing the learner, candidate or model
+to control its own evaluator or promotion.
+
+### Required deliverables
+
+- verified episode/outcome journal;
+- fixed, versioned evaluation rubrics;
+- baseline vs candidate replay;
+- held-out and temporal validation;
+- provider/skill/retrieval/WebMCP regression suites;
+- shadow evaluation;
+- drift and persistence analysis;
+- bounded optimizer/REE candidate lifecycle;
+- owner/governance approval and versioned activation;
+- rollback/supersession path.
+
+Pydantic Evals is a strong donor for dataset/case/evaluator/experiment/report
+separation. WebMCP Evals and WindTunnel-style methodology may support browser
+capability comparison. Donor benchmark claims must be reproduced on WOLF15
+workloads before they become WOLF15 evidence.
+
+### Acceptance
+
+~~~text
+verified outcome
+  -> Episode
+  -> Candidate
+  -> Replay
+  -> Held-Out / Temporal Evaluation
+  -> Shadow
+  -> Independent Review
+  -> Owner Approval
+  -> Versioned Activation
+~~~
+
+- candidate cannot change the fixed evaluator/rubric;
+- missing measurements remain `NOT_MEASURED`;
+- regression/hard-gate failure cannot be averaged into PASS;
+- online learning cannot silently alter active routing;
+- current runs stay pinned to their original approved generations.
+
+### Explicitly excluded
+
+- self-promotion;
+- model-written memory becoming verified fact;
+- LLM-as-judge as sole verdict authority;
+- adaptive authority escalation.
+
+---
+
+## CP9 — Technology Company OS
+
+### Objective
+
+Integrate the checkpoint-proven product into one operational WOLF15 Sentient
+system without creating a new authority shortcut.
+
+### Integrated target
+
+CP9 composes:
+
+- Sentient Core / Neural Orchestrator;
+- Control Kernel;
+- Elite Specialist Organization;
+- Evidence-Grounded Second Brain;
+- Personal JARVIS and media/voice interface;
+- Browser Capability Plane / WebMCP;
+- Capability OS and Unified Skills;
+- Capability Foundry;
+- Controlled Technology Builder;
+- Adaptive Intelligence / REE;
+- Owner Console and operational observability.
+
+### Acceptance
+
+- each subsystem enters CP9 with its own earlier checkpoint evidence;
+- end-to-end task/run/authority/evidence receipts remain traceable;
+- multi-provider/fallback behavior preserves execution reality;
+- partial subsystem failure fails closed or degrades explicitly;
+- personal/browser/repository actions retain exact approval boundaries;
+- capability/adaptation generations are pinned and reversible;
+- production deployment requires its own exact-artifact operational approval.
+
+CP9 cannot waive any CP0–CP8 invariant.
+
+---
+
+## Retired and normalized planning labels
+
+### Retired 13-checkpoint draft
+
+The uploaded planning draft that defined `CP-00` through `CP-12` is
+**retired as a checkpoint authority**. Its useful responsibilities are folded
+into this master sequence as follows:
+
+| Retired draft | Master owner |
+| --- | --- |
+| CP-00 baseline/status | **CP0** |
+| CP-01 manual donor/adaptation register | documentation-only donor research under **CP0**; operational qualification under **CP6** |
+| CP-02 source/evidence acquisition | **CP2** |
+| CP-03 reasoning adapter | **CP1** |
+| CP-04 read-only repository audit | **CP2** |
+| CP-05 persistent task/run/event | **CP3** |
+| CP-06 authenticated/observable service | **CP3** |
+| CP-07 Owner Console | **CP4** |
+| CP-08 personal brief + document library | **CP4** |
+| CP-09 Capability Fabric/skill registry | **CP5** |
+| CP-10 Capability Foundry | **CP6** |
+| CP-11 approved actions | **CP7** |
+| CP-12 Learning/REE | **CP8** |
+| no equivalent in retired draft | **CP9** integrated product |
+
+No document may revive `CP-00..CP-12` as a parallel roadmap.
+
+### Legacy M/PR labels
+
+Historical documents may retain names such as M1, M2, M3-A, M3-B, M4–M10 or
+PR-0…PR-8+ because they identify old implementation/research artifacts.
+They are **not current scheduling identifiers**.
+
+For interpretation only:
+
+| Historical label | Master checkpoint |
+| --- | --- |
+| M0/M1/M2, SK-01, M3-A, SCRS v0 historical foundation slices | CP0 |
+| M3-B / real provider | CP1 |
+| M4 | CP2 |
+| M5 | CP3 |
+| M6 | CP4 |
+| M7 | CP5 |
+| M8 | CP6 |
+| M9 | CP7 |
+| M10 | CP8 |
+| integrated product / no former M equivalent | CP9 |
+
+New planning, issue, PR, ADR, donor assessment and status documents must use
+the master CP0–CP9 identifiers.
+
+## Change-control rule
+
+A new research discovery may change **what** belongs inside a checkpoint, but
+not checkpoint numbering or order unless the owner explicitly approves a
+master-roadmap revision.
+
+Every future architecture/research document must therefore state one of:
+
+- `MASTER_CP_OWNER: CPx`;
+- `HISTORICAL_ONLY`;
+- `FUTURE_CHECKPOINT -> DEFER`;
+- `OUT_OF_ARCHITECTURE`.
+
+No additional CP sequence, milestone roadmap, or parallel tracker is canonical.
