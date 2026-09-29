@@ -2,11 +2,12 @@
 
 ## Authority and status
 
-This is the canonical CURRENT-to-TARGET ownership map for CP0. It aligns the
-[North Star](super-intelligence-reference-architecture.md) and the supplied
-`WOLF15_SENTIENT_TARGET_SKELETON.md` without creating future packages. Current
-source is the integrated baseline `a53388f60b34372c5c3f43a31d8a5157add54379`
-(PRs #11–#14). A target path is a design destination, not an implemented import.
+This is the canonical CURRENT-to-TARGET ownership map. It aligns the
+[North Star](super-intelligence-reference-architecture.md) with the in-repository
+[Final Target Skeleton](final-target-skeleton.md) without creating future
+packages. The last verified pre-WebMCP-amendment canonical main is
+`dd5cf74ce47e395cf859a2b5130790129af01e16` (PR #16). A target path is a
+design destination, not an implemented import.
 Historical records in [Current State](current-state.md) remain bound to their
 own revisions. [Authority policy](../governance/authority-model.md) governs
 permissions; architecture names, README files and scores cannot grant them.
@@ -37,6 +38,7 @@ All package paths below are relative to `src/wolf15_sentient/` unless qualified.
 | Capability Foundry | Design and qualification policy | `capability_factory/` | CP6/M8 TARGET; donors require provenance, rights, isolation and independent admission |
 | Learning and REE | `contracts/learning.py`; separate offline REE development lane | `learning/`, `ree/`, `evaluation/` | CP8/M10 TARGET; no current evaluator activation or profile mutation |
 | Personal assistant | Architecture documents only | `owner/`, `personal/`, `intelligence/`, `integrations/` | CP4/M6 TARGET, initially read-only |
+| Browser Capability Plane / WebMCP | Research and architecture only; no browser provider | `integrations/browser/webmcp/`, `capabilities/providers/webmcp/`, `contracts/webmcp.py`, root `apps/owner-console/features/browser/` | CP4 read-only discovery/invocation; CP5 provider resolution; CP7 consequential actions; runtime absent |
 | Owner-controlled execution | Authority and approval design only | `execution/` controlled boundary plus Kernel approval contracts | CP7/M9 TARGET; no current writer/executor |
 | Owner interface | External HTML design reference; no tracked console application | root `apps/owner-console/` | CP4 interface track TARGET; Next.js/TypeScript and SSE |
 
@@ -61,7 +63,8 @@ The complete product target remains: **Sentient Core / Neural Orchestrator**,
 **Control Kernel**, **Elite Specialist Organization**, **Evidence-Grounded
 Second Brain**, **Unified Skill System**, **Capability Fabric**, **Capability
 Foundry**, **Multi-provider Registry**, **Durable Memory**, **Learning**,
-**REE**, and **Owner-Controlled Execution**. CP0 completes their foundation;
+**REE**, **Browser Capability Plane (WebMCP + explicitly classified browser fallback)**,
+and **Owner-Controlled Execution**. CP0 completes their foundation;
 it does not narrow the product to a telemetry library or install the target
 roster. Product-specific systems such as WOLF15 Trading remain external owners
 of their own domain policy and execution.
@@ -134,3 +137,23 @@ External source bindings (not vendored or loaded by runtime):
 The canonical mapping and UX designation above are repository decisions; the
 local source digests permit later reconciliation without claiming that those
 external files are portable repository dependencies.
+
+## Browser capability ownership rules
+
+- `mcp/` owns backend/service MCP.
+- `integrations/browser/webmcp/` owns browser-session discovery,
+  normalization, invocation and receipts.
+- `capabilities/providers/webmcp/` owns provider representation for the
+  Capability Registry/Resolver, not browser execution.
+- `execution/browser/fallback/` owns later bounded automation fallback and
+  reports `BROWSER_AUTOMATION_FALLBACK`, never `WEBMCP_NATIVE`.
+- `apps/owner-console/features/browser/` presents browser state, approvals
+  and receipts; it is not the authority root.
+
+A page tool is session-bound. `Registered != Qualified != Active !=
+Authorized-for-this-task`. WebMCP annotations are provider assertions and
+policy inputs, not proof or authority.
+
+The former external `WOLF15_SENTIENT_TARGET_SKELETON.md` remains historical
+input. [Final Target Skeleton](final-target-skeleton.md) is the in-repository
+target tree; it creates no empty runtime packages.
