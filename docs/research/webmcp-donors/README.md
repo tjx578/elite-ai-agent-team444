@@ -4,6 +4,10 @@
 
 `RESEARCH / FUTURE_CHECKPOINT / NO_RUNTIME_EFFECT`
 
+This directory is a donor research record, **not a checkpoint roadmap**.
+All CP ownership/order comes from the
+[Master Roadmap](../../architecture/roadmap.md).
+
 Observed on 2026-09-29. Exact revisions are research bindings, not active
 dependencies. Admission requires the owning checkpoint and CP6 qualification
 where donor acquisition applies.
