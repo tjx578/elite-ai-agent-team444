@@ -62,4 +62,5 @@ These are candidates, not installed skills.
 - whole-runtime donor import is rejected;
 - benchmark claims require WOLF15 reproduction.
 
-See [checkpoint map](checkpoint-map.md).
+Checkpoint ownership is defined only by the
+[Master Roadmap](../../architecture/roadmap.md).
