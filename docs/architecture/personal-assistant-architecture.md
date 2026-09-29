@@ -21,8 +21,8 @@ brief or draft, but a connector acts only after the Kernel's boundary check.
 
 | Phase | Example | Authority ceiling |
 | --- | --- | --- |
-| M6 read-only | Read today's calendar, selected mail, Drive documents, web/news and project status | Scoped reads only |
-| M9 prepare | Draft an email, message, or calendar change | Owner-visible draft; no send or write |
+| M6 read-only | Read calendar/mail/Drive/web/news/project status; discover and invoke qualified read-only WebMCP tools in an isolated or explicitly owner-scoped browser session | Scoped reads only |
+| M9 prepare / CP7 browser action | Draft a message/calendar change or prepare a consequential WebMCP action | Owner-visible draft/plan; no effect without exact approval |
 | Later approved action | Send or create an exact reviewed artifact | Separate action-specific approval and adapter enforcement |
 
 The first end-to-end use case is a **Morning Intelligence Brief** assembled
@@ -35,9 +35,10 @@ data, not instructions to the assistant.
 ## Data and control flow
 
 ```text
-Owner -> task scope -> Kernel -> read-only connector set
-                            -> SourceRef[] -> ContextBundle
-                            -> Core draft -> evidence check -> owner brief
+Owner -> task scope -> Kernel
+                      -> read-only connector set -> SourceRef[] -> ContextBundle
+                      -> browser session -> WebMCP discovery -> read-only invocation receipt
+                      -> Core draft -> evidence check -> owner brief
 ```
 
 Connector credentials belong to the connector's least-privilege boundary,
@@ -54,9 +55,26 @@ delivery destination, and notification policy. No schedule is active here.
 - A partial source outage yields a clearly partial brief; required evidence
   remains missing. No retry of an ambiguous external mutation is automatic.
 - M6 is accepted only after authenticated read-only connector tests,
-  provenance/freshness checks, and an owner-visible brief on real permitted
-  data. M9 needs draft validation and separate action-specific approval tests.
+  provenance/freshness checks, an owner-visible brief on real permitted data,
+  and a bounded browser vertical slice proving WebMCP discovery plus read-only
+  invocation with origin/session/tool receipts.
+- M9/CP7 needs draft validation, consequential browser-action classification,
+  exact owner approval, idempotency/recovery where relevant, and independent
+  verification of authoritative state.
 
 Provider choices, consent lifetime, retention, regional data handling, and
 notification defaults are open decisions. They are not inferred from a
 connected app or from this diagram.
+
+## WebMCP browser boundary
+
+Voice and text enter the same task-intake path. Voice is transport, not
+authority. WebMCP tools are untrusted capability descriptors until the
+Capability Resolver and Control Kernel admit an exact invocation.
+
+CP4 should prefer an isolated browser context. Reuse of a real owner browser,
+cookies or enterprise SSO is higher-scope and requires explicit session policy.
+A logged-in page is not permission to mutate it.
+
+Backend MCP remains appropriate for persistent service capabilities. WebMCP is
+page/session bound and must not be stored as a permanent backend provider.
