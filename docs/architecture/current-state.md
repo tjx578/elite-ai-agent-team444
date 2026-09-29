@@ -6,13 +6,34 @@ This document records what is demonstrably present in the repository. It is not 
 
 ## Canonical baseline
 
-### CP0 integrated foundation
+### Inspected main and checkpoint position
 
-The latest integrated implementation checkpoint recorded here is
-`a53388f60b34372c5c3f43a31d8a5157add54379`. CP0.1–CP0.3 are complete;
-CP0.4 documentation alignment and CP0.5 final acceptance are separate gates.
-The [canonical map](canonical-ownership.md) describes current ownership and
-the full target without implying that future folders or services exist.
+Inspected on 30 September 2026 WITA: `main@07c942cd62ec5e85a521ee47976559a55f35d8b8`.
+The root [README](../../README.md) contains the system SSoT and complete
+six-division/28-specialist target roster after PR #19. CP0 is **CLOSED / PASS**
+at accepted SHA `bad73335f518d89356b88cba1cc26730808cd224`; CP1 is
+**ACTIVE_NEXT / NOT_IMPLEMENTED** and CP2–CP9 remain locked for implementation.
+The [freeze receipt](../research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml)
+preserves the CP0 acceptance binding. No documentation update reopens CP0.
+
+A GitHub comparison from `dd5cf74ce47e395cf859a2b5130790129af01e16` to the
+inspected main changes only `README.md`. The source still has FastAPI
+`/health` and `/tasks`, a deterministic in-memory LangGraph, and three stub
+roles. M2/M3-A/SCRS remain offline library paths. No real model provider,
+repository reader/writer, dynamic skills, persistent memory, Foundry,
+WebMCP adapter or REE has been added by these README changes.
+
+The donor v1.2 reconciliation is documentation/data only: all 11 S06 records
+and the Transformers candidate are tracked, but donor qualification and
+runtime activation are **NOT_EXECUTED**. See the
+[bound source/overlap record](../verification/repository-donor-roadmap-20260930.md).
+Default-branch HEAD values reported by the upload are not new observations.
+
+### Historical CP0 implementation receipts
+
+The rows below retain their original exact resulting-main evidence.
+CP0.4 and CP0.5 were completed after these implementation slices; their
+former pending status must not be used as the current roadmap position.
 
 | Step | Integrated PR / resulting main | Resulting-main evidence |
 | --- | --- | --- |

@@ -8,7 +8,7 @@ Repository resmi: [tjx578/wolf15-sentient](https://github.com/tjx578/wolf15-sent
 
 > **README.md pada root branch `main` adalah SSoT rancangan sistem.** Dokumen ini menetapkan identitas, tujuan, batas sistem, kepemilikan komponen, urutan checkpoint, struktur repository, dan aturan perubahan. Rancangan berlaku sebagai acuan utama setelah perubahan README masuk `main`. Rancangan target tidak menyatakan bahwa seluruh kemampuan sudah diimplementasikan.
 
-Revisi rancangan: **SSOT-2026-09-29.2**. Pembaruan roster/skill ini bertolak dari README yang telah merged pada [`288c9bb063dac14070323ac4c82a6ea9c152757e`](https://github.com/tjx578/wolf15-sentient/tree/288c9bb063dac14070323ac4c82a6ea9c152757e). Baseline implementasi yang diperiksa: [`dd5cf74ce47e395cf859a2b5130790129af01e16`](https://github.com/tjx578/wolf15-sentient/tree/dd5cf74ce47e395cf859a2b5130790129af01e16). SHA ini adalah baseline sebelum pembaruan README, bukan klaim tip `main` selamanya.
+Revisi rancangan: **SSOT-2026-09-30.1**. Rekonsiliasi register donor v1.2 dan checkpoint bertolak dari [`main@07c942cd62ec5e85a521ee47976559a55f35d8b8`](https://github.com/tjx578/wolf15-sentient/tree/07c942cd62ec5e85a521ee47976559a55f35d8b8), diperiksa 30 September 2026 WITA. Dibanding baseline implementasi `dd5cf74ce47e395cf859a2b5130790129af01e16`, hanya README yang berubah sebelum revisi ini; kode runtime tetap sama. Snapshot bukan klaim tip `main` selamanya.
 
 ## Navigasi
 
@@ -89,13 +89,13 @@ Produk dianggap memenuhi arah ini ketika alur personal, riset, engineering, Foun
 | Hal | Status yang dapat dipertanggungjawabkan |
 | --- | --- |
 | Penerimaan historis CP0 | **CLOSED / PASS**, terikat pada `bad73335f518d89356b88cba1cc26730808cd224` |
-| Baseline source untuk README ini | `dd5cf74ce47e395cf859a2b5130790129af01e16`, setelah PR #16 |
+| Baseline source untuk pembaruan ini | `07c942cd62ec5e85a521ee47976559a55f35d8b8`, setelah PR #19; runtime tidak berubah dari baseline PR #16 |
 | Addendum algoritme | `ALG-REG-001` **FROZEN**, 37 design records; tidak mengaktifkan algoritme runtime |
 | Checkpoint berikutnya | **CP1 — ACTIVE_NEXT / NOT_IMPLEMENTED**; belum ada real model provider |
 | CP2–CP9 | **LOCKED / FUTURE_CHECKPOINT** untuk implementasi; riset boleh dicatat |
 | Otoritas API saat ini | Hanya `READ_ONLY` |
 | Persona master yang dilampirkan | Rancangan perilaku; belum ada loader/aktivasi native atau uji model live |
-| Rancangan WebMCP/master roadmap | Ditinjau pada PR #17 HEAD `e8f82b06868311a19f65ae03782a3b499e04ba1a`; masih belum merged pada snapshot penyusunan |
+| Rancangan donor dan WebMCP | Register v1.2 pemilik serta matriks S06 direkonsiliasi ke README dan dokumen turunan. PR #17 HEAD `e8f82b06868311a19f65ae03782a3b499e04ba1a` tetap proposal terpisah yang belum merged pada base pemeriksaan |
 
 Dasar penerimaan CP0 dan freeze tersedia pada [receipt ALG-REG-001](docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml). Pembaruan dokumentasi sesudahnya tidak mengubah SHA penerimaan CP0.
 
@@ -541,6 +541,76 @@ Untuk pekerjaan WOLF15, pemakaian prosedur ini berada dalam mode DESIGN/offline 
 | CP8 | Adaptive Intelligence | LOCKED |
 | CP9 | Technology Company OS | LOCKED |
 
+### Pemetaan donor master v1.2 ke checkpoint
+
+Register `WOLF15_SENTIENT_MASTER_REPOSITORY_DONOR_REGISTER_v1.2_WEBMCP` dan matriks CSV S06 yang diunggah pemilik pada 30 September 2026 WITA menjadi sumber pembaruan pemetaan donor. [Register canonical](docs/research/donor-adaptation-register-20260929.md) menyimpan seluruh portfolio, source revisions dan rekonsiliasi; [matriks WebMCP](docs/research/webmcp-donors/donor-cp-matrix.csv) mempertahankan 11 baris sumber. README ini tetap master **sistem dan urutan checkpoint**; register adalah master **identitas serta pemetaan donor**, tanpa urutan roadmap kedua.
+
+**Makna pemetaan:** CP fungsional menunjukkan komponen penerima suatu prinsip/capability. `qualification_cp=CP6` menunjukkan jalur akuisisi package/code/skill/runtime donor. Angka CP fungsional yang lebih awal tidak memberi izin mengimpor donor sebelum qualification selesai.
+
+| CP | Donor dan kontribusi yang direncanakan | Batas pelaksanaan |
+| --- | --- | --- |
+| CP0 | Frozen `ALG-REG-001`, fondasi cognitive/contracts/governance | CLOSED pada SHA historis; register repository baru tidak mengubah bytes freeze |
+| CP1 | Pydantic AI sebagai donor kontrak provider utama; OpenJarvis/Ruflo untuk provider, timeout dan budget; Transformers untuk kandidat local provider; LiteLLM/DeepAgents sebagai watch candidates | Satu real provider lebih dahulu; WebMCP runtime NONE; paket donor/Transformers tidak otomatis menjadi provider pertama |
+| CP2 | Ruflo untuk retrieval/graph patterns, Pydantic AI untuk RepoContext/dedup/context spill, Context7 untuk dokumentasi sesuai versi | Analisis source read-only; WebMCP source boleh dibaca sebagai data, WebMCP runtime NONE |
+| CP3 | OpenJarvis, Paperclip, Ruflo untuk task/run/lease/telemetry; Transformers untuk serving lifecycle; Signett untuk idempotency/recovery/receipt semantics | Layanan tetap read-only; pelajari/rebangun pola, jangan mengadopsi runtime donor yang belum qualified |
+| CP4 | OpenJarvis/Paperclip/Ruflo; Transformers untuk multimodal/ASR; Context7; D3/Next.js; Deltalytix dan Openlib sebagai referensi UX/library; WebMCP spec, Chrome tools dan React lifecycle | Connector/browser read-only, profil tetap; native slice diuji dalam scope. SDK/skill/runtime S06 menunggu CP6; Openlib upstream belum terikat |
+| CP5 | OpenJarvis/Paperclip/Ruflo/Pydantic AI/Transformers, MCP spec; WebMCP spec/types/Chrome tools/React hook, MCP-B/npm packages dan OpenTiny | Registry/resolver/ephemeral descriptors dan skill binding; donor-specific provider, bridge, polyfill atau fallback hanya sesudah qualification. Web authoring skill dari `webmaxru` menunggu CP6 |
+| CP6 | OpenJarvis, Paperclip, Ruflo, Pydantic AI, Transformers, seluruh 11 donor S06 dan calon donor berikutnya | Exact source, rights, dependency/security, extraction, overlap, sandbox offline, independent evaluation dan admission terpisah; tidak self-activate |
+| CP7 | OpenJarvis/Paperclip/Ruflo; Signett, WebMCPify, WebMCP Kit dan OpenTiny untuk tindakan browser/retrofit/session yang disetujui | Prepare/review/approve/execute/receipt/postcondition; scope session nyata, WXT dan consequential effects memerlukan grant yang sesuai |
+| CP8 | OpenJarvis/Paperclip/Ruflo; Pydantic Evals sebagai pola evaluasi; Transformers untuk offline training/fine-tuning candidates; Chrome tools dan WindTunnel untuk evaluasi WebMCP | Verified episodes, fixed workload/baseline, held-out/regression, qualified evaluator dan promotion terpisah; benchmark luar tetap NOT_MEASURED untuk Sentient |
+| CP9 | Integrasi hasil CP1–CP8; Paperclip dapat memberi pola tampilan kerja organisasi | Tidak menjadi jalur admission donor baru; end-to-end evidence tetap wajib |
+
+#### Urutan implementasi dan qualification donor
+
+1. **CP1–CP5 membangun fondasi milik Sentient.** Sumber donor dapat memberi pengetahuan, requirement, kontrak dan prinsip yang direbangun sebagai implementasi native; provenance, rights dan acceptance tetap diperiksa. Ini tidak mengaktifkan package/code/skill/runtime dari portfolio donor.
+2. **CP6 mengkualifikasi adopsi donor.** Package/library donor, SDK, polyfill, bridge, skill, runtime, serta model artifact yang akan digunakan melewati qualification yang sesuai. Integrasi donor tertentu ke komponen CP1–CP5 dilakukan sebagai perluasan setelah gate CP6, tanpa mengubah urutan atau membuka ulang penerimaan historis CP tersebut.
+3. **Kebutuhan awal yang hanya dapat dipenuhi melalui impor donor menghasilkan HOLD pada jalur itu.** Sebelum implementation, diperlukan keputusan/amandemen qualification yang eksplisit; tidak boleh menganggap tabel routing sebagai pengecualian. Pemilihan provider CP1 tetap keputusan tersendiri dan tidak dipaksakan menjadi Pydantic AI atau Transformers oleh register.
+4. **Profil CP4 tetap terbatas.** Adapter browser native/read-only milik Sentient dapat diuji pada slice tetap di bawah Kernel. Penggunaan kode/SDK/skill S06 berbeda dari mempelajari spec; pola CP4 tidak mengizinkan pemasangan package donor lebih awal. WebMCP authoring/retrofit yang benar-benar mengubah aplikasi juga tetap masuk CP7.
+5. **Offline qualification adalah satu-satunya jalur yang didukung kebijakan sekarang.** Connected/shadow membutuhkan desain, containment, evidence profile dan otorisasi terpisah. Penulisan `shadow required` pada sumber v1.2 dinormalisasi menjadi target bersyarat, tidak dianggap jalur aktif.
+
+Pemisahan ini menjaga urutan CP0–CP9 dan syarat qualification CP6 sekaligus. **Functional ownership bukan admission date.** Data CSV tidak diubah untuk menyamarkan dependensi tersebut.
+
+#### Hugging Face / Transformers dan model artifacts
+
+Donor `tjx578/transformers-sentient@6b07e4510e3f9667f5256656118515bcde306fc4` dipetakan ke CP1/CP3/CP4/CP5/CP6/CP8, dengan upstream yang dilaporkan `huggingface/transformers`. Keberadaan commit telah diperiksa; build, runtime dan rights untuk penggunaan Sentient belum dikualifikasi.
+
+| CP pemilik | Kontrak tambahan pada substep yang sudah ada |
+| --- | --- |
+| CP1 | Kandidat `LOCAL_TRANSFORMERS_PROVIDER` di `models/providers/`, di belakang `sentient/model_gateway/`; tetap satu-provider-first dan menunggu qualification untuk adopsi donor |
+| CP3 | Serving health, load/unload, device/dtype, cache/quantization dan resource telemetry; tidak ada automatic download/load |
+| CP4 | ASR, audio, vision dan multimodal sebagai input/output task yang sama dengan voice/text; capability yang tidak tersedia menjadi gap |
+| CP5 | Descriptor dan version pinning untuk keluarga `hf.*`, model artifact, tokenizer/processor/config, provider dan environment |
+| CP6 | Studi ekstraksi pipeline/interface sebagai donor utama; framework dan setiap model artifact diperiksa terpisah sebelum admission |
+| CP8 | Training/fine-tuning offline hanya menghasilkan kandidat; dataset rights, holdout, retention/regression dan metering memerlukan evidence serta izin tersendiri |
+
+Keluarga kandidat meliputi `hf.model-loader`, `hf.text-generation`, `hf.chat`, `hf.embeddings`, `hf.text-classification`, `hf.asr`, `hf.text-to-audio`, `hf.image-classification`, `hf.object-detection`, `hf.image-segmentation`, `hf.multimodal`, `hf.video`, `hf.quantization`, `hf.model-serving`, `hf.training` dan `hf.finetuning`. Ini selector rancangan, bukan API/provider yang telah tersedia. Alias singular `hf.embedding`/umum `hf.image` dari sumber harus dinormalisasi secara eksplisit sebelum menjadi canonical IDs; jangan membuat capability duplikat.
+
+Framework Transformers, model weights, dan Control Kernel adalah tiga objek berbeda. Klaim lisensi framework `Apache-2.0` pada unggahan tidak memberi rights untuk semua model/dataset. Model ID/revision, weight/tokenizer/config digests, dependency/environment, license/permission, resource envelope dan evaluation receipt harus terikat sendiri. `trust_remote_code=false` adalah default rancangan; pengecualian membutuhkan keputusan terpisah. Donor ini tidak mengganti Pydantic AI atau pemilik Kernel.
+
+#### Matriks WebMCP S06
+
+Kolom primary/secondary menunjukkan pemilik fungsi. Seluruh donor tetap `NOT_ADMITTED`; angka CP3–CP5 tidak melewati prerequisite CP6 untuk adopsi package. CP1/CP2 tidak memiliki pekerjaan runtime WebMCP.
+
+| Repository | Fungsi utama | CP utama | CP sekunder | Qualification |
+| --- | --- | --- | --- | --- |
+| `webmachinelearning/webmcp` | Canonical specification knowledge | CP5 | CP4 | CP6 |
+| `webmachinelearning/webmcp-types` | Typed contracts | CP5 | — | CP6 |
+| `GoogleChromeLabs/webmcp-tools` | Implementation demos and evaluation | CP5 | CP4, CP8 | CP6 |
+| `GoogleChromeLabs/use-webmcp-tool` | React lifecycle in Owner Console | CP4 | CP5 | CP6 |
+| `webmaxru/web-ai-agent-skills` | Authoring skill | CP6 | CP5 | CP6 |
+| `TueJon/webmcpify` | App retrofit verification and audit | CP6 | CP7 | CP6 |
+| `nekuda-ai/webmcp-kit` | Secondary implementation verification and migration skill | CP6 | CP7 | CP6 |
+| `signettai/signett` | Secure action idempotency recovery and receipts | CP7 | CP3 | CP6 |
+| `WebMCP-org/npm-packages` | Runtime polyfill compatibility and bridge reference | CP5 | — | CP6 |
+| `opentiny/webmcp-sdk` | Browser fallback and CDP WXT skills | CP5 | CP7 | CP6 |
+| `nekuda-ai/WindTunnel` | Comparative provider evaluation methodology | CP8 | — | CP6 |
+
+Revision/provenance lengkap terdapat di [portfolio](docs/research/webmcp-donors/portfolio.yaml), [register](docs/research/donor-adaptation-register-20260929.md), dan [pemeriksaan sumber](docs/verification/repository-donor-roadmap-20260930.md). Semua 11 SHA S06 serta SHA Transformers telah ditemukan sebagai commit pada repo yang disebut. Keberadaan commit tidak membuktikan build, license compatibility, keamanan, benchmark atau runtime admission.
+
+### Langkah implementasi berikutnya
+
+**CP1.1 tetap langkah berikutnya.** Bekukan kontrak gateway, provider/model/profile, persona serta acceptance scenarios pada exact main terbaru. Gunakan register untuk membandingkan pilihan; tentukan satu real-provider slice dan buktikan cancellation, timeout, structured output, evidence binding serta batas biaya. Tidak ada donor/provider yang dipilih atau diaktifkan oleh perubahan dokumentasi ini. Setelah CP1.1 diterima, lanjutkan CP1.2–CP1.6 sesuai gate yang sama.
+
 ### Gate bersama dan completion receipt
 
 Sebelum implementasi CP berikutnya: CP sebelumnya sudah CLOSED dengan receipt exact resulting-main; base SHA, kontrak, pemilik tanggung jawab, scope, prasyarat, serta acceptance task ditetapkan. Satu PR adalah increment yang dapat direview; merge satu PR tidak otomatis menutup satu CP.
@@ -572,7 +642,7 @@ Satu real provider melalui gateway milik WOLF15 menghasilkan proposal bertipe da
 | Substep | Isi |
 | --- | --- |
 | CP1.1 | Freeze gateway ownership, request/response schema, persona/prompt profile dan acceptance scenarios |
-| CP1.2 | Satu concrete model/provider adapter; model, provider, dan technical profile dipisahkan |
+| CP1.2 | Satu concrete model/provider adapter; model, provider, technical profile dan model artifact dipisahkan; calon LOCAL_TRANSFORMERS_PROVIDER mengikuti prerequisite qualification donor |
 | CP1.3 | Cancellation, deadline/timeout, budget, sanitized failure taxonomy |
 | CP1.4 | Integrasi reasoning/evidence dan typed proposal; source instructions tetap data |
 | CP1.5 | Telemetry model/provider/usage; optional complexity budgeter berdasarkan pengukuran |
@@ -604,7 +674,7 @@ Membentuk layanan kognitif **read-only** yang authenticated, durable, observable
 | CP3.1 | Auth dan owner/caller identity |
 | CP3.2 | Durable task/run/events, idempotency, transaction/outbox, lease/fencing bila diperlukan |
 | CP3.3 | Structured log, trace, metrics, sanitized audit/receipt |
-| CP3.4 | Secret isolation, security boundaries, resource/data limits, dependency-aware readiness |
+| CP3.4 | Secret isolation, resource/data limits, dependency-aware readiness; kontrak serving/model lifecycle/device/dtype/quantization bila provider terpilih memerlukannya |
 | CP3.5 | Restart/cancellation/recovery, fault injection, rollback |
 | CP3.6 | Staging/live read-only acceptance sesuai otorisasi operasi |
 | CP3.7 | Resulting-main acceptance |
@@ -622,7 +692,7 @@ Antarmuka pemilik, voice, sumber personal/media, dan Second Brain read path menj
 | CP4.3 | Knowledge/memory persistence di atas durability CP3, provenance, retensi dan quarantine |
 | CP4.4 | Hybrid retrieval, evidence grounding, media segmentation/extraction; gap/discovery handoff hanya deferred |
 | CP4.5 | Briefing dan personal routines dengan scheduler/receipt yang sesuai scope |
-| CP4.6 | Owner interface, voice/STT/TTS, interruption dan browser state |
+| CP4.6 | Owner interface, voice/STT/TTS, interruption, browser state dan kontrak input vision/multimodal yang tersedia; kandidat Transformers tetap gated |
 | CP4.7 | Privacy, partial failure, media test matrix, stale descriptor/session invalidation |
 | CP4.8 | Exact-main acceptance |
 
@@ -637,7 +707,7 @@ Satu plane capability untuk skills, tools, backend MCP, models/providers, dan ep
 | CP5.1 | Contracts, canonical IDs, ToolDescriptor, CapabilityProvider, role–skill bindings dan gap semantics |
 | CP5.2 | Versioned registry generation dan lifecycle capability/provider |
 | CP5.3 | Task-scoped resolver, explicit no-provider result, pinned gap classification |
-| CP5.4 | Tool/MCP/model/provider integration termasuk ephemeral WebMCP descriptors |
+| CP5.4 | Tool/MCP/model/provider integration, model-artifact bindings dan ephemeral WebMCP descriptors; keluarga hf.* serta bridge/fallback donor menunggu qualification |
 | CP5.5 | Unified Skills runtime, manifest/loader, pemetaan 28 peran ke package qualified, progressive disclosure dan bounded tool search |
 | CP5.6 | Pinning, health, revocation, stale generation, denial, replay dan per-call policy tests |
 | CP5.7 | Exact-main acceptance |
@@ -650,7 +720,7 @@ Discovery donor dan akuisisi capability yang terkontrol menghasilkan kandidat ya
 
 | Substep | Isi |
 | --- | --- |
-| CP6.1 | Donor manifest, provenance, media-origin discovery request, exact source/revision |
+| CP6.1 | Donor manifest, provenance, media-origin discovery request dan exact revision; portfolio v1.2 mencakup Transformers serta seluruh 11 donor S06 |
 | CP6.2 | Rights/license, dependency, security dan data-egress gates |
 | CP6.3 | Architecture reconstruction serta ekstraksi knowledge/principle/workflow; pisahkan knowledge-only, reuse, update/new skill dan provider gap |
 | CP6.4 | Contract-based overlap/dedup/conflict |
@@ -687,7 +757,7 @@ Perbaikan berasal dari outcome yang terbukti dan dievaluasi independen, dengan p
 | CP8.1 | Verified episode/outcome contracts dan journal |
 | CP8.2 | Fixed versioned evaluator/rubric dan baseline |
 | CP8.3 | SCRS calibration datasets serta ukuran drift/correlation/saturation yang bermakna |
-| CP8.4 | Bounded candidate generators/REE dari verified outcomes; usulan update skill/prompt/workflow dengan applicability dan kontraindikasi |
+| CP8.4 | Bounded candidate generators/REE; update skill/prompt/workflow dan calon offline training/fine-tuning dengan data/compute/rights terpisah, applicability dan kontraindikasi |
 | CP8.5 | Replay, held-out dan temporal generalization; provider/skill/retrieval/browser regression |
 | CP8.6 | Shadow evaluation setelah jalur qualification/containment tersendiri disetujui; bukan mode yang telah tersedia |
 | CP8.7 | Independent review, owner/governance promotion dan version pinning |
@@ -695,6 +765,8 @@ Perbaikan berasal dari outcome yang terbukti dan dievaluasi independen, dengan p
 | CP8.9 | Exact-main acceptance |
 
 **Acceptance:** candidate tidak mengubah evaluator, rubric, policy, atau run aktif; unknown tidak menjadi zero/PASS; LLM-as-judge tidak menjadi satu-satunya verdict; hard failure menahan promotion; popularity/media persuasion bukan evidence peningkatan.
+
+Rencana historis **Sentient REE contracts and offline score v0** dipertahankan sebagai pekerjaan kandidat tanpa efek samping di CP8: typed metrics, perhitungan ΔR, kandidat α/β/γ, batas kandidat `abs(δ) ≤ 0.05`, missing-metric/normalization/cancellation guards, source/config version dan synthetic fixtures. Angka batas tersebut adalah parameter rancangan lama yang masih perlu divalidasi pada workload Sentient, bukan ukuran kecerdasan atau izin promotion. Slice offline ini tidak merangkai REE ke LangGraph, mengubah `alpha_beta_gamma.yml` aktif, menulis memory, mengaktifkan `reflective_heuristics.json`, atau mengintegrasikan trading. Penerimaan memerlukan outcome terverifikasi serta evaluator yang tidak dikendalikan bobot kandidat.
 
 ### CP9 — Technology Company OS
 
@@ -726,7 +798,7 @@ Git branch adalah versi dari repository yang sama, bukan subfolder `main/` dan `
 
 ### Struktur aktual main
 
-Daftar berikut mencakup seluruh file tracked pada baseline `dd5cf74ce47e395cf859a2b5130790129af01e16`. Nilai `file` berarti file sudah ada; tidak menyatakan semua kontrak di dalamnya telah menjadi layanan aktif.
+Daftar berikut mencakup seluruh file tracked yang dipertahankan dari base `07c942cd62ec5e85a521ee47976559a55f35d8b8` beserta lima file dokumentasi/data yang ditambahkan revisi ini. Setelah revisi terintegrasi, ada 108 file tracked. Nilai `file` menunjukkan artefak repository, bukan bukti layanan runtime aktif.
 
 <details>
 <summary>Seluruh struktur tracked main</summary>
@@ -795,8 +867,14 @@ wolf15-sentient/:
       skill-selection/:
         assessment.md: file
         catalog.json: file
+      donor-adaptation-register-20260929.md: file
+      webmcp-donors/:
+        README.md: file
+        donor-cp-matrix.csv: file
+        portfolio.yaml: file
       wolf15-neuro-network-corpus.md: file
     verification/:
+      repository-donor-roadmap-20260930.md: file
       neuro-network-ingestion-20260928.md: file
       sentient-identity-20260928.json: file
       sentient-identity-20260928.md: file
@@ -1146,7 +1224,7 @@ Snapshot 29 September 2026 **sebelum branch pembaruan README dibuat**. `TERCAKUP
 
 PR #17 mencakup pembaruan dokumentasi/riset dan target skeleton; tidak mengubah runtime Python pada head yang diperiksa. Materi desainnya diintegrasikan secara konseptual di README ini, sedangkan status merge PR tetap terpisah. Saat PR itu dilanjutkan, rebase/reconcile README dan hierarki dokumennya terhadap SSoT ini; jangan menimpa README baru dengan ringkasan lama atau mempertahankan dua master roadmap.
 
-Pada pembaruan roster/skill, README revisi pertama telah masuk `main` melalui [PR #18](https://github.com/tjx578/wolf15-sentient/pull/18), resulting-main [`288c9bb063dac14070323ac4c82a6ea9c152757e`](https://github.com/tjx578/wolf15-sentient/commit/288c9bb063dac14070323ac4c82a6ea9c152757e). Inventaris di atas tetap snapshot historis sebelum PR tersebut; status/head setelahnya diperiksa melalui GitHub, bukan disimpulkan dari tabel lama. Pembaruan dokumentasi berikutnya menggunakan exact main terbaru tanpa mengganti SHA penerimaan CP0.
+Pembaruan SSoT masuk melalui [PR #18](https://github.com/tjx578/wolf15-sentient/pull/18), lalu roster/skill melalui [PR #19](https://github.com/tjx578/wolf15-sentient/pull/19) pada resulting-main [`07c942cd62ec5e85a521ee47976559a55f35d8b8`](https://github.com/tjx578/wolf15-sentient/commit/07c942cd62ec5e85a521ee47976559a55f35d8b8). Inventaris di atas tetap snapshot historis sebelum PR tersebut; status/head setelahnya diperiksa melalui GitHub, bukan disimpulkan dari tabel lama. Pembaruan dokumentasi berikutnya menggunakan exact main terbaru tanpa mengganti SHA penerimaan CP0.
 
 ### Aturan delivery ke main
 
@@ -1232,11 +1310,20 @@ Provider/model CP1 dan budget terukur; implementasi role manifests, pemilihan/qu
 | [Product identity](docs/adr/ADR-005-product-identity.md), [authority model](docs/governance/authority-model.md) | Identitas, pemisahan Core/Kernel, dan batas izin |
 | [Reference architecture](docs/architecture/super-intelligence-reference-architecture.md), [ownership](docs/architecture/canonical-ownership.md) | Rincian desain turunan; label/status historis dibaca bersama README |
 | [M2](docs/architecture/m2-evidence-context-runtime.md), [M3-A](docs/architecture/m3a-reasoning-contracts.md), [SCRS](docs/architecture/m3a-cognitive-reflex-observability-v0.md) | Kontrak library offline dan batas implementasi |
-| [Master roadmap PR #17 pada exact head](https://github.com/tjx578/wolf15-sentient/blob/e8f82b06868311a19f65ae03782a3b499e04ba1a/docs/architecture/roadmap.md) | Urutan CP0–CP9 dan rincian arah terbaru sebelum konsolidasi README |
+| [Roadmap turunan](docs/architecture/roadmap.md), [register v1.2](docs/research/donor-adaptation-register-20260929.md) | Rincian CP0–CP9 serta portfolio pemilik yang direkonsiliasi ke README ini; PR #17 tetap sumber historis proposal |
 | [Target skeleton PR #17](https://github.com/tjx578/wolf15-sentient/blob/e8f82b06868311a19f65ae03782a3b499e04ba1a/docs/architecture/final-target-skeleton.md) | Peta target, dimasukkan ke README dengan klarifikasi ownership/lifecycle |
 | [ALG-REG-001](docs/research/algorithm-donors/README.md), [freeze receipt](docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml) | 37 desain donor immutable; admission generasi baru terpisah |
 | [Skill qualification](docs/governance/skill-qualification-policy.md), [catalog assessment](docs/research/skill-selection/assessment.md) | Governance skill; tidak menjadi klaim runtime activation |
 | [Neuro-network corpus](docs/research/wolf15-neuro-network-corpus.md) | Research lineage; dokumen/algoritme lama diadaptasi sebagai prinsip, bukan authority |
+
+### Unggahan master donor terbaru
+
+| Sumber | Keputusan penggunaan |
+| --- | --- |
+| `WOLF15_SENTIENT_MASTER_REPOSITORY_DONOR_REGISTER_v1.2_WEBMCP(1).md` | Master source portfolio donor, target capability dan CP routing; dinormalisasi pada path register yang sudah digunakan proposal repo |
+| `WOLF15_SENTIENT_WEBMCP_DONOR_CP_MATRIX_v1.2(1).csv` | 11 baris S06 dipertahankan byte-for-byte sebagai matriks data; diturunkan ke portfolio YAML dan tabel README |
+
+Source digests dan hasil pemeriksaan disimpan pada [verification record](docs/verification/repository-donor-roadmap-20260930.md). Perubahan nama `(1)` adalah normalisasi nama unduhan, bukan perubahan identitas donor.
 
 ### Seluruh paket persona yang dianalisis
 
@@ -1276,6 +1363,9 @@ SHA-256 master yang diterima cocok dengan receipt: `da4f00bbe1fe16b3220dca52c23e
 | Gambar lima divisi/23 agent vs target enam divisi/28 | 23 nama lama dipertahankan; 5 nama Intelligence dari usulan lanjutan dirinci sebagai perluasan target revisi ini. Roster, input, fungsi, output dan matriks skill kini lengkap; runtime tetap NOT_IMPLEMENTED |
 | Skill tiap agent belum dipetakan dan adaptive update masih umum | Matriks 28 peran ke keluarga skill, manifest/version contract, repo-learning flow, acceptance AS-01–AS-08 dan checkpoint owner ditambahkan |
 | Shadow disebut tanpa batas kebijakan sekarang | Qualification saat ini offline-only; connected/shadow tetap blocked sampai jalur terpisah disetujui |
+| Register donor v1.2 dan CSV S06 terbaru | Semua portfolio dan 11 routing records dimasukkan; Transformers serta kandidat model artifacts ditambahkan pada substep terkait |
+| Donor berfungsi pada CP awal tetapi qualification CP6 | Functional owner dipisahkan dari admission timing; fondasi native lebih dahulu, package donor tetap gated sampai qualified |
+| Roadmap/current-state lama masih menyebut CP0 terbuka | Dokumen turunan diselaraskan dengan CP0 CLOSED dan CP1 ACTIVE_NEXT tanpa mengganti receipt historis |
 | Arsip trading, corpus, scoring, SPARC/SAFLA/GOAP, VIGIL/MMRE | Adaptasi disiplin evidence/planning/review sesuai kontrak; angka win rate, truth threshold, sizing, broker, auto-deploy dan klaim sensor tidak diwariskan |
 
 ### Sumber roster dan prosedur adaptif
@@ -1291,16 +1381,18 @@ Berkas unggahan di tabel adalah sumber yang diperiksa untuk dokumentasi; tidak d
 
 ### Donor dan batas adopsi
 
-| Donor / sumber | Arah penggunaan | Status |
-| --- | --- | --- |
-| Pydantic AI, [assessment pinned](https://github.com/tjx578/wolf15-sentient/blob/e8f82b06868311a19f65ae03782a3b499e04ba1a/docs/research/pydantic-ai-donor/README.md), source `05f2f35ca8af6f1382f06761c6a9a23dbd341728` | CP1 direct/model/provider/profile; pola context/voice/evals hanya pada CP pemilik | Selective design donor; bukan dependency/model provider yang sudah aktif |
-| WebMCP [portfolio pinned](https://github.com/tjx578/wolf15-sentient/blob/e8f82b06868311a19f65ae03782a3b499e04ba1a/docs/research/webmcp-donors/portfolio.yaml) | Spec, browser integration, procedures dan evaluation CP4/5/6/7/8 | Research; native/fallback dan compatibility harus dibuktikan |
-| WebMCP [spec snapshot](https://github.com/webmachinelearning/webmcp/blob/0957b0b8f1e32c401d4248424719a4851d4202c4/index.bs) | Referensi API `document.modelContext` pada versi yang ditinjau | Spec version-bound; implementasi browser dapat berbeda |
-| OpenJarvis `tjx578/OpenJarvis-sentient@fbbdb23c86627c18b859369b19746a9245f1ce0b` dari paket roadmap | CP1 provider/budget; CP3 lease/telemetry; CP4 retrieval/routines; CP5 registry; CP6 sandbox; CP7 actions; CP8 candidates | **SOURCE_PROPOSED**; sumber donor belum diinspeksi ulang pada perubahan README ini, belum qualified/admitted |
-| Paperclip, Ruflo, Context7, MCP, D3, Next.js, Deltalytix, Openlib | [Register donor normalisasi](https://github.com/tjx578/wolf15-sentient/blob/e8f82b06868311a19f65ae03782a3b499e04ba1a/docs/research/donor-adaptation-register-20260929.md): task/ops, specialists, sumber, protocol, visualisasi, console/library | Referensi selektif; tidak mengimpor framework atau seluruh stack |
-| `ALG-REG-001` | Reasoning/context, policy gates, repository identity, telemetry/evaluation, capabilities, learning candidates | 37 design records frozen; **0 aktivasi runtime oleh freeze** |
+[Master Repository Donor Register v1.2](docs/research/donor-adaptation-register-20260929.md) dan [WebMCP donor matrix](docs/research/webmcp-donors/donor-cp-matrix.csv) adalah rincian canonical dari sumber terbaru yang ditunjuk pemilik. Pemetaan ke CP serta keputusan dependensi ada pada [roadmap master README](#10-roadmap-master-cp0cp9).
 
-OpenJarvis dan temuan baru masuk antrean riset/admission untuk generation berikutnya, bukan mengedit bytes frozen `ALG-REG-001`. Setiap adopsi kelak menilai exact source, license/rights, security, dependency, kontrak dan evidence workload Sentient. Donor order tidak menentukan prioritas roadmap.
+| Kelompok | Isi / fungsi | Status bukti dan admission |
+| --- | --- | --- |
+| Primary portfolio | OpenJarvis, Pydantic AI, Paperclip dan Ruflo; Transformers sebagai tambahan model/multimodal/foundry/training donor | Research / NOT_ADMITTED; assessment SHA berbeda dari HEAD yang dilaporkan sumber |
+| CP1 watch | LiteLLM dan DeepAgents | WATCH_CANDIDATE; tidak memilih provider atau agent harness otomatis |
+| Legacy 8-folder | Paperclip/Ruflo telah dipetakan ke primary; Context7, MCP, D3, Next.js, Deltalytix dan Openlib tetap tercatat | Deltalytix hanya UX reference; exact Openlib upstream NOT_ESTABLISHED; penomoran CP lama tidak berlaku |
+| WebMCP S06 | 11 repository pada [portfolio](docs/research/webmcp-donors/portfolio.yaml), lengkap dengan primary/secondary/qualification CP | 11 exact commits ditemukan pada pemeriksaan ini; build/test/rights/security/runtime qualification NOT_EXECUTED |
+| Hugging Face / Transformers | `tjx578/transformers-sentient@6b07e4510e3f9667f5256656118515bcde306fc4` | Exact commit ditemukan; model weights, license dan admission dipisahkan dari framework |
+| `ALG-REG-001` | 37 desain donor algoritme frozen yang telah diterima historis | Bytes frozen tidak diubah; register repository baru tidak mengganti freeze atau mengaktifkan algoritme |
+
+Register mempertahankan seluruh sumber v1.2. Label HEAD pada upload adalah observasi historis sumber, bukan hasil pemeriksaan default-branch HEAD baru. Pemeriksaan exact commit tidak mengaudit isi seluruh donor. Rincian sumber, digest unggahan, konflik yang diselesaikan dan perbandingan file sefungsi dicatat dalam [verification record](docs/verification/repository-donor-roadmap-20260930.md).
 
 ## 16. Cara memperbarui SSoT
 
@@ -1321,7 +1413,7 @@ README ini menjadi pondasi awal dan tujuan akhir yang hidup. Perubahan desain bo
 
 Setiap PR rancangan menjelaskan **masalah, keputusan, tujuan hasil, CP pemilik, source binding, dampak README/ADR/kontrak, verifikasi, dan gap**. Dokumen turunan tidak boleh mengubah keputusan tingkat sistem sendirian. Tidak ada major subsystem tanpa README contract; tidak ada perubahan responsibility tanpa README impact review.
 
-Revisi pertama menetapkan SSoT, persona, arah CP0–CP9, CCKA/media, browser constraints serta struktur main/branch/target. Revisi **SSOT-2026-09-29.2** melengkapi enam divisi/28 peran, input/fungsi/output, matriks agent–skill, kontrak pembelajaran adaptif, skeleton role manifests dan batas Advanced AGI. Perubahan ini adalah **dokumentasi**; status runtime dan checkpoint tetap berdasarkan implementasi serta receipt masing-masing.
+Revisi pertama menetapkan SSoT, persona, arah CP0–CP9, CCKA/media, browser constraints serta struktur main/branch/target. Revisi **SSOT-2026-09-29.2** melengkapi enam divisi/28 peran, input/fungsi/output, matriks agent–skill, kontrak pembelajaran adaptif, skeleton role manifests dan batas Advanced AGI. Revisi **SSOT-2026-09-30.1** memasukkan master donor v1.2, matriks 11 S06, Transformers dan model-artifact boundaries, serta menyelaraskan roadmap/current-state dan hierarki dokumen. Perubahan ini adalah **dokumentasi**; status runtime dan checkpoint tetap berdasarkan implementasi serta receipt masing-masing.
 
 ### Keamanan dan lisensi repository
 

@@ -2,10 +2,17 @@
 
 ## Where decisions live
 
+The [root README on main](../../README.md) is the system SSoT. Architecture
+documents expand that design; donor registers own source identity and routing
+details without defining an independent checkpoint sequence.
+
 - [Canonical ownership](canonical-ownership.md): current-to-target responsibility
   map, ten invariants, README policy and UX prototype boundary.
 - [Current State](current-state.md): implemented behavior and historical receipts.
-- [Roadmap](roadmap.md): checkpoint ordering and entry/exit gates.
+- [Roadmap](roadmap.md): derived CP0–CP9/substep view, donor routing and entry/exit gates.
+- [Repository donor register](../research/donor-adaptation-register-20260929.md):
+  owner-supplied v1.2 portfolio and qualification dependencies.
+- [WebMCP matrix](../research/webmcp-donors/donor-cp-matrix.csv): 11 source routing records.
 - [North Star](super-intelligence-reference-architecture.md) and
   [target architecture](target-architecture.md): full product design.
 - [Authority model](../governance/authority-model.md) and [ADRs](../adr/):
@@ -17,9 +24,10 @@ targets. SK-01 is a catalog/governance lane, not installed skill proof.
 
 ## Maintainer contract
 
-Architecture owns the global responsibility map; subsystem READMEs own local
-interfaces and limits. Resolve ownership conflicts here and in an ADR when a
-decision changes, then update affected local contracts. Do not silently choose
+The root README owns system direction and global responsibility decisions.
+This directory maintains the detailed responsibility map; subsystem READMEs
+own local interfaces and limits. Resolve ownership conflicts in the root SSoT
+and affected architecture/ADR records, then update local contracts. Do not silently choose
 between duplicate target folder names by creating both implementations.
 
 Every responsibility-changing PR includes README impact review. Verify relative

@@ -50,6 +50,18 @@ Candidate adaptation is append-only and versioned:
 DRAFT -> REJECTED or OFFLINE_EVALUATED -> SHADOW -> APPROVAL_PENDING -> ACTIVE_WORKFLOW -> DISABLED or SUPERSEDED.
 
 Activation is a separate authority event. A candidate producer cannot approve itself.
+The lifecycle above is a target model: the current skill qualification policy
+supports offline qualification only. Connected/shadow requires a separately
+authorized design, containment model and evidence profile before use.
+
+The [root roadmap](../../README.md#10-roadmap-master-cp0cp9) owns CP8.
+Transformers training/fine-tuning and Pydantic/WebMCP evaluation patterns in the
+[donor register](../research/donor-adaptation-register-20260929.md) are candidates.
+Model weights, datasets, framework, evaluator and provider have separate
+identities, rights and admission scopes. External benchmark numbers are not
+Sentient measurements. Fixed workload/baseline, held-out transfer and retention
+checks precede promotion; no live self-modification or automatic weight update
+is introduced by this design.
 
 ## Capability donors
 
