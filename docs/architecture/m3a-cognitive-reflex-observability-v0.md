@@ -136,7 +136,7 @@ digest alone is not used for deduplication. Callers must reuse an event's origin
 ID on retry. States missing lifecycle fields cannot resume; do not fabricate
 history. State retention is caller-owned and no persistent storage is introduced.
 
-M3-B provider telemetry integration remains future work. This contract does not
+CP1 provider telemetry integration remains future work. This contract does not
 connect a provider, write memory, or change active workflow behavior. Merge
 qualification requires CI, CodeQL, and independent review on the exact rebased
 HEAD against main; earlier stacked runs do not substitute for those checks.
