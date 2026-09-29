@@ -1,6 +1,6 @@
-schema_version: 0.2-draft
-registry_generation: CP0-ADDENDUM-01-DRAFT-002
-status: DRAFT_INCOMPLETE
+schema_version: '0.3'
+registry_generation: CP0-ADDENDUM-01-RECONCILED-001
+status: DRAFT_RECONCILED
 frozen: false
 cp0_accepted_sha: bad73335f518d89356b88cba1cc26730808cd224
 cp0_reopen: false
@@ -8,39 +8,49 @@ runtime_effect: NONE
 authority_effect: NONE
 cp1_starting_baseline: null
 open_requirements:
-- Read and bind both canonical snapshots for ARCH-ALG-01/02
-- Recover complete reports for ARCH-ALG-03/04/05 beyond truncated excerpts
-- Verify historical identities, abbreviated filenames and original dispositions
-- Review source and reconcile all five complete batch decisions, including REJECT/DEFER
-- Review proposed ownership and exact duplicate bindings
-- Validate and freeze complete generation; exact-HEAD review, CI and CodeQL
-- Merge docs only and verify resulting main before assigning CP1 baseline
+- Independent documentation review of exact commit before READY_FOR_FREEZE
+- Registry freeze remains separate
+- No automatic push/PR/merge under latest user instruction
 batches:
 - batch_id: ARCH-ALG-01
   title: Cognitive / Constitutional Algorithms
   document: batch-01-cognitive-constitutional.md
-  complete: false
-  report_status: CANONICAL_SNAPSHOT_NOT_AVAILABLE
-  canonical_report:
+  complete: true
+  report_status: CANONICAL_PACKAGE_DOCUMENT_RECEIVED
+  package_document:
+    path: docs/research/algorithm-donors/batch-01-cognitive-constitutional.md
+    sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    read_status: READ_COMPLETE
+    evidence_class: DESIGN_ASSESSMENT
+  completeness_scope: Owner-designated package design assessment, not donor runtime qualification
+  historical_snapshot_reference:
     filename: Rancangan Otak WILF15 Sentient.txt
     snapshot_id: null
     sha256: null
     contents_available: false
+    required_for_this_reconciliation: false
 - batch_id: ARCH-ALG-02
   title: Neural Orchestration / Capability Algorithms
   document: batch-02-neural-capability.md
-  complete: false
-  report_status: CANONICAL_SNAPSHOT_NOT_AVAILABLE
-  canonical_report:
+  complete: true
+  report_status: CANONICAL_PACKAGE_DOCUMENT_RECEIVED
+  package_document:
+    path: docs/research/algorithm-donors/batch-02-neural-capability.md
+    sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    read_status: READ_COMPLETE
+    evidence_class: DESIGN_ASSESSMENT
+  completeness_scope: Owner-designated package design assessment, not donor runtime qualification
+  historical_snapshot_reference:
     filename: Rancangan Otak WILF15 Sentient.txt
     snapshot_id: null
     sha256: null
     contents_available: false
+    required_for_this_reconciliation: false
 - batch_id: ARCH-ALG-03
   title: Reflective / Evaluation / Pipeline Algorithms
   document: batch-03-reflective-evaluation.md
-  complete: false
-  report_status: PARTIAL_HISTORICAL_REPORT_RETRIEVED
+  complete: true
+  report_status: CANONICAL_PACKAGE_DOCUMENT_RECEIVED
   historical_report:
     thread_title: Rancangan Otak WILF15 Sentient
     thread_id: 6ab96f53-cd9c-83ec-994f-0f6d1fe30ab0
@@ -49,11 +59,18 @@ batches:
     retrieved_character_limit: 20000
     reported_donor_manifest_sha256: bb7061254921ba0d7f696b8433d354b03b90f05fe9177561c7daa6c564dee9bb
     manifest_revalidated: NOT_VERIFIED
+    role: SUPPLEMENTARY_HISTORICAL_EXCERPT
+  package_document:
+    path: docs/research/algorithm-donors/batch-03-reflective-evaluation.md
+    sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    read_status: READ_COMPLETE
+    evidence_class: DESIGN_ASSESSMENT
+  completeness_scope: Owner-designated package design assessment, not donor runtime qualification
 - batch_id: ARCH-ALG-04
   title: Cognitive Lifecycle / Contracts / Tools / Multi-Horizon State / Testing
   document: batch-04-cognitive-contract-runtime.md
-  complete: false
-  report_status: PARTIAL_HISTORICAL_REPORT_RETRIEVED
+  complete: true
+  report_status: CANONICAL_PACKAGE_DOCUMENT_RECEIVED
   historical_report:
     thread_title: Rancangan Otak WILF15 Sentient
     thread_id: 6ab96f53-cd9c-83ec-994f-0f6d1fe30ab0
@@ -62,11 +79,18 @@ batches:
     retrieved_character_limit: 20000
     reported_donor_manifest_sha256: d09b9c1899fa7b217ab979d8a67eeab3c08e19307dff8f4cee0672731a2c802f
     manifest_revalidated: NOT_VERIFIED
+    role: SUPPLEMENTARY_HISTORICAL_EXCERPT
+  package_document:
+    path: docs/research/algorithm-donors/batch-04-cognitive-contract-runtime.md
+    sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+    read_status: READ_COMPLETE
+    evidence_class: DESIGN_ASSESSMENT
+  completeness_scope: Owner-designated package design assessment, not donor runtime qualification
 - batch_id: ARCH-ALG-05
   title: Reasoning Graph / Policy Guard / Temporal Evaluation / Explainable Fusion
   document: batch-05-reasoning-policy-evaluation.md
-  complete: false
-  report_status: PARTIAL_HISTORICAL_REPORT_RETRIEVED
+  complete: true
+  report_status: CANONICAL_PACKAGE_DOCUMENT_RECEIVED
   historical_report:
     thread_title: Rancangan Otak WILF15 Sentient
     thread_id: 6ab96f53-cd9c-83ec-994f-0f6d1fe30ab0
@@ -75,6 +99,13 @@ batches:
     retrieved_character_limit: 20000
     reported_donor_manifest_sha256: 3a88872902cef5bac353e3527cee7db95da21032c9ad18f53737617e58cf9f04
     manifest_revalidated: NOT_VERIFIED
+    role: SUPPLEMENTARY_HISTORICAL_EXCERPT
+  package_document:
+    path: docs/research/algorithm-donors/batch-05-reasoning-policy-evaluation.md
+    sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+    read_status: READ_COMPLETE
+    evidence_class: DESIGN_ASSESSMENT
+  completeness_scope: Owner-designated package design assessment, not donor runtime qualification
 historical_source_references:
 - reference_id: ARCH-ALG-03-01
   batch: ARCH-ALG-03
@@ -1713,29 +1744,45 @@ source_aliases:
   basis: EXACT_LOCAL_BYTES
 algorithms:
 - name: ReasoningPlan
-  source_family: tuyul_reasoning_engine.py
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
-    reported_file: tuyul_reasoning_engine(1).py
-    donor_batches:
+    reported_file: null
+    package_source_examples: &id001
+    - Custom GPT Thinking & Reasoning Framework.py
+    - Advanced Reasoning Framework Examples.py
+    - tuyul_reasoning_engine.py
+    donor_batches: &id002
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    - ARCH-ALG-04
     - ARCH-ALG-05
-    reference_ids:
-    - ARCH-ALG-05-06
-    local_candidate_ids:
-    - DONOR-fed806a7495afba8
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Typed bounded plan with evidence requirements
   decision:
     status: ADOPT_REWRITE
     basis: Owner addendum brief; generic principle only
-    target_subsystem: sentient
+    target_subsystem: contracts
     related_subsystems:
     - orchestration
+    - sentient
     target_checkpoints:
     - CP1
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP1: Checkpoint-owned behavior only; no later-stage activation
+    ownership_roles:
+      contract_owner: contracts
+      runtime_coordination_owner: orchestration
+      cognitive_producer: sentient
+      authority_and_workflow_state_owner: control
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -1754,7 +1801,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Kernel validates proposals; unsupported evidence requests remain explicit
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -1769,10 +1816,7 @@ algorithms:
     - ARCH-ALG-03
     - ARCH-ALG-04
     - ARCH-ALG-05
-    source_examples:
-    - Custom GPT Thinking & Reasoning Framework.py
-    - Advanced Reasoning Framework Examples.py
-    - tuyul_reasoning_engine.py
+    source_examples: *id001
     decision: ADOPT_REWRITE
     target_subsystem: orchestration
     target_checkpoint: CP1
@@ -1784,9 +1828,27 @@ algorithms:
     - no arbitrary callable execution
     - model proposes only
     evidence_class: SOURCE_CLAIM
-- name: ReasoningTrace
-  source_family: tuyul_reasoning_engine.py
-  source:
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id002
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id002
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
     reported_file: tuyul_reasoning_engine(1).py
     donor_batches:
     - ARCH-ALG-05
@@ -1795,6 +1857,33 @@ algorithms:
     local_candidate_ids:
     - DONOR-fed806a7495afba8
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: tuyul_reasoning_engine.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: ReasoningTrace
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id003
+    - Custom GPT Thinking & Reasoning Framework.py
+    - tuyul_cognitive_loop.py
+    donor_batches: &id004
+    - ARCH-ALG-02
+    - ARCH-ALG-04
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Compact decision receipts and evidence references
@@ -1807,8 +1896,11 @@ algorithms:
     target_checkpoints:
     - CP1
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP1: Typed reasoning statuses and references
+      CP3: Durable traces; no hidden CoT
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -1826,7 +1918,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Bind task, input digest, procedure version and outcomes without leaking secrets
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -1840,9 +1932,7 @@ algorithms:
     - ARCH-ALG-02
     - ARCH-ALG-04
     - ARCH-ALG-05
-    source_examples:
-    - Custom GPT Thinking & Reasoning Framework.py
-    - tuyul_cognitive_loop.py
+    source_examples: *id003
     decision: ADOPT_REWRITE
     target_subsystem: orchestration/observability
     target_checkpoint: CP1
@@ -1853,9 +1943,23 @@ algorithms:
     - store step status and refs
     - no hidden chain-of-thought persistence
     evidence_class: SOURCE_CLAIM
-- name: ConceptGraph
-  source_family: tuyul_reasoning_engine.py
-  source:
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id004
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id004
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+  local_recovered_source_binding:
     reported_file: tuyul_reasoning_engine(1).py
     donor_batches:
     - ARCH-ALG-05
@@ -1864,6 +1968,32 @@ algorithms:
     local_candidate_ids:
     - DONOR-fed806a7495afba8
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: tuyul_reasoning_engine.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: ConceptGraph
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id005
+    - tuyul_kartel_mindmap_framework.py
+    - tuyul_reasoning_engine.py
+    donor_batches: &id006
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Typed concepts and relations with source references
@@ -1876,8 +2006,11 @@ algorithms:
     target_checkpoints:
     - CP1
     - CP2
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP1: Bounded task/context structure
+      CP2: Exact-revision repository dependency context
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -1896,7 +2029,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Bound traversal and prove cycle handling, provenance and evidence gaps
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -1908,9 +2041,7 @@ algorithms:
     canonical_name: ConceptGraph
     donor_batches:
     - ARCH-ALG-05
-    source_examples:
-    - tuyul_kartel_mindmap_framework.py
-    - tuyul_reasoning_engine.py
+    source_examples: *id005
     decision: ADOPT_REWRITE
     target_subsystem: context/knowledge
     target_checkpoint: CP1
@@ -1922,17 +2053,54 @@ algorithms:
     - cycle detection
     - unknown stays unknown
     evidence_class: SOURCE_CLAIM
-- name: ProcedureSelector
-  source_family: strategy_selector_engine.py
-  source:
-    reported_file: strategy_selector_engine.py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-05
+    batch_documents: *id006
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id006
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: tuyul_reasoning_engine(1).py
     donor_batches:
-    - ARCH-ALG-04
+    - ARCH-ALG-05
     reference_ids:
-    - ARCH-ALG-04-05
+    - ARCH-ALG-05-06
     local_candidate_ids:
-    - DONOR-ca48510f81188eac
+    - DONOR-fed806a7495afba8
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: tuyul_reasoning_engine.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: ProcedureSelector
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id007
+    - strategy_selector_engine.py
+    donor_batches: &id008
+    - ARCH-ALG-04
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Bounded deterministic procedure selection
@@ -1943,8 +2111,10 @@ algorithms:
     related_subsystems: []
     target_checkpoints:
     - CP1
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP1: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -1962,7 +2132,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Explicit unsupported-route and ambiguous-input outcomes
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -1974,8 +2144,7 @@ algorithms:
     canonical_name: ProcedureSelector
     donor_batches:
     - ARCH-ALG-04
-    source_examples:
-    - strategy_selector_engine.py
+    source_examples: *id007
     decision: ADOPT_REWRITE
     target_subsystem: orchestration
     target_checkpoint: CP1
@@ -1986,14 +2155,56 @@ algorithms:
     - select procedure only
     - cannot grant authority
     evidence_class: SOURCE_CLAIM
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-04
+    batch_documents: *id008
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id008
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+  local_recovered_source_binding:
+    reported_file: strategy_selector_engine.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-05
+    local_candidate_ids:
+    - DONOR-ca48510f81188eac
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: strategy_selector_engine.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - name: RepositorySnapshotReader
-  source_family: PENDING_CANONICAL_REPORT
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
     reported_file: null
-    donor_batches: []
+    package_source_examples: &id009
+    - ai_bridge_repo_folder_structure_bridge.py
+    - github_api_bridge.py
+    donor_batches: &id010
+    - ARCH-ALG-01
+    - ARCH-ALG-02
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Immutable repository snapshot and bounded reads
@@ -2005,8 +2216,10 @@ algorithms:
     - execution/repo_reader
     target_checkpoints:
     - CP2
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP2: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2025,7 +2238,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Pin full revision, constrain paths and size, emit missing-reader evidence
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2038,9 +2251,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-01
     - ARCH-ALG-02
-    source_examples:
-    - ai_bridge_repo_folder_structure_bridge.py
-    - github_api_bridge.py
+    source_examples: *id009
     decision: ADOPT_REWRITE
     target_subsystem: repositories
     target_checkpoint: CP2
@@ -2052,17 +2263,53 @@ algorithms:
     - bounded traversal
     - provenance per source
     evidence_class: SOURCE_CLAIM
-- name: IntegrationManifest
-  source_family: tuyul_loop_sync_bridge.py
-  source:
-    reported_file: tuyul_loop_sync_bridge(1).py
-    donor_batches:
-    - ARCH-ALG-05
-    reference_ids:
-    - ARCH-ALG-05-05
-    local_candidate_ids:
-    - DONOR-bd9302c13263af9d
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id010
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id010
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_CANONICAL_REPORT
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: IntegrationManifest
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id011
+    - tuyul_loop_sync_bridge.yaml-like donor
+    donor_batches: &id012
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Exact revision and schema-bound integration declaration
@@ -2075,8 +2322,11 @@ algorithms:
     target_checkpoints:
     - CP2
     - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP2: Read-only exact-revision representation
+      CP5: Compatibility metadata
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2094,7 +2344,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Validate digests, schema, provenance and explicit unsupported dependencies
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2106,8 +2356,7 @@ algorithms:
     canonical_name: IntegrationManifest
     donor_batches:
     - ARCH-ALG-05
-    source_examples:
-    - tuyul_loop_sync_bridge.yaml-like donor
+    source_examples: *id011
     decision: ADOPT_REWRITE
     target_subsystem: repositories/capabilities
     target_checkpoint: CP2
@@ -2118,17 +2367,59 @@ algorithms:
     - exact revision required
     - no mutable main/latest identity
     evidence_class: SOURCE_CLAIM
-- name: PolicyRuleEngine
-  source_family: wolf_psychological_control_system.py
-  source:
-    reported_file: wolf_psychological_control_system(1).py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-05
+    batch_documents: *id012
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id012
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: tuyul_loop_sync_bridge(1).py
     donor_batches:
     - ARCH-ALG-05
     reference_ids:
-    - ARCH-ALG-05-11
+    - ARCH-ALG-05-05
     local_candidate_ids:
-    - DONOR-0f59430ff53945fa
+    - DONOR-bd9302c13263af9d
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: tuyul_loop_sync_bridge.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: PolicyRuleEngine
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id013
+    - constitutional_orchestrator_ultra_precision.py
+    - super_engine.py
+    - wolf_psychological_control_system.py
+    - verdict_engine_patch.py
+    donor_batches: &id014
+    - ARCH-ALG-01
+    - ARCH-ALG-04
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Rule identity, criticality, result and reason
@@ -2139,8 +2430,10 @@ algorithms:
     related_subsystems: []
     target_checkpoints:
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP3: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2159,7 +2452,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Critical violations deny; evidence gaps cannot pass
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2173,11 +2466,7 @@ algorithms:
     - ARCH-ALG-01
     - ARCH-ALG-04
     - ARCH-ALG-05
-    source_examples:
-    - constitutional_orchestrator_ultra_precision.py
-    - super_engine.py
-    - wolf_psychological_control_system.py
-    - verdict_engine_patch.py
+    source_examples: *id013
     decision: ADOPT_REWRITE
     target_subsystem: control
     target_checkpoint: CP3
@@ -2189,17 +2478,62 @@ algorithms:
     - missing input is NOT_MEASURED
     - score cannot override critical fail
     evidence_class: SOURCE_CLAIM
-- name: Sequential Gate Cascade
-  source_family: verdict_engine_patch.py
-  source:
-    reported_file: verdict_engine_patch.py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id014
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id014
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: wolf_psychological_control_system(1).py
     donor_batches:
     - ARCH-ALG-05
     reference_ids:
-    - ARCH-ALG-05-13
+    - ARCH-ALG-05-11
     local_candidate_ids:
-    - DONOR-a982fe97a8977bef
+    - DONOR-0f59430ff53945fa
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: wolf_psychological_control_system.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: Sequential Gate Cascade
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id015
+    - constitutional_orchestrator_ultra_precision.py
+    - super_engine.py
+    - verdict_engine_patch.py
+    donor_batches: &id016
+    - ARCH-ALG-01
+    - ARCH-ALG-04
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Ordered typed gates and explicit deny/hold reasons
@@ -2211,8 +2545,10 @@ algorithms:
     - control/gates
     target_checkpoints:
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP3: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2230,7 +2566,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Test short-circuit versus evaluate-all policy, all missing states and mandatory failure
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2244,10 +2580,7 @@ algorithms:
     - ARCH-ALG-01
     - ARCH-ALG-04
     - ARCH-ALG-05
-    source_examples:
-    - constitutional_orchestrator_ultra_precision.py
-    - super_engine.py
-    - verdict_engine_patch.py
+    source_examples: *id015
     decision: ADOPT_REWRITE
     target_subsystem: control/gates
     target_checkpoint: CP3
@@ -2258,17 +2591,58 @@ algorithms:
     - explicit PASS/HOLD/DENY receipt
     - no EXECUTE_REDUCED after failed mandatory gate
     evidence_class: SOURCE_CLAIM
-- name: CircuitBreaker
-  source_family: wolf_psychological_control_system.py
-  source:
-    reported_file: wolf_psychological_control_system(1).py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id016
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id016
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: verdict_engine_patch.py
     donor_batches:
     - ARCH-ALG-05
     reference_ids:
-    - ARCH-ALG-05-11
+    - ARCH-ALG-05-13
     local_candidate_ids:
-    - DONOR-0f59430ff53945fa
+    - DONOR-a982fe97a8977bef
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: verdict_engine_patch.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: CircuitBreaker
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id017
+    - wolf_psychological_control_system.py
+    donor_batches: &id018
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Failure reason, severity, cooldown and verified resume conditions
@@ -2280,8 +2654,10 @@ algorithms:
     - execution
     target_checkpoints:
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP3: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2299,7 +2675,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Verify hold/locked transitions, monotonic cooldown and approved resume
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2311,8 +2687,7 @@ algorithms:
     canonical_name: CircuitBreaker
     donor_batches:
     - ARCH-ALG-05
-    source_examples:
-    - wolf_psychological_control_system.py
+    source_examples: *id017
     decision: ADOPT_ABSTRACTION
     target_subsystem: control/recovery
     target_checkpoint: CP3
@@ -2323,18 +2698,54 @@ algorithms:
     - reason/severity/cooldown/resume conditions
     - never increase authority
     evidence_class: SOURCE_CLAIM
-- name: RetryEscalationGuard
-  source_family: tuyulagibot-tjx.py
-  source:
-    reported_file: tuyulagibot-tjx(1).py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-05
+    batch_documents: *id018
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id018
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: wolf_psychological_control_system(1).py
     donor_batches:
     - ARCH-ALG-05
     reference_ids:
-    - ARCH-ALG-05-07
+    - ARCH-ALG-05-11
     local_candidate_ids:
-    - DONOR-58354d4f05b1dff3
-    - DONOR-bf76ad31742653be
+    - DONOR-0f59430ff53945fa
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: wolf_psychological_control_system.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: RetryEscalationGuard
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id019
+    - wolf_psychological_control_system.py
+    donor_batches: &id020
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Bounded retries and explicit escalation receipts
@@ -2346,8 +2757,10 @@ algorithms:
     - observability
     target_checkpoints:
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP3: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2365,7 +2778,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Missing health produces NOT_MEASURED/HOLD and no implicit retry of ambiguous effects
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2377,8 +2790,7 @@ algorithms:
     canonical_name: RetryEscalationGuard
     donor_batches:
     - ARCH-ALG-05
-    source_examples:
-    - wolf_psychological_control_system.py
+    source_examples: *id019
     decision: ADOPT_ABSTRACTION
     target_subsystem: control/observability
     target_checkpoint: CP3
@@ -2389,17 +2801,57 @@ algorithms:
     - detect rapid retries/failure streak/scope widening
     - HOLD or cooldown only
     evidence_class: SOURCE_CLAIM
-- name: SentientEvent Envelope
-  source_family: repo_bridge_client.py
-  source:
-    reported_file: repo_bridge_client.py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-05
+    batch_documents: *id020
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id020
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: tuyulagibot-tjx(1).py
     donor_batches:
-    - ARCH-ALG-04
+    - ARCH-ALG-05
     reference_ids:
-    - ARCH-ALG-04-01
+    - ARCH-ALG-05-07
     local_candidate_ids:
-    - DONOR-3ade868a016eb88f
+    - DONOR-58354d4f05b1dff3
+    - DONOR-bf76ad31742653be
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: tuyulagibot-tjx.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: SentientEvent Envelope
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id021
+    - core_meta_unified.py
+    - neural_connector.py
+    donor_batches: &id022
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Typed event identity, generations and processing receipt
@@ -2411,8 +2863,12 @@ algorithms:
     - observability
     target_checkpoints:
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    - CP5
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP3: Typed durable event flow and replay identity
+      CP5: Capability events; no registry authority
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2434,7 +2890,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Distinguish dispatched, accepted, processed, failed and unknown
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2447,9 +2903,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-01
     - ARCH-ALG-02
-    source_examples:
-    - core_meta_unified.py
-    - neural_connector.py
+    source_examples: *id021
     decision: ADOPT_REWRITE
     target_subsystem: contracts/observability
     target_checkpoint: CP3
@@ -2464,14 +2918,59 @@ algorithms:
     - observed_at
     - expiry
     evidence_class: SOURCE_CLAIM
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id022
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id022
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
+    reported_file: repo_bridge_client.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-01
+    local_candidate_ids:
+    - DONOR-3ade868a016eb88f
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: repo_bridge_client.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - name: ProviderAdapterResult
-  source_family: PENDING_SOURCE_BINDING
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
     reported_file: null
-    donor_batches: []
+    package_source_examples: &id023
+    - railway_server_bridge.py
+    - reflective_live_bridge.py
+    - tuyul_data_bridge.py
+    donor_batches: &id024
+    - ARCH-ALG-03
+    - ARCH-ALG-04
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: ProviderAdapterResult
@@ -2482,9 +2981,11 @@ algorithms:
     - models
     target_checkpoints:
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: ADOPT_REWRITE
     priority: P1
+    checkpoint_stages:
+      CP3: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2503,7 +3004,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2516,10 +3017,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-03
     - ARCH-ALG-04
-    source_examples:
-    - railway_server_bridge.py
-    - reflective_live_bridge.py
-    - tuyul_data_bridge.py
+    source_examples: *id023
     decision: ADOPT_REWRITE
     target_subsystem: integrations/models
     target_checkpoint: CP3
@@ -2532,14 +3030,56 @@ algorithms:
     - provider/version identity
     - explicit error state
     evidence_class: SOURCE_CLAIM
-- name: EpisodeJournal
-  source_family: PENDING_SOURCE_BINDING
-  source:
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-03
+    batch_documents: *id024
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id024
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+  local_recovered_source_binding:
     reported_file: null
     donor_batches: []
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: EpisodeJournal
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id025
+    - agi_learning_engine.py
+    - journal.py
+    donor_batches: &id026
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: EpisodeJournal
@@ -2550,9 +3090,13 @@ algorithms:
     - observability
     target_checkpoints:
     - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    - CP8
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: ADOPT_REWRITE
     priority: P1
+    checkpoint_stages:
+      CP3: Durable episode/audit facts; no learning activation
+      CP8: Outcome-linked evaluation input; no workflow state ownership
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2570,7 +3114,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2584,9 +3128,7 @@ algorithms:
     - ARCH-ALG-01
     - ARCH-ALG-02
     - ARCH-ALG-03
-    source_examples:
-    - agi_learning_engine.py
-    - journal.py
+    source_examples: *id025
     decision: ADOPT_REWRITE
     target_subsystem: memory/episodic
     target_checkpoint: CP3
@@ -2598,14 +3140,55 @@ algorithms:
     - no hidden CoT
     - durability state explicit
     evidence_class: SOURCE_CLAIM
-- name: ResponseProfile
-  source_family: PENDING_SOURCE_BINDING
-  source:
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id026
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id026
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+  local_recovered_source_binding:
     reported_file: null
     donor_batches: []
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: ResponseProfile
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id027
+    - core_personality_alpha_serigala_loader.py
+    donor_batches: &id028
+    - ARCH-ALG-01
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: ResponseProfile
@@ -2616,9 +3199,11 @@ algorithms:
     - personal
     target_checkpoints:
     - CP4
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: ADOPT_REWRITE
     priority: P2
+    checkpoint_stages:
+      CP4: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2635,7 +3220,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2647,8 +3232,7 @@ algorithms:
     canonical_name: ResponseProfile
     donor_batches:
     - ARCH-ALG-01
-    source_examples:
-    - core_personality_alpha_serigala_loader.py
+    source_examples: *id027
     decision: ADOPT_REWRITE
     target_subsystem: sentient/response
     target_checkpoint: CP4
@@ -2659,17 +3243,53 @@ algorithms:
     - tone/format/voice only
     - pin version+digest per run
     evidence_class: SOURCE_CLAIM
-- name: ToolDescriptor
-  source_family: tools.py
-  source:
-    reported_file: tools.py
-    donor_batches:
-    - ARCH-ALG-04
-    reference_ids:
-    - ARCH-ALG-04-14
-    local_candidate_ids:
-    - DONOR-2e9857a50324bed6
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id028
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id028
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+  local_recovered_source_binding:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: ToolDescriptor
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id029
+    - reflective_mcp_handler.py
+    - tools.py
+    donor_batches: &id030
+    - ARCH-ALG-03
+    - ARCH-ALG-04
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Versioned input/output schema and declared effect class
@@ -2681,8 +3301,10 @@ algorithms:
     - capabilities
     target_checkpoints:
     - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP5: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2702,7 +3324,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Validate descriptor identity, compatibility and unchanged authority
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2715,9 +3337,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-03
     - ARCH-ALG-04
-    source_examples:
-    - reflective_mcp_handler.py
-    - tools.py
+    source_examples: *id029
     decision: ADOPT_REWRITE
     target_subsystem: tools/capabilities
     target_checkpoint: CP5
@@ -2730,14 +3350,57 @@ algorithms:
     - required authority
     - privacy/network class
     evidence_class: SOURCE_CLAIM
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-03
+    batch_documents: *id030
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id030
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+  local_recovered_source_binding:
+    reported_file: tools.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-14
+    local_candidate_ids:
+    - DONOR-2e9857a50324bed6
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: tools.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - name: ProviderDescriptor
-  source_family: PENDING_CANONICAL_REPORT
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
     reported_file: null
-    donor_batches: []
+    package_source_examples: &id031
+    - core_meta_unified.py
+    - neural_connector.py
+    donor_batches: &id032
+    - ARCH-ALG-02
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Immutable provider identity, version and supported contracts
@@ -2751,8 +3414,10 @@ algorithms:
     - mcp
     target_checkpoints:
     - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP5: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2773,7 +3438,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Bind exact implementation/config and qualification receipt
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2785,9 +3450,7 @@ algorithms:
     canonical_name: CapabilityProviderDescriptor
     donor_batches:
     - ARCH-ALG-02
-    source_examples:
-    - core_meta_unified.py
-    - neural_connector.py
+    source_examples: *id031
     decision: ADOPT_REWRITE
     target_subsystem: capabilities
     target_checkpoint: CP5
@@ -2801,18 +3464,51 @@ algorithms:
     - exact revision
     - qualification state
     evidence_class: SOURCE_CLAIM
-- name: CapabilityResolver
-  source_family: reflective_mcp_handler.py
-  source:
-    reported_file: reflective_mcp_handler.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-17
-    local_candidate_ids:
-    - DONOR-00c9c978236f72d5
-    - DONOR-a0f7c03c7fd1e28d
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id032
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id032
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_CANONICAL_REPORT
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: CapabilityResolver
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id033
+    - neural_orchestrator.py
+    donor_batches: &id034
+    - ARCH-ALG-02
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Resolve qualified providers from explicit requirements
@@ -2823,8 +3519,10 @@ algorithms:
     related_subsystems: []
     target_checkpoints:
     - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP5: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2843,7 +3541,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Reject unqualified, mismatched and ambiguous candidates
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2855,8 +3553,7 @@ algorithms:
     canonical_name: CapabilityResolver
     donor_batches:
     - ARCH-ALG-02
-    source_examples:
-    - neural_orchestrator.py
+    source_examples: *id033
     decision: ADOPT_REWRITE
     target_subsystem: capabilities
     target_checkpoint: CP5
@@ -2868,14 +3565,58 @@ algorithms:
     - provider pinned per run
     - donor order cannot define priority
     evidence_class: SOURCE_CLAIM
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id034
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id034
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
+    reported_file: reflective_mcp_handler.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-17
+    local_candidate_ids:
+    - DONOR-00c9c978236f72d5
+    - DONOR-a0f7c03c7fd1e28d
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: reflective_mcp_handler.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - name: StructuredDataConversionToolpack
-  source_family: PENDING_SOURCE_BINDING
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
     reported_file: null
-    donor_batches: []
+    package_source_examples: &id035
+    - file_converters.py
+    - technical_data_processor.py
+    donor_batches: &id036
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    - ARCH-ALG-04
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: StructuredDataConversionToolpack
@@ -2886,9 +3627,11 @@ algorithms:
     - skills
     target_checkpoints:
     - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: ADOPT_AS_CAPABILITY
     priority: P2
+    checkpoint_stages:
+      CP5: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2907,7 +3650,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2920,9 +3663,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-02
     - ARCH-ALG-03
-    source_examples:
-    - file_converters.py
-    - technical_data_processor.py
+    source_examples: *id035
     decision: ADOPT_AS_CAPABILITY
     target_subsystem: tools/skills
     target_checkpoint: CP5
@@ -2935,14 +3676,55 @@ algorithms:
     - safe parsing
     - domain rules remain domain-specific
     evidence_class: SOURCE_CLAIM
-- name: Safe Provider Acquisition
-  source_family: PENDING_CANONICAL_REPORT
-  source:
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id036
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id036
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+  local_recovered_source_binding:
     reported_file: null
     donor_batches: []
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: Safe Provider Acquisition
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id037
+    - fusion_bridge_runtime.py
+    donor_batches: &id038
+    - ARCH-ALG-02
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Provenance, rights, isolation and independent admission
@@ -2954,8 +3736,10 @@ algorithms:
     - capabilities
     target_checkpoints:
     - CP6
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP6: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -2973,7 +3757,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Verify exact source/package, usage rights, isolation and independent qualification
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -2985,8 +3769,7 @@ algorithms:
     canonical_name: SafeProviderAcquisition
     donor_batches:
     - ARCH-ALG-02
-    source_examples:
-    - fusion_bridge_runtime.py
+    source_examples: *id037
     decision: ADOPT_REWRITE
     target_subsystem: capability_factory
     target_checkpoint: CP6
@@ -2997,14 +3780,51 @@ algorithms:
     - discover->exact SHA->provenance->license->security->sandbox->eval->shadow
     - never direct remote import
     evidence_class: SOURCE_CLAIM
-- name: ContractSurfaceValidator
-  source_family: PENDING_SOURCE_BINDING
-  source:
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id038
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id038
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
     reported_file: null
     donor_batches: []
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_CANONICAL_REPORT
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: ContractSurfaceValidator
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id039
+    - validate_openapi_v540.py
+    donor_batches: &id040
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: ContractSurfaceValidator
@@ -3014,10 +3834,14 @@ algorithms:
     related_subsystems:
     - capability_factory
     target_checkpoints:
+    - CP3
     - CP6
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: ADOPT_HARDEN
     priority: P1
+    checkpoint_stages:
+      CP3: Contract/import preflight; no qualification verdict
+      CP6: Foundry compatibility evaluation and independent qualification
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3034,7 +3858,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3047,8 +3871,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-03
     - ARCH-ALG-05
-    source_examples:
-    - validate_openapi_v540.py
+    source_examples: *id039
     decision: ADOPT_HARDEN
     target_subsystem: evaluation/capability_factory
     target_checkpoint: CP6
@@ -3059,17 +3882,53 @@ algorithms:
     - versioned expected surface
     - semantic validation beyond endpoint counts
     evidence_class: SOURCE_CLAIM
-- name: DriftAnalyzer
-  source_family: ree_adaptive_analysis.py
-  source:
-    reported_file: ree_adaptive_analysis.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-11
-    local_candidate_ids:
-    - DONOR-13e44a9bded03558
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-05
+    batch_documents: *id040
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id040
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: DriftAnalyzer
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id041
+    - hybrid_quantum.py
+    - ree_adaptive_analysis.py
+    donor_batches: &id042
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Deterministic drift and dispersion candidates
@@ -3082,8 +3941,10 @@ algorithms:
     - evaluation
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3102,7 +3963,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Prove cancellation guards, finite metrics and unknown/healthy separation
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3116,9 +3977,7 @@ algorithms:
     - ARCH-ALG-02
     - ARCH-ALG-03
     - ARCH-ALG-05
-    source_examples:
-    - hybrid_quantum.py
-    - ree_adaptive_analysis.py
+    source_examples: *id041
     decision: ADOPT_REWRITE
     target_subsystem: sentient/cognition
     target_checkpoint: CP8
@@ -3130,17 +3989,56 @@ algorithms:
     - insufficient data -> NOT_MEASURED
     - calibrate thresholds
     evidence_class: SOURCE_CLAIM
-- name: MultiHorizonStateAnalyzer
-  source_family: trq3d_unified_engine.py
-  source:
-    reported_file: trq3d_unified_engine.py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id042
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id042
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+  local_recovered_source_binding:
+    reported_file: ree_adaptive_analysis.py
     donor_batches:
-    - ARCH-ALG-04
+    - ARCH-ALG-03
     reference_ids:
-    - ARCH-ALG-04-16
+    - ARCH-ALG-03-11
     local_candidate_ids:
-    - DONOR-d9812dd1f9d8cd56
+    - DONOR-13e44a9bded03558
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: ree_adaptive_analysis.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: MultiHorizonStateAnalyzer
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id043
+    - trq3d_unified_engine.py
+    donor_batches: &id044
+    - ARCH-ALG-04
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Measured state across explicitly bounded time horizons
@@ -3152,8 +4050,10 @@ algorithms:
     - observability
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3172,7 +4072,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Missing windows stay NOT_MEASURED; validate lifecycle and profile generations
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3184,8 +4084,7 @@ algorithms:
     canonical_name: MultiHorizonStateAnalyzer
     donor_batches:
     - ARCH-ALG-04
-    source_examples:
-    - trq3d_unified_engine.py
+    source_examples: *id043
     decision: ADOPT_ABSTRACTION
     target_subsystem: sentient/cognition
     target_checkpoint: CP8
@@ -3197,17 +4096,54 @@ algorithms:
     - typed state vector
     - finite inputs
     evidence_class: SOURCE_CLAIM
-- name: TelemetryPersistenceAnalyzer
-  source_family: pattern_reporter.py
-  source:
-    reported_file: pattern_reporter.py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-04
+    batch_documents: *id044
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id044
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+  local_recovered_source_binding:
+    reported_file: trq3d_unified_engine.py
     donor_batches:
-    - ARCH-ALG-03
+    - ARCH-ALG-04
     reference_ids:
-    - ARCH-ALG-03-02
+    - ARCH-ALG-04-16
     local_candidate_ids:
-    - DONOR-5f81a3b7f32ab9ad
+    - DONOR-d9812dd1f9d8cd56
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: trq3d_unified_engine.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: TelemetryPersistenceAnalyzer
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id045
+    - volatility_clustering_model.py
+    donor_batches: &id046
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Windowed persistence, sample count and provenance
@@ -3219,8 +4155,10 @@ algorithms:
     - observability
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P2
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3239,7 +4177,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Reject insufficient/invalid samples and expose persistence limitations
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3251,8 +4189,7 @@ algorithms:
     canonical_name: TelemetryPersistenceAnalyzer
     donor_batches:
     - ARCH-ALG-05
-    source_examples:
-    - volatility_clustering_model.py
+    source_examples: *id045
     decision: ADOPT_ABSTRACTION
     target_subsystem: observability/sentient-cognition
     target_checkpoint: CP8
@@ -3264,17 +4201,56 @@ algorithms:
     - constant series -> NOT_MEASURED
     - no NaN propagation
     evidence_class: SOURCE_CLAIM
-- name: Disagreement/Fusion Analyzer
-  source_family: phase_resonance.py
-  source:
-    reported_file: phase_resonance.py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-05
+    batch_documents: *id046
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id046
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: pattern_reporter.py
     donor_batches:
     - ARCH-ALG-03
     reference_ids:
-    - ARCH-ALG-03-03
+    - ARCH-ALG-03-02
     local_candidate_ids:
-    - DONOR-513aaf8aed549036
+    - DONOR-5f81a3b7f32ab9ad
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: pattern_reporter.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: Disagreement/Fusion Analyzer
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id047
+    - equilibrium.py
+    - phase_resonance.py
+    donor_batches: &id048
+    - ARCH-ALG-02
+    - ARCH-ALG-03
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Pairwise disagreement alongside aggregate scores
@@ -3286,8 +4262,10 @@ algorithms:
     - evaluation
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3305,7 +4283,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Conflicting evidence remains visible with measured coverage
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3318,9 +4296,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-02
     - ARCH-ALG-03
-    source_examples:
-    - equilibrium.py
-    - phase_resonance.py
+    source_examples: *id047
     decision: ADOPT_REWRITE
     target_subsystem: evaluation/sentient-cognition
     target_checkpoint: CP8
@@ -3331,17 +4307,60 @@ algorithms:
     - preserve component disagreement
     - do not average away conflict
     evidence_class: SOURCE_CLAIM
-- name: ExplainableWeightedFusion
-  source_family: wlwci_calculator.py
-  source:
-    reported_file: wlwci_calculator(1).py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-02
+    batch_documents: *id048
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id048
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+  local_recovered_source_binding:
+    reported_file: phase_resonance.py
     donor_batches:
-    - ARCH-ALG-05
+    - ARCH-ALG-03
     reference_ids:
-    - ARCH-ALG-05-19
+    - ARCH-ALG-03-03
     local_candidate_ids:
-    - DONOR-27b3710721652ce0
+    - DONOR-513aaf8aed549036
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: phase_resonance.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: ExplainableWeightedFusion
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id049
+    - core_fusion_unified.py
+    - tuyul_integrated_reflective_analyzer.py
+    - wlwci_calculator.py
+    donor_batches: &id050
+    - ARCH-ALG-01
+    - ARCH-ALG-04
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Per-component contribution and versioned weights
@@ -3352,9 +4371,13 @@ algorithms:
     related_subsystems:
     - sentient/cognition
     target_checkpoints:
+    - CP5
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP5: Explainable lineage using fixed versioned criteria; no confidence claim
+      CP8: Calibrated fusion evaluated independently; no self-promotion
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3373,7 +4396,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Finite/normalization guards, missing inputs and reproducible contributions
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3387,10 +4410,7 @@ algorithms:
     - ARCH-ALG-01
     - ARCH-ALG-04
     - ARCH-ALG-05
-    source_examples:
-    - core_fusion_unified.py
-    - tuyul_integrated_reflective_analyzer.py
-    - wlwci_calculator.py
+    source_examples: *id049
     decision: ADOPT_REWRITE
     target_subsystem: evaluation
     target_checkpoint: CP8
@@ -3402,14 +4422,58 @@ algorithms:
     - weights calibrated
     - score != confidence until validated
     evidence_class: SOURCE_CLAIM
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id050
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id050
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: wlwci_calculator(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-19
+    local_candidate_ids:
+    - DONOR-27b3710721652ce0
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: wlwci_calculator.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - name: StateTransitionHysteresis
-  source_family: PENDING_SOURCE_BINDING
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
     reported_file: null
-    donor_batches: []
+    package_source_examples: &id051
+    - core_reflective_unified.py
+    donor_batches: &id052
+    - ARCH-ALG-01
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: StateTransitionHysteresis
@@ -3420,9 +4484,11 @@ algorithms:
     - control
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: DEFER_UNTIL_CALIBRATED
     priority: P2
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3439,7 +4505,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3451,8 +4517,7 @@ algorithms:
     canonical_name: StateTransitionHysteresis
     donor_batches:
     - ARCH-ALG-01
-    source_examples:
-    - core_reflective_unified.py
+    source_examples: *id051
     decision: DEFER_UNTIL_CALIBRATED
     target_subsystem: sentient/cognition
     target_checkpoint: CP8
@@ -3463,17 +4528,53 @@ algorithms:
     - transition persistence/cooldown
     - cannot bypass hard gates
     evidence_class: SOURCE_CLAIM
-- name: Replay/Monte-Carlo Evaluator
-  source_family: probability_core.py
-  source:
-    reported_file: probability_core.py
-    donor_batches:
-    - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-06
-    local_candidate_ids:
-    - DONOR-a3ce082fded5abfe
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id052
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id052
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+  local_recovered_source_binding:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: Replay/Monte-Carlo Evaluator
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id053
+    - core_cognitive_unified.py
+    - core_fusion_unified.py
+    donor_batches: &id054
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Once-per-input evaluation with pinned seed/profile
@@ -3485,8 +4586,10 @@ algorithms:
     - ree
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3505,7 +4608,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Bind evaluation ID, inputs, seed, profile and baseline; quantify uncertainty
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3518,9 +4621,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-01
     - ARCH-ALG-02
-    source_examples:
-    - core_cognitive_unified.py
-    - core_fusion_unified.py
+    source_examples: *id053
     decision: ADOPT_METHODOLOGY
     target_subsystem: evaluation/ree
     target_checkpoint: CP8
@@ -3532,17 +4633,56 @@ algorithms:
     - evaluate candidate vs baseline
     - not a truth/authority score
     evidence_class: SOURCE_CLAIM
-- name: TemporalGeneralizationEvaluator
-  source_family: walk_forward_validation_engine.py
-  source:
-    reported_file: walk_forward_validation_engine.py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id054
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id054
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
+    reported_file: probability_core.py
     donor_batches:
-    - ARCH-ALG-05
+    - ARCH-ALG-03
     reference_ids:
-    - ARCH-ALG-05-18
+    - ARCH-ALG-03-06
     local_candidate_ids:
-    - DONOR-9e808fe4d238641c
+    - DONOR-a3ce082fded5abfe
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: probability_core.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: TemporalGeneralizationEvaluator
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id055
+    - walk_forward_validation_engine.py
+    donor_batches: &id056
+    - ARCH-ALG-05
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Past versus unseen later task windows
@@ -3554,8 +4694,10 @@ algorithms:
     - ree
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P0
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3574,7 +4716,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Test temporal leakage, exact-size boundaries, invalid window sizes and nonempty evaluation
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3586,8 +4728,7 @@ algorithms:
     canonical_name: TemporalGeneralizationEvaluator
     donor_batches:
     - ARCH-ALG-05
-    source_examples:
-    - walk_forward_validation_engine.py
+    source_examples: *id055
     decision: ADOPT_REWRITE
     target_subsystem: evaluation/ree
     target_checkpoint: CP8
@@ -3599,17 +4740,56 @@ algorithms:
     - no empty-window mean
     - metrics explicitly defined
     evidence_class: SOURCE_CLAIM
-- name: Bounded Candidate Optimizer
-  source_family: reflective evolution engine (ree).py
-  source:
-    reported_file: Reflective Evolution Engine (REE).py
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-05
+    batch_documents: *id056
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id056
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: walk_forward_validation_engine.py
     donor_batches:
-    - ARCH-ALG-03
+    - ARCH-ALG-05
     reference_ids:
-    - ARCH-ALG-03-12
+    - ARCH-ALG-05-18
     local_candidate_ids:
-    - DONOR-28e9608a62819e6a
+    - DONOR-9e808fe4d238641c
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: walk_forward_validation_engine.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: Bounded Candidate Optimizer
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id057
+    - core_meta_unified.py
+    - agi_learning_engine.py
+    donor_batches: &id058
+    - ARCH-ALG-01
+    - ARCH-ALG-02
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Offline bounded candidate generation
@@ -3622,8 +4802,10 @@ algorithms:
     - evaluation
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: P1
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3642,7 +4824,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Validate constraints, provenance, evaluation and independent promotion
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3655,9 +4837,7 @@ algorithms:
     donor_batches:
     - ARCH-ALG-01
     - ARCH-ALG-02
-    source_examples:
-    - core_meta_unified.py
-    - agi_learning_engine.py
+    source_examples: *id057
     decision: ADOPT_REWRITE
     target_subsystem: ree
     target_checkpoint: CP8
@@ -3669,14 +4849,56 @@ algorithms:
     - bounded deltas
     - no self-activation
     evidence_class: SOURCE_CLAIM
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-01
+    batch_documents: *id058
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id058
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-01-cognitive-constitutional.md
+      sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
+    reported_file: Reflective Evolution Engine (REE).py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-12
+    local_candidate_ids:
+    - DONOR-28e9608a62819e6a
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: reflective evolution engine (ree).py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - name: InvarianceEvaluator
-  source_family: PENDING_SOURCE_BINDING
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
     reported_file: null
-    donor_batches: []
+    package_source_examples: &id059
+    - reflective_symmetry_patch_v6.py
+    donor_batches: &id060
+    - ARCH-ALG-03
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: InvarianceEvaluator
@@ -3686,9 +4908,11 @@ algorithms:
     related_subsystems: []
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: ADOPT_ABSTRACTION
     priority: P2
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3706,7 +4930,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3718,8 +4942,7 @@ algorithms:
     canonical_name: InvarianceEvaluator
     donor_batches:
     - ARCH-ALG-03
-    source_examples:
-    - reflective_symmetry_patch_v6.py
+    source_examples: *id059
     decision: ADOPT_ABSTRACTION
     target_subsystem: evaluation
     target_checkpoint: CP8
@@ -3731,14 +4954,51 @@ algorithms:
     - file ordering invariance
     - provider order cannot alter truth
     evidence_class: SOURCE_CLAIM
-- name: DistributionImbalanceAnalyzer
-  source_family: PENDING_SOURCE_BINDING
-  source:
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-03
+    batch_documents: *id060
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id060
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+  local_recovered_source_binding:
     reported_file: null
     donor_batches: []
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: DistributionImbalanceAnalyzer
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: &id061
+    - reflective_volume_quadrant_engine.py
+    donor_batches: &id062
+    - ARCH-ALG-03
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Legacy algorithm research
     extracted_principle: DistributionImbalanceAnalyzer
@@ -3749,9 +5009,11 @@ algorithms:
     - evaluation
     target_checkpoints:
     - CP8
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     status: ADOPT_ABSTRACTION
     priority: P2
+    checkpoint_stages:
+      CP8: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3768,7 +5030,7 @@ algorithms:
     runtime_active: false
     status_scope: Donor adaptation only
   evidence:
-    validation_status: SOURCE_CLAIM_ONLY
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Checkpoint-owned contracts and independent source/evaluation evidence required
     qualification: NOT_EXECUTED
     proposal_source: INPUT-REGISTRY
@@ -3780,8 +5042,7 @@ algorithms:
     canonical_name: DistributionImbalanceAnalyzer
     donor_batches:
     - ARCH-ALG-03
-    source_examples:
-    - reflective_volume_quadrant_engine.py
+    source_examples: *id061
     decision: ADOPT_ABSTRACTION
     target_subsystem: observability/evaluation
     target_checkpoint: CP8
@@ -3792,18 +5053,52 @@ algorithms:
     - degenerate distribution handling
     - no market-specific semantics in core
     evidence_class: SOURCE_CLAIM
+  origin:
+    package_registry: true
+    batch_document: ARCH-ALG-03
+    batch_documents: *id062
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: PACKAGE_RECORD_RECONCILED
+  batch_provenance:
+    assessment_batches: *id062
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+  local_recovered_source_binding:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_SOURCE_BINDING
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - algorithm_id: ALG-REASON-PROCEDURE-001
   name: ReasoningProcedure DSL
-  source_family: advanced reasoning framework examples.py
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
-    reported_file: Advanced Reasoning Framework Examples.py
-    donor_batches:
+    reported_file: null
+    package_source_examples: []
+    donor_batches: &id063
+    - ARCH-ALG-03
     - ARCH-ALG-05
-    reference_ids:
-    - ARCH-ALG-05-01
-    local_candidate_ids:
-    - DONOR-890d70774ceaea33
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Versioned declarative proposal steps
@@ -3815,8 +5110,10 @@ algorithms:
     - sentient
     target_checkpoints:
     - CP1
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: PENDING_REVIEW
+    checkpoint_stages:
+      CP1: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3830,41 +5127,84 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Reject unknown steps and prove proposal-only outputs
     qualification: NOT_EXECUTED
     proposal_source: ORIGINAL_ADDENDUM_BRIEF
   previous_draft_id: ALG-002
   canonical_name: ReasoningProcedure DSL
   source_proposal: null
+  origin:
+    package_registry: false
+    batch_document: ARCH-ALG-03
+    batch_documents: *id063
+    locally_recovered: true
+    derived_during_reconciliation: true
+    classification: RECONCILED_DESIGN
+  batch_provenance:
+    assessment_batches: *id063
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    - path: batch-05-reasoning-policy-evaluation.md
+      sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+  local_recovered_source_binding:
+    reported_file: Advanced Reasoning Framework Examples.py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-01
+    local_candidate_ids:
+    - DONOR-890d70774ceaea33
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: advanced reasoning framework examples.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - algorithm_id: ALG-MODEL-ADAPTER-001
   name: ProviderAdapter
-  source_family: reflective_live_bridge.py
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
-    reported_file: reflective_live_bridge.py
-    donor_batches:
+    reported_file: null
+    package_source_examples: []
+    donor_batches: &id064
     - ARCH-ALG-03
-    reference_ids:
-    - ARCH-ALG-03-16
-    local_candidate_ids:
-    - DONOR-5970d0b1ccc10688
-    - DONOR-7b49d99f664388e9
-    - DONOR-bebfc16984f7d13c
+    - ARCH-ALG-04
+    reference_ids: []
+    local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Typed provider result, timeout and failure classification
   decision:
     status: ADOPT_REWRITE
     basis: Owner addendum brief; generic principle only
-    target_subsystem: models
+    target_subsystem: models/providers
     related_subsystems:
-    - integrations
+    - sentient/model_gateway
+    - contracts
     target_checkpoints:
     - CP1
-    - CP3
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: PENDING_REVIEW
+    checkpoint_stages:
+      CP1: One bounded real model provider behind the cognitive gateway; no service/capability activation
+    ownership_roles:
+      provider_implementation_owner: models/providers
+      cognitive_gateway_owner: sentient/model_gateway
+      authority_owner: control
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3878,25 +5218,65 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Pin provider/config and validate schemas, timeouts and failure provenance
     qualification: NOT_EXECUTED
     proposal_source: ORIGINAL_ADDENDUM_BRIEF
   previous_draft_id: ALG-011
   canonical_name: ProviderAdapter
   source_proposal: null
-- algorithm_id: ALG-PROCEDURE-SKILL-001
-  name: Reasoning Procedure as Skill
-  source_family: prompt_engineering_framework.py
-  source:
-    reported_file: prompt_engineering_framework.py
+  origin:
+    package_registry: false
+    batch_document: ARCH-ALG-03
+    batch_documents: *id064
+    locally_recovered: true
+    derived_during_reconciliation: true
+    classification: RECONCILED_DESIGN
+  batch_provenance:
+    assessment_batches: *id064
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    - path: batch-04-cognitive-contract-runtime.md
+      sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+  local_recovered_source_binding:
+    reported_file: reflective_live_bridge.py
     donor_batches:
     - ARCH-ALG-03
     reference_ids:
-    - ARCH-ALG-03-07
+    - ARCH-ALG-03-16
     local_candidate_ids:
-    - DONOR-eeb0b5dbdbef8a11
+    - DONOR-5970d0b1ccc10688
+    - DONOR-7b49d99f664388e9
+    - DONOR-bebfc16984f7d13c
     historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: reflective_live_bridge.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- algorithm_id: ALG-PROCEDURE-SKILL-001
+  name: Reasoning Procedure as Skill
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: []
+    donor_batches: &id065
+    - ARCH-ALG-03
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Package a declarative versioned procedure
@@ -3908,8 +5288,10 @@ algorithms:
     - orchestration
     target_checkpoints:
     - CP5
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: PENDING_REVIEW
+    checkpoint_stages:
+      CP5: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3923,22 +5305,61 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Qualify exact package and preserve Kernel-owned lifecycle
     qualification: NOT_EXECUTED
     proposal_source: ORIGINAL_ADDENDUM_BRIEF
   previous_draft_id: ALG-015
   canonical_name: Reasoning Procedure as Skill
   source_proposal: null
+  origin:
+    package_registry: false
+    batch_document: ARCH-ALG-03
+    batch_documents: *id065
+    locally_recovered: true
+    derived_during_reconciliation: true
+    classification: RECONCILED_DESIGN
+  batch_provenance:
+    assessment_batches: *id065
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-03-reflective-evaluation.md
+      sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+  local_recovered_source_binding:
+    reported_file: prompt_engineering_framework.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-07
+    local_candidate_ids:
+    - DONOR-eeb0b5dbdbef8a11
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: prompt_engineering_framework.py
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 - algorithm_id: ALG-DUPLICATE-OVERLAP-001
   name: Duplicate/Overlap Detector
-  source_family: PENDING_CANONICAL_REPORT
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
   source:
     reported_file: null
-    donor_batches: []
+    package_source_examples: []
+    donor_batches: &id066
+    - ARCH-ALG-02
     reference_ids: []
     local_candidate_ids: []
     historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
   classification:
     source_domain: Mixed legacy trading and generic software research
     extracted_principle: Exact digest identity plus separately reviewed semantic overlap
@@ -3949,8 +5370,10 @@ algorithms:
     related_subsystems: []
     target_checkpoints:
     - CP6
-    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
     priority: PENDING_REVIEW
+    checkpoint_stages:
+      CP6: Checkpoint-owned behavior only; no later-stage activation
   authority:
     source_authority_model: NOT_VERIFIED
     wolf15_authority_effect: NONE
@@ -3964,13 +5387,210 @@ algorithms:
     runtime_active: false
     status_scope: Donor adoption only, not all existing baseline contracts
   evidence:
-    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
     required_acceptance: Same bytes share one donor; semantic similarity cannot imply byte identity
     qualification: NOT_EXECUTED
     proposal_source: ORIGINAL_ADDENDUM_BRIEF
   previous_draft_id: ALG-017
   canonical_name: Duplicate/Overlap Detector
   source_proposal: null
+  origin:
+    package_registry: false
+    batch_document: ARCH-ALG-02
+    batch_documents: *id066
+    locally_recovered: true
+    derived_during_reconciliation: true
+    classification: RECONCILED_DESIGN
+  batch_provenance:
+    assessment_batches: *id066
+    evidence_class: RECONCILED
+    scope: Design principle attribution; individual example-file batch identity is not inferred
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+  local_recovered_source_binding:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    evidence_class: DERIVED_OR_HISTORICAL_UNVERIFIED
+    source_family: PENDING_CANONICAL_REPORT
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: TelemetryCorrelationAnalyzer
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: []
+    donor_batches: &id067
+    - ARCH-ALG-02
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: TelemetryCorrelationAnalyzer using measured telemetry and explicit provenance
+  decision:
+    basis: Explicit batch-02 principle plus owner stage instruction
+    target_subsystem: observability
+    related_subsystems:
+    - sentient/cognition
+    - evaluation
+    target_checkpoints:
+    - CP3
+    - CP8
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
+    status: ADOPT_REWRITE
+    priority: PENDING_CHECKPOINT_PLANNING
+    checkpoint_stages:
+      CP3: Observe measured signals using fixed versioned reporting; no modulation
+      CP8: Evaluate adaptive interpretation/candidates after calibration; no independent actuation or self-promotion
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Measured telemetry, provenance, sample count and bounded time windows
+  reject:
+  - Synthetic health
+  - Correlation/latency as semantic truth
+  - CP3 observation modulating behavior
+  - Automatic policy/profile mutation
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
+    required_acceptance: Missing/finite/sample-count/time-window guards; config versions; simulated/measured distinction;
+      negative authority and modulation tests
+    qualification: NOT_EXECUTED
+    proposal_source: BATCH_DOCUMENT_AND_OWNER_RECONCILIATION
+  previous_draft_id: null
+  algorithm_id: ALG-TELEMETRY-CORRELATION-001
+  canonical_name: TelemetryCorrelationAnalyzer
+  source_proposal: null
+  origin:
+    package_registry: false
+    batch_document: ARCH-ALG-02
+    batch_documents:
+    - ARCH-ALG-02
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: BATCH_DOCUMENT_SUPPORTED
+  batch_provenance:
+    assessment_batches: *id067
+    evidence_class: RECONCILED
+    basis: Explicit batch-02 Adopt/rebuild item; CP3/CP8 split from owner instruction
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    scope: Design only; exact donor implementation not selected
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
+- name: RuntimeSaturationDetector
+  source_family: DESIGN_FAMILY_SOURCE_NOT_SELECTED
+  source:
+    reported_file: null
+    package_source_examples: []
+    donor_batches: &id068
+    - ARCH-ALG-02
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+    selected_donor_status: NOT_SELECTED
+    selection_requirement: Choose and bind exact source bytes before implementation; historical local candidates
+      remain in local_recovered_source_binding
+  classification:
+    source_domain: Legacy algorithm research
+    extracted_principle: RuntimeSaturationDetector using measured telemetry and explicit provenance
+  decision:
+    basis: Explicit batch-02 principle plus owner stage instruction
+    target_subsystem: observability
+    related_subsystems:
+    - sentient/cognition
+    - evaluation
+    target_checkpoints:
+    - CP3
+    - CP8
+    ownership_status: DOCUMENTED_PRIMARY_OWNER
+    status: ADOPT_REWRITE
+    priority: PENDING_CHECKPOINT_PLANNING
+    checkpoint_stages:
+      CP3: Observe measured signals using fixed versioned reporting; no modulation
+      CP8: Evaluate adaptive interpretation/candidates after calibration; no independent actuation or self-promotion
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+    proposed_future_boundary: ADVISORY_ONLY
+    future_boundary_status: DESIGN_ONLY_NO_CURRENT_AUTHORITY_GRANT
+  adopt:
+  - Measured telemetry, provenance, sample count and bounded time windows
+  reject:
+  - Synthetic health
+  - Correlation/latency as semantic truth
+  - CP3 observation modulating behavior
+  - Automatic policy/profile mutation
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adaptation only
+  evidence:
+    validation_status: DESIGN_RECONCILED_SOURCE_IDENTITY_NOT_VERIFIED
+    required_acceptance: Missing/finite/sample-count/time-window guards; config versions; simulated/measured distinction;
+      negative authority and modulation tests
+    qualification: NOT_EXECUTED
+    proposal_source: BATCH_DOCUMENT_AND_OWNER_RECONCILIATION
+  previous_draft_id: null
+  algorithm_id: ALG-RUNTIME-SATURATION-001
+  canonical_name: RuntimeSaturationDetector
+  source_proposal: null
+  origin:
+    package_registry: false
+    batch_document: ARCH-ALG-02
+    batch_documents:
+    - ARCH-ALG-02
+    locally_recovered: false
+    derived_during_reconciliation: true
+    classification: BATCH_DOCUMENT_SUPPORTED
+  batch_provenance:
+    assessment_batches: *id068
+    evidence_class: RECONCILED
+    basis: Explicit batch-02 Adopt/rebuild item; CP3/CP8 split from owner instruction
+    source_documents:
+    - path: batch-02-neural-capability.md
+      sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    scope: Design only; exact donor implementation not selected
+  lifecycle_stage:
+    discovered: false
+    documented: true
+    implemented: false
+    evaluated: false
+    shadowed: false
+    qualified: false
+    active: false
+  lifecycle_scope: Runtime candidate admission; archive filename discovery is separately recorded
 anti_patterns:
 - anti_pattern_id: DOMAIN-01
   decision: REJECT
@@ -4054,7 +5674,7 @@ overlap_clusters:
   authority: ADVISORY_ONLY
   binding: SEMANTIC_OVERLAP_ONLY
 received_package:
-  status: PARTIAL_PACKAGE_RECEIVED
+  status: COMPLETE_PACKAGE_RECEIVED
   files:
   - input_id: INPUT-PACKAGE_MANIFEST-MD
     file: PACKAGE_MANIFEST.md
@@ -4094,48 +5714,93 @@ received_package:
     read_status: READ_COMPLETE
   registry_records: 31
   supplemental_original_scope_records: 4
-  merged_design_records: 35
-  declared_missing_files:
-  - docs/research/algorithm-donors/README.md
-  - docs/research/algorithm-donors/batch-01-cognitive-constitutional.md
-  - docs/research/algorithm-donors/batch-02-neural-capability.md
-  - docs/research/algorithm-donors/batch-03-reflective-evaluation.md
-  - docs/research/algorithm-donors/batch-04-cognitive-contract-runtime.md
-  - docs/research/algorithm-donors/batch-05-reasoning-policy-evaluation.md
-  - docs/research/algorithm-donors/source-provenance.md
+  merged_design_records: 37
+  declared_missing_files: []
   zip:
     filename: wolf15-sentient-docs-official.zip
     reported_sha256: fadc573aaf91e31a3dca81787ff6a9a99c3a0c8ffa8897251caabbdd1d600425
-    verified_sha256: null
-    status: NOT_AVAILABLE
+    verified_sha256: fadc573aaf91e31a3dca81787ff6a9a99c3a0c8ffa8897251caabbdd1d600425
+    status: HASH_VERIFIED
+  batch_document_supported_records: 2
+  missing_seven_zip:
+    filename: wolf15-sentient-algorithm-donor-missing-seven.zip
+    sha256: fb3f24397747eed272a0c7c1da4561f15022ed7a29534f7138406875148f9b96
+    matches_full_package: true
+  package_members:
+  - path: PACKAGE_MANIFEST.md
+    sha256: 443e07ca5e08fd97cf01fe95d8f65f2bbf9ef54022627d26846d4695522166f1
+    size_bytes: 1139
+    read_status: READ_COMPLETE
+  - path: docs/architecture/algorithm-adoption-canon.md
+    sha256: e1bc33d9a1e1a203b0b6964654a7dbfb49fb297f3d1c0d9375e95c13cbdf3546
+    size_bytes: 2757
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/README.md
+    sha256: a422ba2745de00745d1fa6dde88e0e2d65813ef05fa7130f5d3a86341a97b67e
+    size_bytes: 2515
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/adoption-registry.yaml
+    sha256: 77841140b4a1718d894a389469b88a030bdf3c30739e43c4643a1cc4beab7fbc
+    size_bytes: 15094
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/anti-pattern-registry.md
+    sha256: 21b00be56b0fd7e581eb7caf3098f56a7aa135965d1664c472885e9082bc2e96
+    size_bytes: 2642
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/batch-01-cognitive-constitutional.md
+    sha256: 563a258946b0946ee311b4940f5d6ea8eb1783b95642f3008dbbf10348445b30
+    size_bytes: 2747
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/batch-02-neural-capability.md
+    sha256: 59810f7856488f2a6645d2d76d82a9392577bba2ebdcb333fc59b4306a13c1d5
+    size_bytes: 2480
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/batch-03-reflective-evaluation.md
+    sha256: 3771f5d322c42efb7c11c7fb9acd80e4369d5134bc3732d86d1bae398221aa4b
+    size_bytes: 2333
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/batch-04-cognitive-contract-runtime.md
+    sha256: 8d3b0688de77e9687e8829d2e19ac6b7467605070baa197e840239035f2212bb
+    size_bytes: 2285
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/batch-05-reasoning-policy-evaluation.md
+    sha256: 5fd2b8be874ed01a69aaa4b98e02bf85f02bd62a930972b14ba25c31919c9c57
+    size_bytes: 2953
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/checkpoint-adoption-matrix.md
+    sha256: f2089151f96da339a436135b2325d15e1ae11a8ded08504f6caaa10991f7a4c7
+    size_bytes: 4089
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/codex-desktop-implementation-contract.md
+    sha256: b3510b8fdcd1b63978e5a785973f3d588527f9e6353250610d2543856d2960bd
+    size_bytes: 4534
+    read_status: READ_COMPLETE
+  - path: docs/research/algorithm-donors/source-provenance.md
+    sha256: 1d65da1db5f67fd69bc1dce2990401ac56bb6862762cca8531c632653259af8e
+    size_bytes: 1604
+    read_status: READ_COMPLETE
 reconciliation:
-  status: INCOMPLETE
-  source_claims_do_not_prove_historical_bindings: true
-  issues:
-  - id: REC-01
-    topic: Package completeness
-    status: MISSING_SOURCE
-    detail: Seven declared documents, original snapshots and ZIP bytes remain unavailable
-  - id: REC-02
-    topic: Ownership
-    status: REVIEW_REQUIRED
-    detail: Retain one proposed owner plus collaborators; incoming slash-combined labels are preserved as source
-      claims, not interpreted as new packages. ReasoningPlan placement and ModelGateway owner require canonical
-      review.
-  - id: REC-03
-    topic: Checkpoint differences
-    status: EXPLICIT_STAGE_SPLIT
-    detail: CP1 bounded ModelGateway adapter stays separate from CP3 service ProviderAdapterResult. CP3 contract
-      preflight does not admit the CP6 Foundry validator. CP3 measured saturation telemetry does not activate CP8
-      adaptive control.
-  - id: REC-04
-    topic: Donor batch claims
-    status: NOT_VERIFIED
-    detail: Incoming StructuredDataConversionToolpack lists ARCH-ALG-02/03 but includes technical_data_processor.py,
-      observed historically in ARCH-ALG-04. ContractSurfaceValidator lists ARCH-ALG-03/05 while the available inventory
-      identifies validate_openapi_v540.py in ARCH-ALG-05. Recover complete reports before resolving.
-  - id: REC-05
-    topic: RuntimeSaturationDetector and correlation
-    status: MISSING_RECORD_DETAIL
-    detail: Narrative names telemetry correlation/saturation but the incoming 31-record YAML has no explicit records
-      for them; do not invent source bindings or imply readiness.
+  status: DOCUMENTATION_RECONCILED
+  provenance_precedence:
+  - package batch document
+  - package source-provenance
+  - supplied registry
+  - labeled local inference
+  resolutions:
+  - All 13 package members and seven shared bytes verified
+  - Unique owners with explicit ReasoningPlan and ModelGateway roles
+  - CP1/CP3 adapters, CP3/CP6 checks and CP3/CP8 telemetry stages separated
+  - Design batch mapping separated from preserved YAML claims and unverified original file identities
+  - 31 original plus four recovered plus two batch-supported records; none active
+future_implementation_requirements:
+- Bind exact donor source/package/revision and usage rights
+- Complete checkpoint-specific contracts, tests and qualification
+- Preserve missing/measured/simulated evidence and pinned lifecycle
+independent_documentation_review:
+  status: NOT_EXECUTED
+  reviewed_sha: null
+delivery:
+  push: NOT_EXECUTED
+  pr: NOT_CREATED
+  merge: NOT_EXECUTED
+  remote_ci: NOT_EXECUTED

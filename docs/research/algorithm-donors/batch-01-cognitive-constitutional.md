@@ -1,34 +1,63 @@
 # ARCH-ALG-01 — Cognitive / Constitutional Algorithms
 
-Status: **CANONICAL_SNAPSHOT_NOT_AVAILABLE**. Completeness: **NOT_ESTABLISHED**.
+## Scope
 
-The owner identifies a distinct snapshot of Rancangan Otak WILF15 Sentient.txt
-as this batch's canonical report. Its bytes, version identifier, inventory and
-detailed dispositions are unavailable in this draft.
+First donor batch: legacy cognitive, constitutional, reflective, fusion, repository, and meta-learning code.
 
-This page reserves batch identity. It does not reconstruct historical decisions
-from nearby filenames or claim a completed audit. No batch membership is inferred
-for unassigned archive files. The canonical snapshot must supply each donor,
-principle, rejection, checkpoint and source binding before completion.
+## Canonical conclusion
 
-See [registry status and completion gates](README.md). Local candidate digests
-and syntax results are in [the YAML registry](adoption-registry.yaml).
+The batch contains valuable **architectural DNA**, but mixed with trading-domain formulas, placeholders, synthetic metrics, and runtime mutation. Direct copy is rejected.
 
+### Adopt / rebuild
 
-## Newly supplied design claims
+- **Constitutional single authority** → `control/`.
+- **Governance/config digest** → policy generation and run pinning.
+- **Strict veto-first gate sequence** → deterministic control decisions.
+- **Finite numeric validation** → `contracts/` and SCRS boundaries.
+- **Repository snapshot concept** → exact-revision repository intelligence.
+- **Assessment lineage** → observable component contributions and provenance.
+- **Event envelope** → typed event/observability contracts.
+- **Adaptive freeze** → future SCRS governor behavior.
+- **Hysteresis** → stable state transitions, not oscillation.
+- **Bounded candidate optimization** → REE candidate generation only.
+- **Replay / Monte-Carlo methodology** → evaluation, not authority.
+- **Episode/journal concept** → episodic and audit memory.
+- **Response/personality profile** → presentation only; pin per run.
 
-The downloaded proposed registry names the following records for this batch.
-These are SOURCE_CLAIM entries, not a recovered complete historical audit.
+### Defer until calibrated data exists
 
-- ALG-REPO-SNAPSHOT-001 — RepositorySnapshotReader.
-- ALG-POLICY-RULES-001 — PolicyRuleEngine.
-- ALG-GATE-CASCADE-001 — DeterministicGateCascade.
-- ALG-EVENT-ENVELOPE-001 — SentientEvent.
-- ALG-EPISODE-JOURNAL-001 — EpisodeJournal.
-- ALG-RESPONSE-PROFILE-001 — ResponseProfile.
-- ALG-FUSION-EXPLAIN-001 — ExplainableWeightedFusion.
-- ALG-HYSTERESIS-001 — StateTransitionHysteresis.
-- ALG-REPLAY-EVAL-001 — ReplayMonteCarloEvaluator.
-- ALG-BOUNDED-OPT-001 — BoundedCandidateOptimizer.
+- Q-matrix / state-transition models.
+- multi-source fusion weights.
+- adaptive thresholds.
+- state-transition prediction.
+- meta-stability models.
 
-Exact input-file digests and unresolved bindings are in [source provenance](source-provenance.md).
+### Explicitly reject from Sentient Core
+
+- lot sizing, SL/TP, broker execution, prop-firm logic.
+- market-specific CONF12/WLWCI/FRPC/EAF/TRQ formulas.
+- random/synthetic health or learning metrics presented as real evidence.
+- default `PASS`/`STABLE` when evidence is missing.
+- confidence floors such as forced `>= 0.95`.
+- latest-wins memory overwrite.
+- direct runtime parameter mutation.
+- unpinned hot reload.
+
+## Checkpoint ownership
+
+| Principle | Target | Checkpoint |
+|---|---|---|
+| Constitutional authority / gate sequence | `control/` | CP3 |
+| Governance digest | `control/`, run metadata | CP3 |
+| Finite numeric guard | `contracts/`, SCRS | CP0 foundation, preserved onward |
+| Repository snapshot | `repositories/` | CP2 |
+| Assessment lineage | `evaluation/` | CP3/CP8 |
+| Event envelope | `observability/`, contracts | CP3/CP5 |
+| Hysteresis / adaptive freeze | SCRS | CP8 |
+| Replay / Monte-Carlo evaluator | `evaluation/`, REE | CP8 |
+| Bounded candidate optimizer | REE | CP8 |
+| Personality/response profile | interface/response | CP4 |
+
+## Codex instruction
+
+Do not import a legacy class merely because its responsibility name resembles a target subsystem. Implement the extracted principle against WOLF15 typed contracts and subsystem README ownership.

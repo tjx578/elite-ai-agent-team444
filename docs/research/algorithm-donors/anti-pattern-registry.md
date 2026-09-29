@@ -1,13 +1,5 @@
 # Algorithm Anti-Pattern Registry
 
-## Repository integration status
-
-Imported from the owner-supplied proposed package. This document contributes
-design guidance; the addendum is still DRAFT_INCOMPLETE. It grants no runtime
-authority and does not establish historical source identity or qualification.
-The existing canonical architecture and explicit task authorization continue
-to govern implementation and repository actions.
-
 Codex Desktop must treat every item in this file as **prohibited unless a later canonical ADR explicitly replaces the rule**.
 
 ## Evidence and measurement
@@ -69,3 +61,9 @@ Do not move the following into WOLF15 Sentient cognitive core:
 - broker/runtime execution authority.
 
 Domain logic may exist in separate products/providers if independently qualified and authorized.
+
+
+## Reconciled repository status
+
+DRAFT_RECONCILED. See [registry](adoption-registry.yaml) and [provenance](source-provenance.md).
+Design guidance grants no runtime authority. Independent review and freeze remain separate.

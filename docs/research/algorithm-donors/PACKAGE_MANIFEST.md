@@ -1,9 +1,3 @@
-# Received package manifest — partial import
-
-The following manifest is preserved as a source declaration. It does not prove
-that all declared files were received. See [source provenance](source-provenance.md)
-for the six received files and seven missing documents.
-
 # Package Manifest
 
 Package: `wolf15-sentient-docs-official`
@@ -26,3 +20,11 @@ Contents:
 - `docs/research/algorithm-donors/source-provenance.md`
 
 Recommended repository action: documentation-only PR/addendum before CP1.1. Do not rewrite the historical CP0 completion receipt.
+
+
+## Verified receipt
+
+All 13 package documents received. Both ZIPs and the seven common documents
+are hash-verified; see [source provenance](source-provenance.md).
+The repository retains 31 package records, four recovered designs and two
+explicit batch-02 telemetry components, totaling 37 inactive designs.

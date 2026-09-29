@@ -1,13 +1,5 @@
 # Algorithm Adoption Matrix by Checkpoint
 
-## Repository integration status
-
-Imported from the owner-supplied proposed package. This document contributes
-design guidance; the addendum is still DRAFT_INCOMPLETE. It grants no runtime
-authority and does not establish historical source identity or qualification.
-The existing canonical architecture and explicit task authorization continue
-to govern implementation and repository actions.
-
 This file controls **when** extracted donor principles may be implemented. It does not change the existing CP0–CP9 roadmap; it overlays donor adoption onto that roadmap.
 
 ## CP0 — Cognitive Foundation Stabilized
@@ -145,15 +137,12 @@ No candidate self-promotion.
 No new donor principle bypasses earlier checkpoint contracts. CP9 integrates proven components; it is not permission to weaken authority, evidence, or evaluation boundaries.
 
 
-## Reconciliation with the structured registry
+## Reconciled repository status
 
-This is checkpoint guidance, not evidence that a capability exists.
-The [record matrix](checkpoint-matrix.md) enumerates the current 35 design
-records. The CP1 bounded model adapter and CP3 service adapter have separate
-scope. CP3 preflight checks do not activate the CP6 Foundry validator; CP3
-measured telemetry does not activate CP8 adaptive saturation control.
+DRAFT_RECONCILED. See [registry](adoption-registry.yaml) and [provenance](source-provenance.md).
+Design guidance grants no runtime authority. Independent review and freeze remain separate.
 
-Telemetry correlation and RuntimeSaturationDetector appear in this narrative
-without their own records in the supplied YAML. Their detailed donor binding
-and implementation contract remain unresolved. No implementation is authorized
-merely by this narrative.
+The [record matrix](checkpoint-matrix.md) specifies stage slices. CP1 model
+adapters and CP3 service adapters are distinct. CP3 preflight is not CP6
+qualification; CP3 telemetry observes without CP8 adaptive behavior. CP5
+registration, CP6 qualification and active capability are separate states.

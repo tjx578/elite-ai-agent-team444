@@ -1,14 +1,6 @@
 # WOLF15 Sentient — Algorithm Adoption Canon
 
-## Repository integration status
-
-Imported from the owner-supplied proposed package. This document contributes
-design guidance; the addendum is still DRAFT_INCOMPLETE. It grants no runtime
-authority and does not establish historical source identity or qualification.
-The existing canonical architecture and explicit task authorization continue
-to govern implementation and repository actions.
-
-Status: **PROPOSED CANONICAL ADDENDUM**
+Status: **DRAFT_RECONCILED — independent review pending**
 
 This document summarizes the official adoption rule for all legacy algorithm donor batches.
 
@@ -117,7 +109,8 @@ This package is a documentation-only addendum and does not retroactively change 
 When merged later, the new `main` SHA may become the starting baseline for CP1 while the CP0 acceptance SHA remains unchanged.
 
 
-## Reconciled draft
+## Ownership and review
 
-See [registry status and provenance](../research/algorithm-donors/README.md).
-The package narrative does not replace the [canonical ownership map](canonical-ownership.md).
+See [canonical ownership](canonical-ownership.md) for ReasoningPlan/ModelGateway
+roles and the [registry](../research/algorithm-donors/adoption-registry.yaml)
+for 37 inactive designs. This reconciliation is not independent review or freeze.

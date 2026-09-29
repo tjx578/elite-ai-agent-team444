@@ -1,37 +1,54 @@
 # ARCH-ALG-02 — Neural Orchestration / Capability Algorithms
 
-Status: **CANONICAL_SNAPSHOT_NOT_AVAILABLE**. Completeness: **NOT_ESTABLISHED**.
+## Scope
 
-The owner identifies a distinct snapshot of Rancangan Otak WILF15 Sentient.txt
-as this batch's canonical report. Its bytes, version identifier, inventory and
-detailed dispositions are unavailable in this draft.
+Second donor batch: reasoning graph examples, neural connector/orchestrator, repository capabilities, provider routing, event envelopes, converters, repository bridges, telemetry analyzers, and early REE interfaces.
 
-This page reserves batch identity. It does not reconstruct historical decisions
-from nearby filenames or claim a completed audit. No batch membership is inferred
-for unassigned archive files. The canonical snapshot must supply each donor,
-principle, rejection, checkpoint and source binding before completion.
+## Canonical conclusion
 
-See [registry status and completion gates](README.md). Local candidate digests
-and syntax results are in [the YAML registry](adoption-registry.yaml).
+This batch is the strongest donor for the future **Capability Fabric** and **provider nervous system**. It must be rebuilt around provenance, exact revisions, evidence-aware aggregation, and Control Kernel authority.
 
+### Adopt / rebuild
 
-## Newly supplied design claims
+- **Reasoning Plan Contract**.
+- **Reasoning Trace** with step status, refs, duration, errors; never hidden CoT.
+- **Capability Provider Descriptor**.
+- **Capability Resolver**.
+- **Sentient Event Envelope** with event identity and replay fields.
+- **Evidence-Aware Aggregator**.
+- **Telemetry Correlation Analyzer**.
+- **Runtime Saturation Detector**.
+- **Multi-Horizon Drift Detector**.
+- **Cognitive Disagreement Index**.
+- **Episode Journal**.
+- **Safe Repository Provider Acquisition**.
+- **Structured Data Conversion Toolpack**.
+- provider selection policies and parallel execution where dependency-safe.
 
-The downloaded proposed registry names the following records for this batch.
-These are SOURCE_CLAIM entries, not a recovered complete historical audit.
+### Required corrections
 
-- ALG-REASON-PLAN-001 — ReasoningPlanContract.
-- ALG-REASON-TRACE-001 — ReasoningTrace.
-- ALG-REPO-SNAPSHOT-001 — RepositorySnapshotReader.
-- ALG-EVENT-ENVELOPE-001 — SentientEvent.
-- ALG-EPISODE-JOURNAL-001 — EpisodeJournal.
-- ALG-CAPABILITY-PROVIDER-001 — CapabilityProviderDescriptor.
-- ALG-CAPABILITY-RESOLVER-001 — CapabilityResolver.
-- ALG-CONVERTER-TOOLS-001 — StructuredDataConversionToolpack.
-- ALG-SAFE-ACQUISITION-001 — SafeProviderAcquisition.
-- ALG-DRIFT-001 — DriftAnalyzer.
-- ALG-DISAGREEMENT-001 — CognitiveDisagreementIndex.
-- ALG-REPLAY-EVAL-001 — ReplayMonteCarloEvaluator.
-- ALG-BOUNDED-OPT-001 — BoundedCandidateOptimizer.
+- Provider majority is not truth.
+- First response/provider order is not priority.
+- Latency is a routing signal, never semantic truth weight.
+- Remote source must never be fetched then imported/executed directly.
+- Every provider must be bound to exact revision/version and qualification state.
+- Event TTL/sequence/idempotency must be enforced, not merely modeled.
+- Registry and transport are not workflow authority.
 
-Exact input-file digests and unresolved bindings are in [source provenance](source-provenance.md).
+## Checkpoint ownership
+
+| Principle | Target | Checkpoint |
+|---|---|---|
+| Reasoning Plan / Trace | `sentient/`, `orchestration/` | CP1 |
+| GitHub/read repository adapter | `repositories/` | CP2 |
+| Sentient Event / durable event flow | contracts/observability/persistence | CP3 |
+| Episode Journal | memory/persistence | CP3/CP8 |
+| Capability Provider / Resolver | `capabilities/` | CP5 |
+| Toolpack / converters | `tools/`, skills | CP5 |
+| Safe provider acquisition | `capability_factory/` | CP6 |
+| Evidence-aware multi-provider fusion | evaluation | CP5/CP8 |
+| Correlation/drift/saturation/disagreement | SCRS/evaluation | CP8 |
+
+## Codex instruction
+
+Capability selection may optimize for latency/cost/availability only after qualification and compatibility gates. Provider results retain provenance and conflicts; aggregation must not erase disagreement.

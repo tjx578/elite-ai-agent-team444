@@ -1,13 +1,5 @@
 # Codex Desktop Implementation Contract — Algorithm Donors
 
-## Repository integration status
-
-Imported from the owner-supplied proposed package. This document contributes
-design guidance; the addendum is still DRAFT_INCOMPLETE. It grants no runtime
-authority and does not establish historical source identity or qualification.
-The existing canonical architecture and explicit task authorization continue
-to govern implementation and repository actions.
-
 This document is mandatory reading before Codex Desktop implements any donor-derived algorithm in WOLF15 Sentient.
 
 ## 1. Start from the checkpoint, not from the donor file
@@ -158,14 +150,15 @@ Codex must stop and report rather than guess when:
 - the change would raise authority or add side effects beyond the checkpoint.
 
 
-## Registry schema integration
+## Reconciled repository status
 
-The reconciled repository YAML preserves supplied records under source_proposal.
-Use algorithm_id, decision.target_subsystem, decision.target_checkpoints,
-implementation.status and implementation.runtime_active for the repository
-view. proposed_future_boundary describes a future constraint; current
-authority.wolf15_authority_effect remains NONE.
+DRAFT_RECONCILED. See [registry](adoption-registry.yaml) and [provenance](source-provenance.md).
+Design guidance grants no runtime authority. Independent review and freeze remain separate.
 
-A multi-checkpoint record permits only the slice specified by the active
-checkpoint, never later behavior. All unqualified candidates remain subject to
-source review, rights/provenance and checkpoint-specific admission.
+Use decision.target_subsystem, decision.target_checkpoints and decision.checkpoint_stages.
+source_proposal preserves the original YAML; origin and batch_provenance label
+reconciliation. lifecycle_stage grants no authority. ReasoningPlan contract
+owner is contracts, coordination owner orchestration, and producer sentient.
+Control retains workflow state and authority. The cognitive gateway owner is
+sentient/model_gateway; provider implementations belong to models/providers.
+The latest user instruction forbids automatic push/PR/merge for this addendum.

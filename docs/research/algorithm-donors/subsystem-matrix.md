@@ -1,11 +1,11 @@
 # Algorithm to canonical subsystem matrix
 
-Generated proposed view of [the registry](adoption-registry.yaml). One primary
-owner; collaborators gain no authority. Final ownership review remains open.
+DRAFT_RECONCILED. One primary owner per record. The Control Kernel retains
+sole authority and workflow state ownership.
 
 | ID | Algorithm | Primary owner | Collaborators |
 | --- | --- | --- | --- |
-| ALG-REASON-PLAN-001 | ReasoningPlanContract | sentient | orchestration |
+| ALG-REASON-PLAN-001 | ReasoningPlanContract | contracts | orchestration, sentient |
 | ALG-REASON-TRACE-001 | ReasoningTrace | orchestration | observability |
 | ALG-CONCEPT-GRAPH-001 | ConceptGraph | context | knowledge |
 | ALG-PROCEDURE-SELECTOR-001 | ProcedureSelector | orchestration | — |
@@ -37,6 +37,8 @@ owner; collaborators gain no authority. Final ownership review remains open.
 | ALG-INVARIANCE-001 | InvarianceEvaluator | evaluation | — |
 | ALG-DISTRIBUTION-001 | DistributionImbalanceAnalyzer | observability | evaluation |
 | ALG-REASON-PROCEDURE-001 | ReasoningProcedure DSL | orchestration | sentient |
-| ALG-MODEL-ADAPTER-001 | ProviderAdapter | models | integrations |
+| ALG-MODEL-ADAPTER-001 | ProviderAdapter | models/providers | sentient/model_gateway, contracts |
 | ALG-PROCEDURE-SKILL-001 | Reasoning Procedure as Skill | skills | orchestration |
 | ALG-DUPLICATE-OVERLAP-001 | Duplicate/Overlap Detector | capability_factory | — |
+| ALG-TELEMETRY-CORRELATION-001 | TelemetryCorrelationAnalyzer | observability | sentient/cognition, evaluation |
+| ALG-RUNTIME-SATURATION-001 | RuntimeSaturationDetector | observability | sentient/cognition, evaluation |
