@@ -5,7 +5,8 @@
 - [Canonical ownership](canonical-ownership.md): current-to-target responsibility
   map, ten invariants, README policy and UX prototype boundary.
 - [Current State](current-state.md): implemented behavior and historical receipts.
-- [Roadmap](roadmap.md): checkpoint ordering and entry/exit gates.
+- [Master Roadmap](roadmap.md): **the only normative CP0–CP9 checkpoint
+  sequence, ownership, entry/exit gates, and checkpoint status source.**
 - [North Star](super-intelligence-reference-architecture.md),
   [target architecture](target-architecture.md), and
   [Final Target Skeleton](final-target-skeleton.md): full product design and
@@ -23,7 +24,10 @@ targets. SK-01 is a catalog/governance lane, not installed skill proof.
 ## Maintainer contract
 
 Architecture owns the global responsibility map; subsystem READMEs own local
-interfaces and limits. Resolve ownership conflicts here and in an ADR when a
+interfaces and limits. The Master Roadmap is the only document allowed to
+define checkpoint numbering/order. Domain, donor, skill, ADR, historical M/PR
+and checkpoint-mapping documents may map work to CP0–CP9 but may not create a
+parallel roadmap. Resolve ownership conflicts here and in an ADR when a
 decision changes, then update affected local contracts. Do not silently choose
 between duplicate target folder names by creating both implementations.
 
