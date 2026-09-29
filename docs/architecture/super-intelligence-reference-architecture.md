@@ -39,6 +39,7 @@ ownership. The name “Sentient” describes a product goal, not consciousness.
 | Bounded specialist work | Elite AI Agent Team OS | Three deterministic stubs |
 | Sourced retrieval and knowledge | Intelligence & Knowledge / Second Brain | Contracts only; no resolver or store |
 | Provider discovery and task-scoped selection | Capability Fabric / Unified Skills | No runtime registry or resolver |
+| Browser/WebMCP capability discovery and invocation | Browser Capability Plane + Capability Fabric | Target only; no browser provider or WebMCP runtime |
 | Donor extraction and offline qualification | Capability Foundry | Design only |
 | Episode and candidate evaluation | Learning & Adaptation / REE | Learning contracts; REE is not wired |
 | Personal services and approvals | Personal Assistant / Owner Console | Design only |
@@ -53,6 +54,9 @@ Owner or approved event
   -> Sentient Core and bounded specialists: typed proposals
   -> Control Kernel: independent gates and adapter authorization
   -> authorized adapter or read-only response
+       -> backend/service MCP when appropriate
+       -> browser WebMCP when page/session capability is appropriate
+       -> explicitly classified browser fallback only when needed
   -> outcome evidence and owner-visible result
   -> optional journal and offline candidate evaluation
 ```
@@ -93,13 +97,18 @@ The existing learning contracts do not implement this REE process or write
    fixed rubric or turn an unmeasured hard gate into PASS.
 5. **Separate production decision.** Merge, deployment, secrets, production
    data, and broker actions require their own scoped owner authorization.
+6. **Browser capability is not browser authority.** A discovered WebMCP tool,
+   its annotations, active login session, page-local approval, or successful
+   return cannot raise task authority.
 
 ## M1-B freeze and open decisions
 
 This increment freezes ownership and dependency direction, not provider
 choices, storage topology, retention periods, service levels, or activation
 thresholds. Those require evidence and owner decisions in later milestones.
-The [Personal Assistant](personal-assistant-architecture.md),
+The [Final Target Skeleton](final-target-skeleton.md),
+[Browser Capability Plane / WebMCP](webmcp-browser-capability-plane.md),
+[Personal Assistant](personal-assistant-architecture.md),
 [Second Brain](second-brain-architecture.md),
 [Capability Fabric](capability-fabric.md),
 [Capability Foundry](capability-foundry.md), and
