@@ -2,8 +2,8 @@
 
 ## Status
 
-**M1-B target design.** The inspected baseline has no donor repository
-reader, code runner, capability importer, or active foundry. This is a
+**Target design. Master checkpoint owner: CP6.** The inspected baseline has no
+donor repository reader, code runner, capability importer, or active foundry. This is a
 future offline qualification flow over sources that the owner permits the
 system to inspect. Discovery is inventory, not permission to execute.
 
@@ -40,7 +40,7 @@ an owner-controlled authority decision when side effects are possible.
   source content and cannot direct the Foundry or Kernel.
 - Conflicting or incomplete capability evidence yields `NOT_QUALIFIED` with
   the missing checks; it is never guessed into an active provider.
-- M8 acceptance: exact snapshot binding, reproducible extraction, overlap
+- CP6 acceptance: exact snapshot binding, reproducible extraction, overlap
   results, isolation, dependency/security evidence, side-effect review,
   offline/shadow comparison, and a reversible registry decision.
 
