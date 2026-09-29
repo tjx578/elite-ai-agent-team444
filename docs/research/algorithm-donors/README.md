@@ -2,6 +2,11 @@
 
 Status: **DRAFT_RECONCILED — independent review pending**
 Purpose: documentation-only guidance for Codex Desktop and human reviewers.
+
+**Roadmap authority:** this directory is a frozen donor/research overlay only.
+It may map records to CP0–CP9, but it does not define checkpoint order or a
+parallel roadmap. The sole normative sequence is
+[`docs/architecture/roadmap.md`](../../architecture/roadmap.md).
 Runtime effect: **NONE**.
 Authority effect: **NONE**.
 CP0 status: **CLOSED / PASS** and must not be reopened by this documentation package.
