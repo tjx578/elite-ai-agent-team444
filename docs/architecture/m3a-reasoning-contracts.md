@@ -63,7 +63,7 @@ never fall back to a successful stub result.
 The default stub is labelled STUB and states that no reasoning occurred.
 Injected adapters are labelled OFFLINE_ADAPTER. Adapter code must be trusted;
 this Python protocol is not a sandbox and cannot enforce a hard deadline.
-M3-B must implement an approved provider runner with deadlines, cancellation,
+CP1 must implement an approved provider runner with deadlines, cancellation,
 token/output/cost limits, and separate live receipts. Real model behavior,
 including source-instruction containment, remains NOT_EXECUTED here.
 
