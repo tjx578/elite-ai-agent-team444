@@ -141,7 +141,7 @@ The [M3-A implementation](m3a-reasoning-contracts.md) adds an explicit
 offline library entry point for task routing, the M2 bridge, and deterministic
 proposal checks. Its default adapter is a labelled stub. PR #13 integrated
 this offline source as recorded above; it is not a live-provider checkpoint. Existing HTTP and LangGraph
-behavior is unchanged. M3-B live reasoning remains unproven.
+behavior is unchanged. CP1 real model reasoning remains unproven.
 
 ## PR-0 baseline
 
@@ -330,8 +330,8 @@ PR-2 added the deterministic graph, bounded revision behavior, and stub roles
 while keeping model and repository-execution variability out of the loop. M1-C
 established repository trust gates without a production claim. The initial M2
 evidence/context read path is now merged as the pure helper documented above.
-M3-B real model reasoning and M4 read-only repository intelligence remain separate
-future increments with their own acceptance evidence. M3-A offline contracts
+CP1 real model reasoning and CP2 read-only Repository Intelligence remain
+separate future checkpoints with their own acceptance evidence. M3-A offline contracts
 and SCRS v0 are integrated as recorded above. The current system must
 not be described as a complete autonomous engineering OS.
 
