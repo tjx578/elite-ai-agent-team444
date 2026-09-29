@@ -102,14 +102,12 @@ wolf15-sentient/
 │       ├── repositories/
 │       ├── integrations/
 │       │   ├── browser/
-│       │   │   ├── webmcp/
-│       │   │   │   ├── discovery/
-│       │   │   │   ├── session/
-│       │   │   │   ├── invocation/
-│       │   │   │   ├── normalization/
-│       │   │   │   └── receipts/
-│       │   │   └── fallback/
-│       │   │       └── browser_automation/
+│       │   │   └── webmcp/
+│       │   │       ├── discovery/
+│       │   │       ├── session/
+│       │   │       ├── invocation/
+│       │   │       ├── normalization/
+│       │   │       └── receipts/
 │       │   ├── personal/
 │       │   └── external_services/
 │       ├── execution/
