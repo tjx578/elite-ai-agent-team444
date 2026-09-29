@@ -1,0 +1,187 @@
+# Research data only. Annotated revisions are independently verified public Git commit IDs.
+schema_version: '1.2'
+portfolio_id: ARCH-DONOR-WEBMCP-01
+status: RESEARCH_ONLY
+system_ssot: ../../../README.md
+system_revision: SSOT-2026-09-30.1
+source_matrix: donor-cp-matrix.csv
+source_generated_date: '2026-09-29'
+revision_existence_checked_at: '2026-09-29T16:58:22Z'
+qualification_owner: CP6
+qualification_status: NOT_EXECUTED
+runtime_effect: NONE
+authority_effect: NONE
+cp1_runtime_implementation: NONE
+cp2_runtime_implementation: NONE
+whole_runtime_import: REJECTED
+functional_cp_semantics: receiving subsystem; not admission timing
+pre_cp6_boundary: source knowledge/native contracts only; portfolio package/code/skill/runtime admission deferred
+  until qualification
+connected_shadow_qualification: BLOCKED_UNTIL_SEPARATELY_AUTHORIZED_PATH
+revision_evidence: ../../verification/repository-donor-roadmap-20260930.md
+donors:
+- record_id: S06-01
+  source_code: S06
+  repository: webmachinelearning/webmcp
+  reported_revision: 0957b0b8f1e32c401d4248424719a4851d4202c4  # pragma: allowlist secret
+  role: Canonical specification knowledge
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP5
+  secondary_function_cps: CP4
+  qualification_cp: CP6
+  runtime_note: Protocol/semantics source; no browser runtime in CP1/CP2.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/webmachinelearning/webmcp/commits/0957b0b8f1e32c401d4248424719a4851d4202c4
+- record_id: S06-02
+  source_code: S06
+  repository: webmachinelearning/webmcp-types
+  reported_revision: a8d8292ff645b691bfdb529484d3c089e81e8c28  # pragma: allowlist secret
+  role: Typed contracts
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP5
+  secondary_function_cps: —
+  qualification_cp: CP6
+  runtime_note: Typed WebCapability/WebTool contract donor.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/webmachinelearning/webmcp-types/commits/a8d8292ff645b691bfdb529484d3c089e81e8c28
+- record_id: S06-03
+  source_code: S06
+  repository: GoogleChromeLabs/webmcp-tools
+  reported_revision: a66c1be1caee78bb98b9781bf5cb4413ad2ccac7  # pragma: allowlist secret
+  role: Implementation demos and evaluation
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP5
+  secondary_function_cps: CP4, CP8
+  qualification_cp: CP6
+  runtime_note: Page Agent/Inspector/demos for provider patterns; Evals feed CP8.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/GoogleChromeLabs/webmcp-tools/commits/a66c1be1caee78bb98b9781bf5cb4413ad2ccac7
+- record_id: S06-04
+  source_code: S06
+  repository: GoogleChromeLabs/use-webmcp-tool
+  reported_revision: 9f0dc6eddf88cff65ebe877f199d4547e74ab31e  # pragma: allowlist secret
+  role: React lifecycle in Owner Console
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP4
+  secondary_function_cps: CP5
+  qualification_cp: CP6
+  runtime_note: UI mount/unmount follows page/session capability lifecycle.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/GoogleChromeLabs/use-webmcp-tool/commits/9f0dc6eddf88cff65ebe877f199d4547e74ab31e
+- record_id: S06-05
+  source_code: S06
+  repository: webmaxru/web-ai-agent-skills
+  reported_revision: 03b778c8ef822c98b112fd3617050c72d78f4d60  # pragma: allowlist secret
+  role: Authoring skill
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP6
+  secondary_function_cps: CP5
+  qualification_cp: CP6
+  runtime_note: Skill extraction/qualification first; qualified procedure can later enter Capability OS.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/webmaxru/web-ai-agent-skills/commits/03b778c8ef822c98b112fd3617050c72d78f4d60
+- record_id: S06-06
+  source_code: S06
+  repository: TueJon/webmcpify
+  reported_revision: c17d1f1382e306296becc0e8294106c477e13d40  # pragma: allowlist secret
+  role: App retrofit verification and audit
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP6
+  secondary_function_cps: CP7
+  qualification_cp: CP6
+  runtime_note: Retrofit analysis/qualification in CP6; actual mutation/healing only in CP7.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/TueJon/webmcpify/commits/c17d1f1382e306296becc0e8294106c477e13d40
+- record_id: S06-07
+  source_code: S06
+  repository: nekuda-ai/webmcp-kit
+  reported_revision: f0298ec9f26af13e477b9141ab4d8f2a6c23426d  # pragma: allowlist secret
+  role: Secondary implementation verification and migration skill
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP6
+  secondary_function_cps: CP7
+  qualification_cp: CP6
+  runtime_note: Migration/implementation procedure must remain bounded; mutation belongs to CP7.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/nekuda-ai/webmcp-kit/commits/f0298ec9f26af13e477b9141ab4d8f2a6c23426d
+- record_id: S06-08
+  source_code: S06
+  repository: signettai/signett
+  reported_revision: cb9be5ff2e9ca669c14e596673355d1ce58d3924  # pragma: allowlist secret
+  role: Secure action idempotency recovery and receipts
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP7
+  secondary_function_cps: CP3
+  qualification_cp: CP6
+  runtime_note: CP3 adopts receipt/recovery/idempotency patterns; consequential actions remain CP7.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/signettai/signett/commits/cb9be5ff2e9ca669c14e596673355d1ce58d3924
+- record_id: S06-09
+  source_code: S06
+  repository: WebMCP-org/npm-packages
+  reported_revision: 1c7a398a77fa54e54b4d3fdd7ed05d19efb067d5  # pragma: allowlist secret
+  role: Runtime polyfill compatibility and bridge reference
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP5
+  secondary_function_cps: —
+  qualification_cp: CP6
+  runtime_note: Polyfill/transport/bridge is a provider runtime concern after qualification.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/WebMCP-org/npm-packages/commits/1c7a398a77fa54e54b4d3fdd7ed05d19efb067d5
+- record_id: S06-10
+  source_code: S06
+  repository: opentiny/webmcp-sdk
+  reported_revision: 47a2b031dfd77db19e18b5e7621976c5885bd924  # pragma: allowlist secret
+  role: Browser fallback and CDP WXT skills
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP5
+  secondary_function_cps: CP7
+  qualification_cp: CP6
+  runtime_note: Isolated/read-only fallback can be CP5; real user-session/WXT effects require CP7 boundary.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/opentiny/webmcp-sdk/commits/47a2b031dfd77db19e18b5e7621976c5885bd924
+- record_id: S06-11
+  source_code: S06
+  repository: nekuda-ai/WindTunnel
+  reported_revision: 5ca8644e23826ebb30108e7bad240b61043bfe67  # pragma: allowlist secret
+  role: Comparative provider evaluation methodology
+  evidence_state: SOURCE_REPORTED
+  independent_revision_verification: PASS_EXACT_COMMIT_EXISTS
+  primary_function_cp: CP8
+  secondary_function_cps: —
+  qualification_cp: CP6
+  runtime_note: Benchmark methodology only; reported benchmark outcomes are not assumed to apply to WOLF15.
+  admission: NOT_ADMITTED
+  runtime_effect: NONE
+  authority_effect: NONE
+  revision_evidence_url: https://api.github.com/repos/nekuda-ai/WindTunnel/commits/5ca8644e23826ebb30108e7bad240b61043bfe67

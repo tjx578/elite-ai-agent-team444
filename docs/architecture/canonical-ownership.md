@@ -2,7 +2,9 @@
 
 ## Authority and status
 
-This is the canonical CURRENT-to-TARGET ownership map for CP0. It aligns the
+This detailed CURRENT-to-TARGET ownership map follows the [root README](../../README.md),
+which owns system direction, checkpoint order and global responsibilities.
+The map records the CP0 architecture and aligns the
 [North Star](super-intelligence-reference-architecture.md) and the supplied
 `WOLF15_SENTIENT_TARGET_SKELETON.md` without creating future packages. Current
 source is the integrated baseline `a53388f60b34372c5c3f43a31d8a5157add54379`
@@ -25,7 +27,7 @@ All package paths below are relative to `src/wolf15_sentient/` unless qualified.
 | --- | --- | --- | --- |
 | HTTP intake and health | `api/app.py`; `main.py` ASGI export | `api/`, future `apps/owner-console/` client | CURRENT deterministic `/tasks`; authenticated service CP3 |
 | Typed boundaries | `contracts/` task, execution, evidence, learning, reasoning, cognition schemas | `contracts/` | CURRENT; add schemas only with the owning subsystem |
-| Authority, gates, transitions and workflow state | `orchestration/workflow.py`, `state.py`, `transitions.py`, `mode_router.py` | `control/` owns policy/lifecycle; `orchestration/` composes work through it | FOUNDATION; one owner today, no physical split in CP0 |
+| Authority, gates, transitions and workflow state | `orchestration/workflow.py`, `state.py`, `transitions.py`, `mode_router.py` | `control/` owns policy and task/workflow lifecycle; `orchestration/` composes work through it | FOUNDATION; one owner today, no physical split in CP0 |
 | Intent routing and reasoning proposals | `reasoning/runtime.py` with labelled stub and trusted offline adapter seam | `sentient/` intent/task_router/planner/synthesis; model gateway | M3-A CURRENT; one real provider CP1/M3-B |
 | Evidence and context assembly | `evidence/context.py`; caller-supplied source content | `evidence/` provenance/claims; `context/` assembly/budget/freshness | M2 CURRENT library; no fetch, repository resolver or workflow wiring |
 | Cognitive telemetry | `cognition/reflex.py`, cognition contracts | `sentient/cognition/` with observability integration | SCRS v0 CURRENT offline/advisory; calibration and mature use CP8 |
@@ -39,6 +41,11 @@ All package paths below are relative to `src/wolf15_sentient/` unless qualified.
 | Personal assistant | Architecture documents only | `owner/`, `personal/`, `intelligence/`, `integrations/` | CP4/M6 TARGET, initially read-only |
 | Owner-controlled execution | Authority and approval design only | `execution/` controlled boundary plus Kernel approval contracts | CP7/M9 TARGET; no current writer/executor |
 | Owner interface | External HTML design reference; no tracked console application | root `apps/owner-console/` | CP4 interface track TARGET; Next.js/TypeScript and SSE |
+
+Provider/capability lifecycle belongs to Fabric under Kernel admission; it does
+not duplicate task/workflow state. The [donor register](../research/donor-adaptation-register-20260929.md)
+is design evidence and cannot change these owners. Role contracts and all 28
+names are maintained in the root README; runtime implementation remains TARGET.
 
 The post-CP0 addendum selects sentient/model_gateway/ as the single
 cognitive-facing gateway owner. Concrete provider implementations belong to
@@ -93,7 +100,7 @@ their own implementation and acceptance evidence.
 >
 > No Responsibility Change Without README Impact Review.
 >
-> README explains local ownership; canonical architecture decides global ownership.
+> Root README decides system/global ownership; architecture expands it; subsystem READMEs explain local ownership.
 
 Every current major subsystem README records: responsibility, public inputs and
 outputs, dependencies and consumers, authority/side-effect limits, verification
