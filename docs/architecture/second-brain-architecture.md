@@ -2,7 +2,8 @@
 
 ## Status and ownership
 
-**M1-B target design.** The repository currently defines `SourceRef`,
+**Target design. Master ownership spans CP2, CP3 and CP4 without defining a
+separate roadmap.** The repository currently defines `SourceRef`,
 `GroundedClaim`, `ContextBundle`, `LearningEpisode`, and related contracts in
 `src/wolf15_sentient/contracts/`. It has no source resolver, durable journal,
 knowledge index, or personal-data store. The Control Kernel owns task state;
@@ -60,7 +61,9 @@ must be decided before any durable store is introduced.
 - If optional memory is unavailable, the Kernel can continue a permitted
   baseline path without pretending that memory was consulted.
 
-M2 acceptance requires a read-only resolver, context assembler, fixed
-freshness/conflict policy, and tests showing that unsupported claims cannot
-be promoted. The [learning plane](learning-capability-adaptation.md) consumes
+CP2 establishes the source/evidence read path: read-only resolver, context
+assembler, fixed freshness/conflict policy, and tests showing unsupported
+claims cannot be promoted. CP3 adds durability/observability; CP4 adds
+owner-scoped personal/media retrieval. These are responsibilities inside the
+Master Roadmap, not new Second Brain checkpoints. The [learning plane](learning-capability-adaptation.md) consumes
 verified episodes later; it is not an alternate source of task authority.
