@@ -8,22 +8,23 @@
 
 ## Status at a glance
 
-**CP0 foundation:** SK-01 governance, M3-A offline reasoning contracts, and
-SCRS advisory observability remain the latest runtime foundation at
-`a53388f60b34372c5c3f43a31d8a5157add54379`. CP0.4 architecture alignment
-merged in PR #15 at `bad73335f518d89356b88cba1cc26730808cd224`; the
-CP0-ADDENDUM-01 `ALG-REG-001` freeze merged in PR #16 at
-`dd5cf74ce47e395cf859a2b5130790129af01e16`. Exact-main CI and CodeQL
-passed on the latter commit. CP0 closure still requires the CP0.5
-exact-resulting-main acceptance receipt after the current architecture
-amendments. See the
+**Master checkpoint status:** CP0 is `CLOSED / PASS` at accepted
+architecture baseline
+`bad73335f518d89356b88cba1cc26730808cd224`. PR #16 at
+`dd5cf74ce47e395cf859a2b5130790129af01e16` is a post-close
+documentation-only donor addendum and does not reopen CP0. **CP1 — Real
+Sentient Reasoning** is the next active implementation checkpoint; CP2–CP9 are
+locked future checkpoints. Current runtime authority remains `READ_ONLY`.
+
+The [Master Roadmap](docs/architecture/roadmap.md) is the only normative
+checkpoint sequence. See also the
 [architecture index](docs/architecture/README.md),
 [Final Target Skeleton](docs/architecture/final-target-skeleton.md),
 [Browser Capability Plane / WebMCP](docs/architecture/webmcp-browser-capability-plane.md),
-[current-to-target ownership map](docs/architecture/canonical-ownership.md),
-and [checkpoint roadmap](docs/architecture/roadmap.md). Real model/provider,
-repository-reader, execution, capability/REE activation and deployment are
-outside this integrated offline foundation.
+and [current-to-target ownership map](docs/architecture/canonical-ownership.md).
+Real model/provider, repository-reader, durable service, Personal JARVIS,
+Capability OS/Foundry, controlled writes, learning/REE and deployment require
+their owning CP acceptance.
 
 The records below preserve earlier implementation milestones and their evidence.
 
@@ -242,21 +243,19 @@ analysis only
 
 There is no direct push to a protected/default branch, autonomous merge, or production mutation. Credentials, project mode, model output, and a readiness label are not authority. See the normative [Authority Model](docs/governance/authority-model.md).
 
-## Delivery roadmap
+## Master roadmap
 
-| Increment | Scope | Evidence required before claiming completion |
-| --- | --- | --- |
-| **PR-0** | Truth alignment, architecture contracts, ADRs, authority model | Documentation matches repository state |
-| **PR-1** | Python/API/contracts/router/state/trace foundation | Focused tests pass; endpoints and schemas are runnable |
-| **PR-2** | Deterministic graph, bounded revision loop, stub roles | Workflow integration tests pass without model variability |
-| **PR-3** | Schema-constrained model adapters | Contract, failure, and evaluation evidence |
-| **PR-4** | Read-only and isolated repository adapters | Policy tests and sandbox evidence; no default-branch authority |
-| **PR-5** | Feature branch and draft PR delivery | Git/GitHub integration evidence and human merge boundary |
-| **PR-6** | Persistence, approval, and resume | Idempotency and replay-resistant approval tests |
-| **PR-7** | Owner Console | UI consumes stable contracts without bypassing policy |
-| **PR-8+** | Additional roles, memory, optimization | Capability-specific security, quality, and performance evidence |
+The former PR-0…PR-8+ delivery table and M0 milestone wording are retired as
+current scheduling authority. They remain historical implementation labels
+only.
 
-PR-1 establishes the local slice of **M0 — Executable Foundation**: a validated task enters, its mode is classified, deterministic state and trace are produced, and local automated tests pass. Full M0 promotion still requires a verified remote CI run. M0 is not the same as a complete agent OS.
+All current and future planning uses exactly:
+
+`CP0 -> CP1 -> CP2 -> CP3 -> CP4 -> CP5 -> CP6 -> CP7 -> CP8 -> CP9`.
+
+See [WOLF15 Sentient Master Roadmap — CP0 to CP9](docs/architecture/roadmap.md)
+for the single authoritative sequence, acceptance gates and legacy-label
+normalization.
 
 ## Target specialist organization
 
