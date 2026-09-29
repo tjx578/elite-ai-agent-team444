@@ -1,0 +1,19 @@
+{
+  "base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+  "scope": "CP1.1 local design artifacts only",
+  "files": {
+    "gateway-contract.md": "56064803f64f99bc68af3defd64742622d43c369635f81a5c959f4c43157d208",
+    "gateway-schema.json": "aec0d32c7a476a09bb514e8bb8e033ddff0911db65e47bc30190fb25860465e7",
+    "persona-guidance.md": "e5d13485663616629ae4f29b5ddd2d91b620291ea28f1a267ee8c98986576fc3",
+    "persona-profile.yaml": "ed5530671719aa5d77f0310feffada7887bad8883f26b2a5049e98750c3a2b93",
+    "acceptance-scenarios.json": "b3fc1537693b85996c1c90b53bd0ff5cbcbe5adb3c42ef86f88e670039e38bcd",
+    "prohibition-matrix.md": "9cbe1c9faf0148f96f042bbdf8a2ddb4cbed708397669367310ea6e31e92df70",
+    "prohibition-matrix-draft.json": "e51f9e12f41aff2feb47ea4f30c73e26d0d98235602feee5562923391dff0c45",
+    "verify_contract_fixtures.py": "e1840e66c7021d7fbb32b7b59fd95eb7a359f9dc2253ad147105d0901389c5cb",
+    "schema-fixture-verification.json": "11d4e324106dbcb816e5c6588eb2c07113b65fa43f06e280fe5a3221e0a7c355",
+    "fixtures/envelope.canonical.json": "d8e1cdc4e98bc4e8dd5a19097a21a0f8bf9cafe5921b2ffdd567e51251205b66",
+    "fixtures/request.canonical.json": "ae5417fac049fdd5bce48ebecfd1a57d6cf62d3e2401cc717cfb3dc01cd06634",
+    "fixtures/response.canonical.json": "f153dbaa038c71802dd78c5dc2e811e2d64a3707067078eddcf7af19c5bdeaaa",
+    "fixtures/manifest.json": "f3e0634e8f51e105c601e4eaa21198645bfa1c64e3bc6bf3c30aefed22b9fd08"
+  }
+}

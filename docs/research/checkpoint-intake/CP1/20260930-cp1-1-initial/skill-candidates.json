@@ -1,0 +1,699 @@
+{
+  "status": "PROPOSED_NOT_ADMITTED",
+  "runtime_activation": false,
+  "candidates": [
+    {
+      "id": "CP1-TYPED-OUTPUT-BOUNDARY",
+      "kind": "RECONSTRUCTED_WORKFLOW_CANDIDATE",
+      "objective": "Review typed output mode, request budget and provider capability compatibility before model request.",
+      "sources": [
+        {
+          "repository_id": 1394496138,
+          "full_name": "tjx578/pydantic-ai-sentient",
+          "commit_sha": "05f2f35ca8af6f1382f06761c6a9a23dbd341728",
+          "blob_sha": "88dfaa340a19a76103bf2ed80923fac21de1f94e",
+          "content_sha256": "3d403c88a3d5d8d4466b2c5c0095c6c4a3dd3abb9b69f2ffc94a577a134c8572",
+          "path": "pydantic_ai_slim/pydantic_ai/output.py",
+          "line_or_span": [
+            129,
+            242
+          ]
+        },
+        {
+          "repository_id": 1394496138,
+          "full_name": "tjx578/pydantic-ai-sentient",
+          "commit_sha": "05f2f35ca8af6f1382f06761c6a9a23dbd341728",
+          "blob_sha": "915d508e9213c50041e85e9e5ca55d2c78da6c8b",
+          "content_sha256": "27c40b471aa18c05e3225058626830116c89a6493956201e0bb5da4d15bf2d18",
+          "path": "pydantic_ai_slim/pydantic_ai/usage.py",
+          "line_or_span": [
+            456,
+            623
+          ]
+        }
+      ],
+      "prerequisites": [
+        "Native contract and authority policy approved",
+        "Independent review before adaptation"
+      ],
+      "input_contract": "Schema version, provider capability declaration, desired output mode, request/token budget, immutable prompt profile",
+      "output_contract": "Compatibility decision and bounded validation receipt, never tool execution",
+      "roles": [
+        "development reviewer"
+      ],
+      "permitted_tools_proposal": [
+        "read-only source/schema inspection"
+      ],
+      "limits": [
+        "No API call",
+        "No installation",
+        "No control state mutation"
+      ],
+      "failure_modes": [
+        "Unsupported schema mode",
+        "Missing usage information",
+        "Budget unknown"
+      ],
+      "dependencies_rights": "MIT declaration observed; no code reuse proposed; dependencies unqualified",
+      "overlap_conflict": "Use contracts as owner, sentient/model_gateway as consumer; do not replace control authority",
+      "fixtures": [
+        "Unsupported strict output rejects",
+        "Budget exhausted prevents request",
+        "Unknown cost remains NOT_MEASURED"
+      ],
+      "evaluation_plan": "Offline contract fixtures plus exact-source review; tests NOT_EXECUTED",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "CP1-PROVIDER-PROFILE-BOUNDARY",
+      "kind": "RECONSTRUCTED_WORKFLOW_CANDIDATE",
+      "objective": "Review provider errors, prompt provenance and measured-versus-estimated usage separation.",
+      "sources": [
+        {
+          "repository_id": 1365880169,
+          "full_name": "tjx578/OpenJarvis-sentient",
+          "commit_sha": "fbbdb23c86627c18b859369b19746a9245f1ce0b",
+          "blob_sha": "db57eb44f1c47534bdc7414be9f7a809d5f834d6",
+          "content_sha256": "f8771c8c7defb8eb06b979d621edae364dd1a1d44736ed782a9ff3532c594b96",
+          "path": "src/openjarvis/engine/_openai_compat.py",
+          "line_or_span": [
+            41,
+            172
+          ]
+        },
+        {
+          "repository_id": 1365880169,
+          "full_name": "tjx578/OpenJarvis-sentient",
+          "commit_sha": "fbbdb23c86627c18b859369b19746a9245f1ce0b",
+          "blob_sha": "f92c88fc15bd0fc32436582ca9773344aa86652d",
+          "content_sha256": "58c315a92093d683128c8cb7785c308295827cf8dd7ca077d1ffc1acab336d3b",
+          "path": "src/openjarvis/agents/prompt_loader.py",
+          "line_or_span": [
+            1,
+            84
+          ]
+        }
+      ],
+      "prerequisites": [
+        "Versioned native prompt profile",
+        "Explicit provider credential and endpoint policy"
+      ],
+      "input_contract": "Pinned prompt profile, sanitized provider outcome, usage provenance",
+      "output_contract": "Validated model outcome or typed rejection with redacted metadata",
+      "roles": [
+        "development reviewer"
+      ],
+      "permitted_tools_proposal": [
+        "read-only source and fixture review"
+      ],
+      "limits": [
+        "No arbitrary prompt path reads",
+        "No raw error-body logging",
+        "No retry that changes request semantics"
+      ],
+      "failure_modes": [
+        "Profile drift",
+        "Missing usage normalized to zero",
+        "Implicit tool downgrade"
+      ],
+      "dependencies_rights": "Apache-2.0 declaration observed; NOTICE/transitive audit pending for reuse",
+      "overlap_conflict": "Cognitive gateway in sentient/model_gateway; provider mapping in models/providers; control retains authority",
+      "fixtures": [
+        "Missing credentials rejected where mandatory",
+        "Missing usage preserved unknown",
+        "Unsupported tool/schema does not silently retry downgraded request"
+      ],
+      "evaluation_plan": "Native offline boundary tests; package/skill qualification deferred CP6",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "litellm-gateway-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_identity": {
+        "repository_id": 1394593240,
+        "full_name": "tjx578/litellm_sentient",
+        "commit_sha": "85dc7cb62efa52794982af90164eb19a41140b80",
+        "tree_sha": "238ae6ba0da2e011449125585e95d752ee4361bd"
+      },
+      "source_refs": [
+        {
+          "blob_sha": "3bfef5bae9b48c334acf426d5b7f21bc1913aab9",
+          "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\LICENSE",
+          "path": "LICENSE",
+          "bytes": 1419,
+          "read_spans": "1-27",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/LICENSE"
+        },
+        {
+          "blob_sha": "fb21d8fa23b55b85ce44524a6903d0c358520c01",
+          "sha256": "4c34d6d5819ceddde9428b1c0c9fce3bd8eab420e9eac5bc51080fe6677203a9",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\pyproject.toml",
+          "path": "pyproject.toml",
+          "bytes": 15208,
+          "read_spans": "1-110",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/pyproject.toml"
+        },
+        {
+          "blob_sha": "98c5343daee1991d34fff026beb66d97e1507fcf",
+          "sha256": "342a089295fe430087082c25afc974ebdf95e4fc5e6ab05024377e465d03ebac",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\README.md",
+          "path": "README.md",
+          "bytes": 36245,
+          "read_spans": "RETRIEVED_NOT_FULLY_STUDIED",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/README.md"
+        },
+        {
+          "blob_sha": "3bae8a95ef66891eecc671409a4d2f10be7ba799",
+          "sha256": "d4a4b46afc48d97c2bde978b04d348b4ce2fb039af009f565178d85fba71aa64",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/exceptions.py",
+          "path": "litellm/exceptions.py",
+          "bytes": 47444,
+          "read_spans": "132-170;356;442;535;998 (class declarations indexed)",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/exceptions.py"
+        },
+        {
+          "blob_sha": "dcb5a7cc183afc91717169a31d6442fa8d5aaeb7",
+          "sha256": "44b772cc89369f40ff08c1cfbbbb0a42057becc439b9cd9d14f1c0cda6c97d13",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/budget_manager.py",
+          "path": "litellm/budget_manager.py",
+          "bytes": 8536,
+          "read_spans": "26-170 (declarations indexed);50-71 full",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/budget_manager.py"
+        },
+        {
+          "blob_sha": "64252cbbfb395c311b5e518be496cc3bab0e9ccb",
+          "sha256": "b99cd5def157a3bcc5b4d4c9467633f18577dd206f30be833ac9a60db51440e6",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/router_strategy/budget_limiter.py",
+          "path": "litellm/router_strategy/budget_limiter.py",
+          "bytes": 41513,
+          "read_spans": "493-533 full; cache/budget declarations indexed",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/router_strategy/budget_limiter.py"
+        },
+        {
+          "blob_sha": "62de1586fddc77146553e02be7f2f870105f9c2f",
+          "sha256": "05b971a5e902b026871c5923e32c7169dff298cc5e36a4fb213b02daba24730c",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\tests/unit/router_strategy/test_budget_limiter.py",
+          "path": "tests/unit/router_strategy/test_budget_limiter.py",
+          "bytes": 4597,
+          "read_spans": "1-136",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/tests/unit/router_strategy/test_budget_limiter.py"
+        },
+        {
+          "blob_sha": "5b52496fc1c4ac19d4de807abf60689f5c89293a",
+          "sha256": "382870139baf64a53d9fb53ea3edc9a4b951cdf480e8e3a0278079e4aca98fa2",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\tests/unit/test_router_exception_redaction.py",
+          "path": "tests/unit/test_router_exception_redaction.py",
+          "bytes": 18335,
+          "read_spans": "1-35;119-150;remaining test names indexed",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/tests/unit/test_router_exception_redaction.py"
+        }
+      ],
+      "objective": "Inform native CP1.1 contract acceptance; do not reuse donor runtime",
+      "prerequisites": [
+        "Reviewed native CP1 scope",
+        "Independent design review"
+      ],
+      "input_contract": "Pinned provider identity, model profile, budget/context measurements and source receipt",
+      "output_contract": "Explicit error/usage status and proposed bounded acceptance scenarios",
+      "applicable_roles": [
+        "developer",
+        "reviewer"
+      ],
+      "permitted_tools": [],
+      "limits": [
+        "No donor install or execution",
+        "No workflow/runtime authority",
+        "Unknown metrics remain NOT_MEASURED"
+      ],
+      "failure_modes": [
+        "Missing model profile",
+        "Missing cost",
+        "Raw provider error leaks",
+        "Implicit tool grants"
+      ],
+      "dependencies_rights": "LICENSE_TEXT_INSPECTED; code/package admission NOT_EXECUTED",
+      "overlap_conflict": "Native Sentient contracts owns schema; sentient/model_gateway owns policy; models/providers owns adapter; control retains authority",
+      "task_fixtures": [
+        "Unknown cost",
+        "Missing context profile",
+        "Credential-shaped error",
+        "Empty tools list"
+      ],
+      "evaluation_plan": "Native deterministic contract/negative tests; donor tests not executed",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "deepagents-gateway-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_identity": {
+        "repository_id": 1394595604,
+        "full_name": "tjx578/deepagents_sentitent",
+        "commit_sha": "3175d231f192db63cbb432c6ca133d9486dc59ba",
+        "tree_sha": "ddbb14339b0f6a655e93fdcf4c27d4a6ef026ad0"
+      },
+      "source_refs": [
+        {
+          "blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+          "sha256": "4ec67e4ca6e6721dba849b2ca82261597c86a61ee214bbf21416006b7b2d0478",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\LICENSE",
+          "path": "LICENSE",
+          "bytes": 1067,
+          "read_spans": "1-21",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/LICENSE"
+        },
+        {
+          "blob_sha": "ad65ec0377ae9c7f985e9376ad881ff80805c22f",
+          "sha256": "a0e4bd7d499ff7816826c0bd5590c281efae7c9e79aea61fea535382793a215d",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/pyproject.toml",
+          "path": "libs/deepagents/pyproject.toml",
+          "bytes": 6427,
+          "read_spans": "1-80",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/pyproject.toml"
+        },
+        {
+          "blob_sha": "9a0b4725d340bca9f31bed8b42e5f98d07f28ecf",
+          "sha256": "569c79f865abd0d677a71e83ba5c3b971318146a4421e3851a0e25ee2d3b1146",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\README.md",
+          "path": "README.md",
+          "bytes": 6984,
+          "read_spans": "RETRIEVED_NOT_FULLY_STUDIED",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/README.md"
+        },
+        {
+          "blob_sha": "5d21d3b1b951bcaef395606bc16691392f46ef87",
+          "sha256": "c8f6784ca9bc12d339526667c6898608c326b8121ccd39036fab125491840715",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/deepagents/graph.py",
+          "path": "libs/deepagents/deepagents/graph.py",
+          "bytes": 47876,
+          "read_spans": "243-370",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/deepagents/graph.py"
+        },
+        {
+          "blob_sha": "7fe9e09f6704bca9a2c816a41241107cb55fec12",
+          "sha256": "8741655f9da6be6714026d4ceb6a37903127ec0b5429f083f001d7c53374f53d",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/deepagents/middleware/summarization.py",
+          "path": "libs/deepagents/deepagents/middleware/summarization.py",
+          "bytes": 97431,
+          "read_spans": "151-300",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/deepagents/middleware/summarization.py"
+        },
+        {
+          "blob_sha": "fa8e351a076415397e6cdb2f5be95c6e94967fa5",
+          "sha256": "a9205ed25163a68af28eb5a8e1e0e451c017ef965fe800c8463112b507f676e7",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py",
+          "path": "libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py",
+          "bytes": 4197,
+          "read_spans": "1-97",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py"
+        }
+      ],
+      "objective": "Inform native CP1.1 contract acceptance; do not reuse donor runtime",
+      "prerequisites": [
+        "Reviewed native CP1 scope",
+        "Independent design review"
+      ],
+      "input_contract": "Pinned provider identity, model profile, budget/context measurements and source receipt",
+      "output_contract": "Explicit error/usage status and proposed bounded acceptance scenarios",
+      "applicable_roles": [
+        "developer",
+        "reviewer"
+      ],
+      "permitted_tools": [],
+      "limits": [
+        "No donor install or execution",
+        "No workflow/runtime authority",
+        "Unknown metrics remain NOT_MEASURED"
+      ],
+      "failure_modes": [
+        "Missing model profile",
+        "Missing cost",
+        "Raw provider error leaks",
+        "Implicit tool grants"
+      ],
+      "dependencies_rights": "LICENSE_TEXT_INSPECTED; code/package admission NOT_EXECUTED",
+      "overlap_conflict": "Native Sentient contracts owns schema; sentient/model_gateway owns policy; models/providers owns adapter; control retains authority",
+      "task_fixtures": [
+        "Unknown cost",
+        "Missing context profile",
+        "Credential-shaped error",
+        "Empty tools list"
+      ],
+      "evaluation_plan": "Native deterministic contract/negative tests; donor tests not executed",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "ruflo-native-provider-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_mode": "LOCAL_OWNER_DIRECTED_SOURCE",
+      "revision": "f547cec013041a59b2f18921f5c861bf3d525825",
+      "source_refs": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "5c4718198a4156beacc780980077043a98b0dd6a",
+          "bytes": 1068,
+          "sha256": "a45ba66fa502c49ad108440536d8aa91dfe9c04575a32a01287839bee336199c",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\LICENSE",
+          "read_spans": "1-21",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:LICENSE"
+        },
+        {
+          "path": "package.json",
+          "blob_sha": "d13abba45b7cf2a5125586b2d46e385bbf636d2c",
+          "bytes": 3613,
+          "sha256": "8ababf41a06c7b558febc33fb9668606591ce07aa2e666bf239112590c8fb54c",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\package.json",
+          "read_spans": "1-100",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:package.json"
+        },
+        {
+          "path": "v3/@claude-flow/providers/package.json",
+          "blob_sha": "03a4d4a45160f0e847a2c30162debd00d26c78be",
+          "bytes": 1471,
+          "sha256": "deb1ef8ab556c47aaba4441d0f1d6f48bea65d3b364e12a974324ebf03d36026",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\package.json",
+          "read_spans": "1-77",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/package.json"
+        },
+        {
+          "path": "v3/@claude-flow/providers/README.md",
+          "blob_sha": "863353e9bafa8e77a3558e955207b9842a6eb597",
+          "bytes": 13152,
+          "sha256": "dcd0a3226710024802d11e80c82d8459ca5458e62196f57471ff7ad9bb70a9a8",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\README.md",
+          "read_spans": "heading/feature inventory only",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/README.md"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/types.ts",
+          "blob_sha": "f9d23d25e1ba3c26da2fde7c58fcf3f16b5e5c09",
+          "bytes": 9738,
+          "sha256": "cca3631a76f84478aa43942de4895faeb548caa9c047606d03fb501bee82f658",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\types.ts",
+          "read_spans": "1-439",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/types.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/base-provider.ts",
+          "blob_sha": "68cf4c1c76fcb5523437281ebffdbb8604b46296",
+          "bytes": 14812,
+          "sha256": "c7a450ed61055faea610b86ac9dd76a0db69f6f56b0c1101367ac1ade2e010c4",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\base-provider.ts",
+          "read_spans": "166-240;385-426",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/base-provider.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/provider-manager.ts",
+          "blob_sha": "506185afa6c6318c57bba2ead05628e036ee5be0",
+          "bytes": 14221,
+          "sha256": "4528ba63f88c0ecd85a627afeb2645b30b237006c6e815c0f688d2c1cdb64e92",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\provider-manager.ts",
+          "read_spans": "151-290",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/provider-manager.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/openai-provider.ts",
+          "blob_sha": "b3e1de1a52c02be155e39f9dc49badb23e9ee88f",
+          "bytes": 14373,
+          "sha256": "824b92833ee3144fab39fa16225715f20a3251def61c2471ae42da9f5f995b9b",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\openai-provider.ts",
+          "read_spans": "191-280",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/openai-provider.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/__tests__/provider-integration.test.ts",
+          "blob_sha": "b2b3c6c38fc92d5df9afab90ac1fb079f0ac6868",
+          "bytes": 12594,
+          "sha256": "45f101d92d29b252914eb8f627ae94f90add4e050cffec0e0b003eb4121d5e16",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\__tests__\\provider-integration.test.ts",
+          "read_spans": "1-76;test-name/logging index",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/__tests__/provider-integration.test.ts"
+        }
+      ],
+      "objective": "Native CP1.1 provider request/response, error and measurement contract design",
+      "prerequisites": [
+        "Owner-local source instruction",
+        "Pinned Git object evidence",
+        "Native authority boundary and independent review"
+      ],
+      "input_contract": "Explicit provider/model/config and request with schema_version, provenance, evidence references and budget",
+      "output_contract": "Validated response or typed sanitized failure; usage/cost carries measured/estimated/unknown state",
+      "applicable_roles": [
+        "architect",
+        "developer",
+        "reviewer"
+      ],
+      "permitted_tools": [],
+      "limits": [
+        "No package copying/install/execution",
+        "No routing/fallback or memory activation",
+        "No ALG-REG-001 mutation"
+      ],
+      "failure_modes": [
+        "Missing pricing treated as zero",
+        "Fixed confidence treated as calibrated",
+        "Raw request exposed through error event",
+        "Unavailable provider selected",
+        "Shallow response guard accepts malformed data"
+      ],
+      "dependencies_rights": "MIT text; Node>=20/events/optionalruvllm; full dependency qualification NOT_EXECUTED",
+      "overlap_conflict": "contracts owns schema; models/providers adapts provider; sentient/model_gateway owns cognitive policy; control owns authority",
+      "task_fixtures": [
+        "Malformed usage types",
+        "Unknown price",
+        "Estimated streaming tokens",
+        "All providers unavailable",
+        "Secret-shaped request on failure"
+      ],
+      "evaluation_plan": "Native contract negative tests plus source-bound independent review before adaptation",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "transformers-native-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_binding": {
+        "full_name": "tjx578/transformers-sentient",
+        "repository_id": 1365875233,
+        "commit_sha": "6b07e4510e3f9667f5256656118515bcde306fc4",
+        "tree_sha": "892f4f7bd3ef24d013a0153ac08f699086c5cb01"
+      },
+      "source_refs": [
+        {
+          "path": "LICENSE",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\LICENSE",
+          "blob_sha": "68b7d66c97d66c58de883ed0c451af2b3183e6f3",
+          "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+          "bytes": 11418,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/LICENSE",
+          "reviewed_spans": [
+            [
+              1,
+              5
+            ]
+          ]
+        },
+        {
+          "path": "src/transformers/generation/configuration_utils.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\generation\\configuration_utils.py",
+          "blob_sha": "51fecca1a944d77bcc9c37b8525c1f147051e8b6",
+          "sha256": "605b86a07d08dc6e3ba932e8a90b8afca867eaa29881625b04869c4a1f1f23f8",
+          "bytes": 101809,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/generation/configuration_utils.py",
+          "reviewed_spans": [
+            [
+              133,
+              155
+            ],
+            [
+              289,
+              297
+            ],
+            [
+              647,
+              710
+            ],
+            [
+              821,
+              845
+            ]
+          ]
+        },
+        {
+          "path": "src/transformers/generation/stopping_criteria.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\generation\\stopping_criteria.py",
+          "blob_sha": "502911655ffedc3f921cf55a9fa392664c2240e8",
+          "sha256": "7e4ce5eeee83eab48a63a5419cd68be6f0591201fe7f9248dda77a7c3045bd7e",
+          "bytes": 34379,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/generation/stopping_criteria.py",
+          "reviewed_spans": [
+            [
+              22,
+              42
+            ],
+            [
+              93,
+              115
+            ],
+            [
+              618,
+              642
+            ]
+          ]
+        },
+        {
+          "path": "src/transformers/modeling_outputs.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\modeling_outputs.py",
+          "blob_sha": "b0c4d41639dbd0555fd2b39628ef81c2bfd0ba6d",
+          "sha256": "fef3993ec5b06b4aa488c50472fa0fe4013fb84e34a10595533a251afd6914c0",
+          "bytes": 105688,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/modeling_outputs.py",
+          "reviewed_spans": [
+            [
+              659,
+              683
+            ]
+          ]
+        }
+      ],
+      "objective": "Inform native CP1 envelope and future backend boundary",
+      "input_contract": "Exact revision and bounded source receipt",
+      "output_contract": "Design constraints and acceptance proposals, no actions",
+      "prerequisites": [
+        "Native contract review",
+        "Separate model/package rights and qualification before reuse"
+      ],
+      "permitted_tools": [],
+      "failure_modes": [
+        "Cooperative stop promoted to enforced timeout",
+        "Missing fingerprint promoted to provenance PASS",
+        "Scores promoted to truth"
+      ],
+      "evaluation_plan": "Offline contract fixtures now; provider/runtime evidence separately",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "tensorflow-native-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_binding": {
+        "full_name": "tjx578/tensorflow_sentient",
+        "repository_id": 1365873814,
+        "commit_sha": "08f0dca20e2b3de96fac23d679f1d3945255ec44",
+        "tree_sha": "4cb45aab9d73a148fe0176f775a4cc90ffbe23e1"
+      },
+      "source_refs": [
+        {
+          "path": "LICENSE",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\LICENSE",
+          "blob_sha": "12d255f8e0f049d3c3127e71788e219b86cdf55b",
+          "sha256": "71c6915d04265772a0339bed47276942c678b45cc01534210ebe6984fd1aec65",
+          "bytes": 13575,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/LICENSE",
+          "reviewed_spans": [
+            [
+              1,
+              5
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/saved_model/signature_constants.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\signature_constants.py",
+          "blob_sha": "e1ae9917958c1cad35c46e68d418d1a025ed0fd4",
+          "sha256": "24168b070ebef4a43d0eabf21931c6737d5680069972bbf9ca006c0589b16a12",
+          "bytes": 4967,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/signature_constants.py",
+          "reviewed_spans": [
+            [
+              21,
+              31
+            ],
+            [
+              63,
+              70
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/saved_model/load.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\load.py",
+          "blob_sha": "aa4f18e8353ca573e2a396aaaa0b7c265f4df904",
+          "sha256": "789ec3e587955e19a88d30fb220b09787969afb7f5837bf01efcb2351bcb9bd0",
+          "bytes": 50120,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/load.py",
+          "reviewed_spans": [
+            [
+              821,
+              873
+            ],
+            [
+              893,
+              913
+            ],
+            [
+              1010,
+              1055
+            ],
+            [
+              1078,
+              1103
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/saved_model/save_options.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\save_options.py",
+          "blob_sha": "5c947131039d8b2f48b6ce6ee90a8c3168cc1b84",
+          "sha256": "72af9ad4d632e362b30fc94f91e4531374ac44d84303e2ff4b6d0223f2b1f3d2",
+          "bytes": 10885,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/save_options.py",
+          "reviewed_spans": [
+            [
+              130,
+              155
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/types/core.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\types\\core.py",
+          "blob_sha": "ddad3bedb94724ea5b3efa5b9ae0308dd9e7f64d",
+          "sha256": "4e73898ac8d19e8f44c8f7e7bb15a89f7d9a55d10602dc639398642b129d17a8",
+          "bytes": 14626,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/types/core.py",
+          "reviewed_spans": [
+            [
+              1,
+              40
+            ],
+            [
+              150,
+              208
+            ]
+          ]
+        }
+      ],
+      "objective": "Inform native CP1 envelope and future backend boundary",
+      "input_contract": "Exact revision and bounded source receipt",
+      "output_contract": "Design constraints and acceptance proposals, no actions",
+      "prerequisites": [
+        "Native contract review",
+        "Separate model/package rights and qualification before reuse"
+      ],
+      "permitted_tools": [],
+      "failure_modes": [
+        "Cooperative stop promoted to enforced timeout",
+        "Missing fingerprint promoted to provenance PASS",
+        "Scores promoted to truth"
+      ],
+      "evaluation_plan": "Offline contract fixtures now; provider/runtime evidence separately",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    }
+  ]
+}

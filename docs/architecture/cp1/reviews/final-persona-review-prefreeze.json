@@ -1,0 +1,56 @@
+{
+  "review_id": "CP11-PREFREEZE-PERSONA-DESIGN-REVIEW",
+  "reviewer": "cp11_persona_reconcile",
+  "reviewed_at": "2026-09-29T19:04:43.883967+00:00",
+  "verdict": "PASS",
+  "evidence_class": "EXACT_ARTIFACT_LOCAL_DESIGN_REVIEW",
+  "base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+  "review_manifest_sha256": "8acdbab752841e971edc73dac55f7ed7995043c5bca7f57afa49418e8db0cae3",
+  "review_manifest_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\cp11-review-manifest.json",
+  "integrity": {
+    "file_count": 13,
+    "all_manifest_hashes_match": true,
+    "file_hashes": {
+      "gateway-contract.md": "56064803f64f99bc68af3defd64742622d43c369635f81a5c959f4c43157d208",
+      "gateway-schema.json": "aec0d32c7a476a09bb514e8bb8e033ddff0911db65e47bc30190fb25860465e7",
+      "persona-guidance.md": "e5d13485663616629ae4f29b5ddd2d91b620291ea28f1a267ee8c98986576fc3",
+      "persona-profile.yaml": "ed5530671719aa5d77f0310feffada7887bad8883f26b2a5049e98750c3a2b93",
+      "acceptance-scenarios.json": "b3fc1537693b85996c1c90b53bd0ff5cbcbe5adb3c42ef86f88e670039e38bcd",
+      "prohibition-matrix.md": "9cbe1c9faf0148f96f042bbdf8a2ddb4cbed708397669367310ea6e31e92df70",
+      "prohibition-matrix-draft.json": "e51f9e12f41aff2feb47ea4f30c73e26d0d98235602feee5562923391dff0c45",
+      "verify_contract_fixtures.py": "e1840e66c7021d7fbb32b7b59fd95eb7a359f9dc2253ad147105d0901389c5cb",
+      "schema-fixture-verification.json": "11d4e324106dbcb816e5c6588eb2c07113b65fa43f06e280fe5a3221e0a7c355",
+      "fixtures/envelope.canonical.json": "d8e1cdc4e98bc4e8dd5a19097a21a0f8bf9cafe5921b2ffdd567e51251205b66",
+      "fixtures/request.canonical.json": "ae5417fac049fdd5bce48ebecfd1a57d6cf62d3e2401cc717cfb3dc01cd06634",
+      "fixtures/response.canonical.json": "f153dbaa038c71802dd78c5dc2e811e2d64a3707067078eddcf7af19c5bdeaaa",
+      "fixtures/manifest.json": "f3e0634e8f51e105c601e4eaa21198645bfa1c64e3bc6bf3c30aefed22b9fd08"
+    }
+  },
+  "semantic_scope": {
+    "persona-guidance.md": "e5d13485663616629ae4f29b5ddd2d91b620291ea28f1a267ee8c98986576fc3",
+    "persona-profile.yaml": "ed5530671719aa5d77f0310feffada7887bad8883f26b2a5049e98750c3a2b93",
+    "acceptance-scenarios.json": "b3fc1537693b85996c1c90b53bd0ff5cbcbe5adb3c42ef86f88e670039e38bcd",
+    "gateway-contract.md": "56064803f64f99bc68af3defd64742622d43c369635f81a5c959f4c43157d208"
+  },
+  "prior_receipt": {
+    "path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\final-persona-review.json",
+    "sha256": "d7de705a9e92b3cbbfe717164763f81a9bc9e45ba54f497a5981dc59c3ded307",
+    "preserved": true
+  },
+  "verification": {
+    "guidance_bytes_unchanged": true,
+    "profile_only_lifecycle_status_changed": "Verified by reconstructing prior status and matching prior exact profile hash",
+    "scenario_count": 30,
+    "all_scenario_model_tests": "NOT_EXECUTED",
+    "scenario_semantics": "Re-read all 30 observable acceptance rows and checkpoint mappings; consistent with prior persona design review. No model/runtime PASS promotion.",
+    "lifecycle": "Gateway and acceptance definitions refer to cp1.1-freeze-receipt.json as lifecycle owner; profile status defers to receipt. No contradictory frozen=false remains in acceptance.",
+    "cp11_boundary": "Concrete provider CP1.2 and real-provider acceptance CP1.6 remain later gates, not CP1.1 design freeze blockers."
+  },
+  "findings": [],
+  "scope_exclusions": [
+    "No full schema/validator semantic re-review; all13 files received integrity check only.",
+    "No model calls, runtime tests, CI, freeze execution or repo mutation."
+  ],
+  "freeze_executed_by_reviewer": false,
+  "runtime_activation": false
+}

@@ -1,0 +1,1611 @@
+{
+  "status": "DESIGN_COVERAGE_COMPLETE",
+  "base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+  "scope": "Read-only reconciliation; matrix is a proposal, not runtime qualification",
+  "accounting": {
+    "global_rules": 38,
+    "index_rules": 14,
+    "selected_cp1_reject_items": 6,
+    "total": 58,
+    "source_rows_exact_match": 58,
+    "missing_inventory_rows": 0
+  },
+  "source_bindings": {
+    "docs/research/algorithm-donors/anti-pattern-registry.md": "186d6ae66ecc25e6bc924366f6d277c7ee8c337d8dbc0f24c7e7158876e58479",
+    "docs/research/algorithm-donors/anti-patterns.md": "4d6b7be2701d0d78a9ad4fd12cbe862779be045ad8406fe3d7107bf9770eb804",
+    "docs/research/algorithm-donors/adoption-registry.yaml": "e826e19bf1875ce0cd5e03637da62f3841a9fc5b814a828b619a0d847c4cb5dd",
+    "docs/architecture/cp1/gateway-contract.md": "56064803f64f99bc68af3defd64742622d43c369635f81a5c959f4c43157d208"
+  },
+  "status_counts": {
+    "PASS": 52,
+    "NOT_APPLICABLE": 6
+  },
+  "additional_scope_requirements": [
+    "No tool invocation, repository mutation or persistent memory writes",
+    "No automatic fallback or model/provider switching",
+    "No secrets in envelopes, fixtures or receipts; no placeholder credential fallback",
+    "No deploy, capability activation, REE activation or authority change"
+  ],
+  "freeze_blockers": [],
+  "rows": [
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No missing evidence → `PASS`, `STABLE`, `HEALTHY`, `NEUTRAL`, or synthetic score.",
+      "source_line": 7,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 1",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No missing evidence → `PASS`, `STABLE`, `HEALTHY`, `NEUTRAL`, or synthetic score.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No random/synthetic metrics presented as measured runtime evidence.",
+      "source_line": 8,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 2",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No random/synthetic metrics presented as measured runtime evidence.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No placeholder `True` counted as passed verification.",
+      "source_line": 9,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 3",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No placeholder `True` counted as passed verification.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No score called probability/confidence without calibration evidence.",
+      "source_line": 10,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 4",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No score called probability/confidence without calibration evidence.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No graph size, node count, or relationship count used as confidence.",
+      "source_line": 11,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 5",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No graph size, node count, or relationship count used as confidence.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No first-source-wins / latest-wins conflict erasure.",
+      "source_line": 12,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 6",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No first-source-wins / latest-wins conflict erasure.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No majority vote treated as factual truth.",
+      "source_line": 13,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 7",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No majority vote treated as factual truth.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No latency treated as semantic truth weight.",
+      "source_line": 14,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 8",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No latency treated as semantic truth weight.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No cognitive/model/meta score may raise authority.",
+      "source_line": 18,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 9",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No cognitive/model/meta score may raise authority.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No model prompt is a sole policy enforcement mechanism.",
+      "source_line": 19,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 10",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No model prompt is a sole policy enforcement mechanism.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No critical gate failure may be overridden by total score.",
+      "source_line": 20,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 11",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No critical gate failure may be overridden by total score.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No mandatory gate failure may produce `EXECUTE_REDUCED` or equivalent side effect.",
+      "source_line": 21,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 12",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No mandatory gate failure may produce `EXECUTE_REDUCED` or equivalent side effect.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No tool/skill/provider registry owns execution authority.",
+      "source_line": 22,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 13",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No tool/skill/provider registry owns execution authority.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No donor code may self-activate or self-promote.",
+      "source_line": 23,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 14",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No donor code may self-activate or self-promote.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No remote source `fetch → import → execute`.",
+      "source_line": 27,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 15",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No remote source `fetch → import → execute`.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No mutable branch (`main`, `latest`, tag without immutable digest) as runtime identity.",
+      "source_line": 28,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 16",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No mutable branch (`main`, `latest`, tag without immutable digest) as runtime identity.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No unpinned hot reload during a run.",
+      "source_line": 29,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 17",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No unpinned hot reload during a run.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No arbitrary Python callable in a declarative reasoning plan.",
+      "source_line": 30,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 18",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No arbitrary Python callable in a declarative reasoning plan.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No raw tool payload logging when secrets/private data may be present.",
+      "source_line": 31,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 19",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No raw tool payload logging when secrets/private data may be present.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No placeholder secret fallback.",
+      "source_line": 32,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 20",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No placeholder secret fallback.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No process-health response treated as readiness without dependency checks.",
+      "source_line": 33,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 21",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No process-health response treated as readiness without dependency checks.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No direct `update_weights()` / model mutation from a live task.",
+      "source_line": 37,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 22",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No direct `update_weights()` / model mutation from a live task.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No online feedback loop may change active policy/profile silently.",
+      "source_line": 38,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 23",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No online feedback loop may change active policy/profile silently.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No episode/analysis log may be called learning without outcome/evaluation.",
+      "source_line": 39,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 24",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No episode/analysis log may be called learning without outcome/evaluation.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No adaptive change without baseline, replay/held-out evaluation, shadow, rollback, and approval.",
+      "source_line": 40,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 25",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No adaptive change without baseline, replay/held-out evaluation, shadow, rollback, and approval.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No single observation = perfect alignment.",
+      "source_line": 44,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 26",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No single observation = perfect alignment.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No duplicate observation narrowing uncertainty twice.",
+      "source_line": 45,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 27",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No duplicate observation narrowing uncertainty twice.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No unbounded graph path enumeration on large graphs.",
+      "source_line": 46,
+      "APPLICABILITY": "NOT_APPLICABLE",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Scope exclusion; later implementation requires concrete test/static review.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 28",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "NOT_APPLICABLE",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No unbounded graph path enumeration on large graphs.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "future_implementation_evidence": "NOT_EXECUTED",
+      "prior_design_review": "NOT_APPLICABLE",
+      "design_status": "NOT_APPLICABLE",
+      "design_gap": false
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No async worker using blocking `time.sleep()`.",
+      "source_line": 47,
+      "APPLICABILITY": "NOT_APPLICABLE",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Scope exclusion; later implementation requires concrete test/static review.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 29",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "NOT_APPLICABLE",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No async worker using blocking `time.sleep()`.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "future_implementation_evidence": "NOT_EXECUTED",
+      "prior_design_review": "NOT_APPLICABLE",
+      "design_status": "NOT_APPLICABLE",
+      "design_gap": false
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- No pseudo-JSON append format; use JSONL or durable storage.",
+      "source_line": 48,
+      "APPLICABILITY": "NOT_APPLICABLE",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Scope exclusion; later implementation requires concrete test/static review.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 30",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "NOT_APPLICABLE",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- No pseudo-JSON append format; use JSONL or durable storage.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "future_implementation_evidence": "NOT_EXECUTED",
+      "prior_design_review": "NOT_APPLICABLE",
+      "design_status": "NOT_APPLICABLE",
+      "design_gap": false
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- trading entry/exit rules;",
+      "source_line": 54,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 31",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- trading entry/exit rules;",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- lot sizing;",
+      "source_line": 55,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 32",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- lot sizing;",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- SL/TP algorithms;",
+      "source_line": 56,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 33",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- SL/TP algorithms;",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- prop-firm logic;",
+      "source_line": 57,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 34",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- prop-firm logic;",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- market-specific CONF12/TII/WLWCI/TRQ/EAF/FRPC formulas;",
+      "source_line": 58,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 35",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- market-specific CONF12/TII/WLWCI/TRQ/EAF/FRPC formulas;",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- BUY/SELL/NO_TRADE logic;",
+      "source_line": 59,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 36",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- BUY/SELL/NO_TRADE logic;",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- owner psychology/FOMO/revenge diagnosis as a core cognition mechanism;",
+      "source_line": 60,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 37",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- owner psychology/FOMO/revenge diagnosis as a core cognition mechanism;",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-pattern-registry.md",
+      "PROHIBITION_ID_OR_RULE": "- broker/runtime execution authority.",
+      "source_line": 61,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 38",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "- broker/runtime execution authority.",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| DOMAIN-01 | BUY/SELL, lot sizing, SL/TP and prop-firm logic | Keep domain ownership outside Sentient |",
+      "source_line": 9,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 39",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| DOMAIN-01 | BUY/SELL, lot sizing, SL/TP and prop-firm logic | Keep domain ownership outside Sentient |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| DOMAIN-02 | Market-specific TII, TWMS thresholds and VIX trade recommendations | Specify and evaluate task-domain metrics separately |",
+      "source_line": 10,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 40",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| DOMAIN-02 | Market-specific TII, TWMS thresholds and VIX trade recommendations | Specify and evaluate task-domain metrics separately |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| DOMAIN-03 | Owner psychology scoring and FOMO/revenge diagnosis | Use observable system failures, not psychological inference |",
+      "source_line": 11,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 41",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| DOMAIN-03 | Owner psychology scoring and FOMO/revenge diagnosis | Use observable system failures, not psychological inference |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| EVIDENCE-01 | Synthetic coherence, random integrity and hard-coded 0.95 confidence | Require measured evidence and independent calibration |",
+      "source_line": 12,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 42",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| EVIDENCE-01 | Synthetic coherence, random integrity and hard-coded 0.95 confidence | Require measured evidence and independent calibration |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| EVIDENCE-02 | Missing input becomes zero or default healthy | Preserve NOT_MEASURED, coverage and unknown/HOLD |",
+      "source_line": 13,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 43",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| EVIDENCE-02 | Missing input becomes zero or default healthy | Preserve NOT_MEASURED, coverage and unknown/HOLD |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| AUTHORITY-01 | Remote Python execution from donor acquisition | Separate retrieval, isolation, review and admission |",
+      "source_line": 14,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 44",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| AUTHORITY-01 | Remote Python execution from donor acquisition | Separate retrieval, isolation, review and admission |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| AUTHORITY-02 | Automatic runtime parameter mutation and live self-learning | Offline candidates and independently authorized promotion |",
+      "source_line": 15,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 45",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| AUTHORITY-02 | Automatic runtime parameter mutation and live self-learning | Offline candidates and independently authorized promotion |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| REVISION-01 | Branch main used as runtime revision | Pin immutable source, package and configuration digests |",
+      "source_line": 16,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 46",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| REVISION-01 | Branch main used as runtime revision | Pin immutable source, package and configuration digests |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| GATE-01 | Mandatory gate failure followed by reduced execution | Kernel denies or holds; no score override |",
+      "source_line": 17,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 47",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| GATE-01 | Mandatory gate failure followed by reduced execution | Kernel denies or holds; no score override |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| CLAIM-01 | Parse success or dispatch acceptance promoted to runtime readiness | Separate syntax, import, runtime, integration and delivery/application evidence |",
+      "source_line": 18,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 48",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| CLAIM-01 | Parse success or dispatch acceptance promoted to runtime readiness | Separate syntax, import, runtime, integration and delivery/application evidence |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| DEDUPE-01 | Same basename or normalized suffix treated as same source | Use actual SHA-256 identity and preserve distinct variants |",
+      "source_line": 19,
+      "APPLICABILITY": "NOT_APPLICABLE",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Scope exclusion; later implementation requires concrete test/static review.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 49",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "NOT_APPLICABLE",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| DEDUPE-01 | Same basename or normalized suffix treated as same source | Use actual SHA-256 identity and preserve distinct variants |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "future_implementation_evidence": "NOT_EXECUTED",
+      "prior_design_review": "NOT_APPLICABLE",
+      "design_status": "NOT_APPLICABLE",
+      "design_gap": false
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| GRAPH-01 | Unbounded graph paths and graph size as confidence | Bound traversal and evaluate against independent evidence |",
+      "source_line": 20,
+      "APPLICABILITY": "NOT_APPLICABLE",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Scope exclusion; later implementation requires concrete test/static review.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 50",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "NOT_APPLICABLE",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| GRAPH-01 | Unbounded graph paths and graph size as confidence | Bound traversal and evaluate against independent evidence |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "future_implementation_evidence": "NOT_EXECUTED",
+      "prior_design_review": "NOT_APPLICABLE",
+      "design_status": "NOT_APPLICABLE",
+      "design_gap": false
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| EVALUATION-01 | Cancellation-prone metrics, invalid normalization and empty windows | Test finite values, missingness, boundary sizes and temporal separation |",
+      "source_line": 21,
+      "APPLICABILITY": "NOT_APPLICABLE",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Scope exclusion; later implementation requires concrete test/static review.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 51",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "NOT_APPLICABLE",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| EVALUATION-01 | Cancellation-prone metrics, invalid normalization and empty windows | Test finite values, missingness, boundary sizes and temporal separation |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "future_implementation_evidence": "NOT_EXECUTED",
+      "prior_design_review": "NOT_APPLICABLE",
+      "design_status": "NOT_APPLICABLE",
+      "design_gap": false
+    },
+    {
+      "ALGORITHM_ID": "CP1.1_DRAFT_NO_ALGORITHM_IMPLEMENTATION",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/anti-patterns.md",
+      "PROHIBITION_ID_OR_RULE": "| OVERLAP-01 | Multiple donor orchestrators become competing kernels | One canonical Control Kernel |",
+      "source_line": 22,
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 52",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_text": "| OVERLAP-01 | Multiple donor orchestrators become competing kernels | One canonical Control Kernel |",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "ALG-REASON-PLAN-001",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/adoption-registry.yaml",
+      "PROHIBITION_ID_OR_RULE": "A plan controlling execution or manufacturing missing facts",
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 53",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_line": 1797,
+      "source_text": "  - A plan controlling execution or manufacturing missing facts",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "ALG-REASON-TRACE-001",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/adoption-registry.yaml",
+      "PROHIBITION_ID_OR_RULE": "Unrestricted internal reasoning logs and synthetic confidence",
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 54",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_line": 1914,
+      "source_text": "  - Unrestricted internal reasoning logs and synthetic confidence",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "ALG-CONCEPT-GRAPH-001",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/adoption-registry.yaml",
+      "PROHIBITION_ID_OR_RULE": "Unbounded all-simple-path traversal; graph size as confidence",
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 55",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_line": 2025,
+      "source_text": "  - Unbounded all-simple-path traversal; graph size as confidence",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "ALG-PROCEDURE-SELECTOR-001",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/adoption-registry.yaml",
+      "PROHIBITION_ID_OR_RULE": "Trading strategy names and authority derived from score",
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Add explicit contract boundary and schema/negative fixture or exact-source review before freeze.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 56",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_line": 2128,
+      "source_text": "  - Trading strategy names and authority derived from score",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "NOT_EXECUTED",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "ALG-REASON-PROCEDURE-001",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/adoption-registry.yaml",
+      "PROHIBITION_ID_OR_RULE": "Arbitrary callables and a second workflow authority chain",
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 57",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_line": 5123,
+      "source_text": "  - Arbitrary callables and a second workflow authority chain",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    },
+    {
+      "ALGORITHM_ID": "ALG-MODEL-ADAPTER-001",
+      "PROHIBITION_SOURCE": "docs/research/algorithm-donors/adoption-registry.yaml",
+      "PROHIBITION_ID_OR_RULE": "Errors collapsed into empty objects and score-driven permission",
+      "APPLICABILITY": "APPLIES",
+      "IMPLEMENTATION_BOUNDARY": "CP1.1 documentation/schema design only; no provider transport, donor algorithm or active runtime implementation",
+      "ENFORCEMENT_MECHANISM": "Documented boundary; schema/negative fixtures required before contract freeze; runtime negative tests at implementation.",
+      "VERIFICATION_EVIDENCE": {
+        "class": "EXACT_SOURCE_DESIGN_COVERAGE",
+        "refs": [
+          "prohibition-matrix.md row 58",
+          "gateway-contract.md section Failure, budgets and prohibited behavior"
+        ],
+        "wire_fixture_receipt": "schema-fixture-verification.json",
+        "runtime": "NOT_EXECUTED"
+      },
+      "STATUS": "PASS",
+      "RATIONALE": "All listed prohibitions are explicitly retained in the normative matrix. PASS means exact-source documentation coverage only, not enforcement. Scope-specific NOT_APPLICABLE requires reassessment when its mechanism is implemented.",
+      "source_line": 5214,
+      "source_text": "  - Errors collapsed into empty objects and score-driven permission",
+      "scope": "CP1.1_DESIGN_ONLY",
+      "runtime_verification": "NOT_EXECUTED",
+      "runtime_claim": "NONE",
+      "design_gap": false,
+      "prior_design_review": "PASS",
+      "design_status": "PASS"
+    }
+  ],
+  "implementation_gate": "All applicable runtime prohibitions must be verified at implementation; no runtime PASS",
+  "historical_review_binding": {
+    "excluded_from_freeze": "gateway-contract-draft.md",
+    "historical_reviewed_sha256": "532abff89665ca60f2bcebeec63bb955e29d39d94286ccca22cf6caa8cfbf2e6",
+    "status": "SUPERSEDED"
+  },
+  "freeze_status_ref": "cp1.1-freeze-receipt.json"
+}

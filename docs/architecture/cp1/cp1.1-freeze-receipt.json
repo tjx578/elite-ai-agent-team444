@@ -1,0 +1,90 @@
+{
+  "schema_version": "cp1-design-freeze-receipt/v1",
+  "checkpoint": "CP1.1",
+  "generation": "CP1.1-DESIGN-001",
+  "status": "FROZEN_LOCAL_UNCOMMITTED",
+  "frozen_at": "2026-09-29T19:06:44.343918+00:00",
+  "frozen_by_process": "Seven-donor bounded study, persona reconciliation, offline schema fixtures and independent exact-artifact contract/persona reviews",
+  "base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+  "artifact_commit_sha": null,
+  "reviewed_source_state": "EXACT_UNCOMMITTED_WORKTREE_BYTES",
+  "project_work_status": "IN_PROGRESS_LOCAL",
+  "canonical_main_status": "ACTIVE_NEXT / NOT_IMPLEMENTED",
+  "canonical_cp1_1_closed": false,
+  "review_manifest": {
+    "path": "reviews/cp11-review-manifest.json",
+    "sha256": "8acdbab752841e971edc73dac55f7ed7995043c5bca7f57afa49418e8db0cae3",
+    "path_base": "docs/architecture/cp1"
+  },
+  "reviews": [
+    {
+      "path": "reviews/final-contract-review-prefreeze.json",
+      "sha256": "70ed5baab5a80e535054909aa09e8f972550d501a557ee64b98438e149a46763",
+      "status": "PASS",
+      "evidence_class": "INDEPENDENT_LOCAL_DESIGN_REVIEW_NOT_GITHUB_APPROVAL"
+    },
+    {
+      "path": "reviews/final-persona-review-prefreeze.json",
+      "sha256": "b7109dbde09223ca521c3ae30ddecba997f48919c0949051d0579835cb6e7c86",
+      "status": "PASS",
+      "evidence_class": "INDEPENDENT_LOCAL_DESIGN_REVIEW_NOT_GITHUB_APPROVAL"
+    }
+  ],
+  "frozen_artifact_sha256": {
+    "gateway-contract.md": "56064803f64f99bc68af3defd64742622d43c369635f81a5c959f4c43157d208",
+    "gateway-schema.json": "aec0d32c7a476a09bb514e8bb8e033ddff0911db65e47bc30190fb25860465e7",
+    "persona-guidance.md": "e5d13485663616629ae4f29b5ddd2d91b620291ea28f1a267ee8c98986576fc3",
+    "persona-profile.yaml": "ed5530671719aa5d77f0310feffada7887bad8883f26b2a5049e98750c3a2b93",
+    "acceptance-scenarios.json": "b3fc1537693b85996c1c90b53bd0ff5cbcbe5adb3c42ef86f88e670039e38bcd",
+    "prohibition-matrix.md": "9cbe1c9faf0148f96f042bbdf8a2ddb4cbed708397669367310ea6e31e92df70",
+    "prohibition-matrix-draft.json": "e51f9e12f41aff2feb47ea4f30c73e26d0d98235602feee5562923391dff0c45",
+    "verify_contract_fixtures.py": "e1840e66c7021d7fbb32b7b59fd95eb7a359f9dc2253ad147105d0901389c5cb",
+    "schema-fixture-verification.json": "11d4e324106dbcb816e5c6588eb2c07113b65fa43f06e280fe5a3221e0a7c355",
+    "fixtures/envelope.canonical.json": "d8e1cdc4e98bc4e8dd5a19097a21a0f8bf9cafe5921b2ffdd567e51251205b66",
+    "fixtures/request.canonical.json": "ae5417fac049fdd5bce48ebecfd1a57d6cf62d3e2401cc717cfb3dc01cd06634",
+    "fixtures/response.canonical.json": "f153dbaa038c71802dd78c5dc2e811e2d64a3707067078eddcf7af19c5bdeaaa",
+    "fixtures/manifest.json": "f3e0634e8f51e105c601e4eaa21198645bfa1c64e3bc6bf3c30aefed22b9fd08"
+  },
+  "immutability": "13 bound artifacts are immutable for this generation; changes require successor generation and fresh review. Receipt is excluded from self-hash. Publication ledger is separate.",
+  "supporting_intake": {
+    "path": "../../research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json",
+    "sha256_at_freeze": "244e4db7756306d1d85e4e8d9842d950cbd0a63820a7d745778942cbb02c9993",
+    "donors_located": 7,
+    "donors_bounded_studied": 7,
+    "source_files_verified": 57,
+    "coverage": "BOUNDED_PARTIAL_NOT_EXHAUSTIVE"
+  },
+  "local_verification": {
+    "offline_schema_fixtures": "55/55 PASS",
+    "ruff": "PASS",
+    "persona_scenarios_reconciled": 30,
+    "prohibition_rows": 58,
+    "design_prohibition_PASS": 52,
+    "scope_specific_NOT_APPLICABLE": 6,
+    "runtime_prohibition_NOT_EXECUTED": 58
+  },
+  "timeout_evidence": {
+    "compute_retry_collector": "30-second subprocess timeout instrumented",
+    "historical_watch_collector": "NOT_INSTRUMENTED / NOT_MEASURED, documented limitation",
+    "provider_enforcement": "NOT_EXECUTED_CP1.3"
+  },
+  "later_checkpoint_evidence": {
+    "CP1.2": "Concrete provider/model deployment selection NOT_EXECUTED",
+    "CP1.3": "Runtime cancellation/deadline/budget enforcement NOT_EXECUTED",
+    "CP1.6": "Real-provider persona acceptance NOT_EXECUTED"
+  },
+  "alg_reg_001": {
+    "status": "FROZEN_INTACT",
+    "records": 37,
+    "four_artifact_hashes_match": true
+  },
+  "authority_effect": "NONE",
+  "runtime_activation": false,
+  "capability_admission": "NOT_EXECUTED",
+  "ree_activation": false,
+  "deployment": "NOT_EXECUTED",
+  "commit_push_pr": "NOT_EXECUTED",
+  "remote_ci": "NOT_EXECUTED",
+  "resulting_main_verification": "NOT_EXECUTED",
+  "next_gate": "Publish/review exact local increment separately; CP1 remains IN_PROGRESS"
+}
