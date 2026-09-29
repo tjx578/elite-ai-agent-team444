@@ -6,18 +6,21 @@ This document records what is demonstrably present in the repository. It is not 
 
 ## Canonical baseline
 
-### CP0 integrated foundation
+### Historical CP0 foundation slices
 
-The latest canonical main observed before the WebMCP architecture amendment is
-`dd5cf74ce47e395cf859a2b5130790129af01e16` (PR #16). The latest runtime
-implementation checkpoint remains CP0.3 at
-`a53388f60b34372c5c3f43a31d8a5157add54379`; PR #15 and PR #16 are
-architecture/governance changes and do not activate runtime capabilities.
-CP0.1–CP0.4 are integrated, CP0-ADDENDUM-01 is frozen, and CP0.5 final
-exact-resulting-main acceptance remains a separate gate. The
+CP0 is **CLOSED / PASS** at accepted architecture baseline
+`bad73335f518d89356b88cba1cc26730808cd224`. The historical implementation
+slices that led to CP0 acceptance remain listed below for traceability, but they
+are not separate current checkpoints. PR #16 at
+`dd5cf74ce47e395cf859a2b5130790129af01e16` froze the documentation-only
+`ALG-REG-001` addendum after CP0 closeout and does not reopen CP0.
+
+**CP1 — Real Sentient Reasoning** is the next active implementation checkpoint.
+CP2–CP9 remain locked future checkpoints. The
+[Master Roadmap](roadmap.md) is the sole checkpoint authority; the
 [canonical map](canonical-ownership.md) and
-[Final Target Skeleton](final-target-skeleton.md) describe target ownership
-without implying that future folders or services exist.
+[Final Target Skeleton](final-target-skeleton.md) describe ownership/targets
+without creating another sequence.
 
 | Step | Integrated PR / resulting main | Resulting-main evidence |
 | --- | --- | --- |
@@ -343,6 +346,7 @@ The donor portfolio is research evidence only:
 [WebMCP donor research](../research/webmcp-donors/README.md). Donor code,
 skills, polyfills and bridges are not installed, qualified or active.
 
-Because this change modifies canonical architecture documentation, CP0.5 must
-still verify the exact resulting main after merge. Historical PASS on
-`dd5cf74` cannot qualify a later HEAD.
+This architecture amendment must receive its own PR/CI review before merge,
+but it does not create a new CP0 gate or reopen the accepted CP0 baseline.
+Historical PASS remains bound to its exact SHA; a later documentation HEAD must
+be described by its own evidence rather than relabeling CP0.
