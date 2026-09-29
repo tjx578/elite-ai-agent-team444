@@ -2,7 +2,9 @@
 
 ## Status
 
-**Target design. Runtime not implemented.**
+**Target design. Runtime not implemented.** Master checkpoint ownership is
+defined only by the [Master Roadmap](roadmap.md); this document does not create
+another checkpoint sequence.
 
 The last verified pre-amendment canonical main inspected for this design is
 `dd5cf74ce47e395cf859a2b5130790129af01e16`. This document defines future
