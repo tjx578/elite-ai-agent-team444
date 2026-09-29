@@ -1,0 +1,2872 @@
+schema_version: 0.1-draft
+registry_generation: CP0-ADDENDUM-01-DRAFT-001
+status: DRAFT_INCOMPLETE
+frozen: false
+cp0_accepted_sha: bad73335f518d89356b88cba1cc26730808cd224
+cp0_reopen: false
+runtime_effect: NONE
+authority_effect: NONE
+cp1_starting_baseline: null
+open_requirements:
+- Read and bind both canonical snapshots for ARCH-ALG-01/02
+- Recover complete reports for ARCH-ALG-03/04/05 beyond truncated excerpts
+- Verify historical identities, abbreviated filenames and original dispositions
+- Review source and reconcile all five complete batch decisions, including REJECT/DEFER
+- Review proposed ownership and exact duplicate bindings
+- Validate and freeze complete generation; exact-HEAD review, CI and CodeQL
+- Merge docs only and verify resulting main before assigning CP1 baseline
+batches:
+- batch_id: ARCH-ALG-01
+  title: Cognitive / Constitutional Algorithms
+  document: batch-01-cognitive-constitutional.md
+  complete: false
+  report_status: CANONICAL_SNAPSHOT_NOT_AVAILABLE
+  canonical_report:
+    filename: Rancangan Otak WILF15 Sentient.txt
+    snapshot_id: null
+    sha256: null
+    contents_available: false
+- batch_id: ARCH-ALG-02
+  title: Neural Orchestration / Capability Algorithms
+  document: batch-02-neural-capability.md
+  complete: false
+  report_status: CANONICAL_SNAPSHOT_NOT_AVAILABLE
+  canonical_report:
+    filename: Rancangan Otak WILF15 Sentient.txt
+    snapshot_id: null
+    sha256: null
+    contents_available: false
+- batch_id: ARCH-ALG-03
+  title: Reflective / Evaluation / Pipeline Algorithms
+  document: batch-03-reflective-evaluation.md
+  complete: false
+  report_status: PARTIAL_HISTORICAL_REPORT_RETRIEVED
+  historical_report:
+    thread_title: Rancangan Otak WILF15 Sentient
+    thread_id: 6ab96f53-cd9c-83ec-994f-0f6d1fe30ab0
+    message_id: ecbadc30-2699-4e5e-b923-4b985b37fc7c
+    truncated: true
+    retrieved_character_limit: 20000
+    reported_donor_manifest_sha256: bb7061254921ba0d7f696b8433d354b03b90f05fe9177561c7daa6c564dee9bb
+    manifest_revalidated: NOT_VERIFIED
+- batch_id: ARCH-ALG-04
+  title: Cognitive Lifecycle / Contracts / Tools / Multi-Horizon State / Testing
+  document: batch-04-cognitive-contract-runtime.md
+  complete: false
+  report_status: PARTIAL_HISTORICAL_REPORT_RETRIEVED
+  historical_report:
+    thread_title: Rancangan Otak WILF15 Sentient
+    thread_id: 6ab96f53-cd9c-83ec-994f-0f6d1fe30ab0
+    message_id: 49b670f4-5ea1-4b41-ae9f-df569fe394c9
+    truncated: true
+    retrieved_character_limit: 20000
+    reported_donor_manifest_sha256: d09b9c1899fa7b217ab979d8a67eeab3c08e19307dff8f4cee0672731a2c802f
+    manifest_revalidated: NOT_VERIFIED
+- batch_id: ARCH-ALG-05
+  title: Reasoning Graph / Policy Guard / Temporal Evaluation / Explainable Fusion
+  document: batch-05-reasoning-policy-evaluation.md
+  complete: false
+  report_status: PARTIAL_HISTORICAL_REPORT_RETRIEVED
+  historical_report:
+    thread_title: Rancangan Otak WILF15 Sentient
+    thread_id: 6ab96f53-cd9c-83ec-994f-0f6d1fe30ab0
+    message_id: 3324066a-ba00-4983-bacb-22cdf090a663
+    truncated: true
+    retrieved_character_limit: 20000
+    reported_donor_manifest_sha256: 3a88872902cef5bac353e3527cee7db95da21032c9ad18f53737617e58cf9f04
+    manifest_revalidated: NOT_VERIFIED
+historical_source_references:
+- reference_id: ARCH-ALG-03-01
+  batch: ARCH-ALG-03
+  reported_source_file: olah_data.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-d4b2d5a6d1c525da
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-02
+  batch: ARCH-ALG-03
+  reported_source_file: pattern_reporter.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-5f81a3b7f32ab9ad
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-03
+  batch: ARCH-ALG-03
+  reported_source_file: phase_resonance.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-513aaf8aed549036
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-04
+  batch: ARCH-ALG-03
+  reported_source_file: pipeline_bridge_v74.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-b3d94d9674b5909a
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-05
+  batch: ARCH-ALG-03
+  reported_source_file: practical_implementation.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-e00c46d07ca596e6
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-06
+  batch: ARCH-ALG-03
+  reported_source_file: probability_core.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-a3ce082fded5abfe
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-07
+  batch: ARCH-ALG-03
+  reported_source_file: prompt_engineering_framework.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-eeb0b5dbdbef8a11
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-08
+  batch: ARCH-ALG-03
+  reported_source_file: quad_repo_sync_handler.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-e1c82065c8289efa
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-09
+  batch: ARCH-ALG-03
+  reported_source_file: quantum_field_engine.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-6f28bff40d320de7
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-10
+  batch: ARCH-ALG-03
+  reported_source_file: railway_server_bridge.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-b58fdf71a530c775
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-11
+  batch: ARCH-ALG-03
+  reported_source_file: ree_adaptive_analysis.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-13e44a9bded03558
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-12
+  batch: ARCH-ALG-03
+  reported_source_file: Reflective Evolution Engine (REE).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-28e9608a62819e6a
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-13
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_daemon_v_6.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-28907553c7cefb6e
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-14
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_learning_cycle.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-d3217cc8f94add5f
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-15
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_listener.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-6307a68cd8b8d96c
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-16
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_live_bridge.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-5970d0b1ccc10688
+  - DONOR-7b49d99f664388e9
+  - DONOR-bebfc16984f7d13c
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-17
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_mcp_handler.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-00c9c978236f72d5
+  - DONOR-a0f7c03c7fd1e28d
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-18
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_meta_feedback_loop.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-015f3937891977ab
+  - DONOR-4b4e886bed84a36d
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-19
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_symmetry_patch_v6.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-b1a2b3e182adbb41
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-03-20
+  batch: ARCH-ALG-03
+  reported_source_file: reflective_volume_quadrant_engine_v_6_rinf.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-d36e574b5f39f03a
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-01
+  batch: ARCH-ALG-04
+  reported_source_file: repo_bridge_client.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-3ade868a016eb88f
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-02
+  batch: ARCH-ALG-04
+  reported_source_file: responses.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-41511b4b06f6e87d
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-03
+  batch: ARCH-ALG-04
+  reported_source_file: RRM_v2 — Reflective Risk Module.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-c6e9a256b5504e34
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-04
+  batch: ARCH-ALG-04
+  reported_source_file: setup_reflective_bridge.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-6d4e450925a2db1f
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-05
+  batch: ARCH-ALG-04
+  reported_source_file: strategy_selector_engine.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-ca48510f81188eac
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-06
+  batch: ARCH-ALG-04
+  reported_source_file: super_engine.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-6041d90730d49899
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-07
+  batch: ARCH-ALG-04
+  reported_source_file: system_bootstrap.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-07bb99507d6df12c
+  - DONOR-101fcc809b197753
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-08
+  batch: ARCH-ALG-04
+  reported_source_file: system_prompt.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-7c52b7be4d444f31
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-09
+  batch: ARCH-ALG-04
+  reported_source_file: technical_data_processor.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-9a885bdae4f0040f
+  - DONOR-a4ee23080367dc1d
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-10
+  batch: ARCH-ALG-04
+  reported_source_file: test_gpt_custom_action.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-1cf77bf849da352b
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-11
+  batch: ARCH-ALG-04
+  reported_source_file: test_integration.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-a5f57f7eb316fdd7
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-12
+  batch: ARCH-ALG-04
+  reported_source_file: test_trq3d.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-1799e370110d4719
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-13
+  batch: ARCH-ALG-04
+  reported_source_file: test_core.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-a66fafc9ac04fba2
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-14
+  batch: ARCH-ALG-04
+  reported_source_file: tools.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-2e9857a50324bed6
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-15
+  batch: ARCH-ALG-04
+  reported_source_file: trq_3_d_engine_blueprint.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-3e3cd7793812c3a4
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-16
+  batch: ARCH-ALG-04
+  reported_source_file: trq3d_unified_engine.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-d9812dd1f9d8cd56
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-17
+  batch: ARCH-ALG-04
+  reported_source_file: tuyul_data_bridge.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-75d5aea538ad51f7
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-18
+  batch: ARCH-ALG-04
+  reported_source_file: tuyul_integrated_reflective_analyzer.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-503ff40055dc28d3
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-19
+  batch: ARCH-ALG-04
+  reported_source_file: tuyul_bots_reflective_sync.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-b4645980f0c3072e
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-04-20
+  batch: ARCH-ALG-04
+  reported_source_file: tuyul_cognitive_loop.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-654fd3d7eddc9890
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-01
+  batch: ARCH-ALG-05
+  reported_source_file: Advanced Reasoning Framework Examples.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-890d70774ceaea33
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-02
+  batch: ARCH-ALG-05
+  reported_source_file: tuyul_integrated_reflective_analyzer(2).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-503ff40055dc28d3
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-03
+  batch: ARCH-ALG-05
+  reported_source_file: tuyul_kartel_mindmap_framework(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-a40cec80f1b31451
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-04
+  batch: ARCH-ALG-05
+  reported_source_file: tuyul_reflective_bridge(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-e4d2a4335a1224fc
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-05
+  batch: ARCH-ALG-05
+  reported_source_file: tuyul_loop_sync_bridge(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-bd9302c13263af9d
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-06
+  batch: ARCH-ALG-05
+  reported_source_file: tuyul_reasoning_engine(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-fed806a7495afba8
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-07
+  batch: ARCH-ALG-05
+  reported_source_file: tuyulagibot-tjx(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-58354d4f05b1dff3
+  - DONOR-bf76ad31742653be
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-08
+  batch: ARCH-ALG-05
+  reported_source_file: twms_calculator(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-308652d0209fd7c4
+  - DONOR-dd0c4a5591f08032
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-09
+  batch: ARCH-ALG-05
+  reported_source_file: validate_openapi_v540.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-6e8f7722695c06ad
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-10
+  batch: ARCH-ALG-05
+  reported_source_file: wolf_core_integration(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-79bc9cb1ef6a1a20
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-11
+  batch: ARCH-ALG-05
+  reported_source_file: wolf_psychological_control_system(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-0f59430ff53945fa
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-12
+  batch: ARCH-ALG-05
+  reported_source_file: wolf_psychology_to_analysis_adapter(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-c0e26daf43e4f091
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-13
+  batch: ARCH-ALG-05
+  reported_source_file: verdict_engine_patch.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-a982fe97a8977bef
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-14
+  batch: ARCH-ALG-05
+  reported_source_file: verify_runtime_imports(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-d8df6578f9afbd9e
+  - DONOR-e708ffa8f0947b0d
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-15
+  batch: ARCH-ALG-05
+  reported_source_file: vix_analysis_engine.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-7a096f5d7e64bcb1
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-16
+  batch: ARCH-ALG-05
+  reported_source_file: volatility_clustering_model.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-1f78278db4ba5c9d
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-17
+  batch: ARCH-ALG-05
+  reported_source_file: vpce_engine_unified(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-c2f7d1704a5b8f53
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-18
+  batch: ARCH-ALG-05
+  reported_source_file: walk_forward_validation_engine.py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-9e808fe4d238641c
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+- reference_id: ARCH-ALG-05-19
+  batch: ARCH-ALG-05
+  reported_source_file: wlwci_calculator(1).py
+  historical_source_sha256: null
+  local_candidate_ids:
+  - DONOR-27b3710721652ce0
+  match_method: NORMALIZED_FILENAME_DISCOVERY_ONLY
+  historical_byte_equivalence: NOT_VERIFIED
+donors:
+- donor_id: DONOR-00c9c978236f72d5
+  source_sha256: 00c9c978236f72d5cea2fc0d44fda4feafc33c3c39bd44bc2b58af4252daa5a2
+  source_family: reflective_mcp_handler.py
+  size_bytes: 5575
+  source_files:
+  - D:\Python\reflective_mcp_handler.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 7
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-015f3937891977ab
+  source_sha256: 015f3937891977ab1ef5646b1a7f6be326415241539fa57352432af250b58a2a
+  source_family: reflective_meta_feedback_loop.py
+  size_bytes: 7326
+  source_files:
+  - D:\Python\reflective_meta_feedback_loop (1).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 5
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-07bb99507d6df12c
+  source_sha256: 07bb99507d6df12cd6b6cc5374f6abebb5d15a2fd63a5c9ccbadc214493a7cdd
+  source_family: system_bootstrap.py
+  size_bytes: 2528
+  source_files:
+  - D:\Python\system_bootstrap.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-0f59430ff53945fa
+  source_sha256: 0f59430ff53945fa1372632b119864e6ef45ee3bb29f32869164cb9eced3d1d4
+  source_family: wolf_psychological_control_system.py
+  size_bytes: 98145
+  source_files:
+  - D:\Python\wolf_psychological_control_system.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 30
+    functions: 100
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-101fcc809b197753
+  source_sha256: 101fcc809b19775392e6b0b62773a5c41654f50ca7c13f269dd70de7fcce3ce9
+  source_family: system_bootstrap.py
+  size_bytes: 5708
+  source_files:
+  - D:\Python\system_bootstrap (1).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-13e44a9bded03558
+  source_sha256: 13e44a9bded0355864acb688d1d8014b97df1f3b014f7ccbf45efa0282a2d771
+  source_family: ree_adaptive_analysis.py
+  size_bytes: 3978
+  source_files:
+  - D:\Python\ree_adaptive_analysis.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 2
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-1799e370110d4719
+  source_sha256: 1799e370110d4719081f80fc233111793800269348f0f29ec1a9d519ea1cdd25
+  source_family: test_trq3d.py
+  size_bytes: 13062
+  source_files:
+  - D:\Python\test_trq3d.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 5
+    functions: 23
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-1cf77bf849da352b
+  source_sha256: 1cf77bf849da352b212e2ad762e84bd6005616c141087db0d911672f6d73cde9
+  source_family: test_gpt_custom_action.py
+  size_bytes: 18518
+  source_files:
+  - D:\Python\test_gpt_custom_action.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 8
+    functions: 34
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-1f78278db4ba5c9d
+  source_sha256: 1f78278db4ba5c9d0013d0ebd1098a88216c0cf3d50a6f66f6da2902a43ef830
+  source_family: volatility_clustering_model.py
+  size_bytes: 761
+  source_files:
+  - D:\Python\volatility_clustering_model.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 2
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-27b3710721652ce0
+  source_sha256: 27b3710721652ce09b2f75a6d7ce325d44b3d5bce99630fe929601e3f64e4b0f
+  source_family: wlwci_calculator.py
+  size_bytes: 2617
+  source_files:
+  - D:\Python\wlwci_calculator.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 2
+  source_review:
+    status: PARTIAL_STATIC_REVIEW
+    line_ranges:
+    - - 1
+      - 47
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-28907553c7cefb6e
+  source_sha256: 28907553c7cefb6e634f27d074c5638f2bf6449a4ed422e75e04a53ae581be3b
+  source_family: reflective_daemon_v_6.py
+  size_bytes: 3729
+  source_files:
+  - D:\Python\reflective_daemon_v_6.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-28e9608a62819e6a
+  source_sha256: 28e9608a62819e6ada282b742514a8e15f7e5b347c1c0b2a5cd8393ae35db294
+  source_family: reflective evolution engine (ree).py
+  size_bytes: 4741
+  source_files:
+  - D:\Python\Reflective Evolution Engine (REE).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 5
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-2e9857a50324bed6
+  source_sha256: 2e9857a50324bed6981256f151b5a15e5026022295c3d034569c2d58d04417c7
+  source_family: tools.py
+  size_bytes: 6966
+  source_files:
+  - D:\Python\tools.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 0
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-308652d0209fd7c4
+  source_sha256: 308652d0209fd7c402cad649bef1d989b4149bb26a7c4ad677a1ef09210d6d52
+  source_family: twms_calculator.py
+  size_bytes: 9630
+  source_files:
+  - D:\Python\twms_calculator (1).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 10
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-3ade868a016eb88f
+  source_sha256: 3ade868a016eb88f40ec944ae65560c1f35e14923535df8624b7db66d2019988
+  source_family: repo_bridge_client.py
+  size_bytes: 4808
+  source_files:
+  - D:\Python\repo_bridge_client.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 6
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-3e3cd7793812c3a4
+  source_sha256: 3e3cd7793812c3a4c7c09f27ddfa83ebf49b7937e92d4edb9a9856cfbfec9951
+  source_family: trq_3_d_engine_blueprint.py
+  size_bytes: 8167
+  source_files:
+  - D:\Python\trq_3_d_engine_blueprint.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 9
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-41511b4b06f6e87d
+  source_sha256: 41511b4b06f6e87d7d2f9d8074bff5f79c07d655f9beb52fe3b3572490d86a2f
+  source_family: responses.py
+  size_bytes: 12552
+  source_files:
+  - D:\Python\responses.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 48
+    functions: 0
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-4b4e886bed84a36d
+  source_sha256: 4b4e886bed84a36d678687d377ee710d2236bc09e65189e85f7c93ccb8e7615e
+  source_family: reflective_meta_feedback_loop.py
+  size_bytes: 4030
+  source_files:
+  - D:\Python\reflective_meta_feedback_loop.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-503ff40055dc28d3
+  source_sha256: 503ff40055dc28d3017e4c773f528c184a7c38592c3f0d14148a4e5c5eecb5f9
+  source_family: tuyul_integrated_reflective_analyzer.py
+  size_bytes: 23757
+  source_files:
+  - D:\Python\tuyul_integrated_reflective_analyzer.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 5
+    functions: 20
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-513aaf8aed549036
+  source_sha256: 513aaf8aed54903671c219322d4ee23264a04b91e3dcec441a34ac9481a39c8c
+  source_family: phase_resonance.py
+  size_bytes: 3597
+  source_files:
+  - D:\Python\phase_resonance.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-58354d4f05b1dff3
+  source_sha256: 58354d4f05b1dff3555e71ae18a0cda77e8653b115a10becfba83e9ad33bbcb7
+  source_family: tuyulagibot-tjx.py
+  size_bytes: 5320
+  source_files:
+  - D:\Python\tuyulagibot-tjx.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 8
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-5970d0b1ccc10688
+  source_sha256: 5970d0b1ccc10688b3c9d0829ab8711fdad9f37a571219c8a921b8ce09c3b6a0
+  source_family: reflective_live_bridge.py
+  size_bytes: 5590
+  source_files:
+  - D:\Python\reflective_live_bridge (2).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 2
+    functions: 3
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-5f81a3b7f32ab9ad
+  source_sha256: 5f81a3b7f32ab9ad7f09fb65d957190c54d8c545cb4bdcdbe669b6690cc37334
+  source_family: pattern_reporter.py
+  size_bytes: 4058
+  source_files:
+  - D:\Python\pattern_reporter.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 2
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-6041d90730d49899
+  source_sha256: 6041d90730d4989942dd665d16a0d2ec85faaa56783c98f698a1b7a4b68b9de0
+  source_family: super_engine.py
+  size_bytes: 5777
+  source_files:
+  - D:\Python\super_engine.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 2
+    functions: 3
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-6307a68cd8b8d96c
+  source_sha256: 6307a68cd8b8d96ce2303ea5841da059ef310e3f4f098f153fc9bc16638a01d4
+  source_family: reflective_listener.py
+  size_bytes: 534
+  source_files:
+  - D:\Python\reflective_listener.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 2
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-654fd3d7eddc9890
+  source_sha256: 654fd3d7eddc98905fbb5cfcebfeab2671afd44ff06567040fcffe9d57dc3096
+  source_family: tuyul_cognitive_loop.py
+  size_bytes: 35131
+  source_files:
+  - D:\Python\tuyul_cognitive_loop.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 7
+    functions: 20
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-6d4e450925a2db1f
+  source_sha256: 6d4e450925a2db1fef3f5831660a988252312198f09cfffa2255d39ef7928ded
+  source_family: setup_reflective_bridge.py
+  size_bytes: 3043
+  source_files:
+  - D:\Python\setup_reflective_bridge.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 5
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-6e8f7722695c06ad
+  source_sha256: 6e8f7722695c06ad4d5162a4cd42c0ad88d9b6908073493081aacf5c13feb452
+  source_family: validate_openapi_v540.py
+  size_bytes: 5302
+  source_files:
+  - D:\Python\validate_openapi_v540.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 7
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-6f28bff40d320de7
+  source_sha256: 6f28bff40d320de7034915fd2188af64d8a29b04eca506632af4da7272e7e414
+  source_family: quantum_field_engine.py
+  size_bytes: 878
+  source_files:
+  - D:\Python\quantum_field_engine.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-75d5aea538ad51f7
+  source_sha256: 75d5aea538ad51f79afbbd1d5a1951721930287399e48d5d02144317cd6783ce
+  source_family: tuyul_data_bridge.py
+  size_bytes: 3824
+  source_files:
+  - D:\Python\tuyul_data_bridge (1).py
+  - D:\Python\tuyul_data_bridge.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 3
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-79bc9cb1ef6a1a20
+  source_sha256: 79bc9cb1ef6a1a20615825db2929b00c21dcc84aa53c2219356d81265764bcf8
+  source_family: wolf_core_integration.py
+  size_bytes: 1759
+  source_files:
+  - D:\Python\wolf_core_integration.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-7a096f5d7e64bcb1
+  source_sha256: 7a096f5d7e64bcb1744abb2f6051abf6cc5c8582dbae7f5da1bcb172dd1cd3e7
+  source_family: vix_analysis_engine.py
+  size_bytes: 24772
+  source_files:
+  - D:\Python\vix_analysis_engine.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 6
+    functions: 18
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-7b49d99f664388e9
+  source_sha256: 7b49d99f664388e9273ec64062e77ae884ab723c9c98ed2e4ff65c31af6e4077
+  source_family: reflective_live_bridge.py
+  size_bytes: 4287
+  source_files:
+  - D:\Python\reflective_live_bridge (1).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 5
+    functions: 7
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-7c52b7be4d444f31
+  source_sha256: 7c52b7be4d444f3134a8138a7ebb95a8374ac0bb93e7629005d5c62917bfbe7d
+  source_family: system_prompt.py
+  size_bytes: 2779
+  source_files:
+  - D:\Python\system_prompt.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 0
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-890d70774ceaea33
+  source_sha256: 890d70774ceaea33d41919b2d1bbe95e663737f646ab549afe81001057667de1
+  source_family: advanced reasoning framework examples.py
+  size_bytes: 17161
+  source_files:
+  - D:\Python\Advanced Reasoning Framework Examples.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 3
+    functions: 16
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-9a885bdae4f0040f
+  source_sha256: 9a885bdae4f0040ffaa0c0380a3275a66a8a8d617225c83aad802897cad50e37
+  source_family: technical_data_processor.py
+  size_bytes: 23066
+  source_files:
+  - D:\Python\technical_data_processor (1).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 9
+    functions: 15
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-9e808fe4d238641c
+  source_sha256: 9e808fe4d238641c07ee7ed54b8ab88925880b3c8c11144d7076fc1e02cfc8de
+  source_family: walk_forward_validation_engine.py
+  size_bytes: 1820
+  source_files:
+  - D:\Python\walk_forward_validation_engine.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 2
+    functions: 2
+  source_review:
+    status: PARTIAL_STATIC_REVIEW
+    line_ranges:
+    - - 1
+      - 59
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-a0f7c03c7fd1e28d
+  source_sha256: a0f7c03c7fd1e28dde2475b4862e65d8b20cd44f8a91578fbadace9055bc5c99
+  source_family: reflective_mcp_handler.py
+  size_bytes: 2876
+  source_files:
+  - D:\Python\reflective_mcp_handler (1).py
+  duplicate_of: null
+  syntax:
+    status: FAIL_SYNTAX
+    line: 39
+    reason: ''':'' expected after dictionary key (reflective_mcp_handler (1).py, line 39)'
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-a3ce082fded5abfe
+  source_sha256: a3ce082fded5abfea049a046af8eb4115221f4786536f55a796538cd708c7eba
+  source_family: probability_core.py
+  size_bytes: 1804
+  source_files:
+  - D:\Python\probability_core.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 4
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-a40cec80f1b31451
+  source_sha256: a40cec80f1b314514fd692f7396c48cb156306cf4eee93839e15f58e3b785294
+  source_family: tuyul_kartel_mindmap_framework.py
+  size_bytes: 26775
+  source_files:
+  - D:\Python\tuyul_kartel_mindmap_framework.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 3
+    functions: 14
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-a4ee23080367dc1d
+  source_sha256: a4ee23080367dc1dc3697bf983166134a0d58d6d980a33e39b2126f368bf16ae
+  source_family: technical_data_processor.py
+  size_bytes: 21713
+  source_files:
+  - D:\Python\technical_data_processor.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 9
+    functions: 15
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-a5f57f7eb316fdd7
+  source_sha256: a5f57f7eb316fdd7bab442dcf822f038d1a688fc3072f057e3e19189c8645d19
+  source_family: test_integration.py
+  size_bytes: 16038
+  source_files:
+  - D:\Python\test_integration.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 12
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-a66fafc9ac04fba2
+  source_sha256: a66fafc9ac04fba21b19c255ae75756cced7837d2a71c0b635b6d5e63309485c
+  source_family: test_core.py
+  size_bytes: 17537
+  source_files:
+  - D:\Python\test_core.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 6
+    functions: 33
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-a982fe97a8977bef
+  source_sha256: a982fe97a8977befdf9c657fa9b40ba1679945ab89978cfe7103115304ebd8bf
+  source_family: verdict_engine_patch.py
+  size_bytes: 13178
+  source_files:
+  - D:\Python\verdict_engine_patch.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 4
+  source_review:
+    status: PARTIAL_STATIC_REVIEW
+    line_ranges:
+    - - 139
+      - 238
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-b1a2b3e182adbb41
+  source_sha256: b1a2b3e182adbb415976aa33f7dcd7c42704b6a44c1d3c47128f5de0d8f46688
+  source_family: reflective_symmetry_patch_v6.py
+  size_bytes: 4461
+  source_files:
+  - D:\Python\reflective_symmetry_patch_v6.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 6
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-b3d94d9674b5909a
+  source_sha256: b3d94d9674b5909aca7fcf797346619880ad98b991699d6361b7e4a8857cad1a
+  source_family: pipeline_bridge_v74.py
+  size_bytes: 26605
+  source_files:
+  - D:\Python\pipeline_bridge_v74.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 14
+    functions: 24
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-b4645980f0c3072e
+  source_sha256: b4645980f0c3072e234dbffb78a65dfb49710eb95955afbb1b36862621d3756f
+  source_family: tuyul_bots_reflective_sync.py
+  size_bytes: 6209
+  source_files:
+  - D:\Python\tuyul_bots_reflective_sync.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 8
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-b58fdf71a530c775
+  source_sha256: b58fdf71a530c775436cb20ba325061b49cbfc22fe3f52ff137955feacd84d51
+  source_family: railway_server_bridge.py
+  size_bytes: 27498
+  source_files:
+  - D:\Python\railway_server_bridge.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 8
+    functions: 34
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-bd9302c13263af9d
+  source_sha256: bd9302c13263af9dc58b6a08d2ffa0f945945a0833ebb8b3f7af9774456140f8
+  source_family: tuyul_loop_sync_bridge.py
+  size_bytes: 997
+  source_files:
+  - D:\Python\tuyul_loop_sync_bridge.py
+  duplicate_of: null
+  syntax:
+    status: FAIL_SYNTAX
+    line: 2
+    reason: invalid decimal literal (tuyul_loop_sync_bridge.py, line 2)
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-bebfc16984f7d13c
+  source_sha256: bebfc16984f7d13cd1dcf4616f8a2fe81496885ba4ec1f66c4d0602b8c503afa
+  source_family: reflective_live_bridge.py
+  size_bytes: 1741
+  source_files:
+  - D:\Python\reflective_live_bridge.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 3
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-bf76ad31742653be
+  source_sha256: bf76ad31742653beebc75944c25663d3f8376ae35a3a5c8dfb0bd4af74bcf897
+  source_family: tuyulagibot-tjx.py
+  size_bytes: 5894
+  source_files:
+  - D:\Python\tuyulagibot-tjx (1).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 6
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-c0e26daf43e4f091
+  source_sha256: c0e26daf43e4f091acfe22a74308553b361d560532e7d6da6c25ff6e71405b7e
+  source_family: wolf_psychology_to_analysis_adapter.py
+  size_bytes: 1120
+  source_files:
+  - D:\Python\wolf_psychology_to_analysis_adapter.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-c2f7d1704a5b8f53
+  source_sha256: c2f7d1704a5b8f5316eddb7c73ee82ba4c2c1795d3d0ae448f12c9a779f5ab3c
+  source_family: vpce_engine_unified.py
+  size_bytes: 4358
+  source_files:
+  - D:\Python\vpce_engine_unified.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 7
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-c6e9a256b5504e34
+  source_sha256: c6e9a256b5504e341265be6cfd6ae8425c328eacd5f0bbd917af7768241990ea
+  source_family: rrm_v2 — reflective risk module.py
+  size_bytes: 4780
+  source_files:
+  - D:\Python\RRM_v2 — Reflective Risk Module.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 2
+    functions: 5
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-ca48510f81188eac
+  source_sha256: ca48510f81188eace4b4103da97d12080fd2feae389f1b205df662f51fa9350e
+  source_family: strategy_selector_engine.py
+  size_bytes: 1622
+  source_files:
+  - D:\Python\strategy_selector_engine.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-d3217cc8f94add5f
+  source_sha256: d3217cc8f94add5f9be93c3433e6699e816ffdacef7a4fbbaee29f8f5efa2823
+  source_family: reflective_learning_cycle.py
+  size_bytes: 3158
+  source_files:
+  - D:\Python\reflective_learning_cycle.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-d36e574b5f39f03a
+  source_sha256: d36e574b5f39f03ab91b49653484d0d71bd7af8643b628f8d7176ea81c4d8718
+  source_family: reflective_volume_quadrant_engine_v_6_rinf.py
+  size_bytes: 4061
+  source_files:
+  - D:\Python\reflective_volume_quadrant_engine_v_6_rinf.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 4
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-d4b2d5a6d1c525da
+  source_sha256: d4b2d5a6d1c525da6fb931ddf960d022849befeae059e33f76366d80e9529d7e
+  source_family: olah_data.py
+  size_bytes: 2965
+  source_files:
+  - D:\Python\olah_data.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 0
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-d8df6578f9afbd9e
+  source_sha256: d8df6578f9afbd9e4af10e1101bef7bc18be4ed64b5608fa93c20a16172be76a
+  source_family: verify_runtime_imports.py
+  size_bytes: 1418
+  source_files:
+  - D:\Python\verify_runtime_imports.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 1
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-d9812dd1f9d8cd56
+  source_sha256: d9812dd1f9d8cd56c03096841b4bc775f05f0f3d9dce4cb34773cdcff1a9ccfd
+  source_family: trq3d_unified_engine.py
+  size_bytes: 25829
+  source_files:
+  - D:\Python\trq3d_unified_engine.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 10
+    functions: 24
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-dd0c4a5591f08032
+  source_sha256: dd0c4a5591f080327c64846af79ea17aee8c3bf923c48dfe509912138e8c68c1
+  source_family: twms_calculator.py
+  size_bytes: 15792
+  source_files:
+  - D:\Python\twms_calculator.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 4
+    functions: 15
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-e00c46d07ca596e6
+  source_sha256: e00c46d07ca596e62ed55f5af691b2c284075c66ca881fad5126d415ab610ebd
+  source_family: practical_implementation.py
+  size_bytes: 19714
+  source_files:
+  - D:\Python\practical_implementation.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 3
+    functions: 11
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-e1c82065c8289efa
+  source_sha256: e1c82065c8289efac0924be270335540778fa3bf7cf3efada1eabe8ca05ed629
+  source_family: quad_repo_sync_handler.py
+  size_bytes: 3097
+  source_files:
+  - D:\Python\quad_repo_sync_handler.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 3
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-e4d2a4335a1224fc
+  source_sha256: e4d2a4335a1224fc2268968907979cb42ab2d256959077f9eebbea61ce1db6c0
+  source_family: tuyul_reflective_bridge.py
+  size_bytes: 2532
+  source_files:
+  - D:\Python\tuyul_reflective_bridge.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 1
+    functions: 3
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-e708ffa8f0947b0d
+  source_sha256: e708ffa8f0947b0d8e20edb7fbb258ce3f06f82682cac747791ae70ae15a7eb2
+  source_family: verify_runtime_imports.py
+  size_bytes: 3626
+  source_files:
+  - D:\Python\verify_runtime_imports (1).py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 0
+    functions: 3
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-eeb0b5dbdbef8a11
+  source_sha256: eeb0b5dbdbef8a11fb09c373136621bfe63cadc92de806a725c23996aae6dcee
+  source_family: prompt_engineering_framework.py
+  size_bytes: 15065
+  source_files:
+  - D:\Python\prompt_engineering_framework.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 2
+    functions: 9
+  source_review:
+    status: NOT_REVIEWED
+    line_ranges: []
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+- donor_id: DONOR-fed806a7495afba8
+  source_sha256: fed806a7495afba822537980aa21844304b76536636d1222af5c4b4db1268b02
+  source_family: tuyul_reasoning_engine.py
+  size_bytes: 33748
+  source_files:
+  - D:\Python\tuyul_reasoning_engine.py
+  duplicate_of: null
+  syntax:
+    status: PASS_SYNTAX_ONLY
+    classes: 7
+    functions: 42
+  source_review:
+    status: PARTIAL_STATIC_REVIEW
+    line_ranges:
+    - - 818
+      - 873
+  import_test: NOT_EXECUTED
+  runtime_test: NOT_EXECUTED
+  rights_status: NOT_MEASURED
+source_aliases:
+- source_file: D:\Python\tuyul_data_bridge.py
+  source_sha256: 75d5aea538ad51f79afbbd1d5a1951721930287399e48d5d02144317cd6783ce
+  duplicate_of: DONOR-75d5aea538ad51f7
+  basis: EXACT_LOCAL_BYTES
+algorithms:
+- algorithm_id: ALG-001
+  name: ConceptGraph
+  source_family: tuyul_reasoning_engine.py
+  source:
+    reported_file: tuyul_reasoning_engine(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-06
+    local_candidate_ids:
+    - DONOR-fed806a7495afba8
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Typed concepts and relations with source references
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: context
+    related_subsystems:
+    - knowledge
+    target_checkpoints:
+    - CP1
+    - CP2
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Typed concepts and relations with source references
+  reject:
+  - Unbounded all-simple-path traversal; graph size as confidence
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Bound traversal and prove cycle handling, provenance and evidence gaps
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-002
+  name: ReasoningProcedure DSL
+  source_family: advanced reasoning framework examples.py
+  source:
+    reported_file: Advanced Reasoning Framework Examples.py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-01
+    local_candidate_ids:
+    - DONOR-890d70774ceaea33
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Versioned declarative proposal steps
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: orchestration
+    related_subsystems:
+    - sentient
+    target_checkpoints:
+    - CP1
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Versioned declarative proposal steps
+  reject:
+  - Arbitrary callables and a second workflow authority chain
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Reject unknown steps and prove proposal-only outputs
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-003
+  name: ReasoningTrace
+  source_family: tuyul_reasoning_engine.py
+  source:
+    reported_file: tuyul_reasoning_engine(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-06
+    local_candidate_ids:
+    - DONOR-fed806a7495afba8
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Compact decision receipts and evidence references
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: orchestration
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP1
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Compact decision receipts and evidence references
+  reject:
+  - Unrestricted internal reasoning logs and synthetic confidence
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Bind task, input digest, procedure version and outcomes without leaking secrets
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-004
+  name: ProcedureSelector
+  source_family: strategy_selector_engine.py
+  source:
+    reported_file: strategy_selector_engine.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-05
+    local_candidate_ids:
+    - DONOR-ca48510f81188eac
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Bounded deterministic procedure selection
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: orchestration
+    related_subsystems: []
+    target_checkpoints:
+    - CP1
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Bounded deterministic procedure selection
+  reject:
+  - Trading strategy names and authority derived from score
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Explicit unsupported-route and ambiguous-input outcomes
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-005
+  name: RepositorySnapshotReader
+  source_family: PENDING_CANONICAL_REPORT
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Immutable repository snapshot and bounded reads
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: repositories
+    related_subsystems:
+    - execution/repo_reader
+    target_checkpoints:
+    - CP2
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Immutable repository snapshot and bounded reads
+  reject:
+  - Mutable main revision and remote Python execution
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Pin full revision, constrain paths and size, emit missing-reader evidence
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-006
+  name: IntegrationManifest
+  source_family: tuyul_loop_sync_bridge.py
+  source:
+    reported_file: tuyul_loop_sync_bridge(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-05
+    local_candidate_ids:
+    - DONOR-bd9302c13263af9d
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Exact revision and schema-bound integration declaration
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: repositories
+    related_subsystems:
+    - capabilities
+    target_checkpoints:
+    - CP2
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Exact revision and schema-bound integration declaration
+  reject:
+  - Mutable branch binding and automatic synchronization
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Validate digests, schema, provenance and explicit unsupported dependencies
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-007
+  name: PolicyRuleEngine
+  source_family: wolf_psychological_control_system.py
+  source:
+    reported_file: wolf_psychological_control_system(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-11
+    local_candidate_ids:
+    - DONOR-0f59430ff53945fa
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Rule identity, criticality, result and reason
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: control
+    related_subsystems: []
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Rule identity, criticality, result and reason
+  reject:
+  - Owner psychology scoring and trading rules
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Critical violations deny; evidence gaps cannot pass
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-008
+  name: Sequential Gate Cascade
+  source_family: verdict_engine_patch.py
+  source:
+    reported_file: verdict_engine_patch.py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-13
+    local_candidate_ids:
+    - DONOR-a982fe97a8977bef
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Ordered typed gates and explicit deny/hold reasons
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: control
+    related_subsystems:
+    - control/gates
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Ordered typed gates and explicit deny/hold reasons
+  reject:
+  - Trading thresholds, substring verdicts and reduced execution after mandatory failure
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Test short-circuit versus evaluate-all policy, all missing states and mandatory failure
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-009
+  name: CircuitBreaker
+  source_family: wolf_psychological_control_system.py
+  source:
+    reported_file: wolf_psychological_control_system(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-11
+    local_candidate_ids:
+    - DONOR-0f59430ff53945fa
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Failure reason, severity, cooldown and verified resume conditions
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: control
+    related_subsystems:
+    - execution
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Failure reason, severity, cooldown and verified resume conditions
+  reject:
+  - Psychological diagnosis and confidence-driven authority
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Verify hold/locked transitions, monotonic cooldown and approved resume
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-010
+  name: RetryEscalationGuard
+  source_family: tuyulagibot-tjx.py
+  source:
+    reported_file: tuyulagibot-tjx(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-07
+    local_candidate_ids:
+    - DONOR-58354d4f05b1dff3
+    - DONOR-bf76ad31742653be
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Bounded retries and explicit escalation receipts
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: control
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Bounded retries and explicit escalation receipts
+  reject:
+  - Missing audit treated as zero health and automatic repair subprocess
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Missing health produces NOT_MEASURED/HOLD and no implicit retry of ambiguous effects
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-011
+  name: ProviderAdapter
+  source_family: reflective_live_bridge.py
+  source:
+    reported_file: reflective_live_bridge.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-16
+    local_candidate_ids:
+    - DONOR-5970d0b1ccc10688
+    - DONOR-7b49d99f664388e9
+    - DONOR-bebfc16984f7d13c
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Typed provider result, timeout and failure classification
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: models
+    related_subsystems:
+    - integrations
+    target_checkpoints:
+    - CP1
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Typed provider result, timeout and failure classification
+  reject:
+  - Errors collapsed into empty objects and score-driven permission
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Pin provider/config and validate schemas, timeouts and failure provenance
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-012
+  name: SentientEvent Envelope
+  source_family: repo_bridge_client.py
+  source:
+    reported_file: repo_bridge_client.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-01
+    local_candidate_ids:
+    - DONOR-3ade868a016eb88f
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Typed event identity, generations and processing receipt
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: contracts
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP3
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Typed event identity, generations and processing receipt
+  reject:
+  - HTTP acceptance reported as completed application
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Distinguish dispatched, accepted, processed, failed and unknown
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-013
+  name: ToolDescriptor
+  source_family: tools.py
+  source:
+    reported_file: tools.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-14
+    local_candidate_ids:
+    - DONOR-2e9857a50324bed6
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Versioned input/output schema and declared effect class
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: tools
+    related_subsystems:
+    - capabilities
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Versioned input/output schema and declared effect class
+  reject:
+  - Tool registration treated as execution permission
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Validate descriptor identity, compatibility and unchanged authority
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-014
+  name: CapabilityResolver
+  source_family: reflective_mcp_handler.py
+  source:
+    reported_file: reflective_mcp_handler.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-17
+    local_candidate_ids:
+    - DONOR-00c9c978236f72d5
+    - DONOR-a0f7c03c7fd1e28d
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Resolve qualified providers from explicit requirements
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: capabilities
+    related_subsystems: []
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Resolve qualified providers from explicit requirements
+  reject:
+  - Keyword routing and synthetic hash-based coherence
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Reject unqualified, mismatched and ambiguous candidates
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-015
+  name: Reasoning Procedure as Skill
+  source_family: prompt_engineering_framework.py
+  source:
+    reported_file: prompt_engineering_framework.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-07
+    local_candidate_ids:
+    - DONOR-eeb0b5dbdbef8a11
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Package a declarative versioned procedure
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: skills
+    related_subsystems:
+    - orchestration
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Package a declarative versioned procedure
+  reject:
+  - Global prompt policy override and arbitrary callable execution
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Qualify exact package and preserve Kernel-owned lifecycle
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-016
+  name: Safe Provider Acquisition
+  source_family: PENDING_CANONICAL_REPORT
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Provenance, rights, isolation and independent admission
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: capability_factory
+    related_subsystems:
+    - capabilities
+    target_checkpoints:
+    - CP6
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Provenance, rights, isolation and independent admission
+  reject:
+  - Download followed by execution or automatic admission
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Verify exact source/package, usage rights, isolation and independent qualification
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-017
+  name: Duplicate/Overlap Detector
+  source_family: PENDING_CANONICAL_REPORT
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Exact digest identity plus separately reviewed semantic overlap
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: capability_factory
+    related_subsystems: []
+    target_checkpoints:
+    - CP6
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Exact digest identity plus separately reviewed semantic overlap
+  reject:
+  - Filename-only duplicate claims and duplicate authority owners
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Same bytes share one donor; semantic similarity cannot imply byte identity
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-018
+  name: MultiHorizonStateAnalyzer
+  source_family: trq3d_unified_engine.py
+  source:
+    reported_file: trq3d_unified_engine.py
+    donor_batches:
+    - ARCH-ALG-04
+    reference_ids:
+    - ARCH-ALG-04-16
+    local_candidate_ids:
+    - DONOR-d9812dd1f9d8cd56
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Measured state across explicitly bounded time horizons
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Measured state across explicitly bounded time horizons
+  reject:
+  - Trading wave thresholds and synthetic integrity
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Missing windows stay NOT_MEASURED; validate lifecycle and profile generations
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-019
+  name: TelemetryPersistenceAnalyzer
+  source_family: pattern_reporter.py
+  source:
+    reported_file: pattern_reporter.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-02
+    local_candidate_ids:
+    - DONOR-5f81a3b7f32ab9ad
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Windowed persistence, sample count and provenance
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - observability
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Windowed persistence, sample count and provenance
+  reject:
+  - Empty sample statistics and silent synchronization errors
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Reject insufficient/invalid samples and expose persistence limitations
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-020
+  name: DriftAnalyzer
+  source_family: ree_adaptive_analysis.py
+  source:
+    reported_file: ree_adaptive_analysis.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-11
+    local_candidate_ids:
+    - DONOR-13e44a9bded03558
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Deterministic drift and dispersion candidates
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - ree
+    - evaluation
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Deterministic drift and dispersion candidates
+  reject:
+  - Cancellation-prone drift and healthy defaults for insufficient samples
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Prove cancellation guards, finite metrics and unknown/healthy separation
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-021
+  name: Disagreement/Fusion Analyzer
+  source_family: phase_resonance.py
+  source:
+    reported_file: phase_resonance.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-03
+    local_candidate_ids:
+    - DONOR-513aaf8aed549036
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Pairwise disagreement alongside aggregate scores
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient/cognition
+    related_subsystems:
+    - evaluation
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Pairwise disagreement alongside aggregate scores
+  reject:
+  - Domain PRI thresholds and integrity floor
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Conflicting evidence remains visible with measured coverage
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-022
+  name: ExplainableWeightedFusion
+  source_family: wlwci_calculator.py
+  source:
+    reported_file: wlwci_calculator(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-19
+    local_candidate_ids:
+    - DONOR-27b3710721652ce0
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Per-component contribution and versioned weights
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: evaluation
+    related_subsystems:
+    - sentient/cognition
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Per-component contribution and versioned weights
+  reject:
+  - Trading weights and uncalibrated confidence labels
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Finite/normalization guards, missing inputs and reproducible contributions
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-023
+  name: TemporalGeneralizationEvaluator
+  source_family: walk_forward_validation_engine.py
+  source:
+    reported_file: walk_forward_validation_engine.py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-18
+    local_candidate_ids:
+    - DONOR-9e808fe4d238641c
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Past versus unseen later task windows
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: evaluation
+    related_subsystems:
+    - ree
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Past versus unseen later task windows
+  reject:
+  - Trading thresholds, unused training phase and skipped exact-size window
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Test temporal leakage, exact-size boundaries, invalid window sizes and nonempty evaluation
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-024
+  name: Replay/Monte-Carlo Evaluator
+  source_family: probability_core.py
+  source:
+    reported_file: probability_core.py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-06
+    local_candidate_ids:
+    - DONOR-a3ce082fded5abfe
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Once-per-input evaluation with pinned seed/profile
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: evaluation
+    related_subsystems:
+    - ree
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Once-per-input evaluation with pinned seed/profile
+  reject:
+  - Random probability unrelated to evidence
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Bind evaluation ID, inputs, seed, profile and baseline; quantify uncertainty
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-025
+  name: Bounded Candidate Optimizer
+  source_family: reflective evolution engine (ree).py
+  source:
+    reported_file: Reflective Evolution Engine (REE).py
+    donor_batches:
+    - ARCH-ALG-03
+    reference_ids:
+    - ARCH-ALG-03-12
+    local_candidate_ids:
+    - DONOR-28e9608a62819e6a
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Offline bounded candidate generation
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: ree
+    related_subsystems:
+    - learning
+    - evaluation
+    target_checkpoints:
+    - CP8
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Offline bounded candidate generation
+  reject:
+  - Live learning and automatic parameter mutation
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Validate constraints, provenance, evaluation and independent promotion
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-026
+  name: ReasoningPlan
+  source_family: tuyul_reasoning_engine.py
+  source:
+    reported_file: tuyul_reasoning_engine(1).py
+    donor_batches:
+    - ARCH-ALG-05
+    reference_ids:
+    - ARCH-ALG-05-06
+    local_candidate_ids:
+    - DONOR-fed806a7495afba8
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Typed bounded plan with evidence requirements
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: sentient
+    related_subsystems:
+    - orchestration
+    target_checkpoints:
+    - CP1
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Typed bounded plan with evidence requirements
+  reject:
+  - A plan controlling execution or manufacturing missing facts
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Kernel validates proposals; unsupported evidence requests remain explicit
+    qualification: NOT_EXECUTED
+- algorithm_id: ALG-027
+  name: ProviderDescriptor
+  source_family: PENDING_CANONICAL_REPORT
+  source:
+    reported_file: null
+    donor_batches: []
+    reference_ids: []
+    local_candidate_ids: []
+    historical_hash_binding: NOT_VERIFIED
+  classification:
+    source_domain: Mixed legacy trading and generic software research
+    extracted_principle: Immutable provider identity, version and supported contracts
+  decision:
+    status: ADOPT_REWRITE
+    basis: Owner addendum brief; generic principle only
+    target_subsystem: capabilities
+    related_subsystems:
+    - models
+    - tools
+    - mcp
+    target_checkpoints:
+    - CP5
+    ownership_status: PROPOSED_REQUIRES_FINAL_REVIEW
+  authority:
+    source_authority_model: NOT_VERIFIED
+    wolf15_authority_effect: NONE
+    future_boundary: Control Kernel alone owns authority and workflow transitions
+  adopt:
+  - Immutable provider identity, version and supported contracts
+  reject:
+  - Registry presence treated as readiness or permission
+  implementation:
+    status: NOT_IMPLEMENTED
+    runtime_active: false
+    status_scope: Donor adoption only, not all existing baseline contracts
+  evidence:
+    validation_status: HISTORICAL_BINDING_INCOMPLETE
+    required_acceptance: Bind exact implementation/config and qualification receipt
+    qualification: NOT_EXECUTED
+anti_patterns:
+- anti_pattern_id: DOMAIN-01
+  decision: REJECT
+  mechanism: BUY/SELL, lot sizing, SL/TP and prop-firm logic
+  required_replacement: Keep domain ownership outside Sentient
+- anti_pattern_id: DOMAIN-02
+  decision: REJECT
+  mechanism: Market-specific TII, TWMS thresholds and VIX trade recommendations
+  required_replacement: Specify and evaluate task-domain metrics separately
+- anti_pattern_id: DOMAIN-03
+  decision: REJECT
+  mechanism: Owner psychology scoring and FOMO/revenge diagnosis
+  required_replacement: Use observable system failures, not psychological inference
+- anti_pattern_id: EVIDENCE-01
+  decision: REJECT
+  mechanism: Synthetic coherence, random integrity and hard-coded 0.95 confidence
+  required_replacement: Require measured evidence and independent calibration
+- anti_pattern_id: EVIDENCE-02
+  decision: REJECT
+  mechanism: Missing input becomes zero or default healthy
+  required_replacement: Preserve NOT_MEASURED, coverage and unknown/HOLD
+- anti_pattern_id: AUTHORITY-01
+  decision: REJECT
+  mechanism: Remote Python execution from donor acquisition
+  required_replacement: Separate retrieval, isolation, review and admission
+- anti_pattern_id: AUTHORITY-02
+  decision: REJECT
+  mechanism: Automatic runtime parameter mutation and live self-learning
+  required_replacement: Offline candidates and independently authorized promotion
+- anti_pattern_id: REVISION-01
+  decision: REJECT
+  mechanism: Branch main used as runtime revision
+  required_replacement: Pin immutable source, package and configuration digests
+- anti_pattern_id: GATE-01
+  decision: REJECT
+  mechanism: Mandatory gate failure followed by reduced execution
+  required_replacement: Kernel denies or holds; no score override
+- anti_pattern_id: CLAIM-01
+  decision: REJECT
+  mechanism: Parse success or dispatch acceptance promoted to runtime readiness
+  required_replacement: Separate syntax, import, runtime, integration and delivery/application evidence
+- anti_pattern_id: DEDUPE-01
+  decision: REJECT
+  mechanism: Same basename or normalized suffix treated as same source
+  required_replacement: Use actual SHA-256 identity and preserve distinct variants
+- anti_pattern_id: GRAPH-01
+  decision: REJECT
+  mechanism: Unbounded graph paths and graph size as confidence
+  required_replacement: Bound traversal and evaluate against independent evidence
+- anti_pattern_id: EVALUATION-01
+  decision: REJECT
+  mechanism: Cancellation-prone metrics, invalid normalization and empty windows
+  required_replacement: Test finite values, missingness, boundary sizes and temporal separation
+- anti_pattern_id: OVERLAP-01
+  decision: REJECT
+  mechanism: Multiple donor orchestrators become competing kernels
+  required_replacement: One canonical Control Kernel
+overlap_clusters:
+- capability: deterministic-policy-gating
+  donor_family_hints:
+  - constitutional_orchestrator
+  - core_orchestrator
+  - super_engine
+  - verdict_engine_patch
+  canonical_owner: control
+  implementation_count: 1
+  binding: SEMANTIC_OVERLAP_ONLY
+- capability: cognitive-state-analysis
+  donor_family_hints:
+  - TRQ
+  - reflective drift
+  - hybrid quantum
+  - phase resonance
+  - equilibrium
+  canonical_owner: sentient/cognition
+  outputs:
+  - state
+  - drift
+  - disagreement
+  - multi-horizon evidence
+  authority: ADVISORY_ONLY
+  binding: SEMANTIC_OVERLAP_ONLY
