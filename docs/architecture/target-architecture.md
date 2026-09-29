@@ -26,7 +26,9 @@ WOLF15 Sentient is intended to be an independent, auditable product for software
 - execute repository operations only through constrained adapters;
 - retain evidence for every gate and decision;
 - stop safely when evidence or authority is insufficient;
-- reserve merge and production decisions for the owner.
+- reserve merge and production decisions for the owner;
+- prefer structured browser-native capabilities such as WebMCP when available,
+  while preserving an explicitly classified bounded browser-automation fallback.
 
 ## System boundary
 
@@ -74,6 +76,7 @@ The control plane must not be embedded inside a target repository. A repository 
 | Intelligence Division | Research, analysis, and source verification | Target; roster and contracts pending |
 | Knowledge & Memory | Store and retrieve sourced context and lifecycle-bound decisions | Target; no persistence or retrieval implementation |
 | Capability Fabric | Describe capabilities and mediate access through authorized tools and adapters | Target; no execution adapters |
+| Browser Capability Plane / WebMCP | Discover and invoke page-provided structured browser tools, normalize them as ephemeral providers, and preserve origin/session/tool receipts | Target only; no browser/WebMCP runtime |
 | Learning & Adaptation Plane | Journal evidence-backed episodes and produce evaluated capability/workflow candidates without raising authority | Contracts only; not wired to workflow |
 | WOLF15 Trading System | Own trading strategy, risk controls, and execution | External; no integration in this foundation |
 
@@ -124,6 +127,30 @@ read-only -> proposed patch -> isolated worktree -> feature branch
 
 Later steps are not implied by earlier ones.
 
+### Browser Capability Plane / WebMCP
+
+WebMCP is a browser capability provider surface, not a second orchestrator and
+not a replacement for backend MCP.
+
+~~~text
+browser session
+  -> discover page-provided WebMCP tools
+  -> normalize origin + session + tool + schema + annotations
+  -> Capability Resolver eligibility
+  -> Control Kernel authorization
+  -> execute exact invocation
+  -> structured result + execution receipt
+  -> evidence / owner-visible response
+~~~
+
+Read-only discovery/invocation belongs to CP4; provider normalization to CP5;
+SDK/polyfill/bridge qualification to CP6; consequential browser actions to CP7.
+A separately qualified fallback reports `BROWSER_AUTOMATION_FALLBACK`, never
+`WEBMCP_NATIVE`.
+
+See [Browser Capability Plane / WebMCP](webmcp-browser-capability-plane.md) and
+[Final Target Skeleton](final-target-skeleton.md).
+
 ### Trace and decision ledger
 
 Every workflow node records identifiers, timestamps, status, input/output references, evidence, errors, and decisions. Sensitive data and credentials must never be persisted as trace content.
@@ -143,7 +170,9 @@ The UI is a later consumer of stable API and trace contracts. It displays state 
 3. **Control plane to execution adapter:** authorize each action, constrain scope, and record evidence.
 4. **Execution adapter to target repository:** isolate changes and protect default branches.
 5. **Control plane to external services:** use least-privilege credentials and distinguish configured from verified connectivity.
-6. **Draft PR to production:** require a separate human-controlled decision and deployment mechanism.
+6. **Control plane to browser/WebMCP:** bind origin, document/session, tool identity, arguments, execution class and cancellation; treat page/tool metadata as untrusted provider input.
+7. **Consequential browser action to owner approval:** page-local confirmation is not the WOLF15 authority root.
+8. **Draft PR to production:** require a separate human-controlled decision and deployment mechanism.
 
 ## Failure behavior
 
