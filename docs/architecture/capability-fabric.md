@@ -50,5 +50,27 @@ until tests and explicit lifecycle decisions qualify it.
   authoritative at every adapter call. External writes remain excluded until
   a later separately approved authority increment.
 
+## WebMCP ephemeral provider model
+
+A WebMCP page tool is an **ephemeral provider instance**. Its availability is
+bound to an exact browser session/document/origin and may change on navigation,
+route state, iframe exposure or `toolchange`. It is not a permanently active
+provider merely because discovery returned it once.
+
+A normalized descriptor carries capability/provider ID, execution class
+`WEBMCP_NATIVE`, browser/session/document/origin, tool/schema digest,
+annotations as untrusted provider metadata, lifecycle state, authority/data
+requirements, and qualification/evaluation receipts.
+
+`REGISTERED != QUALIFIED != ACTIVE != AUTHORIZED_FOR_THIS_TASK`.
+
+A separately qualified browser fallback reports
+`BROWSER_AUTOMATION_FALLBACK` with separate policy and evidence. CP5 acceptance
+must deny stale sessions, origin mismatch, tool removal/change, revoked
+generations and annotation-policy disagreement. Consequential invocation remains
+excluded until CP7.
+
 The [Capability Foundry](capability-foundry.md) proposes new manifests;
-it cannot register them as active by itself.
+it cannot register them as active by itself. The
+[Browser Capability Plane](webmcp-browser-capability-plane.md) owns browser
+discovery/invocation; Capability Fabric owns provider description/resolution.
