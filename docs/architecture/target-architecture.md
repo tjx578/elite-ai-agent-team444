@@ -178,18 +178,12 @@ The UI is a later consumer of stable API and trace contracts. It displays state 
 
 The system fails closed when a contract is invalid, required evidence is missing, the revision limit is exhausted, an adapter exceeds its scope, or authority is insufficient. The expected terminal result is `BLOCKED_REQUIRES_OWNER` or `NOT_READY`, not an optimistic success status.
 
-## Delivery sequence
+## Delivery authority
 
-| Milestone | Scope | Explicitly excluded |
-| --- | --- | --- |
-| PR-0 | Truth alignment, architecture contracts, ADRs, authority model | Runtime claims |
-| PR-1 | Python/API/contracts/router/state/trace foundation with tests | LangGraph, model calls, repo execution |
-| PR-2 | Deterministic graph, bounded revision loop, stub roles | Real model reasoning |
-| PR-3 | Schema-constrained model adapters | Repository mutation |
-| PR-4 | Read-only and isolated repository execution | Main-branch or production authority |
-| PR-5 | Feature branch and draft PR delivery | Autonomous merge/deploy |
-| PR-6 | Durable state, approval, and resume | Owner Console |
-| PR-7 | Owner Console over stable contracts | Policy bypass |
-| PR-8+ | Additional specialists, memory, optimization | Authority expansion by default |
+This document defines architecture, not checkpoint order. The former PR-0…
+PR-8+ delivery table is retired as current scheduling authority.
 
-Each milestone must update [Current State](current-state.md) using repository and test evidence.
+The only normative implementation sequence is the
+[Master Roadmap — CP0 to CP9](roadmap.md). Historical PR/M labels may remain in
+old evidence records to identify the source slice that produced them, but new
+planning and acceptance decisions use only CP0–CP9.
