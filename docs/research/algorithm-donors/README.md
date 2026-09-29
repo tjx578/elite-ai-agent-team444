@@ -96,3 +96,11 @@ This freeze records documentation acceptance and does not qualify implementation
 Push, Draft PR, remote checks, PR review, merge and resulting-main verification
 remain separate. CP0 remains CLOSED / PASS at its accepted SHA. CP1 is
 NOT_STARTED and requires an integrated, verified resulting-main baseline.
+
+## Separate WebMCP donor portfolio
+
+WebMCP research is tracked separately under
+[`docs/research/webmcp-donors/`](../webmcp-donors/README.md). It does not
+mutate the frozen `ALG-REG-001` generation. WebMCP repositories are protocol,
+skill, runtime/fallback and evaluation donors whose implementation belongs to
+CP4–CP8 according to the official roadmap.
