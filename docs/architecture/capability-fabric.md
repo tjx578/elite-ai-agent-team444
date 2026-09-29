@@ -2,8 +2,9 @@
 
 ## Status
 
-**M1-B target design.** No runtime registry, provider resolver, execution
-adapter, or active skill loader exists in the inspected baseline. Current
+**Target design. Master checkpoint owner: CP5.** No runtime registry, provider
+resolver, execution adapter, or active skill loader exists in the inspected
+baseline. Current
 specialists are deterministic stubs. This document defines how later
 capabilities may be described and selected without changing authority.
 
@@ -45,7 +46,7 @@ until tests and explicit lifecycle decisions qualify it.
 - Unknown capability or conflicting manifests: no eligible provider.
 - Stale health, unavailable provider, or revoked generation: select a
   separately qualified fallback or stop; do not silently change a pinned run.
-- M7 acceptance: versioned registry, resolver replay tests, explicit deny
+- CP5 acceptance: versioned registry, resolver replay tests, explicit deny
   cases, provider-scoped data policy, and evidence that the Kernel remains
   authoritative at every adapter call. External writes remain excluded until
   a later separately approved authority increment.
