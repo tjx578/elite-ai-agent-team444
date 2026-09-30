@@ -153,4 +153,4 @@ jobs:
           version: "0.12.19"
       - run: uv sync --locked --extra dev
       - name: Qualify scanner and exact-head acceptance on Windows
-        run: uv run --locked --extra dev python -I -X utf8 -m pytest -q tests/unit/test_ci_secret_scan.py tests/unit/test_ci_secret_scan_collection.py tests/unit/test_ci_secret_scan_bootstrap.py tests/unit/test_ci_secret_scan_batch.py tests/unit/test_ci_secret_scan_generation.py tests/unit/test_ci_secret_scan_supervision.py
+        run: uv run --locked --extra dev python -I -X utf8 -m pytest -q tests/unit/test_ci_secret_scan.py tests/unit/test_ci_secret_scan_collection.py tests/unit/test_ci_secret_scan_bootstrap.py tests/unit/test_ci_secret_scan_batch.py tests/unit/test_ci_secret_scan_generation.py tests/unit/test_ci_secret_scan_supervision.py tests/unit/test_ci_secret_scan_error_boundaries.py
