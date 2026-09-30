@@ -24,7 +24,7 @@ def initialize_verified_collection():
 
 @pytest.fixture(scope="module")
 def evidence():
-    return {p: subprocess.check_output(["git", "-C", str(ROOT), "show", "HEAD:" + p]) for p in GATE.FILE_DIGESTS}
+    return {p: subprocess.check_output(["git", "-C", str(ROOT), "show", "HEAD:" + p]) for p in {**GATE.FILE_DIGESTS, **GATE.ADDITIONAL_FILE_DIGESTS}}
 
 
 def historical_frozen_blobs():
@@ -37,7 +37,7 @@ def finding(binding):
     return {"path": path, "line": line, "type": kind, "fingerprint": bytes(fp).hex()}
 
 
-@pytest.mark.parametrize("binding", GATE.EXCEPTIONS)
+@pytest.mark.parametrize("binding", (*GATE.EXCEPTIONS, *GATE.ADDITIONAL_EXCEPTIONS))
 def test_individual_exact_evidence_binding(binding, evidence):
     assert GATE.classify([finding(binding)], evidence) == (1, 0)
 
@@ -232,3 +232,29 @@ def test_worker_failures_remove_stale_receipt_without_traceback(tmp_path, argume
     assert not stale.exists()
     assert b"Traceback" not in result.stderr
     assert b"PASS" not in result.stdout
+
+
+@pytest.mark.parametrize("mutation", ["missing_pointer", "wrong_value", "duplicate_pointer", "empty_pointers"])
+def test_canonical_fixture_exception_rejects_wrong_selector(evidence, monkeypatch, mutation):
+    import json
+    binding = next(x for x in GATE.ADDITIONAL_EXCEPTIONS if x[4].startswith("json:"))
+    pointers = json.loads(binding[4][5:])
+    if mutation == "missing_pointer":
+        pointers[0] = "/nonexistent"
+    elif mutation == "wrong_value":
+        pointers[0] = "/schema_version"
+    elif mutation == "duplicate_pointer":
+        pointers.append(pointers[0])
+    else:
+        pointers = []
+    wrong = (*binding[:4], "json:" + json.dumps(pointers))
+    monkeypatch.setattr(GATE, "ADDITIONAL_EXCEPTIONS", (wrong,))
+    with pytest.raises(ValueError, match="EXCEPTION_FIELD_CHANGED"):
+        GATE.classify([finding(binding)], evidence)
+
+
+def test_additional_bindings_do_not_admit_new_occurrence(evidence):
+    binding = GATE.ADDITIONAL_EXCEPTIONS[0]
+    row = finding(binding)
+    row["fingerprint"] = "0" * 40
+    assert GATE.classify([row], evidence) == (0, 1)

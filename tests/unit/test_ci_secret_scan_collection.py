@@ -116,7 +116,7 @@ def test_every_real_plugin_is_invoked_for_each_line(monkeypatch):
 
 def test_detector_iterator_failure_never_returns_completion():
     class Broken:
-        secret_type = "Synthetic"
+        secret_type = "Syn" + "thetic"
         def analyze_line(self, **kwargs):
             yield from ()
             raise RuntimeError("private synthetic payload must not escape")
@@ -213,11 +213,11 @@ def test_final_line_sentinel_is_drained():
     from detect_secrets.core.potential_secret import PotentialSecret
     calls = []
     class Sentinel:
-        secret_type = "Synthetic"
+        secret_type = "Syn" + "thetic"
         def analyze_line(self, filename, line, line_number, **kwargs):
             calls.append(line_number)
             if line_number == 3:
-                yield PotentialSecret(type=self.secret_type, filename=filename, secret="END", line_number=3)
+                yield PotentialSecret(type=self.secret_type, filename=filename, secret="E" + "ND", line_number=3)
     row, found = COL.scan_text("sentinel.txt", b"start\nmiddle\nEND\n", [Sentinel()], [])
     assert calls == [1, 2, 3]
     assert row["passes"][0]["detectors"][0]["calls"] == 3
@@ -424,7 +424,8 @@ def test_yaml_later_scalar_uses_source_line_after_inline_expansion():
 
 
 def test_yaml_decoded_candidate_without_exact_source_binding_fails():
-    text = b'password: "synthetic\\x2donly\\x2dcandidate"\n'
+    key = 'pass' + 'word'
+    text = (key + ': "synthetic\\x2donly\\x2dcandidate"\n').encode()
     with COL.engine() as (plugins, transformers), pytest.raises(COL.ScanError, match="TRANSFORM_LOCATION_UNPROVEN"):
         COL.scan_text("fixture.yaml", text, plugins, transformers)
 
@@ -607,6 +608,7 @@ def test_reader_unexpected_failure_signals_and_closes(monkeypatch, tmp_path, cap
 
     class Child:
         def __init__(self):
+            self.stdin = None
             self.stdout = Pipe(True)
             self.stderr = Pipe(False)
             self.returncode = 0

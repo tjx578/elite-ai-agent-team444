@@ -146,10 +146,18 @@ def test_path_replacement_after_verification_cannot_change_compiled_buffer(repos
 
 def test_crlf_worktree_preserves_raw_git_buffer_binding(repository):
     repo, gate, head = repository
+    original_index = git(repo, "ls-files", "--stage", "-z")
     git(repo, "config", "core.autocrlf", "true")
     for path in (VALIDATOR, COLLECTOR):
         raw = (repo / path).read_bytes()
         (repo / path).write_bytes(raw.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
+    # Refresh index stat information after changing checkout conversion policy.
+    # This must normalize back to exactly the original index/blob identities.
+    git(repo, "add", "--", VALIDATOR, COLLECTOR)
+    assert git(repo, "ls-files", "--stage", "-z") == original_index
+    assert git(repo, "rev-parse", "HEAD").decode().strip() == head
+    assert git(repo, "status", "--porcelain=v1", "--untracked-files=no") == b""
+    assert b"\r\n" in (repo / COLLECTOR).read_bytes()
     binding = gate.initialize_collection(repo, head)
     assert gate._verified_sources[COLLECTOR] == TRUSTED_SOURCE
     assert binding["sources"][COLLECTOR]["byte_length"] == len(TRUSTED_SOURCE)

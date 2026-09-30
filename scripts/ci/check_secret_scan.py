@@ -1006,6 +1006,188 @@ FROZEN_DIGESTS = {
 
 
 
+# Individually triaged conservative-scan and DESIGN-003 evidence occurrences.
+# These exact bindings are separate from the original 106 + 573 and any R2 proposal.
+ADDITIONAL_FILE_DIGESTS = {
+    'docs/architecture/cp1/fixtures/envelope.canonical.json': (216, 225, 205, 196, 233, 139, 196, 232, 221, 90, 25, 9, 122, 33, 160, 248, 191, 156, 175, 229, 146, 27, 47, 253, 213, 103, 229, 18, 81, 32, 91, 102),
+    'docs/architecture/cp1/fixtures/request.canonical.json': (174, 84, 23, 250, 192, 73, 253, 213, 188, 228, 142, 190, 207, 209, 165, 125, 108, 246, 45, 62, 36, 1, 204, 113, 124, 251, 61, 192, 28, 208, 102, 52),
+    'docs/architecture/cp1/fixtures/response.canonical.json': (241, 83, 219, 170, 3, 140, 113, 128, 45, 215, 140, 93, 194, 232, 17, 226, 214, 74, 55, 7, 6, 112, 120, 237, 220, 247, 175, 25, 197, 189, 234, 170),
+    'docs/research/webmcp-donors/portfolio.yaml': (217, 124, 29, 168, 105, 212, 39, 133, 206, 93, 137, 114, 9, 192, 238, 137, 173, 164, 60, 170, 12, 97, 136, 131, 90, 157, 253, 53, 246, 210, 100, 63),
+    'docs/verification/cp1.1-design-003-freeze-receipt.json': (190, 219, 242, 2, 80, 31, 235, 182, 43, 145, 52, 219, 0, 142, 224, 72, 89, 209, 99, 253, 82, 188, 231, 33, 251, 124, 44, 102, 195, 238, 201, 175),
+    'docs/verification/cp1.1-design-003-independent-review.json': (10, 31, 154, 112, 167, 0, 248, 209, 80, 222, 75, 84, 178, 73, 116, 91, 18, 101, 204, 25, 216, 78, 199, 178, 83, 188, 84, 74, 176, 182, 183, 204),
+    'docs/verification/cp1.1-design-003-migration.json': (125, 237, 121, 208, 255, 225, 199, 126, 128, 231, 245, 85, 245, 40, 146, 91, 60, 45, 246, 69, 174, 168, 91, 129, 226, 216, 222, 247, 51, 58, 40, 90),
+    'docs/verification/cp1.1-design-003-review-manifest.json': (57, 113, 84, 240, 228, 28, 219, 127, 186, 215, 103, 252, 75, 139, 136, 24, 218, 219, 158, 172, 149, 50, 228, 231, 26, 165, 109, 169, 74, 94, 64, 229),
+}
+ADDITIONAL_EXCEPTIONS = (
+    ('docs/architecture/cp1/fixtures/envelope.canonical.json', 1, 'Hex High Entropy String', (58, 91, 109, 163, 232, 80, 27, 226, 97, 229, 178, 36, 83, 32, 20, 133, 58, 177, 34, 0), 'json:["/correlation/input_digest_sha256"]'),
+    ('docs/architecture/cp1/fixtures/envelope.canonical.json', 1, 'Hex High Entropy String', (199, 232, 137, 131, 224, 177, 60, 235, 234, 164, 48, 225, 240, 251, 249, 255, 51, 181, 10, 198), 'json:["/output_contract/schema_sha256"]'),
+    ('docs/architecture/cp1/fixtures/envelope.canonical.json', 1, 'Hex High Entropy String', (228, 31, 19, 102, 89, 11, 117, 176, 214, 211, 124, 208, 20, 68, 117, 94, 216, 23, 91, 155), 'json:["/limits/pricing_profile/sha256","/persona_profile/sha256","/policy_profile/sha256","/technical_profile/sha256"]'),
+    ('docs/architecture/cp1/fixtures/manifest.json', 10, 'Hex High Entropy String', (67, 197, 132, 179, 148, 231, 104, 17, 27, 157, 166, 3, 38, 107, 19, 75, 22, 190, 227, 172), 'gateway_digest_sha256'),
+    ('docs/architecture/cp1/fixtures/request.canonical.json', 1, 'Hex High Entropy String', (58, 91, 109, 163, 232, 80, 27, 226, 97, 229, 178, 36, 83, 32, 20, 133, 58, 177, 34, 0), 'json:["/envelope/correlation/input_digest_sha256"]'),
+    ('docs/architecture/cp1/fixtures/request.canonical.json', 1, 'Hex High Entropy String', (67, 197, 132, 179, 148, 231, 104, 17, 27, 157, 166, 3, 38, 107, 19, 75, 22, 190, 227, 172), 'json:["/gateway_digest_sha256"]'),
+    ('docs/architecture/cp1/fixtures/request.canonical.json', 1, 'Hex High Entropy String', (199, 232, 137, 131, 224, 177, 60, 235, 234, 164, 48, 225, 240, 251, 249, 255, 51, 181, 10, 198), 'json:["/envelope/output_contract/schema_sha256"]'),
+    ('docs/architecture/cp1/fixtures/request.canonical.json', 1, 'Hex High Entropy String', (228, 31, 19, 102, 89, 11, 117, 176, 214, 211, 124, 208, 20, 68, 117, 94, 216, 23, 91, 155), 'json:["/envelope/limits/pricing_profile/sha256","/envelope/persona_profile/sha256","/envelope/policy_profile/sha256","/envelope/technical_profile/sha256"]'),
+    ('docs/architecture/cp1/fixtures/response.canonical.json', 1, 'Hex High Entropy String', (58, 91, 109, 163, 232, 80, 27, 226, 97, 229, 178, 36, 83, 32, 20, 133, 58, 177, 34, 0), 'json:["/correlation/input_digest_sha256","/proposal/input_digest_sha256"]'),
+    ('docs/architecture/cp1/fixtures/response.canonical.json', 1, 'Hex High Entropy String', (67, 197, 132, 179, 148, 231, 104, 17, 27, 157, 166, 3, 38, 107, 19, 75, 22, 190, 227, 172), 'json:["/gateway_digest_sha256"]'),
+    ('docs/architecture/cp1/persona-profile.yaml', 11, 'Hex High Entropy String', (40, 216, 226, 201, 77, 58, 50, 55, 181, 17, 7, 221, 62, 116, 141, 152, 138, 185, 134, 122), 'historical_receipt_sha256'),
+    ('docs/architecture/cp1/persona-profile.yaml', 19, 'Hex High Entropy String', (104, 224, 25, 155, 139, 100, 133, 5, 58, 235, 71, 235, 234, 137, 131, 229, 39, 173, 242, 14), 'historical_receipt_sha256'),
+    ('docs/architecture/cp1/persona-source-binding.json', 12, 'Hex High Entropy String', (40, 216, 226, 201, 77, 58, 50, 55, 181, 17, 7, 221, 62, 116, 141, 152, 138, 185, 134, 122), 'historical_receipt_sha256'),
+    ('docs/architecture/cp1/persona-source-binding.json', 20, 'Hex High Entropy String', (104, 224, 25, 155, 139, 100, 133, 5, 58, 235, 71, 235, 234, 137, 131, 229, 39, 173, 242, 14), 'historical_receipt_sha256'),
+    ('docs/architecture/cp1/reviews/final-persona-review-prefreeze.json', 30, 'Hex High Entropy String', (216, 221, 15, 121, 10, 252, 59, 82, 25, 148, 145, 0, 5, 231, 89, 255, 48, 74, 12, 188), 'persona-guidance.md'),
+    ('docs/architecture/cp1/reviews/final-persona-review-prefreeze.json', 31, 'Hex High Entropy String', (141, 8, 116, 33, 215, 97, 248, 68, 82, 232, 33, 229, 24, 183, 3, 69, 153, 37, 74, 196), 'persona-profile.yaml'),
+    ('docs/architecture/cp1/reviews/final-persona-review-prefreeze.json', 32, 'Hex High Entropy String', (7, 69, 42, 201, 132, 192, 36, 213, 231, 205, 22, 251, 221, 6, 141, 120, 37, 67, 208, 118), 'acceptance-scenarios.json'),
+    ('docs/architecture/cp1/reviews/final-persona-review-prefreeze.json', 33, 'Hex High Entropy String', (119, 130, 135, 251, 138, 147, 61, 98, 140, 41, 209, 10, 36, 74, 89, 71, 73, 243, 66, 67), 'gateway-contract.md'),
+    ('docs/architecture/persona/persona-profile.yaml', 11, 'Hex High Entropy String', (40, 216, 226, 201, 77, 58, 50, 55, 181, 17, 7, 221, 62, 116, 141, 152, 138, 185, 134, 122), 'historical_receipt_sha256'),
+    ('docs/architecture/persona/persona-profile.yaml', 19, 'Hex High Entropy String', (104, 224, 25, 155, 139, 100, 133, 5, 58, 235, 71, 235, 234, 137, 131, 229, 39, 173, 242, 14), 'historical_receipt_sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 1741, 'Hex High Entropy String', (45, 248, 16, 195, 201, 122, 57, 107, 19, 89, 206, 21, 188, 147, 223, 71, 186, 114, 149, 188), 'source_sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 1843, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 1845, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 1847, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 1849, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 1958, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 1960, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2068, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2170, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2278, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2280, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2382, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2493, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2495, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2497, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2606, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2608, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2610, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2713, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2816, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2933, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 2935, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3045, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3047, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3155, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3157, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3159, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3258, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3365, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3367, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3479, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3580, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3691, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3693, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3695, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3795, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 3897, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4004, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4006, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4111, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4216, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4322, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4324, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4437, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4439, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4441, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4543, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4648, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4650, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4755, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4864, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4866, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 4969, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5068, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5149, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5151, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5240, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5242, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5327, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5409, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5499, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5582, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5721, 'Hex High Entropy String', (171, 16, 49, 88, 110, 81, 76, 68, 140, 181, 27, 40, 116, 230, 184, 178, 5, 175, 222, 147), 'verified_sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5730, 'Hex High Entropy String', (240, 101, 47, 37, 76, 76, 204, 31, 189, 216, 180, 216, 195, 99, 151, 182, 112, 231, 167, 104), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5734, 'Hex High Entropy String', (171, 243, 130, 76, 66, 184, 217, 131, 244, 157, 221, 124, 55, 110, 189, 179, 54, 41, 15, 9), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5742, 'Hex High Entropy String', (133, 86, 126, 204, 109, 55, 16, 93, 46, 89, 31, 100, 230, 176, 211, 177, 216, 135, 100, 24), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5746, 'Hex High Entropy String', (65, 205, 233, 160, 55, 190, 172, 180, 33, 161, 31, 92, 191, 200, 203, 174, 49, 138, 129, 244), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5750, 'Hex High Entropy String', (80, 78, 174, 84, 238, 228, 198, 8, 172, 47, 44, 211, 130, 143, 75, 204, 184, 230, 211, 190), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5754, 'Hex High Entropy String', (92, 184, 5, 127, 71, 250, 115, 158, 105, 104, 35, 167, 38, 238, 15, 46, 194, 170, 25, 238), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5758, 'Hex High Entropy String', (190, 150, 128, 118, 212, 76, 116, 204, 170, 2, 88, 37, 65, 5, 19, 249, 152, 129, 178, 132), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5762, 'Hex High Entropy String', (216, 53, 173, 111, 37, 240, 218, 161, 253, 213, 213, 159, 156, 50, 113, 225, 46, 39, 77, 85), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5766, 'Hex High Entropy String', (93, 241, 28, 36, 80, 87, 120, 128, 237, 92, 197, 33, 249, 15, 89, 199, 102, 68, 15, 49), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5770, 'Hex High Entropy String', (208, 24, 26, 216, 134, 74, 93, 250, 31, 190, 53, 115, 111, 90, 135, 151, 160, 229, 49, 11), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5774, 'Hex High Entropy String', (48, 184, 155, 210, 21, 188, 134, 73, 238, 49, 141, 101, 50, 118, 91, 166, 96, 45, 233, 14), 'sha256'),
+    ('docs/research/algorithm-donors/adoption-registry.yaml', 5814, 'Hex High Entropy String', (219, 59, 95, 40, 117, 202, 163, 172, 210, 6, 167, 134, 161, 95, 180, 221, 51, 172, 153, 134), 'source_commit'),
+    ('docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml', 5, 'Hex High Entropy String', (219, 59, 95, 40, 117, 202, 163, 172, 210, 6, 167, 134, 161, 95, 180, 221, 51, 172, 153, 134), 'source_commit'),
+    ('docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml', 42, 'Hex High Entropy String', (169, 224, 15, 15, 238, 176, 222, 242, 51, 183, 69, 53, 191, 32, 153, 246, 110, 229, 36, 197), 'anti-pattern-registry.md'),
+    ('docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml', 43, 'Hex High Entropy String', (82, 79, 178, 186, 38, 235, 247, 138, 198, 15, 174, 178, 40, 147, 58, 27, 241, 53, 136, 241), 'anti-patterns.md'),
+    ('docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml', 44, 'Hex High Entropy String', (161, 124, 171, 0, 251, 21, 124, 30, 92, 216, 115, 55, 25, 30, 199, 164, 117, 222, 121, 143), 'codex-desktop-implementation-contract.md'),
+    ('docs/research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml', 45, 'Hex High Entropy String', (128, 118, 119, 117, 221, 1, 211, 208, 222, 8, 115, 237, 37, 38, 178, 253, 146, 14, 209, 8), 'registry_sha256'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 11, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'base_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 43, 'Hex High Entropy String', (84, 155, 213, 28, 63, 69, 196, 129, 214, 203, 75, 137, 141, 51, 3, 157, 78, 149, 157, 34), 'manifest_sha256'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 60, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'canonical_base_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 62, 'Hex High Entropy String', (84, 155, 213, 28, 63, 69, 196, 129, 214, 203, 75, 137, 141, 51, 3, 157, 78, 149, 157, 34), 'manifest_sha256'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 497, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'canonical_base_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 498, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'procedure_worktree_head'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 499, 'Hex High Entropy String', (84, 155, 213, 28, 63, 69, 196, 129, 214, 203, 75, 137, 141, 51, 3, 157, 78, 149, 157, 34), 'manifest_sha256'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 716, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'canonical_base_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 1086, 'Hex High Entropy String', (84, 155, 213, 28, 63, 69, 196, 129, 214, 203, 75, 137, 141, 51, 3, 157, 78, 149, 157, 34), 'manifest_digest'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 1124, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'canonical_base_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 1127, 'Hex High Entropy String', (84, 155, 213, 28, 63, 69, 196, 129, 214, 203, 75, 137, 141, 51, 3, 157, 78, 149, 157, 34), 'manifest_sha256'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 1220, 'Hex High Entropy String', (53, 110, 155, 147, 173, 203, 248, 177, 132, 115, 219, 156, 170, 210, 86, 242, 93, 71, 210, 90), 'commit_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 1336, 'Hex High Entropy String', (11, 81, 41, 26, 199, 213, 127, 65, 60, 112, 19, 158, 128, 216, 65, 97, 121, 2, 103, 249), 'commit_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 1453, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'canonical_base_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/intake-receipt.json', 1454, 'Hex High Entropy String', (84, 155, 213, 28, 63, 69, 196, 129, 214, 203, 75, 137, 141, 51, 3, 157, 78, 149, 157, 34), 'manifest_sha256'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/skill-candidates.json', 25, 'Hex High Entropy String', (17, 217, 77, 43, 14, 33, 27, 229, 111, 224, 110, 130, 70, 141, 191, 15, 24, 84, 236, 31), 'commit_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/skill-candidates.json', 88, 'Hex High Entropy String', (5, 246, 149, 251, 209, 231, 66, 207, 229, 38, 71, 245, 183, 3, 31, 243, 161, 118, 35, 19), 'commit_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/typed/skill-candidates.json', 25, 'Hex High Entropy String', (17, 217, 77, 43, 14, 33, 27, 229, 111, 224, 110, 130, 70, 141, 191, 15, 24, 84, 236, 31), 'commit_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/typed/skill-candidates.json', 88, 'Hex High Entropy String', (5, 246, 149, 251, 209, 231, 66, 207, 229, 38, 71, 245, 183, 3, 31, 243, 161, 118, 35, 19), 'commit_sha'),
+    ('docs/research/checkpoint-intake/CP1/20260930-cp1-1-initial/watch/intake-receipt.json', 6, 'Hex High Entropy String', (22, 241, 53, 14, 213, 122, 178, 172, 135, 176, 226, 126, 69, 153, 118, 83, 192, 143, 28, 68), 'procedure_worktree_head'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 26, 'Hex High Entropy String', (69, 4, 107, 124, 86, 93, 228, 39, 142, 23, 119, 78, 16, 92, 76, 109, 6, 192, 165, 182), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 41, 'Hex High Entropy String', (63, 156, 174, 77, 108, 103, 30, 232, 11, 254, 42, 67, 36, 154, 14, 221, 36, 218, 136, 50), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 56, 'Hex High Entropy String', (198, 89, 230, 103, 178, 38, 239, 74, 0, 108, 237, 35, 47, 8, 129, 66, 12, 52, 213, 122), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 71, 'Hex High Entropy String', (133, 10, 137, 97, 139, 150, 100, 108, 238, 218, 236, 133, 251, 163, 113, 185, 43, 104, 213, 242), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 86, 'Hex High Entropy String', (210, 86, 128, 135, 175, 204, 81, 162, 57, 189, 34, 89, 136, 100, 222, 238, 43, 22, 3, 13), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 101, 'Hex High Entropy String', (217, 1, 189, 7, 166, 50, 246, 37, 138, 10, 166, 64, 4, 172, 215, 100, 63, 195, 206, 52), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 116, 'Hex High Entropy String', (42, 152, 85, 187, 99, 93, 214, 224, 215, 114, 151, 49, 253, 233, 149, 102, 137, 67, 61, 42), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 131, 'Hex High Entropy String', (249, 115, 244, 188, 178, 105, 226, 247, 113, 60, 167, 207, 104, 82, 0, 156, 172, 162, 86, 101), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 146, 'Hex High Entropy String', (234, 39, 13, 156, 148, 216, 36, 145, 217, 131, 252, 3, 120, 215, 211, 188, 82, 12, 121, 145), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 161, 'Hex High Entropy String', (9, 13, 82, 99, 9, 60, 202, 75, 112, 176, 200, 8, 111, 128, 235, 194, 4, 117, 208, 170), 'reported_revision'),
+    ('docs/research/webmcp-donors/portfolio.yaml', 176, 'Hex High Entropy String', (66, 141, 43, 225, 240, 16, 23, 129, 91, 26, 121, 206, 85, 14, 229, 106, 38, 89, 202, 208), 'reported_revision'),
+    ('docs/verification/cp1.1-design-003-freeze-receipt.json', 5, 'Hex High Entropy String', (55, 206, 192, 36, 119, 168, 36, 199, 201, 144, 43, 98, 14, 165, 88, 14, 45, 205, 126, 87), 'source_commit'),
+    ('docs/verification/cp1.1-design-003-freeze-receipt.json', 9, 'Hex High Entropy String', (133, 196, 125, 194, 11, 250, 184, 54, 223, 173, 103, 88, 58, 15, 125, 166, 82, 52, 224, 209), 'sha256'),
+    ('docs/verification/cp1.1-design-003-freeze-receipt.json', 13, 'Hex High Entropy String', (12, 48, 180, 92, 122, 157, 163, 203, 80, 209, 48, 179, 27, 192, 50, 254, 99, 127, 64, 172), 'sha256'),
+    ('docs/verification/cp1.1-design-003-independent-review.json', 7, 'Hex High Entropy String', (133, 196, 125, 194, 11, 250, 184, 54, 223, 173, 103, 88, 58, 15, 125, 166, 82, 52, 224, 209), 'reviewed_manifest_sha256'),
+    ('docs/verification/cp1.1-design-003-independent-review.json', 9, 'Hex High Entropy String', (55, 206, 192, 36, 119, 168, 36, 199, 201, 144, 43, 98, 14, 165, 88, 14, 45, 205, 126, 87), 'source_commit'),
+    ('docs/verification/cp1.1-design-003-migration.json', 5, 'Hex High Entropy String', (55, 206, 192, 36, 119, 168, 36, 199, 201, 144, 43, 98, 14, 165, 88, 14, 45, 205, 126, 87), 'integration_base'),
+    ('docs/verification/cp1.1-design-003-migration.json', 10, 'Hex High Entropy String', (105, 25, 85, 13, 12, 79, 190, 129, 244, 130, 231, 253, 24, 111, 36, 207, 228, 195, 85, 155), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 15, 'Hex High Entropy String', (198, 164, 130, 210, 227, 38, 99, 187, 100, 195, 225, 162, 209, 245, 56, 225, 90, 97, 8, 248), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 20, 'Hex High Entropy String', (187, 190, 141, 82, 226, 64, 232, 78, 128, 89, 117, 40, 189, 174, 38, 122, 198, 45, 47, 243), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 27, 'Hex High Entropy String', (146, 40, 135, 177, 11, 79, 219, 83, 198, 141, 219, 225, 33, 201, 62, 142, 165, 187, 218, 231), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 33, 'Hex High Entropy String', (211, 52, 209, 144, 233, 62, 52, 8, 31, 160, 52, 103, 215, 23, 1, 98, 198, 126, 133, 177), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 39, 'Hex High Entropy String', (188, 122, 36, 239, 248, 227, 46, 121, 212, 168, 179, 196, 82, 160, 211, 155, 51, 216, 2, 0), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 45, 'Hex High Entropy String', (44, 235, 148, 190, 98, 229, 218, 167, 143, 23, 1, 66, 249, 74, 151, 70, 110, 212, 182, 176), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 51, 'Hex High Entropy String', (35, 146, 100, 76, 82, 85, 252, 193, 191, 93, 11, 180, 202, 67, 220, 23, 0, 165, 126, 174), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 57, 'Hex High Entropy String', (251, 164, 86, 240, 153, 237, 83, 79, 100, 76, 64, 74, 116, 65, 178, 192, 189, 214, 185, 246), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 63, 'Hex High Entropy String', (11, 4, 178, 202, 176, 112, 38, 91, 16, 226, 205, 226, 186, 220, 171, 117, 148, 172, 79, 20), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 69, 'Hex High Entropy String', (35, 194, 220, 209, 124, 181, 184, 167, 69, 68, 66, 180, 72, 39, 9, 164, 218, 166, 241, 249), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 75, 'Hex High Entropy String', (98, 179, 158, 105, 31, 95, 107, 5, 184, 149, 66, 192, 174, 187, 178, 90, 137, 219, 88, 221), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 78, 'Hex High Entropy String', (15, 71, 103, 161, 233, 217, 56, 213, 151, 1, 133, 228, 110, 218, 240, 250, 239, 187, 167, 66), 'source_revision'),
+    ('docs/verification/cp1.1-design-003-migration.json', 79, 'Hex High Entropy String', (198, 73, 243, 121, 249, 76, 121, 47, 176, 60, 196, 206, 247, 184, 99, 151, 227, 58, 62, 187), 'source_blob_oid'),
+    ('docs/verification/cp1.1-design-003-migration.json', 84, 'Hex High Entropy String', (114, 100, 204, 131, 217, 138, 251, 103, 194, 159, 234, 196, 200, 13, 19, 173, 195, 148, 53, 120), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 91, 'Hex High Entropy String', (133, 196, 125, 194, 11, 250, 184, 54, 223, 173, 103, 88, 58, 15, 125, 166, 82, 52, 224, 209), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 95, 'Hex High Entropy String', (12, 48, 180, 92, 122, 157, 163, 203, 80, 209, 48, 179, 27, 192, 50, 254, 99, 127, 64, 172), 'sha256'),
+    ('docs/verification/cp1.1-design-003-migration.json', 99, 'Hex High Entropy String', (153, 255, 30, 163, 241, 84, 31, 248, 158, 32, 169, 51, 77, 184, 18, 162, 104, 59, 162, 208), 'sha256'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 5, 'Hex High Entropy String', (55, 206, 192, 36, 119, 168, 36, 199, 201, 144, 43, 98, 14, 165, 88, 14, 45, 205, 126, 87), 'source_commit'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 10, 'Hex High Entropy String', (146, 40, 135, 177, 11, 79, 219, 83, 198, 141, 219, 225, 33, 201, 62, 142, 165, 187, 218, 231), 'docs/architecture/persona/owner-interface-persona-contract.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 11, 'Hex High Entropy String', (211, 52, 209, 144, 233, 62, 52, 8, 31, 160, 52, 103, 215, 23, 1, 98, 198, 126, 133, 177), 'docs/architecture/persona/persona-acceptance-scenarios.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 12, 'Hex High Entropy String', (188, 122, 36, 239, 248, 227, 46, 121, 212, 168, 179, 196, 82, 160, 211, 155, 51, 216, 2, 0), 'docs/architecture/persona/persona-profile.yaml'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 13, 'Hex High Entropy String', (44, 235, 148, 190, 98, 229, 218, 167, 143, 23, 1, 66, 249, 74, 151, 70, 110, 212, 182, 176), 'docs/architecture/persona/persona-versioning.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 14, 'Hex High Entropy String', (35, 146, 100, 76, 82, 85, 252, 193, 191, 93, 11, 180, 202, 67, 220, 23, 0, 165, 126, 174), 'docs/architecture/persona/principle-derivation.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 15, 'Hex High Entropy String', (251, 164, 86, 240, 153, 237, 83, 79, 100, 76, 64, 74, 116, 65, 178, 192, 189, 214, 185, 246), 'docs/architecture/persona/runtime-guidance.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 16, 'Hex High Entropy String', (11, 4, 178, 202, 176, 112, 38, 91, 16, 226, 205, 226, 186, 220, 171, 117, 148, 172, 79, 20), 'docs/architecture/persona/WOLF15_SENTIENT_PRINCIPLE.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 17, 'Hex High Entropy String', (35, 194, 220, 209, 124, 181, 184, 167, 69, 68, 66, 180, 72, 39, 9, 164, 218, 166, 241, 249), 'README.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 18, 'Hex High Entropy String', (24, 33, 192, 125, 217, 166, 7, 50, 115, 228, 184, 217, 231, 222, 91, 89, 213, 108, 232, 202), 'AGENTS.md'),
+    ('docs/verification/cp1.1-design-003-review-manifest.json', 19, 'Hex High Entropy String', (114, 100, 204, 131, 217, 138, 251, 103, 194, 159, 234, 196, 200, 13, 19, 173, 195, 148, 53, 120), 'docs/architecture/cp1/principle-integration.md'),
+)
+
+
 def exact_keys(value: Any, keys: set[str]) -> None:
     require(type(value) is dict and set(value) == keys, "INVALID_SCHEMA")
 
@@ -1110,7 +1292,7 @@ def frozen_integrity(blobs: dict[str, bytes]) -> None:
 
 
 def classify(findings: list[dict[str, Any]], blobs: dict[str, bytes]) -> tuple[int, int]:
-    known = {(p, n, k, bytes(fp).hex()): field for p, n, k, fp, field in EXCEPTIONS}
+    known = {(p, n, k, bytes(fp).hex()): field for p, n, k, fp, field in (*EXCEPTIONS, *ADDITIONAL_EXCEPTIONS)}
     seen: set[tuple[str, int, str, str]] = set()
     verified: dict[str, list[str]] = {}
     allowed = 0
@@ -1133,10 +1315,29 @@ def classify(findings: list[dict[str, Any]], blobs: dict[str, bytes]) -> tuple[i
             continue
         if path not in verified:
             normalized = blobs[path].replace(b"\r\n", b"\n")
-            require(tuple(hashlib.sha256(normalized).digest()) == FILE_DIGESTS[path], "EXCEPTION_CONTEXT_CHANGED")
+            require(tuple(hashlib.sha256(normalized).digest()) == {**FILE_DIGESTS, **ADDITIONAL_FILE_DIGESTS}[path], "EXCEPTION_CONTEXT_CHANGED")
             verified[path] = normalized.decode("utf-8").splitlines()
-        match = re.match(r"\s*[\"']?([^:\"']+)[\"']?\s*:", verified[path][line - 1])
-        require(match is not None and match.group(1) == field, "EXCEPTION_FIELD_CHANGED")
+        if field.startswith("json:"):
+            # Every exact member of a deduplicated canonical-fixture occurrence
+            # is bound, in addition to the entire file and finding fingerprint.
+            pointers = collection.parse(field[5:].encode())
+            require(type(pointers) is list and bool(pointers)
+                    and all(type(p) is str and p.startswith("/") for p in pointers),
+                    "EXCEPTION_FIELD_CHANGED")
+            require(len(pointers) == len(set(pointers)), "EXCEPTION_FIELD_CHANGED")
+            document = collection.parse(blobs[path])
+            for pointer in pointers:
+                value: Any = document
+                for segment in pointer[1:].split("/"):
+                    key = segment.replace("~1", "/").replace("~0", "~")
+                    require(type(value) is dict and key in value, "EXCEPTION_FIELD_CHANGED")
+                    value = value[key]
+                require(type(value) is str and re.fullmatch(r"[0-9a-f]{40}|[0-9a-f]{64}", value) is not None,
+                        "EXCEPTION_FIELD_CHANGED")
+                require(hashlib.sha1(value.encode()).hexdigest() == fingerprint, "EXCEPTION_FIELD_CHANGED")
+        else:
+            match = re.match(r"\s*[\"']?([^:\"']+)[\"']?\s*:", verified[path][line - 1])
+            require(match is not None and match.group(1) == field, "EXCEPTION_FIELD_CHANGED")
         allowed += 1
     return allowed, denied
 
@@ -1379,7 +1580,7 @@ def execute_scan(root: Path, *, enforce_frozen: bool = True) -> dict[str, Any]:
         "validator_trust": "CALLER_TRUSTED_ENTRYPOINT",
         "collector_loading": "VERIFIED_GIT_BLOB_BUFFER",
         "locked_provenance_sha256": collection.digest(blobs["uv.lock"]),
-        "exception_set_sha256": collection.digest(collection.canonical(EXCEPTIONS)),
+        "exception_set_sha256": collection.digest(collection.canonical((*EXCEPTIONS, *ADDITIONAL_EXCEPTIONS))),
     }
     nonce = secrets.token_hex(16)
     command = [sys.executable, "-I", "-X", "utf8", str(here), "--collector", nonce,
