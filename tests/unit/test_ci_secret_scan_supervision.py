@@ -83,6 +83,9 @@ def harness(subject: Any, monkeypatch: Any) -> Any:
         Popen=lambda *args, **kwargs: process, PIPE=-1, DEVNULL=-3))
     monkeypatch.setattr(subject, "os", types.SimpleNamespace(
         name="posix", killpg=lambda pid, sig: killed_groups.append(pid)))
+    # This fixture models POSIX even when hosted on Windows, whose signal
+    # module has no SIGKILL. Bind the modeled signal alongside modeled os.
+    monkeypatch.setattr(subject, "signal", types.SimpleNamespace(SIGKILL=9))
     monkeypatch.setattr(subject, "threading", types.SimpleNamespace(
         Thread=thread, Event=subject.threading.Event))
     return subject, process, threads, killed_groups
