@@ -1,0 +1,22 @@
+{
+  "schema_version": "cp1.1-review-manifest/v1",
+  "generation": "CP1.1-DESIGN-003",
+  "predecessor": "CP1.1-DESIGN-002",
+  "source_commit": "dd49ee105e3a07b3fe147925e9d44d9c3a7633ff",
+  "status": "CONTENT_BOUND",
+  "generation_state_at_creation": "CANDIDATE",
+  "evidence_class": "EXACT_LOCAL_UNCOMMITTED_BYTES",
+  "files": {
+    "docs/architecture/persona/owner-interface-persona-contract.md": "f1baeecba4d5bfbbc0de29489283a26425ddd872da432532dfbfb8716a72ab44",
+    "docs/architecture/persona/persona-acceptance-scenarios.md": "9c9f9452afd56d14386831bb47a04816a7a52235020f1881f84450536fac34d9",
+    "docs/architecture/persona/persona-profile.yaml": "b587f2f85a38aa890818b9bedac088a5dcbf701825653dc4f495f0d1f191e1b7",
+    "docs/architecture/persona/persona-versioning.md": "53a117206bb10388c4812aac6cd300f64ac4d456c4f85aa335c0c4fd945b1ead",
+    "docs/architecture/persona/principle-derivation.md": "7cf612e1b714c3feb3760eb05e0c8d7b598a34e24dc2350c0307a18a610a4c81",
+    "docs/architecture/persona/runtime-guidance.md": "2fc8d8747e775c87f3113d0f40d2b2b4ada6be8d8b880d5f5fd77934fb1ff1df",
+    "docs/architecture/persona/WOLF15_SENTIENT_PRINCIPLE.md": "07bfd44bd00d96d45fa8ae91679973491d54da9bd425b407be270e986332b430",
+    "README.md": "c807a41fbf13648e26fc87ca24007a945e0c6d8aa10f8e20ed7c81270ecde007",
+    "AGENTS.md": "8bb23123eb2516a4b6769e5a4355cbf92e2177117d5f1365e53b43e02c6b03d0",
+    "docs/architecture/cp1/principle-integration.md": "147485212ab63383be1908f8ef15440a502ce04451e974e6906d5f065baa18c3"
+  },
+  "runtime_fidelity": "NOT_EXECUTED_CP1.6"
+}

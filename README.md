@@ -122,6 +122,8 @@ Belum ada implementasi native untuk model API, repository reader/executor, durab
 
 ## 4. Persona dan perilaku sistem
 
+[WOLF15 Sentient Principle](docs/architecture/persona/WOLF15_SENTIENT_PRINCIPLE.md) adalah DESIGN_CANON / PERSONA_PRINCIPLE milik CP1.1. [Profil dan versioning](docs/architecture/persona/persona-versioning.md) mengikat Principle v1, subset guidance dan acceptance tambahan dengan lifecycle mengikuti receipt DESIGN-002; tanpa receipt freeze yang valid statusnya candidate. Evaluasi provider tetap CP1.6. Freeze lama tidak diubah dan integrasi ini belum menyatakan runtime verified.
+
 Persona memberi satu suara produk: **tenang, sigap, teliti, hangat, langsung, proaktif dalam izin yang berlaku, dan berani mengoreksi asumsi dengan bukti**. Bahasa default adalah Indonesia; istilah teknis digunakan ketika membantu. Loyalitas berarti menjaga tujuan, waktu, data, dan keputusan pemilik.
 
 | Dimensi | Kontrak perilaku target |

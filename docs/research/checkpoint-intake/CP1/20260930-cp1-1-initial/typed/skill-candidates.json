@@ -1,0 +1,132 @@
+{
+  "status": "PROPOSED_CANDIDATES_ONLY",
+  "existing_skill_source": "NOT_STUDIED; no claim none exist",
+  "candidates": [
+    {
+      "id": "CP1-TYPED-OUTPUT-BOUNDARY",
+      "kind": "RECONSTRUCTED_WORKFLOW_CANDIDATE",
+      "objective": "Review typed output mode, request budget and provider capability compatibility before model request.",
+      "sources": [
+        {
+          "repository_id": 1394496138,
+          "full_name": "tjx578/pydantic-ai-sentient",
+          "commit_sha": "05f2f35ca8af6f1382f06761c6a9a23dbd341728",
+          "blob_sha": "88dfaa340a19a76103bf2ed80923fac21de1f94e",
+          "content_sha256": "3d403c88a3d5d8d4466b2c5c0095c6c4a3dd3abb9b69f2ffc94a577a134c8572",
+          "path": "pydantic_ai_slim/pydantic_ai/output.py",
+          "line_or_span": [
+            129,
+            242
+          ]
+        },
+        {
+          "repository_id": 1394496138,
+          "full_name": "tjx578/pydantic-ai-sentient",
+          "commit_sha": "05f2f35ca8af6f1382f06761c6a9a23dbd341728",
+          "blob_sha": "915d508e9213c50041e85e9e5ca55d2c78da6c8b",
+          "content_sha256": "27c40b471aa18c05e3225058626830116c89a6493956201e0bb5da4d15bf2d18",
+          "path": "pydantic_ai_slim/pydantic_ai/usage.py",
+          "line_or_span": [
+            456,
+            623
+          ]
+        }
+      ],
+      "prerequisites": [
+        "Native contract and authority policy approved",
+        "Independent review before adaptation"
+      ],
+      "input_contract": "Schema version, provider capability declaration, desired output mode, request/token budget, immutable prompt profile",
+      "output_contract": "Compatibility decision and bounded validation receipt, never tool execution",
+      "roles": [
+        "development reviewer"
+      ],
+      "permitted_tools_proposal": [
+        "read-only source/schema inspection"
+      ],
+      "limits": [
+        "No API call",
+        "No installation",
+        "No control state mutation"
+      ],
+      "failure_modes": [
+        "Unsupported schema mode",
+        "Missing usage information",
+        "Budget unknown"
+      ],
+      "dependencies_rights": "MIT declaration observed; no code reuse proposed; dependencies unqualified",
+      "overlap_conflict": "Use contracts as owner, sentient/model_gateway as consumer; do not replace control authority",
+      "fixtures": [
+        "Unsupported strict output rejects",
+        "Budget exhausted prevents request",
+        "Unknown cost remains NOT_MEASURED"
+      ],
+      "evaluation_plan": "Offline contract fixtures plus exact-source review; tests NOT_EXECUTED",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "CP1-PROVIDER-PROFILE-BOUNDARY",
+      "kind": "RECONSTRUCTED_WORKFLOW_CANDIDATE",
+      "objective": "Review provider errors, prompt provenance and measured-versus-estimated usage separation.",
+      "sources": [
+        {
+          "repository_id": 1365880169,
+          "full_name": "tjx578/OpenJarvis-sentient",
+          "commit_sha": "fbbdb23c86627c18b859369b19746a9245f1ce0b",
+          "blob_sha": "db57eb44f1c47534bdc7414be9f7a809d5f834d6",
+          "content_sha256": "f8771c8c7defb8eb06b979d621edae364dd1a1d44736ed782a9ff3532c594b96",
+          "path": "src/openjarvis/engine/_openai_compat.py",
+          "line_or_span": [
+            41,
+            172
+          ]
+        },
+        {
+          "repository_id": 1365880169,
+          "full_name": "tjx578/OpenJarvis-sentient",
+          "commit_sha": "fbbdb23c86627c18b859369b19746a9245f1ce0b",
+          "blob_sha": "f92c88fc15bd0fc32436582ca9773344aa86652d",
+          "content_sha256": "58c315a92093d683128c8cb7785c308295827cf8dd7ca077d1ffc1acab336d3b",
+          "path": "src/openjarvis/agents/prompt_loader.py",
+          "line_or_span": [
+            1,
+            84
+          ]
+        }
+      ],
+      "prerequisites": [
+        "Versioned native prompt profile",
+        "Explicit provider credential and endpoint policy"
+      ],
+      "input_contract": "Pinned prompt profile, sanitized provider outcome, usage provenance",
+      "output_contract": "Validated model outcome or typed rejection with redacted metadata",
+      "roles": [
+        "development reviewer"
+      ],
+      "permitted_tools_proposal": [
+        "read-only source and fixture review"
+      ],
+      "limits": [
+        "No arbitrary prompt path reads",
+        "No raw error-body logging",
+        "No retry that changes request semantics"
+      ],
+      "failure_modes": [
+        "Profile drift",
+        "Missing usage normalized to zero",
+        "Implicit tool downgrade"
+      ],
+      "dependencies_rights": "Apache-2.0 declaration observed; NOTICE/transitive audit pending for reuse",
+      "overlap_conflict": "Cognitive gateway in sentient/model_gateway; provider mapping in models/providers; control retains authority",
+      "fixtures": [
+        "Missing credentials rejected where mandatory",
+        "Missing usage preserved unknown",
+        "Unsupported tool/schema does not silently retry downgraded request"
+      ],
+      "evaluation_plan": "Native offline boundary tests; package/skill qualification deferred CP6",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    }
+  ]
+}

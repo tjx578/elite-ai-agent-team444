@@ -1,0 +1,11 @@
+{
+  "schema_version": "cp1-fixture-manifest/v1",
+  "evidence_class": "SYNTHETIC_OFFLINE_FIXTURE",
+  "deployable": false,
+  "files": {
+    "envelope.canonical.json": "d8e1cdc4e98bc4e8dd5a19097a21a0f8bf9cafe5921b2ffdd567e51251205b66",
+    "request.canonical.json": "ae5417fac049fdd5bce48ebecfd1a57d6cf62d3e2401cc717cfb3dc01cd06634",
+    "response.canonical.json": "f153dbaa038c71802dd78c5dc2e811e2d64a3707067078eddcf7af19c5bdeaaa"
+  },
+  "gateway_digest_sha256": "d8e1cdc4e98bc4e8dd5a19097a21a0f8bf9cafe5921b2ffdd567e51251205b66"
+}

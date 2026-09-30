@@ -1,0 +1,717 @@
+{
+  "schema_version": "wolf15-development-checkpoint-donor-intake/v1",
+  "status": "AGENT_PROCEDURE_CONFIGURED_NOT_APPLICATION_RUNTIME",
+  "canonical_source": "README.md",
+  "donor_register": "docs/research/donor-adaptation-register-20260929.md",
+  "owner_login": "tjx578",
+  "trigger": {
+    "event": "DEVELOPMENT_AGENT_STARTS_OR_RESUMES_CHECKPOINT",
+    "checkpoints": [
+      "CP1",
+      "CP2",
+      "CP3",
+      "CP4",
+      "CP5",
+      "CP6",
+      "CP7",
+      "CP8"
+    ],
+    "user_confirmed": true,
+    "application_startup": false,
+    "scheduler": false,
+    "checkpoint_advancement_authorized": false
+  },
+  "semantics": {
+    "mandatory": "Every listed donor must receive an explicit bounded study outcome before implementing its dependent CP slice; watch/reference are still mandatory to inspect, not mandatory to adopt",
+    "non_dependent_work": "May proceed if unaffected; donor-dependent claims and checkpoint completion stay held for unresolved required intake",
+    "new_repositories": "Discovery does not auto-add all owner repos to this manifest",
+    "cp6_dynamic": "Additionally qualify every donor selected for code/skill/runtime admission, including those routed under other CPs",
+    "canonical_changes": "Reconcile the union of current README/register/addenda before intake; new canonical donor missing in manifest is MANIFEST_DRIFT"
+  },
+  "connection": {
+    "preferred": "Existing authenticated GitHub connector",
+    "verify_login": true,
+    "expected_login": "tjx578",
+    "alternate": "Existing authorized read-only GitHub CLI/API if available; never obtain secrets from chat",
+    "credentials_in_artifacts": false,
+    "app_connection_implied": false
+  },
+  "resolution": {
+    "owner_first": true,
+    "exact_repository_id_first": true,
+    "alias_match_is_candidate_only": true,
+    "require_parent_or_source_lineage": true,
+    "unbound_alias_policy": "Enumerate owner repos with pagination; inspect candidates and fork lineage, not fuzzy-name auto-selection",
+    "multiple_matches": "AMBIGUOUS_REPOSITORY",
+    "no_visible_match": "OWNER_FORK_NOT_RESOLVED",
+    "incomplete_listing": "DISCOVERY_INCOMPLETE",
+    "upstream_fallback": "NOT_AUTOMATIC; report gap, retain upstream as reference, continue unrelated tasks",
+    "same_name_wrong_lineage": "IDENTITY_MISMATCH",
+    "unknown_upstream": "UPSTREAM_NOT_ESTABLISHED"
+  },
+  "capture": {
+    "refresh_head_on_each_entry": true,
+    "pin_revision_for_entire_run": true,
+    "cache_key": [
+      "cp",
+      "donor_repository_id",
+      "commit_sha",
+      "extraction_scope_digest",
+      "extractor_profile_version"
+    ],
+    "same_revision_reuse": "Revalidate cached evidence hashes, scope, rights and status; reuse artifact without re-reading unchanged bytes",
+    "changed_revision": "Create new snapshot and scoped delta assessment; do not overwrite old pack"
+  },
+  "bounded_read": {
+    "initial_max_source_files_per_donor": 40,
+    "initial_max_total_source_bytes_per_donor": 2097152,
+    "initial_max_file_bytes": 262144,
+    "max_parallel_donors": 3,
+    "per_request_timeout_seconds": 30,
+    "per_donor_deadline_seconds": 300,
+    "budget_exhausted": "PARTIAL_COVERAGE; no completion promotion; record exclusions and next bounded slice",
+    "no_bulk_clone_or_submodule_fetch": true,
+    "no_install_or_execute_donor": true
+  },
+  "outputs": {
+    "base": "docs/research/checkpoint-intake/<CP>/<run-id>/",
+    "files": [
+      "intake-receipt.json",
+      "knowledge-pack.md",
+      "skill-candidates.json",
+      "adaptation-decisions.md"
+    ],
+    "source_reference_required": [
+      "repository_id",
+      "full_name",
+      "commit_sha",
+      "blob_sha",
+      "path",
+      "line_or_span"
+    ],
+    "candidate_kinds": [
+      "EXISTING_SKILL_SOURCE",
+      "RECONSTRUCTED_WORKFLOW_CANDIDATE",
+      "KNOWLEDGE_ONLY"
+    ],
+    "empty_skills": "Record NO_REUSABLE_SKILL_FOUND with inspected scope; never fabricate an executable skill"
+  },
+  "skill_authority": {
+    "extract_candidate": true,
+    "automatic_install": false,
+    "automatic_execution": false,
+    "automatic_registry_activation": false,
+    "qualification_cp": "CP6",
+    "later_promotion_cp": "CP8",
+    "activation_requires_separate_admission_and_scope": true
+  },
+  "failure_states": [
+    "AUTH_UNAVAILABLE",
+    "ACCOUNT_MISMATCH",
+    "ACCESS_DENIED_OR_NOT_FOUND",
+    "RATE_LIMITED",
+    "DISCOVERY_INCOMPLETE",
+    "OWNER_FORK_NOT_RESOLVED",
+    "AMBIGUOUS_REPOSITORY",
+    "IDENTITY_MISMATCH",
+    "UPSTREAM_NOT_ESTABLISHED",
+    "PARTIAL_COVERAGE",
+    "RIGHTS_UNKNOWN",
+    "MANIFEST_DRIFT",
+    "SOURCE_UNAVAILABLE"
+  ],
+  "checkpoints": {
+    "CP1": {
+      "mandatory_study": [
+        "pydantic-ai",
+        "openjarvis",
+        "ruflo",
+        "transformers",
+        "litellm",
+        "deepagents",
+        "tensorflow"
+      ],
+      "qualification_selected_donors_also_required": false
+    },
+    "CP2": {
+      "mandatory_study": [
+        "ruflo",
+        "pydantic-ai",
+        "context7",
+        "free-programming-books"
+      ],
+      "qualification_selected_donors_also_required": false
+    },
+    "CP3": {
+      "mandatory_study": [
+        "openjarvis",
+        "paperclip",
+        "ruflo",
+        "transformers",
+        "signett",
+        "tensorflow"
+      ],
+      "qualification_selected_donors_also_required": false
+    },
+    "CP4": {
+      "mandatory_study": [
+        "openjarvis",
+        "paperclip",
+        "ruflo",
+        "transformers",
+        "context7",
+        "d3",
+        "nextjs",
+        "deltalytix",
+        "openlib",
+        "webmcp",
+        "webmcp-tools",
+        "use-webmcp-tool",
+        "free-programming-books"
+      ],
+      "qualification_selected_donors_also_required": false
+    },
+    "CP5": {
+      "mandatory_study": [
+        "openjarvis",
+        "paperclip",
+        "ruflo",
+        "pydantic-ai",
+        "transformers",
+        "mcp-spec",
+        "webmcp",
+        "webmcp-types",
+        "webmcp-tools",
+        "use-webmcp-tool",
+        "web-ai-agent-skills",
+        "npm-packages",
+        "webmcp-sdk",
+        "tensorflow",
+        "free-programming-books"
+      ],
+      "qualification_selected_donors_also_required": false
+    },
+    "CP6": {
+      "mandatory_study": [
+        "openjarvis",
+        "paperclip",
+        "ruflo",
+        "pydantic-ai",
+        "transformers",
+        "webmcp",
+        "webmcp-types",
+        "webmcp-tools",
+        "use-webmcp-tool",
+        "web-ai-agent-skills",
+        "webmcpify",
+        "webmcp-kit",
+        "signett",
+        "npm-packages",
+        "webmcp-sdk",
+        "windtunnel",
+        "tensorflow",
+        "free-programming-books"
+      ],
+      "qualification_selected_donors_also_required": true
+    },
+    "CP7": {
+      "mandatory_study": [
+        "openjarvis",
+        "paperclip",
+        "ruflo",
+        "signett",
+        "webmcpify",
+        "webmcp-kit",
+        "webmcp-sdk"
+      ],
+      "qualification_selected_donors_also_required": false
+    },
+    "CP8": {
+      "mandatory_study": [
+        "openjarvis",
+        "paperclip",
+        "ruflo",
+        "pydantic-ai",
+        "transformers",
+        "webmcp-tools",
+        "windtunnel",
+        "tensorflow",
+        "free-programming-books"
+      ],
+      "qualification_selected_donors_also_required": false
+    }
+  },
+  "donors": [
+    {
+      "id": "pydantic-ai",
+      "upstream": "pydantic/pydantic-ai",
+      "aliases": [
+        "Pydantic AI",
+        "Pydantic Evals"
+      ],
+      "scope": "typed provider, context and evaluation contracts",
+      "owner_repository": "tjx578/pydantic-ai-sentient",
+      "owner_repository_id": 1394496138,
+      "parent_observed": "pydantic/pydantic-ai",
+      "source_observed": "pydantic/pydantic-ai",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": "05f2f35ca8af6f1382f06761c6a9a23dbd341728",
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "openjarvis",
+      "upstream": "open-jarvis/OpenJarvis",
+      "aliases": [
+        "OpenJarvis"
+      ],
+      "scope": "provider, durable runtime and bounded tasks",
+      "owner_repository": "tjx578/OpenJarvis-sentient",
+      "owner_repository_id": 1365880169,
+      "parent_observed": "open-jarvis/OpenJarvis",
+      "source_observed": "open-jarvis/OpenJarvis",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": "fbbdb23c86627c18b859369b19746a9245f1ce0b",
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "ruflo",
+      "upstream": "ruvnet/ruflo",
+      "aliases": [
+        "Ruflo",
+        "multiagentruflo"
+      ],
+      "scope": "provider, retrieval, graph memory and orchestration patterns",
+      "owner_repository": null,
+      "owner_repository_id": null,
+      "parent_observed": null,
+      "source_observed": null,
+      "default_branch_observed": null,
+      "identity_observation": "OWNER_FORK_NOT_RESOLVED_IN_VISIBLE_INVENTORY",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "transformers",
+      "upstream": "huggingface/transformers",
+      "aliases": [
+        "Transformers",
+        "Hugging Face"
+      ],
+      "scope": "local provider, multimodal and model lifecycle",
+      "owner_repository": "tjx578/transformers-sentient",
+      "owner_repository_id": 1365875233,
+      "parent_observed": "huggingface/transformers",
+      "source_observed": "huggingface/transformers",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": "6b07e4510e3f9667f5256656118515bcde306fc4",
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "litellm",
+      "upstream": "BerriAI/litellm",
+      "aliases": [
+        "LiteLLM",
+        "LittleLM"
+      ],
+      "scope": "watch candidate: provider errors, budget and routing patterns",
+      "owner_repository": "tjx578/litellm_sentient",
+      "owner_repository_id": 1394593240,
+      "parent_observed": "BerriAI/litellm",
+      "source_observed": "BerriAI/litellm",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": "85dc7cb62efa52794982af90164eb19a41140b80",
+      "head_observation_is_lock": false,
+      "disposition": "WATCH_RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "deepagents",
+      "upstream": "langchain-ai/deepagents",
+      "aliases": [
+        "DeepAgents",
+        "DeepAgent"
+      ],
+      "scope": "watch candidate: context accounting and agent harness",
+      "owner_repository": "tjx578/deepagents_sentitent",
+      "owner_repository_id": 1394595604,
+      "parent_observed": "langchain-ai/deepagents",
+      "source_observed": "langchain-ai/deepagents",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": "3175d231f192db63cbb432c6ca133d9486dc59ba",
+      "head_observation_is_lock": false,
+      "disposition": "WATCH_RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "paperclip",
+      "upstream": "paperclipai/paperclip",
+      "aliases": [
+        "Paperclip",
+        "paperclip578"
+      ],
+      "scope": "task, run, lease, approval and provenance",
+      "owner_repository": "tjx578/paperclip-sentient",
+      "owner_repository_id": 1394737648,
+      "parent_observed": "paperclipai/paperclip",
+      "source_observed": "paperclipai/paperclip",
+      "default_branch_observed": "master",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "context7",
+      "upstream": "upstash/context7",
+      "aliases": [
+        "Context7"
+      ],
+      "scope": "version-aware documentation retrieval",
+      "owner_repository": null,
+      "owner_repository_id": null,
+      "parent_observed": null,
+      "source_observed": null,
+      "default_branch_observed": null,
+      "identity_observation": "OWNER_FORK_NOT_RESOLVED_IN_VISIBLE_INVENTORY",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "REFERENCE_NOT_ADMITTED"
+    },
+    {
+      "id": "d3",
+      "upstream": "d3/d3",
+      "aliases": [
+        "D3",
+        "dashboardanimation"
+      ],
+      "scope": "visualization reference",
+      "owner_repository": null,
+      "owner_repository_id": null,
+      "parent_observed": null,
+      "source_observed": null,
+      "default_branch_observed": null,
+      "identity_observation": "OWNER_FORK_NOT_RESOLVED_IN_VISIBLE_INVENTORY",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "REFERENCE_NOT_ADMITTED"
+    },
+    {
+      "id": "nextjs",
+      "upstream": "vercel/next.js",
+      "aliases": [
+        "Next.js",
+        "next.js"
+      ],
+      "scope": "Owner Console framework reference",
+      "owner_repository": null,
+      "owner_repository_id": null,
+      "parent_observed": null,
+      "source_observed": null,
+      "default_branch_observed": null,
+      "identity_observation": "OWNER_FORK_NOT_RESOLVED_IN_VISIBLE_INVENTORY",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "REFERENCE_NOT_ADMITTED"
+    },
+    {
+      "id": "deltalytix",
+      "upstream": "hugodemenez/deltalytix",
+      "aliases": [
+        "Deltalytix",
+        "tuyul_ea_dashboard"
+      ],
+      "scope": "historical UX reference; identity must not be inferred from alias",
+      "owner_repository": null,
+      "owner_repository_id": null,
+      "parent_observed": null,
+      "source_observed": null,
+      "default_branch_observed": null,
+      "identity_observation": "OWNER_FORK_NOT_RESOLVED_IN_VISIBLE_INVENTORY",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "REFERENCE_NOT_ADMITTED"
+    },
+    {
+      "id": "openlib",
+      "upstream": null,
+      "aliases": [
+        "Openlib",
+        "unlimited_book"
+      ],
+      "scope": "library/reader reference; upstream NOT_ESTABLISHED",
+      "owner_repository": null,
+      "owner_repository_id": null,
+      "parent_observed": null,
+      "source_observed": null,
+      "default_branch_observed": null,
+      "identity_observation": "UPSTREAM_NOT_ESTABLISHED",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "REFERENCE_NOT_ADMITTED"
+    },
+    {
+      "id": "mcp-spec",
+      "upstream": "modelcontextprotocol/modelcontextprotocol",
+      "aliases": [
+        "MCP spec",
+        "MCPkonektor"
+      ],
+      "scope": "protocol/schema/transport/security reference; not python-sdk",
+      "owner_repository": null,
+      "owner_repository_id": null,
+      "parent_observed": null,
+      "source_observed": null,
+      "default_branch_observed": null,
+      "identity_observation": "OWNER_FORK_NOT_RESOLVED_IN_VISIBLE_INVENTORY",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "REFERENCE_NOT_ADMITTED"
+    },
+    {
+      "id": "webmcp",
+      "upstream": "webmachinelearning/webmcp",
+      "aliases": [
+        "WebMCP spec"
+      ],
+      "scope": "protocol knowledge",
+      "owner_repository": "tjx578/webmcp-sentient",
+      "owner_repository_id": 1394870699,
+      "parent_observed": "webmachinelearning/webmcp",
+      "source_observed": "webmachinelearning/webmcp",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "webmcp-types",
+      "upstream": "webmachinelearning/webmcp-types",
+      "aliases": [
+        "WebMCP types"
+      ],
+      "scope": "typed descriptors",
+      "owner_repository": "tjx578/webmcp-types-sentient",
+      "owner_repository_id": 1394873050,
+      "parent_observed": "webmachinelearning/webmcp-types",
+      "source_observed": "webmachinelearning/webmcp-types",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "webmcp-tools",
+      "upstream": "GoogleChromeLabs/webmcp-tools",
+      "aliases": [
+        "Chrome tools"
+      ],
+      "scope": "read-only tooling and evaluation patterns",
+      "owner_repository": "tjx578/webmcp-tools-sentient",
+      "owner_repository_id": 1394874053,
+      "parent_observed": "GoogleChromeLabs/webmcp-tools",
+      "source_observed": "GoogleChromeLabs/webmcp-tools",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "use-webmcp-tool",
+      "upstream": "GoogleChromeLabs/use-webmcp-tool",
+      "aliases": [
+        "React WebMCP lifecycle"
+      ],
+      "scope": "UI mount/unmount descriptors",
+      "owner_repository": "tjx578/use-webmcp-tool-sentient",
+      "owner_repository_id": 1394885479,
+      "parent_observed": "GoogleChromeLabs/use-webmcp-tool",
+      "source_observed": "GoogleChromeLabs/use-webmcp-tool",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "web-ai-agent-skills",
+      "upstream": "webmaxru/web-ai-agent-skills",
+      "aliases": [
+        "Web authoring skill"
+      ],
+      "scope": "skill candidate extraction",
+      "owner_repository": "tjx578/web-ai-agent-skills-sentient",
+      "owner_repository_id": 1394876203,
+      "parent_observed": "webmaxru/web-ai-agent-skills",
+      "source_observed": "webmaxru/web-ai-agent-skills",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "webmcpify",
+      "upstream": "TueJon/webmcpify",
+      "aliases": [
+        "WebMCPify"
+      ],
+      "scope": "retrofit verification patterns",
+      "owner_repository": "tjx578/webmcpify-sentient",
+      "owner_repository_id": 1394877668,
+      "parent_observed": "TueJon/webmcpify",
+      "source_observed": "TueJon/webmcpify",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "webmcp-kit",
+      "upstream": "nekuda-ai/webmcp-kit",
+      "aliases": [
+        "WebMCP Kit"
+      ],
+      "scope": "secondary implementation/migration reference",
+      "owner_repository": "tjx578/webmcp-kit-sentient",
+      "owner_repository_id": 1394878905,
+      "parent_observed": "nekuda-ai/webmcp-kit",
+      "source_observed": "nekuda-ai/webmcp-kit",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "signett",
+      "upstream": "signettai/signett",
+      "aliases": [
+        "Signett"
+      ],
+      "scope": "idempotency/recovery/receipt semantics",
+      "owner_repository": "tjx578/signett-sentient",
+      "owner_repository_id": 1394879699,
+      "parent_observed": "signettai/signett",
+      "source_observed": "signettai/signett",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "npm-packages",
+      "upstream": "WebMCP-org/npm-packages",
+      "aliases": [
+        "MCP-B",
+        "npm packages"
+      ],
+      "scope": "polyfill and bridge reference",
+      "owner_repository": "tjx578/npm-packages-sentient",
+      "owner_repository_id": 1394884269,
+      "parent_observed": "WebMCP-org/npm-packages",
+      "source_observed": "WebMCP-org/npm-packages",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "webmcp-sdk",
+      "upstream": "opentiny/webmcp-sdk",
+      "aliases": [
+        "OpenTiny"
+      ],
+      "scope": "provider/fallback reference",
+      "owner_repository": "tjx578/webmcp-sdk-sentient",
+      "owner_repository_id": 1394882492,
+      "parent_observed": "opentiny/webmcp-sdk",
+      "source_observed": "opentiny/webmcp-sdk",
+      "default_branch_observed": "dev",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "windtunnel",
+      "upstream": "nekuda-ai/WindTunnel",
+      "aliases": [
+        "WindTunnel"
+      ],
+      "scope": "comparative evaluation methodology",
+      "owner_repository": "tjx578/WindTunnel-sentient",
+      "owner_repository_id": 1394886652,
+      "parent_observed": "nekuda-ai/WindTunnel",
+      "source_observed": "nekuda-ai/WindTunnel",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "tensorflow",
+      "upstream": "tensorflow/tensorflow",
+      "aliases": [
+        "TensorFlow"
+      ],
+      "scope": "compute/model contract knowledge; gated experiments",
+      "owner_repository": "tjx578/tensorflow_sentient",
+      "owner_repository_id": 1365873814,
+      "parent_observed": "tensorflow/tensorflow",
+      "source_observed": "tensorflow/tensorflow",
+      "default_branch_observed": "master",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": "08f0dca20e2b3de96fac23d679f1d3945255ec44",
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    },
+    {
+      "id": "free-programming-books",
+      "upstream": "EbookFoundation/free-programming-books",
+      "aliases": [
+        "Free Programming Books"
+      ],
+      "scope": "catalogue, library and evaluated learning references",
+      "owner_repository": "tjx578/free-programming-books-sentient",
+      "owner_repository_id": 1365845089,
+      "parent_observed": "EbookFoundation/free-programming-books",
+      "source_observed": "EbookFoundation/free-programming-books",
+      "default_branch_observed": "main",
+      "identity_observation": "VERIFIED_OWNER_FORK_LINEAGE",
+      "head_observation": null,
+      "head_observation_is_lock": false,
+      "disposition": "RESEARCH_NOT_ADMITTED"
+    }
+  ],
+  "observation": {
+    "date": "2026-09-30",
+    "owner_repositories_visible": 82,
+    "terminal_page_offset": 82,
+    "terminal_page_count": 0,
+    "metadata_verified_owner_forks": 19,
+    "extraction_status": "NOT_EXECUTED; setup and identity discovery only"
+  },
+  "acceptance": {
+    "all_cp_have_donor_lists": true,
+    "all_required_donors_have_explicit_outcome": true,
+    "exact_sha_source_refs": true,
+    "knowledge_relevance_to_current_cp_required": true,
+    "skill_candidate_or_scoped_no_skill_result_required": true,
+    "independent_review_before_adaptation": true,
+    "active_runtime_claim_requires_real_runtime_evidence": true
+  }
+}

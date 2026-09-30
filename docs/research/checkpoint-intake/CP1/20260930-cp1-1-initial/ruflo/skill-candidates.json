@@ -1,0 +1,133 @@
+{
+  "schema_version": "checkpoint-skill-candidates/v1",
+  "result": "NO_REUSABLE_SKILL_FOUND_IN_INSPECTED_CONTENT",
+  "candidates": [
+    {
+      "id": "ruflo-native-provider-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_mode": "LOCAL_OWNER_DIRECTED_SOURCE",
+      "revision": "f547cec013041a59b2f18921f5c861bf3d525825",
+      "source_refs": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "5c4718198a4156beacc780980077043a98b0dd6a",
+          "bytes": 1068,
+          "sha256": "a45ba66fa502c49ad108440536d8aa91dfe9c04575a32a01287839bee336199c",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\LICENSE",
+          "read_spans": "1-21",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:LICENSE"
+        },
+        {
+          "path": "package.json",
+          "blob_sha": "d13abba45b7cf2a5125586b2d46e385bbf636d2c",
+          "bytes": 3613,
+          "sha256": "8ababf41a06c7b558febc33fb9668606591ce07aa2e666bf239112590c8fb54c",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\package.json",
+          "read_spans": "1-100",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:package.json"
+        },
+        {
+          "path": "v3/@claude-flow/providers/package.json",
+          "blob_sha": "03a4d4a45160f0e847a2c30162debd00d26c78be",
+          "bytes": 1471,
+          "sha256": "deb1ef8ab556c47aaba4441d0f1d6f48bea65d3b364e12a974324ebf03d36026",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\package.json",
+          "read_spans": "1-77",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/package.json"
+        },
+        {
+          "path": "v3/@claude-flow/providers/README.md",
+          "blob_sha": "863353e9bafa8e77a3558e955207b9842a6eb597",
+          "bytes": 13152,
+          "sha256": "dcd0a3226710024802d11e80c82d8459ca5458e62196f57471ff7ad9bb70a9a8",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\README.md",
+          "read_spans": "heading/feature inventory only",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/README.md"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/types.ts",
+          "blob_sha": "f9d23d25e1ba3c26da2fde7c58fcf3f16b5e5c09",
+          "bytes": 9738,
+          "sha256": "cca3631a76f84478aa43942de4895faeb548caa9c047606d03fb501bee82f658",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\types.ts",
+          "read_spans": "1-439",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/types.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/base-provider.ts",
+          "blob_sha": "68cf4c1c76fcb5523437281ebffdbb8604b46296",
+          "bytes": 14812,
+          "sha256": "c7a450ed61055faea610b86ac9dd76a0db69f6f56b0c1101367ac1ade2e010c4",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\base-provider.ts",
+          "read_spans": "166-240;385-426",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/base-provider.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/provider-manager.ts",
+          "blob_sha": "506185afa6c6318c57bba2ead05628e036ee5be0",
+          "bytes": 14221,
+          "sha256": "4528ba63f88c0ecd85a627afeb2645b30b237006c6e815c0f688d2c1cdb64e92",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\provider-manager.ts",
+          "read_spans": "151-290",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/provider-manager.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/openai-provider.ts",
+          "blob_sha": "b3e1de1a52c02be155e39f9dc49badb23e9ee88f",
+          "bytes": 14373,
+          "sha256": "824b92833ee3144fab39fa16225715f20a3251def61c2471ae42da9f5f995b9b",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\openai-provider.ts",
+          "read_spans": "191-280",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/openai-provider.ts"
+        },
+        {
+          "path": "v3/@claude-flow/providers/src/__tests__/provider-integration.test.ts",
+          "blob_sha": "b2b3c6c38fc92d5df9afab90ac1fb079f0ac6868",
+          "bytes": 12594,
+          "sha256": "45f101d92d29b252914eb8f627ae94f90add4e050cffec0e0b003eb4121d5e16",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\__tests__\\provider-integration.test.ts",
+          "read_spans": "1-76;test-name/logging index",
+          "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/__tests__/provider-integration.test.ts"
+        }
+      ],
+      "objective": "Native CP1.1 provider request/response, error and measurement contract design",
+      "prerequisites": [
+        "Owner-local source instruction",
+        "Pinned Git object evidence",
+        "Native authority boundary and independent review"
+      ],
+      "input_contract": "Explicit provider/model/config and request with schema_version, provenance, evidence references and budget",
+      "output_contract": "Validated response or typed sanitized failure; usage/cost carries measured/estimated/unknown state",
+      "applicable_roles": [
+        "architect",
+        "developer",
+        "reviewer"
+      ],
+      "permitted_tools": [],
+      "limits": [
+        "No package copying/install/execution",
+        "No routing/fallback or memory activation",
+        "No ALG-REG-001 mutation"
+      ],
+      "failure_modes": [
+        "Missing pricing treated as zero",
+        "Fixed confidence treated as calibrated",
+        "Raw request exposed through error event",
+        "Unavailable provider selected",
+        "Shallow response guard accepts malformed data"
+      ],
+      "dependencies_rights": "MIT text; Node>=20/events/optionalruvllm; full dependency qualification NOT_EXECUTED",
+      "overlap_conflict": "contracts owns schema; models/providers adapts provider; sentient/model_gateway owns cognitive policy; control owns authority",
+      "task_fixtures": [
+        "Malformed usage types",
+        "Unknown price",
+        "Estimated streaming tokens",
+        "All providers unavailable",
+        "Secret-shaped request on failure"
+      ],
+      "evaluation_plan": "Native contract negative tests plus source-bound independent review before adaptation",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    }
+  ]
+}

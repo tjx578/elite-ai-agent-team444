@@ -1,0 +1,44 @@
+{
+  "schema_version": "cp1.1-independent-review/v1",
+  "generation": "CP1.1-DESIGN-003",
+  "status": "PASS",
+  "reviewer": "Codex independent review agent /root/governance",
+  "reviewed_at": "2026-09-30T18:44:52.946944+00:00",
+  "reviewed_manifest_sha256": "397154f0e41cdb7fbad767fc4b8b8818dadb9eac9532e4e71aa56da94a5e40e5",
+  "evidence_class": "EXACT_ARTIFACT_DESIGN_REVIEW",
+  "source_commit": "dd49ee105e3a07b3fe147925e9d44d9c3a7633ff",
+  "source_state": "EXACT_LOCAL_UNCOMMITTED_BYTES",
+  "review_independence": "Separate agent reviewed externally authored corrective package; reviewer did not author the ten manifest members.",
+  "scope": [
+    "Ten exact manifest members and restoration of persona-specific guidance in canonical AGENTS",
+    "Migration/archive provenance and predecessor preservation",
+    "Static review of historical_frozen_integrity and active_generation_integrity; not scanner acceptance"
+  ],
+  "method": [
+    "Read Principle, profile, guidance, derivation, acceptance, versioning, owner-interface and integration documents; compare AGENTS with canonical developer guide and historical member",
+    "Recompute raw SHA-256 of ten successor members, thirteen predecessor members/receipts and three migration candidate references",
+    "Compare archived AGENTS with git show 58ebf093371e6bcb2f45b848d22561c35d608a25:AGENTS.md",
+    "Parse checker constants with Python ast.literal_eval and independently match all historical and successor member digests; inspect fail-closed generation validation"
+  ],
+  "checks": {
+    "successor_members_matching": 10,
+    "historical_checker_pins_matching": 36,
+    "historical_design002_members_matching": 10,
+    "historical_design002_receipts_matching": 3,
+    "historical_agents_git_bytes_match": true,
+    "old_approvals_not_inherited": true,
+    "runtime_authority_not_added": true
+  },
+  "findings": [],
+  "open_blocking_findings": 0,
+  "limitations": [
+    "Design/document review only; no provider behavior, runtime activation or checkpoint closure",
+    "Not a GitHub approval or a human exact-byte review",
+    "Scanner execution, deadline acceptance, negative tests and remote CI are separate evidence and not executed by this review",
+    "Changing any manifest member invalidates this review; freeze and publication bindings must be recorded separately",
+    "Migration lifecycle and receipt hashes require refresh when this completed review replaces pending proposal; checker receipt pins require explicit update"
+  ],
+  "runtime_fidelity": "NOT_EXECUTED_CP1.6",
+  "github_approval": false,
+  "human_exact_byte_review": false
+}
