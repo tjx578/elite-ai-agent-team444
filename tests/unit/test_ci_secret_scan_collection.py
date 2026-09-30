@@ -21,6 +21,7 @@ assert SPEC is not None and SPEC.loader is not None
 GATE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(GATE)
 COL: Any = None
+SYNTHETIC_DETECTOR_TYPE = "Synthetic"
 
 
 @pytest.fixture(scope="module", autouse=True)
@@ -116,7 +117,7 @@ def test_every_real_plugin_is_invoked_for_each_line(monkeypatch):
 
 def test_detector_iterator_failure_never_returns_completion():
     class Broken:
-        secret_type = "Syn" + "thetic"
+        secret_type = SYNTHETIC_DETECTOR_TYPE
         def analyze_line(self, **kwargs):
             yield from ()
             raise RuntimeError("private synthetic payload must not escape")
@@ -213,11 +214,12 @@ def test_final_line_sentinel_is_drained():
     from detect_secrets.core.potential_secret import PotentialSecret
     calls = []
     class Sentinel:
-        secret_type = "Syn" + "thetic"
+        secret_type = SYNTHETIC_DETECTOR_TYPE
         def analyze_line(self, filename, line, line_number, **kwargs):
             calls.append(line_number)
             if line_number == 3:
-                yield PotentialSecret(type=self.secret_type, filename=filename, secret="E" + "ND", line_number=3)
+                marker_value = "END"
+                yield PotentialSecret(type=self.secret_type, filename=filename, secret=marker_value, line_number=3)
     row, found = COL.scan_text("sentinel.txt", b"start\nmiddle\nEND\n", [Sentinel()], [])
     assert calls == [1, 2, 3]
     assert row["passes"][0]["detectors"][0]["calls"] == 3
