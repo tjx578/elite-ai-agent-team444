@@ -30,10 +30,10 @@
     "resulting_main_sha": "1410df328615325a7f8ac76574e6bf4b57bad68e",
     "resulting_tree": "8b76cd39d7abbb9a7109e30d2c20f5ebc14d08fe",
     "reviewed_head_tree_equals_resulting_main_tree": true,
-    "merge_parents": [
-      "b3efa9fd96fd263087266ce41a5ff47f30877ee2",
-      "4f486073ef012ba55db25ef8cf6a543fe53f6710"
-    ],
+    "merge_parents": {
+      "first_parent": "b3efa9fd96fd263087266ce41a5ff47f30877ee2",
+      "second_parent": "4f486073ef012ba55db25ef8cf6a543fe53f6710"
+    },
     "verification_commands": [
       "git diff --exit-code 4f486073ef012ba55db25ef8cf6a543fe53f6710 HEAD",
       "git ls-remote origin refs/heads/main"

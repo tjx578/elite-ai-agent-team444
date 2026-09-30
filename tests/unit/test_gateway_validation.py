@@ -171,3 +171,21 @@ def test_mutated_request_is_revalidated_before_binding():
     request.envelope.provider.model_id = "changed-after-validation"
     with pytest.raises(GatewayValidationError, match="GATEWAY_DIGEST"):
         bind_reasoning_input(request, raw)
+
+
+@pytest.mark.parametrize("fault", ["missing_default", "trimmed_intent", "duplicate_key"])
+def test_old_input_contract_cannot_normalize_supplied_bytes(fault):
+    request, raw = bound_input()
+    value = json.loads(raw)
+    if fault == "missing_default":
+        del value["authority"]
+        raw = json.dumps(value, separators=(",", ":")).encode()
+    elif fault == "trimmed_intent":
+        value["intent"] = " " + value["intent"] + " "
+        raw = json.dumps(value, separators=(",", ":")).encode()
+    else:
+        raw = b'{"authority":"READ_ONLY",' + raw[1:]
+    data = request.model_dump()
+    data["envelope"]["correlation"]["input_digest_sha256"] = sha256(raw).hexdigest()
+    with pytest.raises(GatewayValidationError, match="INVALID_REASONING_INVOCATION"):
+        bind_reasoning_input(rebind(data), raw)

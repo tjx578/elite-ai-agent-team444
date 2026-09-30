@@ -4,7 +4,28 @@
 
 This document records what is demonstrably present in the repository. It is not a description of the eventual WOLF15 Sentient product.
 
-## Canonical baseline
+## CP1 design acceptance and current increment
+
+PR #21 is merged and CP1.1 is **CLOSED for design publication/integration** on
+the exact resulting main recorded in the additive
+[publication receipt](../verification/cp1.1-design-003-publication-receipt.json).
+Its Linux, Windows, scanner, CI and CodeQL evidence is separate from historical
+local freezes. CP1 remains **IN_PROGRESS**; CP2–CP9 remain gated.
+
+This increment adds offline gateway wire types, canonical parsing, envelope and
+response binding, and validation of supplied exact M3-A reasoning bytes. It is
+a **CP1.2 prerequisite candidate**, not a concrete provider implementation or
+CP1.2 acceptance. No provider/model is selected, no live call occurs, and no
+gateway dispatch or `/tasks` activation is added. See the
+[gateway implementation boundary](../../src/wolf15_sentient/sentient/model_gateway/README.md).
+Provider choice, approved bindings, transport enforcement and real-provider
+persona acceptance remain required before CP1 can close.
+
+Frozen root README/AGENTS and historical design receipts retain their reviewed
+bytes and original snapshot statements. The additive publication receipt binds
+the subsequent acceptance; old pending-publication fields are historical facts.
+
+## Historical canonical baseline
 
 ### Inspected main and checkpoint position
 
