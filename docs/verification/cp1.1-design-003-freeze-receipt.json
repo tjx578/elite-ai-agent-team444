@@ -1,0 +1,34 @@
+{
+  "schema_version": "cp1.1-freeze-receipt/v1",
+  "generation": "CP1.1-DESIGN-003",
+  "status": "FROZEN_LOCAL_PENDING_REMOTE_INTEGRATION",
+  "source_commit": "dd49ee105e3a07b3fe147925e9d44d9c3a7633ff",
+  "artifact_commit_sha": null,
+  "manifest": {
+    "path": "docs/verification/cp1.1-design-003-review-manifest.json",
+    "sha256": "397154f0e41cdb7fbad767fc4b8b8818dadb9eac9532e4e71aa56da94a5e40e5"
+  },
+  "review_receipt": {
+    "path": "docs/verification/cp1.1-design-003-independent-review.json",
+    "sha256": "0a1f9a70a700f8d150de4b54b249745b1265cc19d84ec7b253bc544ab0b6b7cc",
+    "status": "PASS"
+  },
+  "frozen_at": "2026-09-30T18:45:45.572496+00:00",
+  "frozen_by": "Codex /root integrator",
+  "frozen_members": 10,
+  "active_generation": true,
+  "owner_acceptance": "APPROVED",
+  "authority": "NONE",
+  "runtime_loaded": false,
+  "cp1_1_canonical_closed": false,
+  "remote_checks": "NOT_EXECUTED_FOR_THIS_CANDIDATE",
+  "excluded_from_frozen_members": [
+    "docs/verification/cp1.1-design-003-review-manifest.json",
+    "docs/verification/cp1.1-design-003-independent-review.json",
+    "docs/verification/cp1.1-design-003-freeze-receipt.json"
+  ],
+  "publication_binding": "This receipt records local exact-byte design freeze after independent review. Commit, remote CI and resulting-main acceptance are separate evidence; no merge or activation authorized.",
+  "owner_acceptance_scope": "Scoped corrective design freeze authorized by user task 2026-09-30T18:38Z; not human exact-byte review or checkpoint closure",
+  "human_exact_byte_review": false,
+  "github_approval": false
+}

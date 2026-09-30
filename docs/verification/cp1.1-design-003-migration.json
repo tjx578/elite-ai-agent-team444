@@ -1,0 +1,112 @@
+{
+  "schema_version": "cp1.1-generation-migration/v1",
+  "generation": "CP1.1-DESIGN-003",
+  "status": "FROZEN_LOCAL_PENDING_REMOTE_INTEGRATION",
+  "integration_base": "dd49ee105e3a07b3fe147925e9d44d9c3a7633ff",
+  "predecessor": "CP1.1-DESIGN-002",
+  "historical_receipts": [
+    {
+      "path": "docs/verification/cp1.1-design-002-review-manifest.json",
+      "sha256": "d62932bbcbfca459af654eda8ed5e2ed073563ea441e89e3443ddc02d5d0f2cf",
+      "disposition": "PRESERVE_AT_CURRENT_PATH"
+    },
+    {
+      "path": "docs/verification/cp1.1-design-002-independent-review.json",
+      "sha256": "ef1db4b9ab5bdcd24090f8e57ab70b7e7eed9a68d2d2e8c1ff4a430a86f39a4c",
+      "disposition": "PRESERVE_AT_CURRENT_PATH"
+    },
+    {
+      "path": "docs/verification/cp1.1-design-002-freeze-receipt.json",
+      "sha256": "9920b54b4edf31918ca956754d8ab19271199b53e7445875161cbf70bbcc45ee",
+      "disposition": "PRESERVE_AT_CURRENT_PATH"
+    }
+  ],
+  "historical_members": [
+    {
+      "member_path": "docs/architecture/persona/owner-interface-persona-contract.md",
+      "sha256": "f1baeecba4d5bfbbc0de29489283a26425ddd872da432532dfbfb8716a72ab44",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/persona/owner-interface-persona-contract.md"
+    },
+    {
+      "member_path": "docs/architecture/persona/persona-acceptance-scenarios.md",
+      "sha256": "9c9f9452afd56d14386831bb47a04816a7a52235020f1881f84450536fac34d9",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/persona/persona-acceptance-scenarios.md"
+    },
+    {
+      "member_path": "docs/architecture/persona/persona-profile.yaml",
+      "sha256": "b587f2f85a38aa890818b9bedac088a5dcbf701825653dc4f495f0d1f191e1b7",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/persona/persona-profile.yaml"
+    },
+    {
+      "member_path": "docs/architecture/persona/persona-versioning.md",
+      "sha256": "53a117206bb10388c4812aac6cd300f64ac4d456c4f85aa335c0c4fd945b1ead",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/persona/persona-versioning.md"
+    },
+    {
+      "member_path": "docs/architecture/persona/principle-derivation.md",
+      "sha256": "7cf612e1b714c3feb3760eb05e0c8d7b598a34e24dc2350c0307a18a610a4c81",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/persona/principle-derivation.md"
+    },
+    {
+      "member_path": "docs/architecture/persona/runtime-guidance.md",
+      "sha256": "2fc8d8747e775c87f3113d0f40d2b2b4ada6be8d8b880d5f5fd77934fb1ff1df",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/persona/runtime-guidance.md"
+    },
+    {
+      "member_path": "docs/architecture/persona/WOLF15_SENTIENT_PRINCIPLE.md",
+      "sha256": "07bfd44bd00d96d45fa8ae91679973491d54da9bd425b407be270e986332b430",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/persona/WOLF15_SENTIENT_PRINCIPLE.md"
+    },
+    {
+      "member_path": "README.md",
+      "sha256": "c807a41fbf13648e26fc87ca24007a945e0c6d8aa10f8e20ed7c81270ecde007",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "README.md"
+    },
+    {
+      "member_path": "AGENTS.md",
+      "sha256": "a85b1eebfdd3b43a08832c97f4c5ff08d82a3a6073abebc9529cc82cc468585f",
+      "disposition": "PRESERVE_IN_IMMUTABLE_ARCHIVE",
+      "proof_path": "docs/verification/cp1.1-design-003-historical-AGENTS.md",
+      "source_revision": "58ebf093371e6bcb2f45b848d22561c35d608a25",
+      "source_blob_oid": "17e19fad4f59e8ca648be37758e73a0a172a1fb1",
+      "source_bytes": 875
+    },
+    {
+      "member_path": "docs/architecture/cp1/principle-integration.md",
+      "sha256": "147485212ab63383be1908f8ef15440a502ce04451e974e6906d5f065baa18c3",
+      "disposition": "PRESERVE_AT_CURRENT_PATH",
+      "proof_path": "docs/architecture/cp1/principle-integration.md"
+    }
+  ],
+  "active_candidate_manifest": {
+    "path": "docs/verification/cp1.1-design-003-review-manifest.json",
+    "sha256": "397154f0e41cdb7fbad767fc4b8b8818dadb9eac9532e4e71aa56da94a5e40e5"
+  },
+  "active_candidate_review": {
+    "path": "docs/verification/cp1.1-design-003-independent-review.json",
+    "sha256": "0a1f9a70a700f8d150de4b54b249745b1265cc19d84ec7b253bc544ab0b6b7cc"
+  },
+  "active_candidate_freeze": {
+    "path": "docs/verification/cp1.1-design-003-freeze-receipt.json",
+    "sha256": "bedbf202501febb62b9134db008ee04859d163fd52bce721fb7c2c66c3eec9af"
+  },
+  "checker_required_pending_result": "ACTIVE_GENERATION_NOT_FROZEN",
+  "requires_historical_git_fetch": false,
+  "historical_proof_note": "Historical AGENTS bytes are archived unchanged and pinned; the other nine historical members remain byte-identical at their current paths. Archive identity is not an active generation approval.",
+  "inherited_pass": false,
+  "runtime_acceptance": "NOT_EXECUTED",
+  "publication_authorized": true,
+  "pending_result_scope": "Original package REVIEW_PENDING receipts only; finalized receipts must pass exact binding checks, with scanner acceptance separately required.",
+  "publication_authority_scope": "Owner scoped instruction 2026-09-30 18:38 UTC: complete corrective PR21 work, commit and push to existing PR; no merge, deploy or runtime activation.",
+  "owner_human_exact_byte_review": false,
+  "github_approval": false,
+  "successor_review": "Fresh independent exact-artifact design review recorded; not inherited from DESIGN-002."
+}
