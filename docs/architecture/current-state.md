@@ -21,6 +21,14 @@ gateway dispatch or `/tasks` activation is added. See the
 Provider choice, approved bindings, transport enforcement and real-provider
 persona acceptance remain required before CP1 can close.
 
+An additional **CP1.3–CP1.5 provider-neutral prerequisite candidate** supplies
+fresh host-observation checks around output validation and an in-memory
+allowlisted telemetry projection. It is stacked on the unmerged CP1.2 candidate;
+neither draft increment is claimed integrated on main. It rejects observed
+cancellation/policy denial/late output but does not interrupt transport or
+cleanup. Telemetry remains wire-reported; no sink or independent metering exists.
+CP1.2–CP1.6 remain open and provider-specific acceptance remains pending.
+
 Frozen root README/AGENTS and historical design receipts retain their reviewed
 bytes and original snapshot statements. The additive publication receipt binds
 the subsequent acceptance; old pending-publication fields are historical facts.

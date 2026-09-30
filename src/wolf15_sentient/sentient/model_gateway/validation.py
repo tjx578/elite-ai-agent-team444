@@ -39,7 +39,7 @@ def bind_reasoning_input(request: GatewayRequest, raw: bytes) -> ReasoningInvoca
     mutated by a caller. Existing M3-A serialization remains independent from
     gateway canonical JSON, including its original field order and defaults.
     """
-    bound = validate_request(canonical(request.model_dump()))
+    bound = validate_request(canonical(request.model_dump(warnings=False)))
     if type(raw) is not bytes or len(raw) > MAX_REQUEST_BYTES:
         raise GatewayValidationError("REASONING_BYTE_LIMIT")
     correlation = bound.envelope.correlation
@@ -68,7 +68,7 @@ def validate_response(raw: bytes, request: GatewayRequest,
     Claimed metering and elapsed time are checked for consistency only. This
     function cannot enforce a transport deadline, measure spend, or cancel work.
     """
-    bound = validate_request(canonical(request.model_dump()))
+    bound = validate_request(canonical(request.model_dump(warnings=False)))
     value = parse_canonical(raw, max_bytes=max_bytes)
     envelope = bound.envelope
     if len(raw) > envelope.limits.max_output_bytes:

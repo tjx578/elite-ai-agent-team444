@@ -173,6 +173,21 @@ def test_mutated_request_is_revalidated_before_binding():
         bind_reasoning_input(request, raw)
 
 
+@pytest.mark.parametrize("entry", ["input", "response"])
+def test_mutated_request_schema_rejection_has_no_payload_warning(entry, recwarn, capsys):
+    request, raw = bound_input()
+    request.envelope.provider = request.envelope.provider.model_copy(
+        update={"model_id": {"private": "sensitive-warning-canary"}}
+    )
+    with pytest.raises(GatewayValidationError, match="SCHEMA_INVALID"):
+        if entry == "input":
+            bind_reasoning_input(request, raw)
+        else:
+            validate_response(canonical(fixture("response")), request)
+    assert not recwarn
+    assert capsys.readouterr() == ("", "")
+
+
 @pytest.mark.parametrize("fault", ["missing_default", "trimmed_intent", "duplicate_key"])
 def test_old_input_contract_cannot_normalize_supplied_bytes(fault):
     request, raw = bound_input()
