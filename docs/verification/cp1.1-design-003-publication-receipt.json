@@ -1,0 +1,218 @@
+{
+  "schema_version": "cp1.1-publication-acceptance-receipt/v1",
+  "generation": "CP1.1-DESIGN-003",
+  "recorded_at": "2026-09-30T19:52:34.687133+00:00",
+  "objective": "Accept the CP1.1 gateway/persona design and PR21 corrective integration on verified resulting-main; no provider or runtime activation.",
+  "substep": {
+    "id": "CP1.1",
+    "status": "CLOSED",
+    "scope": "Design freeze, publication and exact resulting-main acceptance"
+  },
+  "checkpoint": {
+    "id": "CP1",
+    "status": "IN_PROGRESS",
+    "closed": false
+  },
+  "publication": {
+    "status": "LOCAL_RECEIPT_PENDING_DRAFT_PR_PUBLICATION",
+    "receipt_commit": null,
+    "receipt_pull_request": null,
+    "receipt_merged": false,
+    "note": "This additive receipt records acceptance of the existing resulting-main below. It is not present in that accepted commit and does not claim its own future publication or merge."
+  },
+  "source": {
+    "repository": "tjx578/wolf15-sentient",
+    "base_sha": "b3efa9fd96fd263087266ce41a5ff47f30877ee2",
+    "branch": "codex/cp1-intake-contracts",
+    "pull_request": 21,
+    "pull_request_url": "https://github.com/tjx578/wolf15-sentient/pull/21",
+    "reviewed_head_sha": "4f486073ef012ba55db25ef8cf6a543fe53f6710",
+    "resulting_main_sha": "1410df328615325a7f8ac76574e6bf4b57bad68e",
+    "resulting_tree": "8b76cd39d7abbb9a7109e30d2c20f5ebc14d08fe",
+    "reviewed_head_tree_equals_resulting_main_tree": true,
+    "merge_parents": [
+      "b3efa9fd96fd263087266ce41a5ff47f30877ee2",
+      "4f486073ef012ba55db25ef8cf6a543fe53f6710"
+    ],
+    "verification_commands": [
+      "git diff --exit-code 4f486073ef012ba55db25ef8cf6a543fe53f6710 HEAD",
+      "git ls-remote origin refs/heads/main"
+    ]
+  },
+  "design_bindings": {
+    "historical_gateway_freeze": {
+      "path": "docs/architecture/cp1/cp1.1-freeze-receipt.json",
+      "sha256": "1cf8ceae1b74b93629d94b0a6b85510f1145c46ef885800f0e77d8d6fe331fec"
+    },
+    "active_manifest": {
+      "path": "docs/verification/cp1.1-design-003-review-manifest.json",
+      "sha256": "397154f0e41cdb7fbad767fc4b8b8818dadb9eac9532e4e71aa56da94a5e40e5"
+    },
+    "active_independent_review": {
+      "path": "docs/verification/cp1.1-design-003-independent-review.json",
+      "sha256": "0a1f9a70a700f8d150de4b54b249745b1265cc19d84ec7b253bc544ab0b6b7cc"
+    },
+    "active_local_freeze": {
+      "path": "docs/verification/cp1.1-design-003-freeze-receipt.json",
+      "sha256": "bedbf202501febb62b9134db008ee04859d163fd52bce721fb7c2c66c3eec9af"
+    },
+    "gateway_schema": {
+      "path": "docs/architecture/cp1/gateway-schema.json",
+      "sha256": "aec0d32c7a476a09bb514e8bb8e033ddff0911db65e47bc30190fb25860465e7"
+    },
+    "wire_version": "draft-v0",
+    "canonical_encoding": "cp1-json-integer-nfc-v0",
+    "historical_frozen_pin_count": 36,
+    "historical_frozen_integrity": "PASS",
+    "active_manifest_member_count": 10,
+    "active_manifest_integrity": "PASS",
+    "immutability": "Historical DESIGN-001, DESIGN-002, DESIGN-003 and ALG-REG-001 artifacts and receipts remain unchanged. Their historical publication/closure fields are not rewritten by this later receipt."
+  },
+  "local_acceptance": {
+    "source_sha": "1410df328615325a7f8ac76574e6bf4b57bad68e",
+    "environment": "Linux; locked project environment; scanner receipt records Python 3.12.14",
+    "full_suite": {
+      "status": "PASS",
+      "passed": 1319,
+      "skipped": 1,
+      "duration_seconds": 42.54,
+      "evidence": {
+        "filename": "full-suite.log",
+        "sha256": "ce17a5af7e2757879dca4c673612b348d3f6c14c487165cd302dd59af565fb70",
+        "byte_length": 1553,
+        "storage": "Integrator workspace evidence; retain with external completion evidence bundle"
+      },
+      "command": ".venv/bin/python -B -m pytest -q -p no:cacheprovider",
+      "exit_code": 0
+    },
+    "ruff_without_noqa": {
+      "status": "PASS",
+      "scope": "entire repository; noqa pragmas ignored",
+      "evidence": {
+        "filename": "ruff.log",
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "byte_length": 19,
+        "storage": "Integrator workspace evidence; retain with external completion evidence bundle"
+      },
+      "command": ".venv/bin/ruff check . --ignore-noqa --no-cache",
+      "exit_code": 0
+    },
+    "pyright": {
+      "status": "PASS",
+      "errors": 0,
+      "warnings": 0,
+      "evidence": {
+        "filename": "pyright.log",
+        "sha256": "6d88a1b220adb7a3d62092b6e38431f0b3fe8babe9864fab90e5849766260332",
+        "byte_length": 37,
+        "storage": "Integrator workspace evidence; retain with external completion evidence bundle"
+      },
+      "command": ".venv/bin/pyright --pythonpath .venv/bin/python src tests scripts",
+      "exit_code": 0
+    },
+    "offline_schema_fixtures": {
+      "status": "PASS",
+      "checks": 55,
+      "provider_execution": "NOT_EXECUTED",
+      "evidence": {
+        "filename": "schema-fixtures.json",
+        "sha256": "867932b66321e411e13a7b884712d337ed6bdc8ea0b03c96b7cefbdf0e9660a2",
+        "byte_length": 1519,
+        "storage": "Integrator workspace evidence; retain with external completion evidence bundle"
+      },
+      "command": "/workspace/scratch/pr21/schema-env/bin/python docs/architecture/cp1/verify_contract_fixtures.py",
+      "exit_code": 0
+    },
+    "secret_scan": {
+      "status": "PASS",
+      "gate_a": "PASS",
+      "gate_b": "PASS",
+      "known_evidence_occurrences": 845,
+      "unknown_occurrences": 0,
+      "production_frozen_integrity": "PASS",
+      "parent_observed_worker_exit": 0,
+      "parent_observed_collector_exit": 0,
+      "worker_deadline_seconds": 120,
+      "evidence": {
+        "filename": "exact-head-receipt.json",
+        "sha256": "6e15a7b7b8abef15f9d190fb96f52d349667f144664514ddcccfd703e5a0dd6a",
+        "byte_length": 843184,
+        "storage": "Integrator workspace evidence; retain with external completion evidence bundle"
+      },
+      "execution": "Embedded full CLI scanner acceptance invoked by the full pytest suite and verified its postconditions; exact-head receipt copied after suite. No separate standalone scanner invocation is claimed."
+    },
+    "cwd": "/workspace/wolf15-sentient"
+  },
+  "remote_acceptance": {
+    "source_sha": "1410df328615325a7f8ac76574e6bf4b57bad68e",
+    "evidence_provenance": "Run/job conclusions verified by /root integrator; Windows job log independently inspected for invocation and result.",
+    "ci": {
+      "run_id": 36768140016,
+      "url": "https://github.com/tjx578/wolf15-sentient/actions/runs/36768140016",
+      "status": "PASS",
+      "successful_jobs": 9,
+      "jobs": [
+        "pytest (3.11)",
+        "pytest (3.12)",
+        "pytest (3.13)",
+        "ruff",
+        "pyright",
+        "build-install",
+        "dependency-audit",
+        "secret-scan",
+        "scanner Windows qualification"
+      ]
+    },
+    "codeql": {
+      "run_id": 36768140338,
+      "url": "https://github.com/tjx578/wolf15-sentient/actions/runs/36768140338",
+      "status": "PASS",
+      "languages": [
+        "actions",
+        "python"
+      ]
+    },
+    "windows_scanner": {
+      "job_id": 110067396830,
+      "url": "https://github.com/tjx578/wolf15-sentient/actions/runs/36768140016/job/110067396830",
+      "status": "PASS",
+      "passed": 1118,
+      "skipped": 2,
+      "suite_duration_seconds": 98.79,
+      "duration_scope": "Whole qualification suite, not scanner worker runtime",
+      "evidence": {
+        "filename": "windows-main.log",
+        "sha256": "aeeb5e4b58e341312b7efa40701adff416ccf155da90fc620392e2676526cd23",
+        "byte_length": 30091,
+        "storage": "Integrator workspace evidence; retain with external completion evidence bundle"
+      },
+      "command": "uv run --locked --extra dev python -I -X utf8 -m pytest -q tests/unit/test_ci_secret_scan.py tests/unit/test_ci_secret_scan_collection.py tests/unit/test_ci_secret_scan_bootstrap.py tests/unit/test_ci_secret_scan_batch.py tests/unit/test_ci_secret_scan_generation.py tests/unit/test_ci_secret_scan_supervision.py tests/unit/test_ci_secret_scan_error_boundaries.py"
+    }
+  },
+  "review_and_acceptance": {
+    "independent_review": "PASS: /root/cp1_roadmap exact corrective diff, follow-on Windows coverage, resulting-main identical tree and freeze bindings",
+    "github_review_status": "No fabricated approval; GitHub review/thread and merge eligibility checks owned by integrator before merge",
+    "acceptance_decision": "CP1.1 design integration accepted and CLOSED on the bound resulting-main; CP1 remains IN_PROGRESS",
+    "decision_authority": "Owner delegated completion, PR21 merge after all gates, resulting-main verification and CP1 continuation on 2026-09-30 at approximately 19:34 UTC; /root integrator executed that scope",
+    "human_exact_byte_review_claimed": false,
+    "future_pull_request_merge_authorized": false
+  },
+  "limitations": [
+    "Offline schemas, synthetic adapters and CI do not prove real-provider operation or persona fidelity.",
+    "Concrete provider/model/technical/policy deployment bindings remain unselected; CP1.2 is not CLOSED.",
+    "Cancellation, budget, transport and telemetry acceptance for a real provider remain later implementation/acceptance work.",
+    "CP1.6 requires exact-main real-provider receipt and persona evaluation; it is NOT_EXECUTED.",
+    "CP2 remains gated on CP1 CLOSED; no CP2 implementation or activation is authorized by this receipt.",
+    "New receipt bytes require independent publication CI and exact secret-scan triage; accepted-main results do not certify this receipt or a later draft PR."
+  ],
+  "authority_effect": {
+    "runtime": "READ_ONLY",
+    "provider_calls": "NOT_EXECUTED",
+    "runtime_activation": false,
+    "deployment": "NOT_EXECUTED",
+    "trading": "NOT_AUTHORIZED",
+    "memory_write": false,
+    "capability_admission": "NOT_EXECUTED"
+  },
+  "next_action": "Prepare a provider-independent gateway contract-validation prerequisite draft PR from resulting-main. Obtain owner provider/model/data/cost decisions, live-call authorization and applicable later merge approval before claiming concrete-provider or full CP1 closure."
+}
