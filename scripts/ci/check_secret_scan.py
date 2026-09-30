@@ -1326,7 +1326,7 @@ def classify(findings: list[dict[str, Any]], blobs: dict[str, bytes]) -> tuple[i
                     "EXCEPTION_FIELD_CHANGED")
             require(len(pointers) == len(set(pointers)), "EXCEPTION_FIELD_CHANGED")
             document = collection.parse(blobs[path])
-            for pointer in pointers:
+            for pointer in cast(list[str], pointers):
                 value: Any = document
                 for segment in pointer[1:].split("/"):
                     key = segment.replace("~1", "/").replace("~0", "~")
