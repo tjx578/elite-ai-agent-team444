@@ -7,8 +7,10 @@ its own approved provider runner with real timeout and transport limits.
 
 import json
 import re
+from contextlib import AbstractContextManager
 from hashlib import sha256
-from typing import Protocol
+from types import TracebackType
+from typing import Literal, Protocol
 
 from pydantic import ValidationError
 
@@ -155,6 +157,33 @@ class StubReasoningAdapter:
         ).model_dump(mode="json")
 
 
+class _AdapterFailure(Exception):
+    """Sanitized operational failure from an offline adapter call."""
+
+
+class _AdapterErrorBoundary(AbstractContextManager[None]):
+    """Contain adapter errors without inspecting or formatting their payloads."""
+
+    def __enter__(self) -> None:
+        return None
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> Literal[False]:
+        # Use the interpreter's type, not an exception's spoofable __class__.
+        # Timeouts keep their classification; process-control exceptions propagate.
+        if (
+            exc_type is not None
+            and issubclass(exc_type, Exception)
+            and not issubclass(exc_type, TimeoutError)
+        ):
+            raise _AdapterFailure("ADAPTER_FAILURE") from None
+        return False
+
+
 def run_reasoning(
     request: ReasoningRequest,
     adapter: OfflineReasoningAdapter | None = None,
@@ -171,16 +200,17 @@ def run_reasoning(
     proposal = None
     status = "PROPOSAL_VALIDATED"
     try:
-        # An independent copy prevents adapter mutation from changing the receipt.
-        raw = selected.generate(
-            ReasoningInvocation(
-                input_digest_sha256=digest,
-                input=ReasoningInput.model_validate_json(snapshot),
+        with _AdapterErrorBoundary():
+            # An independent copy prevents adapter mutation from changing the receipt.
+            raw = selected.generate(
+                ReasoningInvocation(
+                    input_digest_sha256=digest,
+                    input=ReasoningInput.model_validate_json(snapshot),
+                )
             )
-        )
     except TimeoutError:
         status, issues = "ADAPTER_FAILED", ["ADAPTER_TIMEOUT"]
-    except Exception:  # noqa: BLE001 - contain adapter errors without leaking details
+    except _AdapterFailure:
         status, issues = "ADAPTER_FAILED", ["ADAPTER_FAILURE"]
     else:
         try:

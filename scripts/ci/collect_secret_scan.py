@@ -219,10 +219,11 @@ def git_blobs(root: Path, oids: list[str]) -> list[bytes]:
     env["GIT_OPTIONAL_LOCKS"] = "0"
     deadline = time.monotonic() + GIT_TIMEOUT
     try:
-        child = subprocess.Popen(["git", "-c", "core.fsmonitor=false", "-C", str(root), "cat-file", "--batch"],
-                                 stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                 stderr=subprocess.DEVNULL, env=env, shell=False, bufsize=0)
-    except Exception:  # noqa: BLE001 -- cleanup must fail closed without leaking content
+        with controlled_errors():
+            child = subprocess.Popen(["git", "-c", "core.fsmonitor=false", "-C", str(root), "cat-file", "--batch"],
+                                     stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                     stderr=subprocess.DEVNULL, env=env, shell=False, bufsize=0)
+    except ScanError:
         raise ScanError("GIT_BATCH_SPAWN_FAILURE") from None
     blobs: list[bytes] = []
     errors: list[str] = []
@@ -252,8 +253,9 @@ def git_blobs(root: Path, oids: list[str]) -> list[bytes]:
             for stream in (child.stdin, child.stdout):
                 if stream is not None:
                     try:
-                        stream.close()
-                    except Exception:  # noqa: BLE001 -- cleanup must fail closed without leaking content
+                        with controlled_errors():
+                            stream.close()
+                    except ScanError:
                         errors.append("GIT_BATCH_CLOSE_FAILURE")
             finished.set()
 
@@ -277,10 +279,11 @@ def git_blobs(root: Path, oids: list[str]) -> list[bytes]:
         # terminates the inherited containment on every normal/error exit.
         cleanup_ok = True
         try:
-            if child.poll() is None:
-                child.kill()
-            child.wait(timeout=5)
-        except Exception:  # noqa: BLE001 -- cleanup must fail closed without leaking content
+            with controlled_errors():
+                if child.poll() is None:
+                    child.kill()
+                child.wait(timeout=5)
+        except ScanError:
             cleanup_ok = False
         if started:
             reader_thread.join(timeout=1)
@@ -289,8 +292,9 @@ def git_blobs(root: Path, oids: list[str]) -> list[bytes]:
             for stream in (child.stdin, child.stdout):
                 if stream is not None:
                     try:
-                        stream.close()
-                    except Exception:  # noqa: BLE001 -- cleanup must fail closed without leaking content
+                        with controlled_errors():
+                            stream.close()
+                    except ScanError:
                         cleanup_ok = False
         require(cleanup_ok, "GIT_BATCH_CLEANUP_FAILURE")
 

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from scanner_buffer_loader import load_subject
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -16,9 +17,7 @@ def subject() -> Any:
     modules = []
     for name in ("collect_secret_scan", "check_secret_scan"):
         path = ROOT / "scripts/ci" / (name + ".py")
-        module = types.ModuleType(name)
-        module.__file__ = str(path)
-        exec(compile(path.read_bytes(), str(path), "exec"), module.__dict__)  # noqa: S102 -- load exact test-subject buffer
+        module = load_subject(path, name)
         modules.append(module)
     modules[1].collection = modules[0]
     return modules[1]
@@ -171,3 +170,35 @@ def test_success_preserves_output_and_cleanup(harness: Any) -> None:
     assert groups == [child.pid] and child.reaped
     assert all(item.joined for item in threads)
     assert child.stdin.closed and child.stdout.closed and child.stderr.closed
+
+
+@pytest.mark.parametrize("fault", ["group", "join", "stdin"])
+def test_cleanup_failure_still_attempts_remaining_cleanup(harness: Any, monkeypatch: Any, fault: str) -> None:
+    gate, child, threads, _ = harness
+    child.returncode = 0
+
+    class UnprintableFailure(Exception):
+        def __str__(self) -> str:
+            raise AssertionError("cleanup error must not be formatted")
+
+    def fail(*args: Any, **kwargs: Any) -> None:
+        raise UnprintableFailure()
+
+    if fault == "group":
+        monkeypatch.setattr(gate.os, "killpg", fail)
+    elif fault == "join":
+        original = Thread.join
+
+        def join(self: Thread, timeout: float) -> None:
+            original(self, timeout)
+            if self is threads[0]:
+                fail()
+
+        monkeypatch.setattr(Thread, "join", join)
+    else:
+        monkeypatch.setattr(child.stdin, "close", fail)
+    with pytest.raises(gate.collection.ScanError, match="^PROCESS_PIPE_TERMINATION_UNPROVEN$"):
+        gate.supervised(["fixture"], ROOT)
+    assert child.reaped
+    assert all(item.joined for item in threads)
+    assert child.stdout.closed and child.stderr.closed

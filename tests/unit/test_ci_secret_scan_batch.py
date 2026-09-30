@@ -6,11 +6,11 @@ import io
 import subprocess
 import threading
 import time
-import types
 from pathlib import Path
 from typing import Any
 
 import pytest
+from scanner_buffer_loader import load_subject
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -18,11 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 @pytest.fixture(scope="module")
 def col() -> Any:
     path = ROOT / "scripts/ci/collect_secret_scan.py"
-    module = types.ModuleType("batch_test_subject")
-    module.__file__ = str(path)
-    # Test-subject loading uses the exact read buffer and never a bytecode cache.
-    exec(compile(path.read_bytes(), str(path), "exec"), module.__dict__)  # noqa: S102 -- load exact test-subject bytes without bytecode cache
-    return module
+    return load_subject(path, "batch_test_subject")
 
 
 def object_oid(raw: bytes, algorithm: str = "sha1") -> str:

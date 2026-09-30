@@ -14,6 +14,7 @@ from pathlib import Path
 from types import ModuleType
 
 import pytest
+from scanner_buffer_loader import load_subject
 
 ROOT = Path(__file__).resolve().parents[2]
 VALIDATOR = "scripts/ci/check_secret_scan.py"
@@ -28,10 +29,7 @@ def git(root: Path, *arguments: str) -> bytes:
 
 def load_validator(path: Path) -> ModuleType:
     # The test harness explicitly supplies the trusted entrypoint, source-only.
-    module = ModuleType("bootstrap_fixture_validator")
-    module.__file__ = str(path)
-    exec(compile(path.read_bytes(), str(path), "exec"), module.__dict__)  # noqa: S102 -- load exact test-subject bytes without bytecode cache
-    return module
+    return load_subject(path, "bootstrap_fixture_validator")
 
 
 @pytest.fixture
@@ -56,6 +54,67 @@ def test_import_has_no_collector_or_git_side_effect(monkeypatch):
     gate = load_validator(ROOT / VALIDATOR)
     assert gate.collection is None
     assert gate._bootstrap_binding == {}
+
+
+def test_buffer_loader_copies_input_and_never_reopens_origin(monkeypatch):
+    gate = load_validator(ROOT / VALIDATOR)
+    raw = bytearray(TRUSTED_SOURCE)
+    loader = gate._VerifiedBufferLoader("buffer_subject", raw, "/absent/collector.py")
+    raw[:] = POISON_SOURCE
+    module = ModuleType("buffer_subject")
+
+    def denied(*args, **kwargs):
+        raise AssertionError("verified buffer loading must not read files")
+
+    monkeypatch.setattr(builtins, "open", denied)
+    monkeypatch.setattr(Path, "open", denied)
+    loader.exec_module(module)
+    assert module.BOOTSTRAP_MARKER == "SOURCE00"
+    assert loader.get_source("buffer_subject").encode() == TRUSTED_SOURCE
+    with pytest.raises(gate.BootstrapError, match="BOOTSTRAP_MODULE_NAME"):
+        loader.exec_module(ModuleType("wrong_subject"))
+
+
+def test_bootstrap_boundary_sanitizes_without_inspecting_exception():
+    gate = load_validator(ROOT / VALIDATOR)
+
+    class HostileFailure(Exception):
+        @property
+        def __class__(self):
+            return gate.BootstrapError
+
+        @__class__.setter
+        def __class__(self, value: type) -> None:
+            raise AssertionError("exception class must not be changed")
+
+        def __str__(self):
+            raise AssertionError("exception payload must not be formatted")
+
+    with pytest.raises(gate.BootstrapError, match="^FIXED_FAILURE$"), gate._BootstrapErrors("FIXED_FAILURE"):
+        raise HostileFailure()
+
+    domain_error = gate.BootstrapError("DOMAIN_FAILURE")
+    with pytest.raises(gate.BootstrapError) as caught, gate._BootstrapErrors():
+        raise domain_error
+    assert caught.value is domain_error
+
+
+def test_bootstrap_boundary_preserves_process_control():
+    gate = load_validator(ROOT / VALIDATOR)
+
+    class Stop(BaseException):
+        @property
+        def __class__(self):
+            return Exception
+
+        @__class__.setter
+        def __class__(self, value: type) -> None:
+            raise AssertionError("exception class must not be changed")
+
+    stop = Stop()
+    with pytest.raises(Stop) as caught, gate._BootstrapErrors():
+        raise stop
+    assert caught.value is stop
 
 
 @pytest.mark.parametrize("mode", [py_compile.PycInvalidationMode.TIMESTAMP,

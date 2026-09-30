@@ -7,6 +7,7 @@ from __future__ import annotations
 import argparse
 import contextlib
 import hashlib
+import importlib.abc
 import logging
 import os
 import re
@@ -17,8 +18,8 @@ import sys
 import threading
 import time
 from pathlib import Path
-from types import ModuleType
-from typing import Any, NoReturn, cast
+from types import CodeType, ModuleType, TracebackType
+from typing import Any, Literal, NoReturn, cast
 
 # The reviewed validator/launcher is caller-trusted. Checking its source is a
 # consistency check, not self-authentication of code that has already started.
@@ -33,6 +34,49 @@ _verified_sources: dict[str, bytes] = {}
 
 class BootstrapError(ValueError):
     """Fixed, sanitized failures before collector code is available."""
+
+
+class _BootstrapErrors(contextlib.AbstractContextManager[None]):
+    """Translate operational failures without formatting untrusted exceptions.
+
+    This boundary is available before collector authentication. Domain failures
+    and process-control exceptions retain their identity; cleanup callers catch
+    the typed failure separately for each operation so later cleanup still runs.
+    """
+
+    def __init__(self, code: str = "BOOTSTRAP_OPERATION_FAILURE") -> None:
+        self.code = code
+
+    def __enter__(self) -> None:
+        return None
+
+    def __exit__(self, exc_type: type[BaseException] | None,
+                 exc_value: BaseException | None,
+                 traceback: TracebackType | None) -> Literal[False]:
+        if (exc_type is not None and issubclass(exc_type, Exception)
+                and not issubclass(exc_type, BootstrapError)):
+            raise BootstrapError(self.code) from None
+        return False
+
+
+class _VerifiedBufferLoader(importlib.abc.InspectLoader):
+    """Execute an authenticated buffer through the standard loader protocol.
+
+    No path loader, bytecode cache, module cache or source reread participates.
+    This is still dynamic Python execution: trust comes from the preceding Git
+    binding, not from the loader API. The caller-trusted entrypoint owns it.
+    """
+
+    def __init__(self, name: str, source: bytes, origin: str) -> None:
+        self._name, self._source, self._origin = name, bytes(source), origin
+
+    def get_source(self, fullname: str) -> str:
+        _bootstrap_require(fullname == self._name, "BOOTSTRAP_MODULE_NAME")
+        return self._source.decode("utf-8", errors="strict")
+
+    def get_code(self, fullname: str) -> CodeType:
+        _bootstrap_require(fullname == self._name, "BOOTSTRAP_MODULE_NAME")
+        return compile(self._source, self._origin, "exec", dont_inherit=True)
 
 
 def _bootstrap_require(condition: bool, code: str) -> None:
@@ -72,82 +116,87 @@ def _bootstrap_git(root: Path, args: tuple[str, ...], deadline: float,
 
     def drain(stream: Any) -> None:
         try:
-            while True:
-                chunk = stream.read(4096)
-                if not chunk:
-                    return
-                if len(output) + len(chunk) > limit:
-                    failure.set()
-                    return
-                output.extend(chunk)
-        except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+            with _BootstrapErrors():
+                while True:
+                    chunk = stream.read(4096)
+                    if not chunk:
+                        return
+                    if len(output) + len(chunk) > limit:
+                        failure.set()
+                        return
+                    output.extend(chunk)
+        except BootstrapError:
             failure.set()
         finally:
             try:
-                stream.close()
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    stream.close()
+            except BootstrapError:
                 failure.set()
 
     try:
-        child = subprocess.Popen(command, stdin=subprocess.PIPE if job else subprocess.DEVNULL,
-                                 stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
-                                 env=env, shell=False,
-                                 start_new_session=own_group and os.name != "nt")
-        if job is not None:
-            job.assign(child.pid)
-            _bootstrap_require(child.stdin is not None, "BOOTSTRAP_PIPE")
-            assert child.stdin is not None
-            child.stdin.write(b"1")
-            child.stdin.close()
-        _bootstrap_require(child.stdout is not None, "BOOTSTRAP_PIPE")
-        reader = threading.Thread(target=drain, args=(child.stdout,), daemon=True)
-        reader.start()
-        reader_started = True
-        while child.poll() is None or reader.is_alive():
-            _bootstrap_require(not failure.is_set(), "BOOTSTRAP_GIT_OUTPUT")
+        with _BootstrapErrors("BOOTSTRAP_GIT_FAILURE"):
+            child = subprocess.Popen(command, stdin=subprocess.PIPE if job else subprocess.DEVNULL,
+                                     stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                                     env=env, shell=False,
+                                     start_new_session=own_group and os.name != "nt")
+            if job is not None:
+                job.assign(child.pid)
+                _bootstrap_require(child.stdin is not None, "BOOTSTRAP_PIPE")
+                assert child.stdin is not None
+                child.stdin.write(b"1")
+                child.stdin.close()
+            _bootstrap_require(child.stdout is not None, "BOOTSTRAP_PIPE")
+            reader = threading.Thread(target=drain, args=(child.stdout,), daemon=True)
+            reader.start()
+            reader_started = True
+            while child.poll() is None or reader.is_alive():
+                _bootstrap_require(not failure.is_set(), "BOOTSTRAP_GIT_OUTPUT")
+                _bootstrap_require(time.monotonic() < deadline, "BOOTSTRAP_TIMEOUT")
+                failure.wait(0.01)
             _bootstrap_require(time.monotonic() < deadline, "BOOTSTRAP_TIMEOUT")
-            failure.wait(0.01)
-        _bootstrap_require(time.monotonic() < deadline, "BOOTSTRAP_TIMEOUT")
-        _bootstrap_require(not failure.is_set(), "BOOTSTRAP_GIT_OUTPUT")
-        _bootstrap_require(child.returncode == 0, "BOOTSTRAP_GIT_FAILURE")
-        return bytes(output)
-    except BootstrapError:
-        raise
-    except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
-        raise BootstrapError("BOOTSTRAP_GIT_FAILURE") from None
+            _bootstrap_require(not failure.is_set(), "BOOTSTRAP_GIT_OUTPUT")
+            _bootstrap_require(child.returncode == 0, "BOOTSTRAP_GIT_FAILURE")
+            return bytes(output)
     finally:
         # Cover every post-Popen setup failure, including Thread.start failure.
         cleanup_failed = False
         if own_group and os.name != "nt" and child is not None:
             try:
-                os.killpg(child.pid, signal.SIGKILL)
-            except ProcessLookupError:
-                pass
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    try:
+                        os.killpg(child.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+            except BootstrapError:
                 cleanup_failed = True
         if job is not None:
             try:
-                job.close()
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    job.close()
+            except BootstrapError:
                 cleanup_failed = True
         if child is not None:
             try:
-                if child.poll() is None:
-                    child.kill()
-                child.wait(timeout=5)
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    if child.poll() is None:
+                        child.kill()
+                    child.wait(timeout=5)
+            except BootstrapError:
                 cleanup_failed = True
             for stream in (child.stdin, child.stdout if not reader_started else None):
                 if stream is not None:
                     try:
-                        stream.close()
-                    except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                        with _BootstrapErrors():
+                            stream.close()
+                    except BootstrapError:
                         cleanup_failed = True
         if reader is not None and reader_started:
             try:
-                reader.join(timeout=1)
-                cleanup_failed = cleanup_failed or reader.is_alive()
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    reader.join(timeout=1)
+                    cleanup_failed = cleanup_failed or reader.is_alive()
+            except BootstrapError:
                 cleanup_failed = True
         _bootstrap_require(not cleanup_failed, "BOOTSTRAP_CLEANUP_FAILED")
 
@@ -179,7 +228,7 @@ def initialize_collection(root: Path, expected_head: str | None = None, *,
     collection = None
     _bootstrap_binding = {}
     _verified_sources = {}
-    try:
+    with _BootstrapErrors("BOOTSTRAP_SOURCE_FAILURE"):
         root = root.resolve()
         deadline = time.monotonic() + BOOTSTRAP_TIMEOUT
         top = Path(_bootstrap_git(root, ("rev-parse", "--show-toplevel"), deadline, own_group=_own_group).decode().strip()).resolve()
@@ -225,20 +274,16 @@ def initialize_collection(root: Path, expected_head: str | None = None, *,
         _bootstrap_require(not _bootstrap_git(root, ("status", "--porcelain=v1", "--untracked-files=no"), deadline, own_group=_own_group),
                            "BOOTSTRAP_SOURCE_DRIFT")
         _bootstrap_require(time.monotonic() < deadline, "BOOTSTRAP_TIMEOUT")
-        # No source loader, cached bytecode, or reopening of the collector path.
+        # Execute only the bound bytes; the loader never reopens the collector path.
         module = ModuleType("_secret_collection")
         module.__file__ = str(root / SCANNER_PATHS[1])
-        exec(compile(sources[SCANNER_PATHS[1]], module.__file__, "exec"), module.__dict__)  # noqa: S102 -- execute only authenticated Git buffer
+        _VerifiedBufferLoader(module.__name__, sources[SCANNER_PATHS[1]], module.__file__).exec_module(module)
         collection = module
         _verified_sources = sources
         _bootstrap_binding = {"root": str(root), "head": head, "sources": metadata,
                               "validator_trust": "CALLER_TRUSTED_ENTRYPOINT",
                               "collector_loading": "VERIFIED_GIT_BLOB_BUFFER"}
         return dict(_bootstrap_binding)
-    except BootstrapError:
-        raise
-    except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
-        raise BootstrapError("BOOTSTRAP_SOURCE_FAILURE") from None
 
 
 def _invalidate_receipt_before_bootstrap(root: Path, *, own_group: bool = True) -> None:
@@ -1524,35 +1569,41 @@ def supervised(command: list[str], root: Path, timeout: float = 120.0, limit: in
         cleanup_ok = True
         if own_group and os.name != "nt" and child is not None:
             try:
-                os.killpg(child.pid, signal.SIGKILL)
-            except ProcessLookupError:
-                pass
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    try:
+                        os.killpg(child.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+            except BootstrapError:
                 cleanup_ok = False
         if job is not None:
             try:
-                job.close()
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    job.close()
+            except BootstrapError:
                 cleanup_ok = False
         if child is not None:
             try:
-                if child.poll() is None:
-                    child.kill()
-                child.wait(timeout=5)
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    if child.poll() is None:
+                        child.kill()
+                    child.wait(timeout=5)
+            except BootstrapError:
                 cleanup_ok = False
         for thread in threads:
             try:
-                thread.join(timeout=1)
-            except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                with _BootstrapErrors():
+                    thread.join(timeout=1)
+            except BootstrapError:
                 cleanup_ok = False
         readers_stopped = not any(t.is_alive() for t in threads)
         if child is not None and readers_stopped:
             for stream in (child.stdin, child.stdout, child.stderr):
                 if stream is not None:
                     try:
-                        stream.close()
-                    except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+                        with _BootstrapErrors():
+                            stream.close()
+                    except BootstrapError:
                         cleanup_ok = False
         require(cleanup_ok and readers_stopped, "PROCESS_PIPE_TERMINATION_UNPROVEN")
 
@@ -1634,26 +1685,27 @@ def main(argv: list[str] | None = None) -> int:
     own_bootstrap_group = not any(x in {"--worker", "--collector"} for x in arguments)
     nonce: str = ""
     try:
-        _invalidate_receipt_before_bootstrap(root, own_group=own_bootstrap_group)
-        args = parser.parse_args(arguments)
-        role = "--worker" if args.worker is not None else "--collector" if args.collector is not None else None
-        if role is not None:
-            candidate_nonce = args.worker if role == "--worker" else args.collector
-            if not isinstance(candidate_nonce, str):
-                raise BootstrapError("INTERNAL_NONCE")
-            nonce = candidate_nonce
-            _bootstrap_require(arguments == [role, nonce, "--expected-head", args.expected_head], "INTERNAL_ARGUMENTS")
-            _bootstrap_require(isinstance(nonce, str) and re.fullmatch(r"[0-9a-f]{32}", nonce) is not None, "INTERNAL_NONCE")
-            _bootstrap_require(isinstance(args.expected_head, str) and
-                               re.fullmatch(r"[0-9a-f]{40}|[0-9a-f]{64}", args.expected_head) is not None,
-                               "EXPECTED_HEAD_REQUIRED")
-        else:
-            _bootstrap_require(args.expected_head is None, "INTERNAL_ARGUMENTS")
-            if not args.scan or args.legacy_report is not None:
-                print("Secret scan FAIL: COVERAGE_NOT_PROVEN")
-                return 1
-        initialize_collection(root, args.expected_head, _own_group=own_bootstrap_group)
-    except Exception:  # noqa: BLE001 -- fail closed and sanitize operational failures
+        with _BootstrapErrors():
+            _invalidate_receipt_before_bootstrap(root, own_group=own_bootstrap_group)
+            args = parser.parse_args(arguments)
+            role = "--worker" if args.worker is not None else "--collector" if args.collector is not None else None
+            if role is not None:
+                candidate_nonce = args.worker if role == "--worker" else args.collector
+                if not isinstance(candidate_nonce, str):
+                    raise BootstrapError("INTERNAL_NONCE")
+                nonce = candidate_nonce
+                _bootstrap_require(arguments == [role, nonce, "--expected-head", args.expected_head], "INTERNAL_ARGUMENTS")
+                _bootstrap_require(isinstance(nonce, str) and re.fullmatch(r"[0-9a-f]{32}", nonce) is not None, "INTERNAL_NONCE")
+                _bootstrap_require(isinstance(args.expected_head, str) and
+                                   re.fullmatch(r"[0-9a-f]{40}|[0-9a-f]{64}", args.expected_head) is not None,
+                                   "EXPECTED_HEAD_REQUIRED")
+            else:
+                _bootstrap_require(args.expected_head is None, "INTERNAL_ARGUMENTS")
+                if not args.scan or args.legacy_report is not None:
+                    print("Secret scan FAIL: COVERAGE_NOT_PROVEN")
+                    return 1
+            initialize_collection(root, args.expected_head, _own_group=own_bootstrap_group)
+    except BootstrapError:
         print("Secret scan FAIL: invalid invocation, source binding or output path")
         return 1
     if role is not None:

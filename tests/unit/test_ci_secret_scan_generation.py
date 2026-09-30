@@ -5,14 +5,12 @@ import hashlib
 import json
 import subprocess
 from pathlib import Path
-from types import ModuleType
 
 import pytest
+from scanner_buffer_loader import load_subject
 
 ROOT = Path(__file__).resolve().parents[2]
-GATE = ModuleType("generation_gate_tests")
-GATE.__file__ = str(ROOT / "scripts/ci/check_secret_scan.py")
-exec(compile(Path(GATE.__file__).read_bytes(), GATE.__file__, "exec"), GATE.__dict__)  # noqa: S102 -- load exact test-subject bytes without bytecode cache
+GATE = load_subject(ROOT / "scripts/ci/check_secret_scan.py", "generation_gate_tests")
 
 
 @pytest.fixture(scope="module", autouse=True)
