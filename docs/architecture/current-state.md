@@ -25,6 +25,22 @@ Frozen root README/AGENTS and historical design receipts retain their reviewed
 bytes and original snapshot statements. The additive publication receipt binds
 the subsequent acceptance; old pending-publication fields are historical facts.
 
+## Merged PR17 reconciliation
+
+Merged PR17 reconciled its documentation with main after merged PR21.
+Root README remains the system SSoT; roadmap.md remains its derived view with
+all canonical substeps. The v1.2 donor register, Transformers routing, S06
+matrix and CP6 acquisition prerequisites are retained. Browser design and
+Pydantic AI research are target/source knowledge only, with no activation.
+
+PR21's scanner corrective and CP1.1 design integration are preserved; its
+historical manifests/reviews/freezes are unchanged. PR17 did not publish the
+separate gateway increments or close CP1. The CP1.2 candidate above is still
+unmerged; its receipt records prior PR21 acceptance, not acceptance of this
+new head. No provider,
+browser, registry, donor SDK, scheduler or consequential adapter is activated.
+The older baseline below remains historical evidence, not a fresh status claim.
+
 ## Historical canonical baseline
 
 ### Inspected main and checkpoint position
