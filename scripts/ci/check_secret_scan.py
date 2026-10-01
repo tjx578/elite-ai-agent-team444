@@ -1062,6 +1062,7 @@ ADDITIONAL_FILE_DIGESTS = {
     'docs/verification/cp1.1-design-003-independent-review.json': (10, 31, 154, 112, 167, 0, 248, 209, 80, 222, 75, 84, 178, 73, 116, 91, 18, 101, 204, 25, 216, 78, 199, 178, 83, 188, 84, 74, 176, 182, 183, 204),
     'docs/verification/cp1.1-design-003-migration.json': (125, 237, 121, 208, 255, 225, 199, 126, 128, 231, 245, 85, 245, 40, 146, 91, 60, 45, 246, 69, 174, 168, 91, 129, 226, 216, 222, 247, 51, 58, 40, 90),
     'docs/verification/cp1.1-design-003-review-manifest.json': (57, 113, 84, 240, 228, 28, 219, 127, 186, 215, 103, 252, 75, 139, 136, 24, 218, 219, 158, 172, 149, 50, 228, 231, 26, 165, 109, 169, 74, 94, 64, 229),
+    'docs/verification/cp1.1-design-003-publication-receipt.json': (118, 137, 217, 35, 91, 15, 234, 195, 58, 89, 205, 34, 78, 161, 180, 217, 69, 141, 237, 248, 119, 132, 117, 189, 122, 79, 155, 237, 254, 147, 217, 227),
 }
 ADDITIONAL_EXCEPTIONS = (
     ('docs/architecture/cp1/fixtures/envelope.canonical.json', 1, 'Hex High Entropy String', (58, 91, 109, 163, 232, 80, 27, 226, 97, 229, 178, 36, 83, 32, 20, 133, 58, 177, 34, 0), 'json:["/correlation/input_digest_sha256"]'),
@@ -1230,6 +1231,26 @@ ADDITIONAL_EXCEPTIONS = (
     ('docs/verification/cp1.1-design-003-review-manifest.json', 17, 'Hex High Entropy String', (35, 194, 220, 209, 124, 181, 184, 167, 69, 68, 66, 180, 72, 39, 9, 164, 218, 166, 241, 249), 'README.md'),
     ('docs/verification/cp1.1-design-003-review-manifest.json', 18, 'Hex High Entropy String', (24, 33, 192, 125, 217, 166, 7, 50, 115, 228, 184, 217, 231, 222, 91, 89, 213, 108, 232, 202), 'AGENTS.md'),
     ('docs/verification/cp1.1-design-003-review-manifest.json', 19, 'Hex High Entropy String', (114, 100, 204, 131, 217, 138, 251, 103, 194, 159, 234, 196, 200, 13, 19, 173, 195, 148, 53, 120), 'docs/architecture/cp1/principle-integration.md'),
+    # Individually reviewed CP1.1 publication evidence; original bindings unchanged.
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 25, 'Hex High Entropy String', (90, 13, 242, 141, 147, 146, 176, 161, 232, 101, 19, 13, 229, 173, 153, 85, 173, 254, 245, 171), 'base_sha'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 29, 'Hex High Entropy String', (44, 223, 151, 185, 83, 100, 103, 109, 224, 176, 109, 130, 135, 229, 4, 81, 124, 13, 253, 172), 'reviewed_head_sha'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 30, 'Hex High Entropy String', (191, 44, 166, 124, 158, 185, 84, 87, 253, 61, 128, 113, 194, 93, 165, 215, 161, 36, 228, 209), 'resulting_main_sha'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 31, 'Hex High Entropy String', (188, 196, 161, 127, 73, 211, 172, 235, 131, 189, 140, 213, 197, 90, 158, 233, 194, 103, 41, 77), 'resulting_tree'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 34, 'Hex High Entropy String', (90, 13, 242, 141, 147, 146, 176, 161, 232, 101, 19, 13, 229, 173, 153, 85, 173, 254, 245, 171), 'first_parent'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 35, 'Hex High Entropy String', (44, 223, 151, 185, 83, 100, 103, 109, 224, 176, 109, 130, 135, 229, 4, 81, 124, 13, 253, 172), 'second_parent'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 45, 'Hex High Entropy String', (142, 161, 24, 212, 132, 41, 231, 247, 64, 100, 122, 248, 180, 98, 94, 52, 193, 59, 219, 87), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 49, 'Hex High Entropy String', (133, 196, 125, 194, 11, 250, 184, 54, 223, 173, 103, 88, 58, 15, 125, 166, 82, 52, 224, 209), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 53, 'Hex High Entropy String', (12, 48, 180, 92, 122, 157, 163, 203, 80, 209, 48, 179, 27, 192, 50, 254, 99, 127, 64, 172), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 57, 'Hex High Entropy String', (153, 255, 30, 163, 241, 84, 31, 248, 158, 32, 169, 51, 77, 184, 18, 162, 104, 59, 162, 208), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 61, 'Hex High Entropy String', (226, 238, 147, 135, 58, 236, 60, 26, 27, 64, 243, 108, 106, 26, 41, 1, 211, 21, 92, 74), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 72, 'Hex High Entropy String', (191, 44, 166, 124, 158, 185, 84, 87, 253, 61, 128, 113, 194, 93, 165, 215, 161, 36, 228, 209), 'source_sha'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 81, 'Hex High Entropy String', (107, 129, 170, 145, 89, 62, 230, 168, 171, 196, 10, 193, 225, 71, 108, 120, 145, 202, 234, 67), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 93, 'Hex High Entropy String', (46, 241, 111, 186, 220, 187, 202, 177, 159, 249, 13, 182, 207, 134, 22, 242, 17, 32, 218, 142), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 106, 'Hex High Entropy String', (172, 100, 109, 1, 128, 161, 27, 190, 43, 48, 127, 195, 218, 224, 197, 135, 146, 141, 46, 75), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 119, 'Hex High Entropy String', (226, 176, 28, 165, 92, 185, 106, 160, 188, 228, 113, 38, 248, 61, 66, 187, 125, 14, 119, 227), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 138, 'Hex High Entropy String', (183, 139, 49, 131, 191, 237, 105, 219, 166, 225, 161, 236, 150, 234, 190, 32, 19, 104, 72, 8), 'sha256'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 147, 'Hex High Entropy String', (191, 44, 166, 124, 158, 185, 84, 87, 253, 61, 128, 113, 194, 93, 165, 215, 161, 36, 228, 209), 'source_sha'),
+    ('docs/verification/cp1.1-design-003-publication-receipt.json', 185, 'Hex High Entropy String', (75, 178, 6, 163, 218, 68, 154, 194, 100, 167, 229, 78, 232, 107, 41, 228, 206, 158, 150, 216), 'sha256'),
 )
 
 
