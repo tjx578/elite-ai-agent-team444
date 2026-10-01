@@ -1,0 +1,9 @@
+{
+  "schema_version": "wolf15-skill-candidates/v1",
+  "run_id": "cp1-intake-20260930-compute",
+  "candidates": [],
+  "status": "NOT_ASSESSED_SOURCE_UNAVAILABLE",
+  "reason": "Neither donor source was acquired. Empty candidate list is not NO_REUSABLE_SKILL_FOUND.",
+  "qualification_status": "NOT_ADMITTED",
+  "activation_authority": false
+}

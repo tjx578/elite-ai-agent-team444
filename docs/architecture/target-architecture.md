@@ -143,8 +143,13 @@ browser session
   -> evidence / owner-visible response
 ~~~
 
-Read-only discovery/invocation belongs to CP4; provider normalization to CP5;
-SDK/polyfill/bridge qualification to CP6; consequential browser actions to CP7.
+CP4 owns native bounded read-only discovery/invocation, including minimal
+allowlisted descriptor eligibility, schema/session freshness, revocation and
+per-call Kernel checks before invocation. CP5 expands this seam into the full
+provider registry/resolver; CP4 never bypasses admission while waiting for CP5.
+SDK/polyfill/bridge acquisition requires CP6 qualification or a separately
+accepted qualification amendment. A required unqualified dependency holds the
+slice. Consequential browser actions belong to CP7.
 A separately qualified fallback reports `BROWSER_AUTOMATION_FALLBACK`, never
 `WEBMCP_NATIVE`.
 
@@ -184,6 +189,7 @@ This document defines architecture, not checkpoint order. The former PR-0…
 PR-8+ delivery table is retired as current scheduling authority.
 
 The only normative implementation sequence is the
-[Master Roadmap — CP0 to CP9](roadmap.md). Historical PR/M labels may remain in
+[root README CP0–CP9](../../README.md#10-roadmap-master-cp0cp9), with
+[roadmap.md](roadmap.md) as a derived view. Historical PR/M labels may remain in
 old evidence records to identify the source slice that produced them, but new
 planning and acceptance decisions use only CP0–CP9.

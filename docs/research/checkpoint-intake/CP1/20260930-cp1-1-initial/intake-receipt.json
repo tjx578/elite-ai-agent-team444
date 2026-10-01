@@ -1,0 +1,1518 @@
+{
+  "schema_version": "cp1-initial-intake/v1",
+  "run_id": "20260930-cp1-1-initial",
+  "checkpoint": "CP1.1",
+  "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+  "status": "PARTIAL_COVERAGE_DRAFT_NOT_FROZEN",
+  "procedure_authority": "ACTIVE_CHAT_INSTRUCTION_NOT_CANONICAL_REPO",
+  "entry_receipt": {
+    "cp": "CP1",
+    "substep": "CP1.1",
+    "base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+    "started_at_utc": "2026-09-29T18:34:02.040143+00:00",
+    "owner_login_verified": "tjx578",
+    "procedure_authority": "ACTIVE_CHAT_INSTRUCTION_NOT_CANONICAL_REPO",
+    "manifest_source_path": "C:\\Users\\INTEL\\.codex\\worktrees\\tensorflow-canonical-reconciliation\\wolf15-sentient\\docs\\architecture\\checkpoint-donor-intake.json",
+    "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+    "manifest_drift": "NO_CP1_LIST_GAP; canonical six donors plus owner-accepted TensorFlow addendum; local manifest not canonical",
+    "mandatory_study": [
+      "pydantic-ai",
+      "openjarvis",
+      "ruflo",
+      "transformers",
+      "litellm",
+      "deepagents",
+      "tensorflow"
+    ],
+    "ruflo": {
+      "status": "OWNER_FORK_NOT_RESOLVED",
+      "scope": "all visible owner repo pages, registered aliases and common Ruflo alias only; no upstream fallback",
+      "pages": [
+        {
+          "page": 1,
+          "count": 82
+        }
+      ],
+      "visible_repositories": 82,
+      "candidates": [],
+      "dependent_slice": "HOLD",
+      "upstream_read": false,
+      "inventory_endpoint": "authenticated user/repos?affiliation=owner"
+    }
+  },
+  "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+  "owner_override": {
+    "donor": "ruflo",
+    "authorization": "temukan di disk D: di dalam folder file repo clone",
+    "disposition": "LOCAL_OWNER_DIRECTED_SOURCE",
+    "local_path": "D:\\REPO CLONE\\multiagentruflo",
+    "remote_identity": "NOT_VERIFIED",
+    "manifest_mutated": false
+  },
+  "groups": [
+    {
+      "group": "typed",
+      "receipt_ref": "typed/intake-receipt.json",
+      "receipt_sha256": "9c2fc25d17df1ddf93598e6535792e678dafe997fb34cd07f6940fcf11eabe88",
+      "evidence": {
+        "schema_version": "cp1-typed-donor-intake/v1",
+        "scope": "CP1.1 native gateway ownership and request/response/persona contract design",
+        "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+        "canonical_base_validation": "Verified by parent agent in current run; communicated before finalization",
+        "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+        "account": "tjx578",
+        "account_verification": "gh api user live MATCH",
+        "extractor_profile_version": "bounded-exact-git-blob-review/v1",
+        "cache_origin": "NONE; freshly fetched exact blobs",
+        "source_execution": false,
+        "runtime_activation": false,
+        "admission": "NOT_EXECUTED",
+        "donors": [
+          {
+            "started_at": "2026-09-30T02:31:32.341776+08:00",
+            "identity": {
+              "id": 1394496138,
+              "full_name": "tjx578/pydantic-ai-sentient",
+              "default_branch": "main"
+            },
+            "parent": "pydantic/pydantic-ai",
+            "source": "pydantic/pydantic-ai",
+            "commit": "05f2f35ca8af6f1382f06761c6a9a23dbd341728",
+            "tree_sha": "788c732419e1129f47fd6101ea33574cb220019a",
+            "source_files": [
+              {
+                "path": "LICENSE",
+                "blob_sha": "1bf1f55e6d1736b499ded961ec6b94bfebb17aec",
+                "content_sha256": "bc0e89738f36944c8106e1947c3d69631f9c33b8f1bcb60ec4f89d677d2dfcf4",
+                "bytes": 1100,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/LICENSE",
+                "fetched_span": [
+                  1,
+                  21
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    21
+                  ]
+                ]
+              },
+              {
+                "path": "README.md",
+                "blob_sha": "bb3cf70e1054a3aa85fed6fe602088d498f8826f",
+                "content_sha256": "518369670ea0a105252618e453e6f14462dcfa179ce9c391ea7f3f764830a5bf",
+                "bytes": 22830,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/README.md",
+                "fetched_span": [
+                  1,
+                  352
+                ],
+                "reviewed_spans": []
+              },
+              {
+                "path": "pyproject.toml",
+                "blob_sha": "cd44ddfe02cc1486a8e4cf5896ff6c85a4e90308",
+                "content_sha256": "84b7f5f6065257da7972b1d6012204779e1c726fa6fcbea60a2b69609d514768",
+                "bytes": 26627,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pyproject.toml",
+                "fetched_span": [
+                  1,
+                  606
+                ],
+                "reviewed_spans": []
+              },
+              {
+                "path": "pydantic_ai_slim/pyproject.toml",
+                "blob_sha": "5f432743eb7fb5828eadb5c05a9e52c284152a10",
+                "content_sha256": "f700d666feec1bc9ffc9103b9e519d035780797ac79300b56d33243afb9ed943",
+                "bytes": 7856,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pyproject.toml",
+                "fetched_span": [
+                  1,
+                  176
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    95
+                  ]
+                ]
+              },
+              {
+                "path": "pydantic_ai_slim/pydantic_ai/output.py",
+                "blob_sha": "88dfaa340a19a76103bf2ed80923fac21de1f94e",
+                "content_sha256": "3d403c88a3d5d8d4466b2c5c0095c6c4a3dd3abb9b69f2ffc94a577a134c8572",
+                "bytes": 30945,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/output.py",
+                "fetched_span": [
+                  1,
+                  774
+                ],
+                "reviewed_spans": [
+                  [
+                    129,
+                    242
+                  ]
+                ]
+              },
+              {
+                "path": "pydantic_ai_slim/pydantic_ai/usage.py",
+                "blob_sha": "915d508e9213c50041e85e9e5ca55d2c78da6c8b",
+                "content_sha256": "27c40b471aa18c05e3225058626830116c89a6493956201e0bb5da4d15bf2d18",
+                "bytes": 27932,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/usage.py",
+                "fetched_span": [
+                  1,
+                  613
+                ],
+                "reviewed_spans": [
+                  [
+                    456,
+                    623
+                  ]
+                ]
+              },
+              {
+                "path": "pydantic_ai_slim/pydantic_ai/settings.py",
+                "blob_sha": "33ed14b8de051b6e0b06a5ba17bca3ca44619c57",
+                "content_sha256": "2caa43e53a07f6db780494dd41343ccf77dbbd7de16ebad774311884346f02ac",
+                "bytes": 16995,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/settings.py",
+                "fetched_span": [
+                  1,
+                  537
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    97
+                  ]
+                ]
+              },
+              {
+                "path": "pydantic_ai_slim/pydantic_ai/providers/__init__.py",
+                "blob_sha": "d8adcf242e552796ba80b0f2824a4e9d07edf23f",
+                "content_sha256": "ffdc17a232a229cf8003cf670da3ea728e5a4d5028144566bc91bd7edf99ec2b",
+                "bytes": 10518,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/providers/__init__.py",
+                "fetched_span": [
+                  1,
+                  309
+                ],
+                "reviewed_spans": []
+              },
+              {
+                "path": "tests/test_settings.py",
+                "blob_sha": "a4c06444112020c09a7cb845867b681f8c9e12f5",
+                "content_sha256": "88088a7a9f0e55c618e98bb3771f6271b5eee9c59e42c045eb0d93d2ab940195",
+                "bytes": 6629,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/tests/test_settings.py",
+                "fetched_span": [
+                  1,
+                  149
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    85
+                  ]
+                ]
+              },
+              {
+                "path": "tests/test_usage_limits.py",
+                "blob_sha": "37bcf82218083b1f4060c28e7d457ed0b716b089",
+                "content_sha256": "bc0330c7bd16af487165b10fb08f59f6aee94da7ac10918e660ef0e6fa761136",
+                "bytes": 53519,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/tests/test_usage_limits.py",
+                "fetched_span": [
+                  1,
+                  1391
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    90
+                  ]
+                ]
+              },
+              {
+                "path": "tests/models/google/test_output.py",
+                "blob_sha": "a23d51f326a8bcabf162b48ed7110e31850309a4",
+                "content_sha256": "dd3614e40056f2f27fdc15185942f3f100e412b1e69338b761ae50d81d19e837",
+                "bytes": 14718,
+                "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/tests/models/google/test_output.py",
+                "fetched_span": [
+                  1,
+                  373
+                ],
+                "reviewed_spans": []
+              }
+            ],
+            "failures": [],
+            "finished_at": "2026-09-30T02:34:09.299936+08:00",
+            "total_source_bytes": 219669,
+            "source_status": "SOURCE_READ",
+            "coverage": "PARTIAL_COVERAGE",
+            "qualification_status": "NOT_ADMITTED",
+            "activation_authority": false,
+            "identity_status": "IDENTITY_VERIFIED",
+            "upstream_lineage_status": "MATCH",
+            "knowledge_status": "KNOWLEDGE_EXTRACTED",
+            "review_outcome": "DESIGN_INPUT_ONLY_NOT_ADMITTED",
+            "rights_status": "LICENSE_DECLARATION_OBSERVED_NOT_ADMISSION",
+            "license_observed": "MIT",
+            "execution": "NOT_EXECUTED",
+            "coverage_exclusions": [
+              "Whole-repository behavior, transitive dependencies, model/provider execution, runtime safety, reusable skill sources and lifecycle qualification not exhaustively reviewed.",
+              "Downloaded source files with no reviewed spans are fetched evidence only, not semantic coverage."
+            ]
+          },
+          {
+            "started_at": "2026-09-30T02:31:35.141413+08:00",
+            "identity": {
+              "id": 1365880169,
+              "full_name": "tjx578/OpenJarvis-sentient",
+              "default_branch": "main"
+            },
+            "parent": "open-jarvis/OpenJarvis",
+            "source": "open-jarvis/OpenJarvis",
+            "commit": "fbbdb23c86627c18b859369b19746a9245f1ce0b",
+            "tree_sha": "38b5119380fe0559e48f0b6b7270c18dcab363af",
+            "source_files": [
+              {
+                "path": "LICENSE",
+                "blob_sha": "7d8b094eda9393e9ac5fcaa34fe276ee947f61bd",
+                "content_sha256": "ac617ecddb7ffeb27a239c6c9c8145212306baa90e23ee694849bf3cefb10743",
+                "bytes": 10773,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/LICENSE",
+                "fetched_span": [
+                  1,
+                  190
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    22
+                  ]
+                ]
+              },
+              {
+                "path": "README.md",
+                "blob_sha": "d7a744490d48645a4d85ae571db95fd25f6a25f3",
+                "content_sha256": "f01dce57e39fb4606b91a8d1d4cd5a477c12497f19e50181c08b82d9ead03432",
+                "bytes": 9654,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/README.md",
+                "fetched_span": [
+                  1,
+                  178
+                ],
+                "reviewed_spans": []
+              },
+              {
+                "path": "pyproject.toml",
+                "blob_sha": "c9cc1e2ced4d89c73df95842f4cf9ca5627762d8",
+                "content_sha256": "b872db6b462e53b75d8a7c377f43f3bbab2fcfe5a9ac56f54158a39ddb331f14",
+                "bytes": 11407,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/pyproject.toml",
+                "fetched_span": [
+                  1,
+                  307
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    95
+                  ]
+                ]
+              },
+              {
+                "path": "src/openjarvis/core/types.py",
+                "blob_sha": "9b93437f1e36dc1f41456605dedca31a75a334e4",
+                "content_sha256": "2ec42e9c5af5e698c0a54fd18f58d6e076f88bd4b290a55c64cab0c94ec10a58",
+                "bytes": 10233,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/core/types.py",
+                "fetched_span": [
+                  1,
+                  317
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    125
+                  ]
+                ]
+              },
+              {
+                "path": "src/openjarvis/engine/_base.py",
+                "blob_sha": "102936ba55a91e76162a4f5afe74d688da74ccc2",
+                "content_sha256": "9ff854e86fe0b2d96f08f644117499b923b2320feecfa6302428feb9200e38d4",
+                "bytes": 4674,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/engine/_base.py",
+                "fetched_span": [
+                  1,
+                  130
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    134
+                  ]
+                ]
+              },
+              {
+                "path": "src/openjarvis/engine/_openai_compat.py",
+                "blob_sha": "db57eb44f1c47534bdc7414be9f7a809d5f834d6",
+                "content_sha256": "f8771c8c7defb8eb06b979d621edae364dd1a1d44736ed782a9ff3532c594b96",
+                "bytes": 14396,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/engine/_openai_compat.py",
+                "fetched_span": [
+                  1,
+                  341
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    200
+                  ]
+                ]
+              },
+              {
+                "path": "src/openjarvis/agents/prompt_loader.py",
+                "blob_sha": "f92c88fc15bd0fc32436582ca9773344aa86652d",
+                "content_sha256": "58c315a92093d683128c8cb7785c308295827cf8dd7ca077d1ffc1acab336d3b",
+                "bytes": 2672,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/agents/prompt_loader.py",
+                "fetched_span": [
+                  1,
+                  84
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    84
+                  ]
+                ]
+              },
+              {
+                "path": "tests/core/test_types.py",
+                "blob_sha": "b91817f921b2e2c14df7feabb89470723a9ee009",
+                "content_sha256": "27c65f5e63e7111ccd74fac82feafab4f516f46186741f6f6b1c16c6eaa6f7dc",
+                "bytes": 3208,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/core/test_types.py",
+                "fetched_span": [
+                  1,
+                  109
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    110
+                  ]
+                ]
+              },
+              {
+                "path": "tests/engine/test_base.py",
+                "blob_sha": "f466b4da5fc1bad4b8427bb3c9ef503064506f52",
+                "content_sha256": "7c55fd2d917901677cac6093d165aed6d06615d4e6723f6277f2268fa50bc3a6",
+                "bytes": 1790,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/engine/test_base.py",
+                "fetched_span": [
+                  1,
+                  60
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    56
+                  ]
+                ]
+              },
+              {
+                "path": "tests/engine/test_structured_output.py",
+                "blob_sha": "4ba8cd0c335f89c10c3d816b3550591a3d83b015",
+                "content_sha256": "563852a982794328968ae9785ceb1fd5b5ef01659de8cc1a7cd233cf1b49dca5",
+                "bytes": 14729,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/engine/test_structured_output.py",
+                "fetched_span": [
+                  1,
+                  377
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    142
+                  ]
+                ]
+              },
+              {
+                "path": "tests/engine/test_openai_compat_api_key.py",
+                "blob_sha": "dc54135824fcb9a0f8bef0de6404339d0b85a48e",
+                "content_sha256": "667e5c3444752a95b075d843b8cb75ccc1be0d8757a2f1f288f79a77d1d1cad0",
+                "bytes": 4678,
+                "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/engine/test_openai_compat_api_key.py",
+                "fetched_span": [
+                  1,
+                  109
+                ],
+                "reviewed_spans": [
+                  [
+                    1,
+                    114
+                  ]
+                ]
+              }
+            ],
+            "failures": [],
+            "finished_at": "2026-09-30T02:34:20.174863+08:00",
+            "total_source_bytes": 88214,
+            "source_status": "SOURCE_READ",
+            "coverage": "PARTIAL_COVERAGE",
+            "qualification_status": "NOT_ADMITTED",
+            "activation_authority": false,
+            "identity_status": "IDENTITY_VERIFIED",
+            "upstream_lineage_status": "MATCH",
+            "knowledge_status": "KNOWLEDGE_EXTRACTED",
+            "review_outcome": "DESIGN_INPUT_ONLY_NOT_ADMITTED",
+            "rights_status": "LICENSE_DECLARATION_OBSERVED_NOT_ADMISSION",
+            "license_observed": "Apache-2.0",
+            "execution": "NOT_EXECUTED",
+            "coverage_exclusions": [
+              "Whole-repository behavior, transitive dependencies, model/provider execution, runtime safety, reusable skill sources and lifecycle qualification not exhaustively reviewed.",
+              "Downloaded source files with no reviewed spans are fetched evidence only, not semantic coverage."
+            ]
+          }
+        ],
+        "finalized_at": "2026-09-30T02:35:23.91772+08:00"
+      },
+      "evidence_state": "CURRENT_BOUNDED_STUDY"
+    },
+    {
+      "group": "watch",
+      "receipt_ref": "watch/intake-receipt.json",
+      "receipt_sha256": "30c17ed745092b3d1ebd3bdc887cdebf25d43f82c979f38da848a4ab74ec5f17",
+      "evidence": {
+        "schema_version": "cp1-watch-donor-intake/v1",
+        "run_id": "cp1-intake-20260930-watch",
+        "scope": "CP1.1 native gateway request/response, prompt/persona and acceptance design",
+        "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+        "procedure_worktree_head": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+        "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+        "extractor_profile": "bounded-source-reader-v1",
+        "connection": {
+          "login": "tjx578",
+          "status": "VERIFIED_GH_API_USER",
+          "sandbox_attempt": "NETWORK_PROXY_REFUSED; authorized escalated read succeeded"
+        },
+        "ended_at": "2026-09-30T02:35:35.20989+08:00",
+        "donors": [
+          {
+            "id": "litellm",
+            "repository_id": 1394593240,
+            "full_name": "tjx578/litellm_sentient",
+            "parent": "BerriAI/litellm",
+            "source": "BerriAI/litellm",
+            "default_branch": "main",
+            "commit_sha": "85dc7cb62efa52794982af90164eb19a41140b80",
+            "tree_sha": "238ae6ba0da2e011449125585e95d752ee4361bd",
+            "tree_truncated": false,
+            "snapshot_timestamp": "2026-09-29T18:31:35.451274Z",
+            "files": [
+              {
+                "blob_sha": "3bfef5bae9b48c334acf426d5b7f21bc1913aab9",
+                "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\LICENSE",
+                "path": "LICENSE",
+                "bytes": 1419,
+                "read_spans": "1-27",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/LICENSE"
+              },
+              {
+                "blob_sha": "fb21d8fa23b55b85ce44524a6903d0c358520c01",
+                "sha256": "4c34d6d5819ceddde9428b1c0c9fce3bd8eab420e9eac5bc51080fe6677203a9",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\pyproject.toml",
+                "path": "pyproject.toml",
+                "bytes": 15208,
+                "read_spans": "1-110",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/pyproject.toml"
+              },
+              {
+                "blob_sha": "98c5343daee1991d34fff026beb66d97e1507fcf",
+                "sha256": "342a089295fe430087082c25afc974ebdf95e4fc5e6ab05024377e465d03ebac",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\README.md",
+                "path": "README.md",
+                "bytes": 36245,
+                "read_spans": "RETRIEVED_NOT_FULLY_STUDIED",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/README.md"
+              },
+              {
+                "blob_sha": "3bae8a95ef66891eecc671409a4d2f10be7ba799",
+                "sha256": "d4a4b46afc48d97c2bde978b04d348b4ce2fb039af009f565178d85fba71aa64",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/exceptions.py",
+                "path": "litellm/exceptions.py",
+                "bytes": 47444,
+                "read_spans": "132-170;356;442;535;998 (class declarations indexed)",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/exceptions.py"
+              },
+              {
+                "blob_sha": "dcb5a7cc183afc91717169a31d6442fa8d5aaeb7",
+                "sha256": "44b772cc89369f40ff08c1cfbbbb0a42057becc439b9cd9d14f1c0cda6c97d13",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/budget_manager.py",
+                "path": "litellm/budget_manager.py",
+                "bytes": 8536,
+                "read_spans": "26-170 (declarations indexed);50-71 full",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/budget_manager.py"
+              },
+              {
+                "blob_sha": "64252cbbfb395c311b5e518be496cc3bab0e9ccb",
+                "sha256": "b99cd5def157a3bcc5b4d4c9467633f18577dd206f30be833ac9a60db51440e6",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/router_strategy/budget_limiter.py",
+                "path": "litellm/router_strategy/budget_limiter.py",
+                "bytes": 41513,
+                "read_spans": "493-533 full; cache/budget declarations indexed",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/router_strategy/budget_limiter.py"
+              },
+              {
+                "blob_sha": "62de1586fddc77146553e02be7f2f870105f9c2f",
+                "sha256": "05b971a5e902b026871c5923e32c7169dff298cc5e36a4fb213b02daba24730c",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\tests/unit/router_strategy/test_budget_limiter.py",
+                "path": "tests/unit/router_strategy/test_budget_limiter.py",
+                "bytes": 4597,
+                "read_spans": "1-136",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/tests/unit/router_strategy/test_budget_limiter.py"
+              },
+              {
+                "blob_sha": "5b52496fc1c4ac19d4de807abf60689f5c89293a",
+                "sha256": "382870139baf64a53d9fb53ea3edc9a4b951cdf480e8e3a0278079e4aca98fa2",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\tests/unit/test_router_exception_redaction.py",
+                "path": "tests/unit/test_router_exception_redaction.py",
+                "bytes": 18335,
+                "read_spans": "1-35;119-150;remaining test names indexed",
+                "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/tests/unit/test_router_exception_redaction.py"
+              }
+            ],
+            "total_source_bytes": 173297,
+            "identity_status": "IDENTITY_VERIFIED",
+            "study_status": "SOURCE_READ / KNOWLEDGE_EXTRACTED / PARTIAL_COVERAGE",
+            "skill_status": "NO_REUSABLE_SKILL_FOUND_IN_INSPECTED_SCOPE",
+            "disposition": "WATCH_RESEARCH_NOT_ADMITTED",
+            "rights": "LICENSE_TEXT_INSPECTED; code/package admission NOT_EXECUTED",
+            "gaps": [
+              "Broad implementation and transitive dependency safety not audited",
+              "Donor tests NOT_EXECUTED",
+              "No live model/provider exercise",
+              "README retrieved but not fully studied",
+              "SKILL source content not studied; no global absence claim"
+            ],
+            "cache_origin": "fresh GitHub API exact blob retrieval",
+            "activation_authority": false
+          },
+          {
+            "id": "deepagents",
+            "repository_id": 1394595604,
+            "full_name": "tjx578/deepagents_sentitent",
+            "parent": "langchain-ai/deepagents",
+            "source": "langchain-ai/deepagents",
+            "default_branch": "main",
+            "commit_sha": "3175d231f192db63cbb432c6ca133d9486dc59ba",
+            "tree_sha": "ddbb14339b0f6a655e93fdcf4c27d4a6ef026ad0",
+            "tree_truncated": false,
+            "snapshot_timestamp": "2026-09-29T18:31:40.1474546Z",
+            "files": [
+              {
+                "blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+                "sha256": "4ec67e4ca6e6721dba849b2ca82261597c86a61ee214bbf21416006b7b2d0478",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\LICENSE",
+                "path": "LICENSE",
+                "bytes": 1067,
+                "read_spans": "1-21",
+                "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/LICENSE"
+              },
+              {
+                "blob_sha": "ad65ec0377ae9c7f985e9376ad881ff80805c22f",
+                "sha256": "a0e4bd7d499ff7816826c0bd5590c281efae7c9e79aea61fea535382793a215d",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/pyproject.toml",
+                "path": "libs/deepagents/pyproject.toml",
+                "bytes": 6427,
+                "read_spans": "1-80",
+                "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/pyproject.toml"
+              },
+              {
+                "blob_sha": "9a0b4725d340bca9f31bed8b42e5f98d07f28ecf",
+                "sha256": "569c79f865abd0d677a71e83ba5c3b971318146a4421e3851a0e25ee2d3b1146",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\README.md",
+                "path": "README.md",
+                "bytes": 6984,
+                "read_spans": "RETRIEVED_NOT_FULLY_STUDIED",
+                "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/README.md"
+              },
+              {
+                "blob_sha": "5d21d3b1b951bcaef395606bc16691392f46ef87",
+                "sha256": "c8f6784ca9bc12d339526667c6898608c326b8121ccd39036fab125491840715",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/deepagents/graph.py",
+                "path": "libs/deepagents/deepagents/graph.py",
+                "bytes": 47876,
+                "read_spans": "243-370",
+                "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/deepagents/graph.py"
+              },
+              {
+                "blob_sha": "7fe9e09f6704bca9a2c816a41241107cb55fec12",
+                "sha256": "8741655f9da6be6714026d4ceb6a37903127ec0b5429f083f001d7c53374f53d",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/deepagents/middleware/summarization.py",
+                "path": "libs/deepagents/deepagents/middleware/summarization.py",
+                "bytes": 97431,
+                "read_spans": "151-300",
+                "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/deepagents/middleware/summarization.py"
+              },
+              {
+                "blob_sha": "fa8e351a076415397e6cdb2f5be95c6e94967fa5",
+                "sha256": "a9205ed25163a68af28eb5a8e1e0e451c017ef965fe800c8463112b507f676e7",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py",
+                "path": "libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py",
+                "bytes": 4197,
+                "read_spans": "1-97",
+                "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py"
+              }
+            ],
+            "total_source_bytes": 163982,
+            "identity_status": "IDENTITY_VERIFIED",
+            "study_status": "SOURCE_READ / KNOWLEDGE_EXTRACTED / PARTIAL_COVERAGE",
+            "skill_status": "NO_REUSABLE_SKILL_FOUND_IN_INSPECTED_SCOPE",
+            "disposition": "WATCH_RESEARCH_NOT_ADMITTED",
+            "rights": "LICENSE_TEXT_INSPECTED; code/package admission NOT_EXECUTED",
+            "gaps": [
+              "Broad implementation and transitive dependency safety not audited",
+              "Donor tests NOT_EXECUTED",
+              "No live model/provider exercise",
+              "README retrieved but not fully studied",
+              "SKILL source content not studied; no global absence claim"
+            ],
+            "cache_origin": "fresh GitHub API exact blob retrieval",
+            "activation_authority": false
+          }
+        ],
+        "donor_execution": false,
+        "runtime_activation": false,
+        "review_outcome": "BOUNDED_KNOWLEDGE_ONLY; independent review pending",
+        "limits": {
+          "max_files": 40,
+          "max_total_bytes": 2097152,
+          "max_file_bytes": 262144,
+          "deadline_seconds": 300,
+          "request_timeout": "gh API tool execution bounded; explicit per-request 30s timeout NOT_INSTRUMENTED"
+        },
+        "bound_validation": "all retrieved blob SHA-1 + SHA-256 + size limits PASS",
+        "canonical_base_evidence": "Parent verified current GitHub main; local procedure HEAD independently matches"
+      },
+      "evidence_state": "CURRENT_BOUNDED_STUDY"
+    },
+    {
+      "group": "ruflo",
+      "receipt_ref": "ruflo/intake-receipt.json",
+      "receipt_sha256": "82846a7135ce12611349297d299c368e21988cbe40927f4f1bb201c11d16546a",
+      "evidence": {
+        "schema_version": "checkpoint-local-donor-intake/v1",
+        "run_id": "cp1-intake-20260930-ruflo-local",
+        "checkpoint": "CP1.1",
+        "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+        "source": {
+          "source_mode": "LOCAL_OWNER_DIRECTED_SOURCE",
+          "local_path": "D:\\REPO CLONE\\multiagentruflo",
+          "commit_sha": "f547cec013041a59b2f18921f5c861bf3d525825",
+          "tree_sha": "41601d0c7cbaf0ee10b39ea1da0c973afdf04d55",
+          "git_remotes_source_claim": "origin\thttps://github.com/tjx578/multiagentruflo.git (fetch)\norigin\thttps://github.com/tjx578/multiagentruflo.git (push)\nupstream\thttps://github.com/ruvnet/ruflo.git (fetch)\nupstream\thttps://github.com/ruvnet/ruflo.git (push)\n",
+          "repository_id": null,
+          "remote_fork_identity": "NOT_VERIFIED",
+          "files": [
+            {
+              "path": "LICENSE",
+              "blob_sha": "5c4718198a4156beacc780980077043a98b0dd6a",
+              "bytes": 1068,
+              "sha256": "a45ba66fa502c49ad108440536d8aa91dfe9c04575a32a01287839bee336199c",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\LICENSE",
+              "read_spans": "1-21",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:LICENSE"
+            },
+            {
+              "path": "package.json",
+              "blob_sha": "d13abba45b7cf2a5125586b2d46e385bbf636d2c",
+              "bytes": 3613,
+              "sha256": "8ababf41a06c7b558febc33fb9668606591ce07aa2e666bf239112590c8fb54c",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\package.json",
+              "read_spans": "1-100",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:package.json"
+            },
+            {
+              "path": "v3/@claude-flow/providers/package.json",
+              "blob_sha": "03a4d4a45160f0e847a2c30162debd00d26c78be",
+              "bytes": 1471,
+              "sha256": "deb1ef8ab556c47aaba4441d0f1d6f48bea65d3b364e12a974324ebf03d36026",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\package.json",
+              "read_spans": "1-77",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/package.json"
+            },
+            {
+              "path": "v3/@claude-flow/providers/README.md",
+              "blob_sha": "863353e9bafa8e77a3558e955207b9842a6eb597",
+              "bytes": 13152,
+              "sha256": "dcd0a3226710024802d11e80c82d8459ca5458e62196f57471ff7ad9bb70a9a8",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\README.md",
+              "read_spans": "heading/feature inventory only",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/README.md"
+            },
+            {
+              "path": "v3/@claude-flow/providers/src/types.ts",
+              "blob_sha": "f9d23d25e1ba3c26da2fde7c58fcf3f16b5e5c09",
+              "bytes": 9738,
+              "sha256": "cca3631a76f84478aa43942de4895faeb548caa9c047606d03fb501bee82f658",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\types.ts",
+              "read_spans": "1-439",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/types.ts"
+            },
+            {
+              "path": "v3/@claude-flow/providers/src/base-provider.ts",
+              "blob_sha": "68cf4c1c76fcb5523437281ebffdbb8604b46296",
+              "bytes": 14812,
+              "sha256": "c7a450ed61055faea610b86ac9dd76a0db69f6f56b0c1101367ac1ade2e010c4",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\base-provider.ts",
+              "read_spans": "166-240;385-426",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/base-provider.ts"
+            },
+            {
+              "path": "v3/@claude-flow/providers/src/provider-manager.ts",
+              "blob_sha": "506185afa6c6318c57bba2ead05628e036ee5be0",
+              "bytes": 14221,
+              "sha256": "4528ba63f88c0ecd85a627afeb2645b30b237006c6e815c0f688d2c1cdb64e92",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\provider-manager.ts",
+              "read_spans": "151-290",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/provider-manager.ts"
+            },
+            {
+              "path": "v3/@claude-flow/providers/src/openai-provider.ts",
+              "blob_sha": "b3e1de1a52c02be155e39f9dc49badb23e9ee88f",
+              "bytes": 14373,
+              "sha256": "824b92833ee3144fab39fa16225715f20a3251def61c2471ae42da9f5f995b9b",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\openai-provider.ts",
+              "read_spans": "191-280",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/openai-provider.ts"
+            },
+            {
+              "path": "v3/@claude-flow/providers/src/__tests__/provider-integration.test.ts",
+              "blob_sha": "b2b3c6c38fc92d5df9afab90ac1fb079f0ac6868",
+              "bytes": 12594,
+              "sha256": "45f101d92d29b252914eb8f627ae94f90add4e050cffec0e0b003eb4121d5e16",
+              "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\ruflo\\source\\v3\\@claude-flow\\providers\\src\\__tests__\\provider-integration.test.ts",
+              "read_spans": "1-76;test-name/logging index",
+              "source_reference": "git -C \"D:\\REPO CLONE\\multiagentruflo\" show f547cec013041a59b2f18921f5c861bf3d525825:v3/@claude-flow/providers/src/__tests__/provider-integration.test.ts"
+            }
+          ],
+          "skill_path_inventory": [
+            ".agents/skills/agent-adaptive-coordinator/SKILL.md",
+            ".agents/skills/agent-agent/SKILL.md",
+            ".agents/skills/agent-agentic-payments/SKILL.md",
+            ".agents/skills/agent-analyze-code-quality/SKILL.md",
+            ".agents/skills/agent-app-store/SKILL.md",
+            ".agents/skills/agent-arch-system-design/SKILL.md",
+            ".agents/skills/agent-architecture/SKILL.md",
+            ".agents/skills/agent-authentication/SKILL.md",
+            ".agents/skills/agent-automation-smart-agent/SKILL.md",
+            ".agents/skills/agent-base-template-generator/SKILL.md",
+            ".agents/skills/agent-benchmark-suite/SKILL.md",
+            ".agents/skills/agent-byzantine-coordinator/SKILL.md",
+            ".agents/skills/agent-challenges/SKILL.md",
+            ".agents/skills/agent-code-analyzer/SKILL.md",
+            ".agents/skills/agent-code-goal-planner/SKILL.md",
+            ".agents/skills/agent-code-review-swarm/SKILL.md",
+            ".agents/skills/agent-coder/SKILL.md",
+            ".agents/skills/agent-collective-intelligence-coordinator/SKILL.md",
+            ".agents/skills/agent-consensus-coordinator/SKILL.md",
+            ".agents/skills/agent-coordination/SKILL.md",
+            ".agents/skills/agent-coordinator-swarm-init/SKILL.md",
+            ".agents/skills/agent-crdt-synchronizer/SKILL.md",
+            ".agents/skills/agent-data-ml-model/SKILL.md",
+            ".agents/skills/agent-dev-backend-api/SKILL.md",
+            ".agents/skills/agent-docs-api-openapi/SKILL.md",
+            ".agents/skills/agent-github-modes/SKILL.md",
+            ".agents/skills/agent-github-pr-manager/SKILL.md",
+            ".agents/skills/agent-goal-planner/SKILL.md",
+            ".agents/skills/agent-gossip-coordinator/SKILL.md",
+            ".agents/skills/agent-hierarchical-coordinator/SKILL.md",
+            ".agents/skills/agent-implementer-sparc-coder/SKILL.md",
+            ".agents/skills/agent-issue-tracker/SKILL.md",
+            ".agents/skills/agent-load-balancer/SKILL.md",
+            ".agents/skills/agent-matrix-optimizer/SKILL.md",
+            ".agents/skills/agent-memory-coordinator/SKILL.md",
+            ".agents/skills/agent-mesh-coordinator/SKILL.md",
+            ".agents/skills/agent-migration-plan/SKILL.md",
+            ".agents/skills/agent-multi-repo-swarm/SKILL.md",
+            ".agents/skills/agent-neural-network/SKILL.md",
+            ".agents/skills/agent-ops-cicd-github/SKILL.md",
+            ".agents/skills/agent-orchestrator-task/SKILL.md",
+            ".agents/skills/agent-pagerank-analyzer/SKILL.md",
+            ".agents/skills/agent-payments/SKILL.md",
+            ".agents/skills/agent-performance-analyzer/SKILL.md",
+            ".agents/skills/agent-performance-benchmarker/SKILL.md",
+            ".agents/skills/agent-performance-monitor/SKILL.md",
+            ".agents/skills/agent-performance-optimizer/SKILL.md",
+            ".agents/skills/agent-planner/SKILL.md",
+            ".agents/skills/agent-pr-manager/SKILL.md",
+            ".agents/skills/agent-production-validator/SKILL.md",
+            ".agents/skills/agent-project-board-sync/SKILL.md",
+            ".agents/skills/agent-pseudocode/SKILL.md",
+            ".agents/skills/agent-queen-coordinator/SKILL.md",
+            ".agents/skills/agent-quorum-manager/SKILL.md",
+            ".agents/skills/agent-raft-manager/SKILL.md",
+            ".agents/skills/agent-refinement/SKILL.md",
+            ".agents/skills/agent-release-manager/SKILL.md",
+            ".agents/skills/agent-release-swarm/SKILL.md",
+            ".agents/skills/agent-repo-architect/SKILL.md",
+            ".agents/skills/agent-researcher/SKILL.md",
+            ".agents/skills/agent-resource-allocator/SKILL.md",
+            ".agents/skills/agent-reviewer/SKILL.md",
+            ".agents/skills/agent-safla-neural/SKILL.md",
+            ".agents/skills/agent-sandbox/SKILL.md",
+            ".agents/skills/agent-scout-explorer/SKILL.md",
+            ".agents/skills/agent-security-manager/SKILL.md",
+            ".agents/skills/agent-sona-learning-optimizer/SKILL.md",
+            ".agents/skills/agent-sparc-coordinator/SKILL.md",
+            ".agents/skills/agent-spec-mobile-react-native/SKILL.md",
+            ".agents/skills/agent-specification/SKILL.md",
+            ".agents/skills/agent-swarm-issue/SKILL.md",
+            ".agents/skills/agent-swarm-memory-manager/SKILL.md",
+            ".agents/skills/agent-swarm-pr/SKILL.md",
+            ".agents/skills/agent-swarm/SKILL.md",
+            ".agents/skills/agent-sync-coordinator/SKILL.md",
+            ".agents/skills/agent-tdd-london-swarm/SKILL.md",
+            ".agents/skills/agent-test-long-runner/SKILL.md",
+            ".agents/skills/agent-tester/SKILL.md",
+            ".agents/skills/agent-topology-optimizer/SKILL.md",
+            ".agents/skills/agent-trading-predictor/SKILL.md",
+            ".agents/skills/agent-user-tools/SKILL.md",
+            ".agents/skills/agent-v3-integration-architect/SKILL.md",
+            ".agents/skills/agent-v3-memory-specialist/SKILL.md",
+            ".agents/skills/agent-v3-performance-engineer/SKILL.md",
+            ".agents/skills/agent-v3-queen-coordinator/SKILL.md",
+            ".agents/skills/agent-v3-security-architect/SKILL.md",
+            ".agents/skills/agent-worker-specialist/SKILL.md",
+            ".agents/skills/agent-workflow-automation/SKILL.md",
+            ".agents/skills/agent-workflow/SKILL.md",
+            ".agents/skills/agentdb-advanced/SKILL.md",
+            ".agents/skills/agentdb-learning/SKILL.md",
+            ".agents/skills/agentdb-memory-patterns/SKILL.md",
+            ".agents/skills/agentdb-optimization/SKILL.md",
+            ".agents/skills/agentdb-vector-search/SKILL.md",
+            ".agents/skills/agentic-jujutsu/SKILL.md",
+            ".agents/skills/claims/SKILL.md",
+            ".agents/skills/embeddings/SKILL.md",
+            ".agents/skills/flow-nexus-neural/SKILL.md",
+            ".agents/skills/flow-nexus-platform/SKILL.md",
+            ".agents/skills/flow-nexus-swarm/SKILL.md",
+            ".agents/skills/github-automation/SKILL.md",
+            ".agents/skills/github-code-review/SKILL.md",
+            ".agents/skills/github-multi-repo/SKILL.md",
+            ".agents/skills/github-project-management/SKILL.md",
+            ".agents/skills/github-release-management/SKILL.md",
+            ".agents/skills/github-workflow-automation/SKILL.md",
+            ".agents/skills/hive-mind-advanced/SKILL.md",
+            ".agents/skills/hive-mind/SKILL.md",
+            ".agents/skills/hooks-automation/SKILL.md",
+            ".agents/skills/memory-management/SKILL.md",
+            ".agents/skills/neural-training/SKILL.md",
+            ".agents/skills/pair-programming/SKILL.md",
+            ".agents/skills/performance-analysis/SKILL.md",
+            ".agents/skills/reasoningbank-agentdb/SKILL.md",
+            ".agents/skills/reasoningbank-intelligence/SKILL.md",
+            ".agents/skills/security-audit/SKILL.md",
+            ".agents/skills/skill-builder/SKILL.md",
+            ".agents/skills/sparc-methodology/SKILL.md",
+            ".agents/skills/stream-chain/SKILL.md",
+            ".agents/skills/swarm-advanced/SKILL.md",
+            ".agents/skills/swarm-orchestration/SKILL.md",
+            ".agents/skills/v3-cli-modernization/SKILL.md",
+            ".agents/skills/v3-core-implementation/SKILL.md",
+            ".agents/skills/v3-ddd-architecture/SKILL.md",
+            ".agents/skills/v3-integration-deep/SKILL.md",
+            ".agents/skills/v3-mcp-optimization/SKILL.md",
+            ".agents/skills/v3-memory-unification/SKILL.md",
+            ".agents/skills/v3-performance-optimization/SKILL.md",
+            ".agents/skills/v3-security-overhaul/SKILL.md",
+            ".agents/skills/v3-swarm-coordination/SKILL.md",
+            ".agents/skills/verification-quality/SKILL.md",
+            ".agents/skills/worker-benchmarks/SKILL.md",
+            ".agents/skills/worker-integration/SKILL.md",
+            ".agents/skills/workflow-automation/SKILL.md",
+            ".claude/skills/agentdb-advanced/SKILL.md",
+            ".claude/skills/agentdb-learning/SKILL.md",
+            ".claude/skills/agentdb-memory-patterns/SKILL.md",
+            ".claude/skills/agentdb-optimization/SKILL.md",
+            ".claude/skills/agentdb-vector-search/SKILL.md",
+            ".claude/skills/agentic-jujutsu/SKILL.md",
+            ".claude/skills/flow-nexus-neural/SKILL.md",
+            ".claude/skills/flow-nexus-platform/SKILL.md",
+            ".claude/skills/flow-nexus-swarm/SKILL.md",
+            ".claude/skills/github-code-review/SKILL.md",
+            ".claude/skills/github-multi-repo/SKILL.md",
+            ".claude/skills/github-project-management/SKILL.md",
+            ".claude/skills/github-release-management/SKILL.md",
+            ".claude/skills/github-workflow-automation/SKILL.md",
+            ".claude/skills/hive-mind-advanced/SKILL.md",
+            ".claude/skills/hooks-automation/SKILL.md",
+            ".claude/skills/pair-programming/SKILL.md",
+            ".claude/skills/performance-analysis/SKILL.md",
+            ".claude/skills/reasoningbank-agentdb/SKILL.md",
+            ".claude/skills/reasoningbank-intelligence/SKILL.md",
+            ".claude/skills/skill-builder/SKILL.md",
+            ".claude/skills/sparc-methodology/SKILL.md",
+            ".claude/skills/stream-chain/SKILL.md",
+            ".claude/skills/swarm-advanced/SKILL.md",
+            ".claude/skills/swarm-orchestration/SKILL.md",
+            ".claude/skills/v3-cli-modernization/SKILL.md",
+            ".claude/skills/v3-core-implementation/SKILL.md",
+            ".claude/skills/v3-ddd-architecture/SKILL.md",
+            ".claude/skills/v3-integration-deep/SKILL.md",
+            ".claude/skills/v3-mcp-optimization/SKILL.md",
+            ".claude/skills/v3-memory-unification/SKILL.md",
+            ".claude/skills/v3-performance-optimization/SKILL.md",
+            ".claude/skills/v3-security-overhaul/SKILL.md",
+            ".claude/skills/v3-swarm-coordination/SKILL.md",
+            ".claude/skills/verification-quality/SKILL.md",
+            ".claude/skills/worker-benchmarks/SKILL.md",
+            ".claude/skills/worker-integration/SKILL.md",
+            "ruflo/src/ruvocal/.claude/skills/add-model-descriptions/SKILL.md",
+            "v2/.claude/skills/agentdb-advanced/SKILL.md",
+            "v2/.claude/skills/agentdb-learning/SKILL.md",
+            "v2/.claude/skills/agentdb-memory-patterns/SKILL.md",
+            "v2/.claude/skills/agentdb-optimization/SKILL.md",
+            "v2/.claude/skills/agentdb-vector-search/SKILL.md",
+            "v2/.claude/skills/agentic-jujutsu/SKILL.md",
+            "v2/.claude/skills/flow-nexus-neural/SKILL.md",
+            "v2/.claude/skills/flow-nexus-platform/SKILL.md",
+            "v2/.claude/skills/flow-nexus-swarm/SKILL.md",
+            "v2/.claude/skills/github-code-review/SKILL.md",
+            "v2/.claude/skills/github-multi-repo/SKILL.md",
+            "v2/.claude/skills/github-project-management/SKILL.md",
+            "v2/.claude/skills/github-release-management/SKILL.md",
+            "v2/.claude/skills/github-workflow-automation/SKILL.md",
+            "v2/.claude/skills/hive-mind-advanced/SKILL.md",
+            "v2/.claude/skills/hooks-automation/SKILL.md",
+            "v2/.claude/skills/pair-programming/SKILL.md",
+            "v2/.claude/skills/performance-analysis/SKILL.md",
+            "v2/.claude/skills/reasoningbank-agentdb/SKILL.md",
+            "v2/.claude/skills/reasoningbank-intelligence/SKILL.md",
+            "v2/.claude/skills/skill-builder/SKILL.md",
+            "v2/.claude/skills/sparc-methodology/SKILL.md",
+            "v2/.claude/skills/stream-chain/SKILL.md",
+            "v2/.claude/skills/swarm-advanced/SKILL.md",
+            "v2/.claude/skills/swarm-orchestration/SKILL.md",
+            "v2/.claude/skills/verification-quality/SKILL.md",
+            "v3/@claude-flow/browser/skills/browser/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/agentdb-advanced/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/agentdb-learning/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/agentdb-memory-patterns/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/agentdb-optimization/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/agentdb-vector-search/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/agentic-jujutsu/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/browser/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/flow-nexus-neural/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/flow-nexus-platform/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/flow-nexus-swarm/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/github-code-review/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/github-multi-repo/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/github-project-management/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/github-release-management/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/github-workflow-automation/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/hive-mind-advanced/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/hooks-automation/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/pair-programming/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/performance-analysis/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/reasoningbank-agentdb/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/reasoningbank-intelligence/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/skill-builder/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/sparc-methodology/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/stream-chain/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/swarm-advanced/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/swarm-orchestration/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-cli-modernization/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-core-implementation/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-ddd-architecture/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-integration-deep/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-mcp-optimization/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-memory-unification/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-performance-optimization/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-security-overhaul/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/v3-swarm-coordination/SKILL.md",
+            "v3/@claude-flow/cli/.claude/skills/verification-quality/SKILL.md",
+            "v3/@claude-flow/codex/.agents/skills/memory-management/SKILL.md",
+            "v3/@claude-flow/codex/.agents/skills/security-audit/SKILL.md",
+            "v3/@claude-flow/codex/.agents/skills/sparc-methodology/SKILL.md",
+            "v3/@claude-flow/codex/.agents/skills/swarm-orchestration/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/agentdb-advanced/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/agentdb-learning/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/agentdb-memory-patterns/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/agentdb-optimization/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/agentdb-vector-search/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/github-code-review/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/github-multi-repo/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/github-project-management/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/github-release-management/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/github-workflow-automation/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/hooks-automation/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/pair-programming/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/reasoningbank-agentdb/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/reasoningbank-intelligence/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/skill-builder/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/sparc-methodology/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/stream-chain/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/swarm-advanced/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/swarm-orchestration/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-cli-modernization/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-core-implementation/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-ddd-architecture/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-integration-deep/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-mcp-optimization/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-memory-unification/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-performance-optimization/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-security-overhaul/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/v3-swarm-coordination/SKILL.md",
+            "v3/@claude-flow/mcp/.claude/skills/verification-quality/SKILL.md"
+          ],
+          "skill_source_status": "PATHS_ONLY_NOT_READ",
+          "retrieval_seconds": 2.9840000000003783,
+          "started_at": "2026-09-29T18:37:40.803233+00:00"
+        },
+        "source_mode": "LOCAL_OWNER_DIRECTED_SOURCE",
+        "source_binding_status": "EXACT_LOCAL_GIT_OBJECTS_VERIFIED",
+        "identity_status": "LOCAL_SOURCE_CONFIRMED; REMOTE_OWNER_FORK_NOT_VERIFIED",
+        "manifest_override": "User explicitly directed local D:\\REPO CLONE source; this does not silently repair canonical remote binding",
+        "manifest_digest": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+        "extractor_profile": "bounded-local-git-objects-v1",
+        "limits": {
+          "max_files": 40,
+          "max_file_bytes": 262144,
+          "max_total_bytes": 2097152,
+          "subprocess_timeout_seconds": 30,
+          "source_acquisition_deadline_seconds": 300
+        },
+        "coverage": "PARTIAL_COVERAGE bounded providers contracts slice",
+        "rights": "MIT license text observed; transitive dependency rights/admission NOT_EXECUTED",
+        "cache_origin": "fresh local Git blobs, no branch checkout",
+        "knowledge_status": "KNOWLEDGE_EXTRACTED",
+        "candidate_status": "KNOWLEDGE_ONLY; NO_REUSABLE_SKILL_FOUND_IN_INSPECTED_CONTENT",
+        "tests": "NOT_EXECUTED",
+        "benchmark": "NOT_EXECUTED",
+        "qualification_status": "NOT_ADMITTED",
+        "runtime_activation": false,
+        "authority_granted": false,
+        "gap": [
+          "Live origin identity/repository ID/fork lineage NOT_VERIFIED",
+          "268 skill paths enumerated but contents not studied; no repository-wide absence claim",
+          "Other provider implementations/dependencies not audited",
+          "Independent review pending"
+        ],
+        "ended_at": "2026-09-29T18:38:35.802601+00:00"
+      },
+      "evidence_state": "CURRENT_BOUNDED_STUDY"
+    },
+    {
+      "group": "compute",
+      "receipt_ref": "compute/intake-receipt.json",
+      "receipt_sha256": "ccfec7b9209103ca6103a7d511ff30417b9259d27a95bf50b621e8f48372dc3c",
+      "evidence": {
+        "schema_version": "wolf15-development-checkpoint-donor-intake/v1",
+        "run_id": "cp1-intake-20260930-compute",
+        "cp": "CP1",
+        "substep_scope": "CP1.1 native model profile and generation/output contract research",
+        "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+        "canonical_base_evidence": "Parent agent verified; not independently reverified by this child",
+        "manifest_path": "C:\\Users\\INTEL\\.codex\\worktrees\\tensorflow-canonical-reconciliation\\wolf15-sentient\\docs\\architecture\\checkpoint-donor-intake.json",
+        "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+        "extractor_profile_version": "bounded-read-only/v1",
+        "created_at": "2026-09-29T18:43:33.3035627Z",
+        "connection_verification": "NOT_VERIFIED",
+        "bounded_limits": {
+          "initial_max_source_files_per_donor": 40,
+          "initial_max_total_source_bytes_per_donor": 2097152,
+          "initial_max_file_bytes": 262144,
+          "max_parallel_donors": 3,
+          "per_request_timeout_seconds": 30,
+          "per_donor_deadline_seconds": 300,
+          "budget_exhausted": "PARTIAL_COVERAGE; no completion promotion; record exclusions and next bounded slice",
+          "no_bulk_clone_or_submodule_fetch": true,
+          "no_install_or_execute_donor": true
+        },
+        "actual_source_files_read": 0,
+        "donors": [
+          {
+            "id": "transformers",
+            "expected_repository": "tjx578/transformers-sentient",
+            "expected_repository_id": 1365875233,
+            "expected_upstream": "huggingface/transformers",
+            "historical_head_observation": "6b07e4510e3f9667f5256656118515bcde306fc4",
+            "historical_default_branch": "main",
+            "identity_status": "NOT_REVERIFIED",
+            "source_status": "SOURCE_UNAVAILABLE",
+            "source_commit": null,
+            "files_read": [],
+            "bytes_read": 0,
+            "source_refs": [],
+            "content_digests": [],
+            "coverage": "NO_DONOR_SOURCE_READ",
+            "gaps": [
+              "GitHub sandbox network request failed: proxyconnect 127.0.0.1:9 refused",
+              "Escalated metadata command aborted while awaiting authorization; no usable output"
+            ],
+            "decision": "HOLD_DONOR_DEPENDENT_IMPLEMENTATION",
+            "qualification_status": "NOT_ADMITTED",
+            "activation_authority": false,
+            "rights_status": "NOT_MEASURED"
+          },
+          {
+            "id": "tensorflow",
+            "expected_repository": "tjx578/tensorflow_sentient",
+            "expected_repository_id": 1365873814,
+            "expected_upstream": "tensorflow/tensorflow",
+            "historical_head_observation": "08f0dca20e2b3de96fac23d679f1d3945255ec44",
+            "historical_default_branch": "master",
+            "identity_status": "NOT_REVERIFIED",
+            "source_status": "SOURCE_UNAVAILABLE",
+            "source_commit": null,
+            "files_read": [],
+            "bytes_read": 0,
+            "source_refs": [],
+            "content_digests": [],
+            "coverage": "NO_DONOR_SOURCE_READ",
+            "gaps": [
+              "GitHub sandbox network request failed: proxyconnect 127.0.0.1:9 refused",
+              "Escalated metadata command aborted while awaiting authorization; no usable output"
+            ],
+            "decision": "HOLD_DONOR_DEPENDENT_IMPLEMENTATION",
+            "qualification_status": "NOT_ADMITTED",
+            "activation_authority": false,
+            "rights_status": "NOT_MEASURED"
+          }
+        ],
+        "result": "PARTIAL_COVERAGE / HOLD",
+        "skill_result": "NOT_ASSESSED_SOURCE_UNAVAILABLE",
+        "no_reusable_skill_found_claim": false,
+        "donor_execution": false,
+        "runtime_activation": false,
+        "qualification_status": "NOT_ADMITTED",
+        "resume_requirement": "Fresh authorized read-only source acquisition, verify owner identity/repo IDs/lineage, then pin current exact SHA. Do not use historical manifest SHA as current source proof."
+      },
+      "evidence_state": "HISTORICAL_SUPERSEDED_ACQUISITION_FAILURE"
+    },
+    {
+      "group": "compute-retry",
+      "supersedes_acquisition_gap_in": "compute/intake-receipt.json",
+      "receipt_ref": "compute-retry/intake-receipt.json",
+      "receipt_sha256": "3bfd1650a34a147e8929c80d829bf623aeb78741c5393c089a128cc8d5173b38",
+      "evidence": {
+        "account": "tjx578",
+        "per_request_timeout_seconds": 30,
+        "per_donor_deadline_seconds": 300,
+        "donors": [
+          {
+            "id": "transformers",
+            "repository_id": 1365875233,
+            "full_name": "tjx578/transformers-sentient",
+            "parent": "huggingface/transformers",
+            "source": "huggingface/transformers",
+            "default_branch": "main",
+            "commit_sha": "6b07e4510e3f9667f5256656118515bcde306fc4",
+            "tree_sha": "892f4f7bd3ef24d013a0153ac08f699086c5cb01",
+            "identity": "LIVE_VERIFIED",
+            "files": [
+              {
+                "path": "LICENSE",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\LICENSE",
+                "blob_sha": "68b7d66c97d66c58de883ed0c451af2b3183e6f3",
+                "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+                "bytes": 11418,
+                "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/LICENSE",
+                "reviewed_spans": [
+                  [
+                    1,
+                    5
+                  ]
+                ]
+              },
+              {
+                "path": "README.md",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\README.md",
+                "blob_sha": "730084a5a55486821a1d600d8084beb9069f805b",
+                "sha256": "9f745fda7e49125b047e41f99ff1bf67b1c092c34c61bdfda1c3460feaa95382",
+                "bytes": 17182,
+                "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/README.md",
+                "reviewed_spans": []
+              },
+              {
+                "path": "pyproject.toml",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\pyproject.toml",
+                "blob_sha": "1ff95cdd7904e565c164e96a954658093ebc093a",
+                "sha256": "664853c1634a81a724b796beb78c93ec35bea93347d74ded440425df630c02e4",
+                "bytes": 6238,
+                "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/pyproject.toml",
+                "reviewed_spans": []
+              },
+              {
+                "path": "src/transformers/generation/configuration_utils.py",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\generation\\configuration_utils.py",
+                "blob_sha": "51fecca1a944d77bcc9c37b8525c1f147051e8b6",
+                "sha256": "605b86a07d08dc6e3ba932e8a90b8afca867eaa29881625b04869c4a1f1f23f8",
+                "bytes": 101809,
+                "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/generation/configuration_utils.py",
+                "reviewed_spans": [
+                  [
+                    133,
+                    155
+                  ],
+                  [
+                    289,
+                    297
+                  ],
+                  [
+                    647,
+                    710
+                  ],
+                  [
+                    821,
+                    845
+                  ]
+                ]
+              },
+              {
+                "path": "src/transformers/generation/stopping_criteria.py",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\generation\\stopping_criteria.py",
+                "blob_sha": "502911655ffedc3f921cf55a9fa392664c2240e8",
+                "sha256": "7e4ce5eeee83eab48a63a5419cd68be6f0591201fe7f9248dda77a7c3045bd7e",
+                "bytes": 34379,
+                "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/generation/stopping_criteria.py",
+                "reviewed_spans": [
+                  [
+                    22,
+                    42
+                  ],
+                  [
+                    93,
+                    115
+                  ],
+                  [
+                    618,
+                    642
+                  ]
+                ]
+              },
+              {
+                "path": "src/transformers/modeling_outputs.py",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\modeling_outputs.py",
+                "blob_sha": "b0c4d41639dbd0555fd2b39628ef81c2bfd0ba6d",
+                "sha256": "fef3993ec5b06b4aa488c50472fa0fe4013fb84e34a10595533a251afd6914c0",
+                "bytes": 105688,
+                "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/modeling_outputs.py",
+                "reviewed_spans": [
+                  [
+                    659,
+                    683
+                  ]
+                ]
+              }
+            ],
+            "exclusions": [],
+            "started_at": "2026-09-29T18:51:02.981909+00:00",
+            "bytes": 276714,
+            "elapsed_seconds": 8.344,
+            "coverage": "PARTIAL_COVERAGE_BOUNDED_SOURCE_SPANS",
+            "rights": "Apache-2.0 header observed; full terms/NOTICE/transitive/model-rights review NOT_EXECUTED",
+            "tests": "NOT_EXECUTED",
+            "skills": "NOT_ASSESSED_AS_EXECUTABLE_SKILL",
+            "qualification": "NOT_ADMITTED"
+          },
+          {
+            "id": "tensorflow",
+            "repository_id": 1365873814,
+            "full_name": "tjx578/tensorflow_sentient",
+            "parent": "tensorflow/tensorflow",
+            "source": "tensorflow/tensorflow",
+            "default_branch": "master",
+            "commit_sha": "08f0dca20e2b3de96fac23d679f1d3945255ec44",
+            "tree_sha": "4cb45aab9d73a148fe0176f775a4cc90ffbe23e1",
+            "identity": "LIVE_VERIFIED",
+            "files": [
+              {
+                "path": "LICENSE",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\LICENSE",
+                "blob_sha": "12d255f8e0f049d3c3127e71788e219b86cdf55b",
+                "sha256": "71c6915d04265772a0339bed47276942c678b45cc01534210ebe6984fd1aec65",
+                "bytes": 13575,
+                "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/LICENSE",
+                "reviewed_spans": [
+                  [
+                    1,
+                    5
+                  ]
+                ]
+              },
+              {
+                "path": "README.md",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\README.md",
+                "blob_sha": "24ce6ff362b00e77474edcbf67b49689889765c2",
+                "sha256": "cd490686cd4ad6355aff49d75431f2cc00a101c61f60c3065b7c88cab7f557a4",
+                "bytes": 9790,
+                "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/README.md",
+                "reviewed_spans": []
+              },
+              {
+                "path": "tensorflow/python/saved_model/signature_constants.py",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\signature_constants.py",
+                "blob_sha": "e1ae9917958c1cad35c46e68d418d1a025ed0fd4",
+                "sha256": "24168b070ebef4a43d0eabf21931c6737d5680069972bbf9ca006c0589b16a12",
+                "bytes": 4967,
+                "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/signature_constants.py",
+                "reviewed_spans": [
+                  [
+                    21,
+                    31
+                  ],
+                  [
+                    63,
+                    70
+                  ]
+                ]
+              },
+              {
+                "path": "tensorflow/python/saved_model/load.py",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\load.py",
+                "blob_sha": "aa4f18e8353ca573e2a396aaaa0b7c265f4df904",
+                "sha256": "789ec3e587955e19a88d30fb220b09787969afb7f5837bf01efcb2351bcb9bd0",
+                "bytes": 50120,
+                "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/load.py",
+                "reviewed_spans": [
+                  [
+                    821,
+                    873
+                  ],
+                  [
+                    893,
+                    913
+                  ],
+                  [
+                    1010,
+                    1055
+                  ],
+                  [
+                    1078,
+                    1103
+                  ]
+                ]
+              },
+              {
+                "path": "tensorflow/python/saved_model/save_options.py",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\save_options.py",
+                "blob_sha": "5c947131039d8b2f48b6ce6ee90a8c3168cc1b84",
+                "sha256": "72af9ad4d632e362b30fc94f91e4531374ac44d84303e2ff4b6d0223f2b1f3d2",
+                "bytes": 10885,
+                "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/save_options.py",
+                "reviewed_spans": [
+                  [
+                    130,
+                    155
+                  ]
+                ]
+              },
+              {
+                "path": "tensorflow/python/types/core.py",
+                "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\types\\core.py",
+                "blob_sha": "ddad3bedb94724ea5b3efa5b9ae0308dd9e7f64d",
+                "sha256": "4e73898ac8d19e8f44c8f7e7bb15a89f7d9a55d10602dc639398642b129d17a8",
+                "bytes": 14626,
+                "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/types/core.py",
+                "reviewed_spans": [
+                  [
+                    1,
+                    40
+                  ],
+                  [
+                    150,
+                    208
+                  ]
+                ]
+              }
+            ],
+            "exclusions": [],
+            "started_at": "2026-09-29T18:51:11.234435+00:00",
+            "bytes": 103963,
+            "elapsed_seconds": 9.047,
+            "coverage": "PARTIAL_COVERAGE_BOUNDED_SOURCE_SPANS",
+            "rights": "Apache-2.0 header observed; full terms/NOTICE/transitive/model-rights review NOT_EXECUTED",
+            "tests": "NOT_EXECUTED",
+            "skills": "NOT_ASSESSED_AS_EXECUTABLE_SKILL",
+            "qualification": "NOT_ADMITTED"
+          }
+        ],
+        "schema_version": "cp1-compute-retry/v1",
+        "run_id": "cp1-intake-20260930-compute-retry",
+        "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+        "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+        "status": "BOUNDED_STUDY_COMPLETE_PARTIAL_COVERAGE",
+        "previous_attempt": "../compute/intake-receipt.json",
+        "source_unavailable_semantics": "Historical acquisition failure only; repositories existed. Current retry independently verified identity and source.",
+        "activation": false,
+        "admission": "NOT_EXECUTED",
+        "ended_at": "2026-09-29T18:53:11.628662+00:00"
+      },
+      "evidence_state": "CURRENT_BOUNDED_STUDY"
+    }
+  ],
+  "pending_donors": [],
+  "limitations": [
+    "All source study bounded, not full package or executable skill qualification",
+    "Historical watch collector per-request timeout NOT_INSTRUMENTED; cannot retroactively claim PASS",
+    "Persona 30 scenarios reconciled; derived profile contains source-based corrections; model evaluation NOT_EXECUTED",
+    "Prohibition design matrix is not runtime enforcement",
+    "Local design freeze does not establish canonical integration or real-provider acceptance"
+  ],
+  "review": {
+    "scope": "Two P2 native draft correction findings only",
+    "status": "HISTORICAL_PASS_CORRECTIONS_ONLY_SUPERSEDED_DRAFT",
+    "reviewer": "independent read-only subagent cp1_typed_donors",
+    "file": "../../../../architecture/cp1/gateway-contract-draft.md",
+    "sha256": "532abff89665ca60f2bcebeec63bb955e29d39d94286ccca22cf6caa8cfbf2e6",
+    "not_claimed": [
+      "CP1.1 acceptance",
+      "persona reconciliation",
+      "prohibition compliance",
+      "runtime behavior",
+      "all donor findings independently reviewed"
+    ],
+    "current_file_hash_expected_to_differ": true
+  },
+  "qualification": "NOT_EXECUTED",
+  "admission": "NOT_EXECUTED",
+  "runtime_activation": false,
+  "authority_effect": "NONE",
+  "remote_publication": "NOT_EXECUTED",
+  "updated_at": "2026-09-29T18:57:14.668847+00:00",
+  "persona_binding_ref": "../../../../architecture/cp1/persona-source-binding.json",
+  "donors_on_hold": [],
+  "mandatory_donor_outcomes_recorded": 7,
+  "donors_with_source_study": 7,
+  "donors_without_source_study": 0,
+  "donors_located": 7,
+  "project_work_status": "IN_PROGRESS_LOCAL",
+  "canonical_main_status": "ACTIVE_NEXT / NOT_IMPLEMENTED",
+  "source_discovery_correction": {
+    "owner_report_ref": "C:\\Users\\INTEL\\.codex\\attachments\\6cd2495d-5a22-44b3-a26f-c3ebc3017fc3\\Pasted text.txt",
+    "historical_source_unavailable_meaning": "Access attempt failed, not repository absent",
+    "independent_retry": "Identities/current commits and 12 source files verified this run"
+  },
+  "governance": {
+    "canonical_requirement": "CP1.1 contracts/persona/acceptance, then one real-provider slice per CP1.2 onward",
+    "chat_procedure": "Seven mandatory donors before design freeze; stricter accepted local prerequisite",
+    "procedure_in_canonical_main": "NOT_ESTABLISHED"
+  },
+  "cp1_1_design_status": "FROZEN_LOCAL_UNCOMMITTED",
+  "current_design_review": {
+    "status": "PASS",
+    "manifest_sha256": "8acdbab752841e971edc73dac55f7ed7995043c5bca7f57afa49418e8db0cae3",
+    "scope": "Local design and offline fixtures only"
+  }
+}

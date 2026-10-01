@@ -1,0 +1,82 @@
+{
+  "schema_version": "wolf15-development-checkpoint-donor-intake/v1",
+  "run_id": "cp1-intake-20260930-compute",
+  "cp": "CP1",
+  "substep_scope": "CP1.1 native model profile and generation/output contract research",
+  "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+  "canonical_base_evidence": "Parent agent verified; not independently reverified by this child",
+  "manifest_path": "C:\\Users\\INTEL\\.codex\\worktrees\\tensorflow-canonical-reconciliation\\wolf15-sentient\\docs\\architecture\\checkpoint-donor-intake.json",
+  "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+  "extractor_profile_version": "bounded-read-only/v1",
+  "created_at": "2026-09-29T18:43:33.3035627Z",
+  "connection_verification": "NOT_VERIFIED",
+  "bounded_limits": {
+    "initial_max_source_files_per_donor": 40,
+    "initial_max_total_source_bytes_per_donor": 2097152,
+    "initial_max_file_bytes": 262144,
+    "max_parallel_donors": 3,
+    "per_request_timeout_seconds": 30,
+    "per_donor_deadline_seconds": 300,
+    "budget_exhausted": "PARTIAL_COVERAGE; no completion promotion; record exclusions and next bounded slice",
+    "no_bulk_clone_or_submodule_fetch": true,
+    "no_install_or_execute_donor": true
+  },
+  "actual_source_files_read": 0,
+  "donors": [
+    {
+      "id": "transformers",
+      "expected_repository": "tjx578/transformers-sentient",
+      "expected_repository_id": 1365875233,
+      "expected_upstream": "huggingface/transformers",
+      "historical_head_observation": "6b07e4510e3f9667f5256656118515bcde306fc4",
+      "historical_default_branch": "main",
+      "identity_status": "NOT_REVERIFIED",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "source_commit": null,
+      "files_read": [],
+      "bytes_read": 0,
+      "source_refs": [],
+      "content_digests": [],
+      "coverage": "NO_DONOR_SOURCE_READ",
+      "gaps": [
+        "GitHub sandbox network request failed: proxyconnect 127.0.0.1:9 refused",
+        "Escalated metadata command aborted while awaiting authorization; no usable output"
+      ],
+      "decision": "HOLD_DONOR_DEPENDENT_IMPLEMENTATION",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false,
+      "rights_status": "NOT_MEASURED"
+    },
+    {
+      "id": "tensorflow",
+      "expected_repository": "tjx578/tensorflow_sentient",
+      "expected_repository_id": 1365873814,
+      "expected_upstream": "tensorflow/tensorflow",
+      "historical_head_observation": "08f0dca20e2b3de96fac23d679f1d3945255ec44",
+      "historical_default_branch": "master",
+      "identity_status": "NOT_REVERIFIED",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "source_commit": null,
+      "files_read": [],
+      "bytes_read": 0,
+      "source_refs": [],
+      "content_digests": [],
+      "coverage": "NO_DONOR_SOURCE_READ",
+      "gaps": [
+        "GitHub sandbox network request failed: proxyconnect 127.0.0.1:9 refused",
+        "Escalated metadata command aborted while awaiting authorization; no usable output"
+      ],
+      "decision": "HOLD_DONOR_DEPENDENT_IMPLEMENTATION",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false,
+      "rights_status": "NOT_MEASURED"
+    }
+  ],
+  "result": "PARTIAL_COVERAGE / HOLD",
+  "skill_result": "NOT_ASSESSED_SOURCE_UNAVAILABLE",
+  "no_reusable_skill_found_claim": false,
+  "donor_execution": false,
+  "runtime_activation": false,
+  "qualification_status": "NOT_ADMITTED",
+  "resume_requirement": "Fresh authorized read-only source acquisition, verify owner identity/repo IDs/lineage, then pin current exact SHA. Do not use historical manifest SHA as current source proof."
+}

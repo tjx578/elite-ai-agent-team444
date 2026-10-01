@@ -1,0 +1,228 @@
+{
+  "status": "KNOWLEDGE_ONLY_CANDIDATES",
+  "executable_skill_extraction": "NOT_ASSESSED",
+  "candidates": [
+    {
+      "id": "transformers-native-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_binding": {
+        "full_name": "tjx578/transformers-sentient",
+        "repository_id": 1365875233,
+        "commit_sha": "6b07e4510e3f9667f5256656118515bcde306fc4",
+        "tree_sha": "892f4f7bd3ef24d013a0153ac08f699086c5cb01"
+      },
+      "source_refs": [
+        {
+          "path": "LICENSE",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\LICENSE",
+          "blob_sha": "68b7d66c97d66c58de883ed0c451af2b3183e6f3",
+          "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+          "bytes": 11418,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/LICENSE",
+          "reviewed_spans": [
+            [
+              1,
+              5
+            ]
+          ]
+        },
+        {
+          "path": "src/transformers/generation/configuration_utils.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\generation\\configuration_utils.py",
+          "blob_sha": "51fecca1a944d77bcc9c37b8525c1f147051e8b6",
+          "sha256": "605b86a07d08dc6e3ba932e8a90b8afca867eaa29881625b04869c4a1f1f23f8",
+          "bytes": 101809,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/generation/configuration_utils.py",
+          "reviewed_spans": [
+            [
+              133,
+              155
+            ],
+            [
+              289,
+              297
+            ],
+            [
+              647,
+              710
+            ],
+            [
+              821,
+              845
+            ]
+          ]
+        },
+        {
+          "path": "src/transformers/generation/stopping_criteria.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\generation\\stopping_criteria.py",
+          "blob_sha": "502911655ffedc3f921cf55a9fa392664c2240e8",
+          "sha256": "7e4ce5eeee83eab48a63a5419cd68be6f0591201fe7f9248dda77a7c3045bd7e",
+          "bytes": 34379,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/generation/stopping_criteria.py",
+          "reviewed_spans": [
+            [
+              22,
+              42
+            ],
+            [
+              93,
+              115
+            ],
+            [
+              618,
+              642
+            ]
+          ]
+        },
+        {
+          "path": "src/transformers/modeling_outputs.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\transformers\\src\\transformers\\modeling_outputs.py",
+          "blob_sha": "b0c4d41639dbd0555fd2b39628ef81c2bfd0ba6d",
+          "sha256": "fef3993ec5b06b4aa488c50472fa0fe4013fb84e34a10595533a251afd6914c0",
+          "bytes": 105688,
+          "url": "https://github.com/tjx578/transformers-sentient/blob/6b07e4510e3f9667f5256656118515bcde306fc4/src/transformers/modeling_outputs.py",
+          "reviewed_spans": [
+            [
+              659,
+              683
+            ]
+          ]
+        }
+      ],
+      "objective": "Inform native CP1 envelope and future backend boundary",
+      "input_contract": "Exact revision and bounded source receipt",
+      "output_contract": "Design constraints and acceptance proposals, no actions",
+      "prerequisites": [
+        "Native contract review",
+        "Separate model/package rights and qualification before reuse"
+      ],
+      "permitted_tools": [],
+      "failure_modes": [
+        "Cooperative stop promoted to enforced timeout",
+        "Missing fingerprint promoted to provenance PASS",
+        "Scores promoted to truth"
+      ],
+      "evaluation_plan": "Offline contract fixtures now; provider/runtime evidence separately",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "tensorflow-native-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_binding": {
+        "full_name": "tjx578/tensorflow_sentient",
+        "repository_id": 1365873814,
+        "commit_sha": "08f0dca20e2b3de96fac23d679f1d3945255ec44",
+        "tree_sha": "4cb45aab9d73a148fe0176f775a4cc90ffbe23e1"
+      },
+      "source_refs": [
+        {
+          "path": "LICENSE",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\LICENSE",
+          "blob_sha": "12d255f8e0f049d3c3127e71788e219b86cdf55b",
+          "sha256": "71c6915d04265772a0339bed47276942c678b45cc01534210ebe6984fd1aec65",
+          "bytes": 13575,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/LICENSE",
+          "reviewed_spans": [
+            [
+              1,
+              5
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/saved_model/signature_constants.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\signature_constants.py",
+          "blob_sha": "e1ae9917958c1cad35c46e68d418d1a025ed0fd4",
+          "sha256": "24168b070ebef4a43d0eabf21931c6737d5680069972bbf9ca006c0589b16a12",
+          "bytes": 4967,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/signature_constants.py",
+          "reviewed_spans": [
+            [
+              21,
+              31
+            ],
+            [
+              63,
+              70
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/saved_model/load.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\load.py",
+          "blob_sha": "aa4f18e8353ca573e2a396aaaa0b7c265f4df904",
+          "sha256": "789ec3e587955e19a88d30fb220b09787969afb7f5837bf01efcb2351bcb9bd0",
+          "bytes": 50120,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/load.py",
+          "reviewed_spans": [
+            [
+              821,
+              873
+            ],
+            [
+              893,
+              913
+            ],
+            [
+              1010,
+              1055
+            ],
+            [
+              1078,
+              1103
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/saved_model/save_options.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\saved_model\\save_options.py",
+          "blob_sha": "5c947131039d8b2f48b6ce6ee90a8c3168cc1b84",
+          "sha256": "72af9ad4d632e362b30fc94f91e4531374ac44d84303e2ff4b6d0223f2b1f3d2",
+          "bytes": 10885,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/saved_model/save_options.py",
+          "reviewed_spans": [
+            [
+              130,
+              155
+            ]
+          ]
+        },
+        {
+          "path": "tensorflow/python/types/core.py",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\compute-retry\\tensorflow\\tensorflow\\python\\types\\core.py",
+          "blob_sha": "ddad3bedb94724ea5b3efa5b9ae0308dd9e7f64d",
+          "sha256": "4e73898ac8d19e8f44c8f7e7bb15a89f7d9a55d10602dc639398642b129d17a8",
+          "bytes": 14626,
+          "url": "https://github.com/tjx578/tensorflow_sentient/blob/08f0dca20e2b3de96fac23d679f1d3945255ec44/tensorflow/python/types/core.py",
+          "reviewed_spans": [
+            [
+              1,
+              40
+            ],
+            [
+              150,
+              208
+            ]
+          ]
+        }
+      ],
+      "objective": "Inform native CP1 envelope and future backend boundary",
+      "input_contract": "Exact revision and bounded source receipt",
+      "output_contract": "Design constraints and acceptance proposals, no actions",
+      "prerequisites": [
+        "Native contract review",
+        "Separate model/package rights and qualification before reuse"
+      ],
+      "permitted_tools": [],
+      "failure_modes": [
+        "Cooperative stop promoted to enforced timeout",
+        "Missing fingerprint promoted to provenance PASS",
+        "Scores promoted to truth"
+      ],
+      "evaluation_plan": "Offline contract fixtures now; provider/runtime evidence separately",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "schema_version": "cp1-watch-knowledge-candidates/v1",
+  "status": "NO_REUSABLE_SKILL_FOUND_IN_INSPECTED_SCOPE",
+  "candidates": [
+    {
+      "id": "litellm-gateway-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_identity": {
+        "repository_id": 1394593240,
+        "full_name": "tjx578/litellm_sentient",
+        "commit_sha": "85dc7cb62efa52794982af90164eb19a41140b80",
+        "tree_sha": "238ae6ba0da2e011449125585e95d752ee4361bd"
+      },
+      "source_refs": [
+        {
+          "blob_sha": "3bfef5bae9b48c334acf426d5b7f21bc1913aab9",
+          "sha256": "b170d6bf8e8835dd357e011681db028f4d51e2fb0ea892058f56e01fb39b8273",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\LICENSE",
+          "path": "LICENSE",
+          "bytes": 1419,
+          "read_spans": "1-27",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/LICENSE"
+        },
+        {
+          "blob_sha": "fb21d8fa23b55b85ce44524a6903d0c358520c01",
+          "sha256": "4c34d6d5819ceddde9428b1c0c9fce3bd8eab420e9eac5bc51080fe6677203a9",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\pyproject.toml",
+          "path": "pyproject.toml",
+          "bytes": 15208,
+          "read_spans": "1-110",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/pyproject.toml"
+        },
+        {
+          "blob_sha": "98c5343daee1991d34fff026beb66d97e1507fcf",
+          "sha256": "342a089295fe430087082c25afc974ebdf95e4fc5e6ab05024377e465d03ebac",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\README.md",
+          "path": "README.md",
+          "bytes": 36245,
+          "read_spans": "RETRIEVED_NOT_FULLY_STUDIED",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/README.md"
+        },
+        {
+          "blob_sha": "3bae8a95ef66891eecc671409a4d2f10be7ba799",
+          "sha256": "d4a4b46afc48d97c2bde978b04d348b4ce2fb039af009f565178d85fba71aa64",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/exceptions.py",
+          "path": "litellm/exceptions.py",
+          "bytes": 47444,
+          "read_spans": "132-170;356;442;535;998 (class declarations indexed)",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/exceptions.py"
+        },
+        {
+          "blob_sha": "dcb5a7cc183afc91717169a31d6442fa8d5aaeb7",
+          "sha256": "44b772cc89369f40ff08c1cfbbbb0a42057becc439b9cd9d14f1c0cda6c97d13",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/budget_manager.py",
+          "path": "litellm/budget_manager.py",
+          "bytes": 8536,
+          "read_spans": "26-170 (declarations indexed);50-71 full",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/budget_manager.py"
+        },
+        {
+          "blob_sha": "64252cbbfb395c311b5e518be496cc3bab0e9ccb",
+          "sha256": "b99cd5def157a3bcc5b4d4c9467633f18577dd206f30be833ac9a60db51440e6",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\litellm/router_strategy/budget_limiter.py",
+          "path": "litellm/router_strategy/budget_limiter.py",
+          "bytes": 41513,
+          "read_spans": "493-533 full; cache/budget declarations indexed",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/litellm/router_strategy/budget_limiter.py"
+        },
+        {
+          "blob_sha": "62de1586fddc77146553e02be7f2f870105f9c2f",
+          "sha256": "05b971a5e902b026871c5923e32c7169dff298cc5e36a4fb213b02daba24730c",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\tests/unit/router_strategy/test_budget_limiter.py",
+          "path": "tests/unit/router_strategy/test_budget_limiter.py",
+          "bytes": 4597,
+          "read_spans": "1-136",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/tests/unit/router_strategy/test_budget_limiter.py"
+        },
+        {
+          "blob_sha": "5b52496fc1c4ac19d4de807abf60689f5c89293a",
+          "sha256": "382870139baf64a53d9fb53ea3edc9a4b951cdf480e8e3a0278079e4aca98fa2",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\litellm\\tests/unit/test_router_exception_redaction.py",
+          "path": "tests/unit/test_router_exception_redaction.py",
+          "bytes": 18335,
+          "read_spans": "1-35;119-150;remaining test names indexed",
+          "source_url": "https://github.com/tjx578/litellm_sentient/blob/85dc7cb62efa52794982af90164eb19a41140b80/tests/unit/test_router_exception_redaction.py"
+        }
+      ],
+      "objective": "Inform native CP1.1 contract acceptance; do not reuse donor runtime",
+      "prerequisites": [
+        "Reviewed native CP1 scope",
+        "Independent design review"
+      ],
+      "input_contract": "Pinned provider identity, model profile, budget/context measurements and source receipt",
+      "output_contract": "Explicit error/usage status and proposed bounded acceptance scenarios",
+      "applicable_roles": [
+        "developer",
+        "reviewer"
+      ],
+      "permitted_tools": [],
+      "limits": [
+        "No donor install or execution",
+        "No workflow/runtime authority",
+        "Unknown metrics remain NOT_MEASURED"
+      ],
+      "failure_modes": [
+        "Missing model profile",
+        "Missing cost",
+        "Raw provider error leaks",
+        "Implicit tool grants"
+      ],
+      "dependencies_rights": "LICENSE_TEXT_INSPECTED; code/package admission NOT_EXECUTED",
+      "overlap_conflict": "Native Sentient contracts owns schema; sentient/model_gateway owns policy; models/providers owns adapter; control retains authority",
+      "task_fixtures": [
+        "Unknown cost",
+        "Missing context profile",
+        "Credential-shaped error",
+        "Empty tools list"
+      ],
+      "evaluation_plan": "Native deterministic contract/negative tests; donor tests not executed",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    },
+    {
+      "id": "deepagents-gateway-contract-knowledge",
+      "kind": "KNOWLEDGE_ONLY",
+      "source_identity": {
+        "repository_id": 1394595604,
+        "full_name": "tjx578/deepagents_sentitent",
+        "commit_sha": "3175d231f192db63cbb432c6ca133d9486dc59ba",
+        "tree_sha": "ddbb14339b0f6a655e93fdcf4c27d4a6ef026ad0"
+      },
+      "source_refs": [
+        {
+          "blob_sha": "3957738673765912ca83a0048f833e095d61e087",
+          "sha256": "4ec67e4ca6e6721dba849b2ca82261597c86a61ee214bbf21416006b7b2d0478",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\LICENSE",
+          "path": "LICENSE",
+          "bytes": 1067,
+          "read_spans": "1-21",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/LICENSE"
+        },
+        {
+          "blob_sha": "ad65ec0377ae9c7f985e9376ad881ff80805c22f",
+          "sha256": "a0e4bd7d499ff7816826c0bd5590c281efae7c9e79aea61fea535382793a215d",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/pyproject.toml",
+          "path": "libs/deepagents/pyproject.toml",
+          "bytes": 6427,
+          "read_spans": "1-80",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/pyproject.toml"
+        },
+        {
+          "blob_sha": "9a0b4725d340bca9f31bed8b42e5f98d07f28ecf",
+          "sha256": "569c79f865abd0d677a71e83ba5c3b971318146a4421e3851a0e25ee2d3b1146",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\README.md",
+          "path": "README.md",
+          "bytes": 6984,
+          "read_spans": "RETRIEVED_NOT_FULLY_STUDIED",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/README.md"
+        },
+        {
+          "blob_sha": "5d21d3b1b951bcaef395606bc16691392f46ef87",
+          "sha256": "c8f6784ca9bc12d339526667c6898608c326b8121ccd39036fab125491840715",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/deepagents/graph.py",
+          "path": "libs/deepagents/deepagents/graph.py",
+          "bytes": 47876,
+          "read_spans": "243-370",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/deepagents/graph.py"
+        },
+        {
+          "blob_sha": "7fe9e09f6704bca9a2c816a41241107cb55fec12",
+          "sha256": "8741655f9da6be6714026d4ceb6a37903127ec0b5429f083f001d7c53374f53d",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/deepagents/middleware/summarization.py",
+          "path": "libs/deepagents/deepagents/middleware/summarization.py",
+          "bytes": 97431,
+          "read_spans": "151-300",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/deepagents/middleware/summarization.py"
+        },
+        {
+          "blob_sha": "fa8e351a076415397e6cdb2f5be95c6e94967fa5",
+          "sha256": "a9205ed25163a68af28eb5a8e1e0e451c017ef965fe800c8463112b507f676e7",
+          "local_path": "C:\\Users\\INTEL\\.codex\\visualizations\\2026\\09\\27\\01a0e421-db9c-7963-a9c2-704c1754c8d4\\cp1-intake-20260930\\watch\\source\\deepagents\\libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py",
+          "path": "libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py",
+          "bytes": 4197,
+          "read_spans": "1-97",
+          "source_url": "https://github.com/tjx578/deepagents_sentitent/blob/3175d231f192db63cbb432c6ca133d9486dc59ba/libs/deepagents/tests/unit_tests/middleware/test_summarization_factory.py"
+        }
+      ],
+      "objective": "Inform native CP1.1 contract acceptance; do not reuse donor runtime",
+      "prerequisites": [
+        "Reviewed native CP1 scope",
+        "Independent design review"
+      ],
+      "input_contract": "Pinned provider identity, model profile, budget/context measurements and source receipt",
+      "output_contract": "Explicit error/usage status and proposed bounded acceptance scenarios",
+      "applicable_roles": [
+        "developer",
+        "reviewer"
+      ],
+      "permitted_tools": [],
+      "limits": [
+        "No donor install or execution",
+        "No workflow/runtime authority",
+        "Unknown metrics remain NOT_MEASURED"
+      ],
+      "failure_modes": [
+        "Missing model profile",
+        "Missing cost",
+        "Raw provider error leaks",
+        "Implicit tool grants"
+      ],
+      "dependencies_rights": "LICENSE_TEXT_INSPECTED; code/package admission NOT_EXECUTED",
+      "overlap_conflict": "Native Sentient contracts owns schema; sentient/model_gateway owns policy; models/providers owns adapter; control retains authority",
+      "task_fixtures": [
+        "Unknown cost",
+        "Missing context profile",
+        "Credential-shaped error",
+        "Empty tools list"
+      ],
+      "evaluation_plan": "Native deterministic contract/negative tests; donor tests not executed",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false
+    }
+  ]
+}

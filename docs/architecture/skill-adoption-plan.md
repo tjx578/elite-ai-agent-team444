@@ -6,12 +6,12 @@ inside WOLF15 Sentient. The [catalog](../research/skill-selection/catalog.json)
 is documentation; the [qualification policy](../governance/skill-qualification-policy.md)
 controls what evidence is needed before a package can be used in a scope.
 
-| Lane | Master CP owner | Required boundary |
+| Lane | Earliest use | Required boundary |
 | --- | --- | --- |
-| Development workbench procedure | Current build/review task; not product checkpoint authority | An admitted procedure may help build/review source but gains no product authority |
-| Product skill/capability runtime | CP5 | Versioned contract, pinned resolver, denial/replay tests, consent and Kernel policy |
-| Capability Foundry qualification | CP6 | Donor provenance, isolation, overlap comparison, offline/shadow evaluation and independent admission |
-| Learning and REE evaluation | CP8 | Verified episodes and fixed-rubric evaluation; no self-promotion |
+| Development workbench | CP0 foundation / CP1–CP3 development, one package at a time after scoped qualification | Codex may use an admitted procedure to help build or review source; the procedure gains no product authority |
+| Product capability | Native read-only patterns at CP4; governed registry at CP5; donor package use still gated by CP6 | Versioned contract, pinned resolver, denial/replay tests, consent and kernel policy |
+| Capability Foundry | CP6 (historical M8) | Donor provenance, isolation, overlap comparison, offline qualification and independent admission; shadow needs its separate authorized path |
+| Learning and REE | CP8 (historical M10) | Verified episodes and fixed-rubric evaluation; no self-promotion |
 
 The first review batch is `agent-scout-explorer`, `agent-specification`,
 `retrieval-knowledge-structurer`, `agent-planner`, `agent-coder`,
@@ -25,8 +25,16 @@ replacement. A similar name is not equivalence. Provider choice must follow
 the task and available evidence. The owner area in the catalog is a proposed
 work assignment, not an implemented six-division or 28-specialist roster.
 
-The [Master Roadmap](roadmap.md) is the only checkpoint authority. Historical
-M2/M3/M4/M5/M6/M7/M8/M10 labels in older source material are no longer used
-for current planning. SK-01 remains CP0 governance evidence; runtime skill
-selection begins at CP5, donor qualification is CP6, and learning/evaluation
-promotion belongs to CP8.
+Checkpoint order is owned by the [root README](../../README.md#10-roadmap-master-cp0cp9);
+the [roadmap](roadmap.md) is its derived detail. Historical M labels identify
+source slices only. CP0 contains M2's pure evidence/context foundation; CP1
+owns real reasoning, CP2 repository intelligence and CP3 service hardening.
+CP4 read-only personal briefs grant no send/write permission. CP5 owns the
+full governed registry, CP6 donor qualification and CP8 Learning/REE. Functional
+ownership never bypasses the donor acquisition gate or grants runtime authority.
+
+The root README now defines the target 28-role roster and role–skill matrix.
+Those design contracts do not qualify the SK-01 selectors. Uploaded donor
+skills, including the S06 WebMCP authoring/retrofit packages, remain NOT_ADMITTED
+and pass CP6 acquisition/qualification before product use. A workbench
+qualification is scoped to that host use and cannot install a product skill.

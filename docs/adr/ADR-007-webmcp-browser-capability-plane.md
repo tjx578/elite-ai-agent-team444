@@ -1,9 +1,10 @@
 # ADR-007 — Browser Capability Plane and WebMCP
 
-- **Status:** Accepted target architecture; runtime not implemented
+- **Status:** Proposed ADR; derived from canonical README target design; runtime not implemented
 - **Date:** 2026-09-29
 - **Baseline reviewed:** `dd5cf74ce47e395cf859a2b5130790129af01e16`
-- **Related:** ADR-001, ADR-004, ADR-005, ADR-006; `docs/architecture/roadmap.md`
+- **Reconciliation:** 2026-10-01 against canonical `main@1410df328615325a7f8ac76574e6bf4b57bad68e`; historical reviewed baseline above is preserved
+- **Related:** [root README](../../README.md), ADR-001, ADR-004, ADR-005, ADR-006; `docs/architecture/roadmap.md`
 
 ## Context
 
@@ -18,6 +19,16 @@ surface is `document.modelContext`; page tools are bound to browser document,
 origin and session context. WebMCP complements backend MCP. It does not replace
 service-side MCP and registration does not create authority.
 
+Primary-source check on 2026-10-01: the [WebMCP draft dated 2026-09-30,
+§4.1](https://webmachinelearning.github.io/webmcp/#extensions-to-document) attaches
+`modelContext` to `Document`; [Chrome imperative API documentation updated
+2026-09-21](https://developer.chrome.com/docs/ai/webmcp/imperative-api) likewise
+uses `document.modelContext`. A prior review recommendation to substitute
+`navigator.modelContext` is not applied to this current-source description.
+Historical donor snapshots remain pinned separately; a future implementation
+must verify its exact browser/API version rather than infer compatibility from
+either spelling alone.
+
 Research for this decision is pinned under
 `docs/research/webmcp-donors/README.md`. The official specification repository
 is the canonical protocol-knowledge source. Other repositories are donors for
@@ -26,7 +37,8 @@ evaluation only.
 
 ## Decision
 
-WOLF15 Sentient adds a **Browser Capability Plane** with WebMCP as the
+The [canonical root README](../../README.md) defines the target **Browser
+Capability Plane**. This proposed ADR details that design, with WebMCP as the
 preferred structured browser interface when a qualified page-provided tool can
 satisfy the task.
 
@@ -42,7 +54,11 @@ Target ownership:
 - `apps/owner-console/features/browser/` — owner-visible browser state,
   approvals and receipts.
 
-Backend/service MCP remains under `mcp/`.
+Backend/service MCP remains under `mcp/`. Control Kernel owns task/workflow
+state, authority, admission and termination. Capability Fabric owns
+provider/capability lifecycle under Kernel admission; browser adapters report
+session/descriptor invalidation without creating another task-state owner.
+Publication of this proposal does not itself establish ADR acceptance.
 
 ### Execution classes
 
@@ -58,9 +74,13 @@ These classes are never interchangeable evidence.
 1. A discovered tool is not automatically qualified, active or authorized.
 2. `readOnlyHint`, `untrustedContentHint`, `consequentialHint`, descriptions
    and schemas are provider assertions. They are policy inputs, not authority.
-3. Origin, document/session identity, tool identity, schema/arguments digest,
-   execution class, timestamps, cancellation and result status remain explicit
-   in receipts.
+3. Approvals and receipts bind task/run, origin, browser/session and exact
+   document/navigation identity, tool identity, descriptor generation/digest,
+   schema digest, arguments digest, policy/registry generation, execution class
+   and authorized effects. Invocation revalidates these bindings; navigation,
+   descriptor/schema changes, revocation or expiry reject the stale grant and
+   require a fresh preview/approval. Timestamps, cancellation and outcome remain
+   explicit in receipts.
 4. Page content, tool metadata and tool results are untrusted external data.
 5. A logged-in browser, cookie or enterprise SSO session is not task authority.
 6. Page-local confirmation cannot become the WOLF15 authority root.
@@ -75,14 +95,21 @@ These classes are never interchangeable evidence.
 | --- | --- |
 | CP1 | Protocol/contract research only; no browser execution |
 | CP3 | Generic receipt, cancellation, origin/session identity, idempotency/recovery and telemetry semantics |
-| CP4 | Read-only WebMCP discovery/invocation through isolated or explicitly owner-scoped browser sessions |
-| CP5 | Ephemeral provider normalization, registry/resolver integration and pinned task/session state |
+| CP4 | Native bounded read-only discovery/invocation through isolated or explicitly owner-scoped sessions; fixed profile and Kernel admission implemented and tested before invocation |
+| CP5 | General registry/resolver, ephemeral provider lifecycle and pinned provider generations; task/workflow state remains Kernel-owned |
 | CP6 | Qualification of WebMCP SDKs, skills, polyfills, bridges and fallback providers |
 | CP7 | Consequential browser actions with exact approval, idempotency where applicable and independent verification |
 | CP8 | WebMCP/browser-provider evaluation, regression, token/cost/latency and temporal drift analysis |
 | CP9 | Integrated Browser Capability Plane after all earlier gates pass |
 
-Checkpoint order does not change.
+Checkpoint order follows README §10. CP4 does not depend on an unfinished CP5
+resolver: it uses a native, fixed-profile admission prerequisite with explicit
+no-provider, revocation and stale-document rejection. The general dynamic
+resolver arrives at CP5. Donor SDK/code/skill/runtime imports wait for CP6
+qualification and separate admission; earlier checkpoints may rebuild documented
+principles natively. Qualification is offline-only under current policy. Connected
+or shadow evaluation needs separately approved design, containment and evidence
+paths; this ADR grants none.
 
 ## Explicitly rejected
 

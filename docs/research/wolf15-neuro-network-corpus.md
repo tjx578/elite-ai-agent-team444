@@ -11,8 +11,9 @@
 
 **Roadmap authority:** roadmap/execution-plan material inside this private
 research corpus is historical research input only. It cannot define checkpoint
-numbering or order. Current planning uses only
-[`docs/architecture/roadmap.md`](../architecture/roadmap.md).
+numbering or order. Current planning follows the
+[root README](../../README.md#10-roadmap-master-cp0cp9) and its
+[derived roadmap](../architecture/roadmap.md).
 
 The Google Drive connector does not expose NotebookLM notebook membership. The title supplied by the owner, "WOLF15 neuro NETWORK", resolved to a coherent private research folder containing 61 related artifacts. This document registers that corpus without publishing private Drive file IDs or URLs.
 

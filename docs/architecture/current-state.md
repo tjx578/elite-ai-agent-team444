@@ -4,31 +4,56 @@
 
 This document records what is demonstrably present in the repository. It is not a description of the eventual WOLF15 Sentient product.
 
-## Canonical baseline
+## PR17 reconciliation candidate
 
-### Historical CP0 foundation slices
+This documentation candidate reconciles PR17 with main after merged PR21.
+Root README remains the system SSoT; roadmap.md remains its derived view with
+all canonical substeps. The v1.2 donor register, Transformers routing, S06
+matrix and CP6 acquisition prerequisites are retained. Browser design and
+Pydantic AI research are target/source knowledge only, with no activation.
 
-CP0 is **CLOSED / PASS** at accepted architecture baseline
-`bad73335f518d89356b88cba1cc26730808cd224`. The historical implementation
-slices that led to CP0 acceptance remain listed below for traceability, but they
-are not separate current checkpoints. PR #16 at
-`dd5cf74ce47e395cf859a2b5130790129af01e16` froze the documentation-only
-`ALG-REG-001` addendum after CP0 closeout and does not reopen CP0.
+PR21's scanner corrective and CP1.1 design integration are preserved; its
+historical manifests/reviews/freezes are unchanged. This PR does not publish
+PR23/PR24's separate unmerged gateway increments or close CP1. No provider,
+browser, registry, donor SDK, scheduler or consequential adapter is activated.
+The older baseline below remains historical evidence, not a fresh status claim.
 
-**CP1 — Real Sentient Reasoning** is the next active implementation checkpoint.
-CP2–CP9 remain locked future checkpoints. The
-[Master Roadmap](roadmap.md) is the sole checkpoint authority; the
-[canonical map](canonical-ownership.md) and
-[Final Target Skeleton](final-target-skeleton.md) describe ownership/targets
-without creating another sequence.
+## Historical canonical baseline
+
+### Inspected main and checkpoint position
+
+Inspected on 30 September 2026 WITA: `main@07c942cd62ec5e85a521ee47976559a55f35d8b8`.
+The root [README](../../README.md) contains the system SSoT and complete
+six-division/28-specialist target roster after PR #19. CP0 is **CLOSED / PASS**
+at accepted SHA `bad73335f518d89356b88cba1cc26730808cd224`; CP1 is
+**ACTIVE_NEXT / NOT_IMPLEMENTED** and CP2–CP9 remain locked for implementation.
+The [freeze receipt](../research/algorithm-donors/receipts/ALG-REG-001-freeze.yaml)
+preserves the CP0 acceptance binding. No documentation update reopens CP0.
+
+A GitHub comparison from `dd5cf74ce47e395cf859a2b5130790129af01e16` to the
+inspected main changes only `README.md`. The source still has FastAPI
+`/health` and `/tasks`, a deterministic in-memory LangGraph, and three stub
+roles. M2/M3-A/SCRS remain offline library paths. No real model provider,
+repository reader/writer, dynamic skills, persistent memory, Foundry,
+WebMCP adapter or REE has been added by these README changes.
+
+The donor v1.2 reconciliation is documentation/data only: all 11 S06 records
+and the Transformers candidate are tracked, but donor qualification and
+runtime activation are **NOT_EXECUTED**. See the
+[bound source/overlap record](../verification/repository-donor-roadmap-20260930.md).
+Default-branch HEAD values reported by the upload are not new observations.
+
+### Historical CP0 implementation receipts
+
+The rows below retain their original exact resulting-main evidence.
+CP0.4 and CP0.5 were completed after these implementation slices; their
+former pending status must not be used as the current roadmap position.
 
 | Step | Integrated PR / resulting main | Resulting-main evidence |
 | --- | --- | --- |
-| Historical CP0 slice — SK-01 governance | #12 / `474f42aa15c3db69642303da053958ac80ce3024` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463187032), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463186823): PASS; 74 tests per Python version |
-| Historical CP0 slice — offline reasoning contracts | #13 / `ded797af5739ca6b16f50823049e143657dd50c0` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840252), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840264): PASS; 114 tests per Python version |
-| Historical CP0 slice — SCRS v0 | #14 / `a53388f60b34372c5c3f43a31d8a5157add54379` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209386), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209366): PASS; 198 tests per Python version |
-| CP0 accepted architecture alignment | #15 / `bad73335f518d89356b88cba1cc26730808cd224` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36466389862), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36466389865): PASS |
-| Post-CP0 addendum — ALG-REG-001 freeze | #16 / `dd5cf74ce47e395cf859a2b5130790129af01e16` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36540153553), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36540153487): PASS; jobs executed |
+| CP0.1 SK-01 governance | #12 / `474f42aa15c3db69642303da053958ac80ce3024` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463187032), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463186823): PASS; 74 tests per Python version |
+| CP0.2 M3-A | #13 / `ded797af5739ca6b16f50823049e143657dd50c0` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840252), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36463840264): PASS; 114 tests per Python version |
+| CP0.3 SCRS v0 | #14 / `a53388f60b34372c5c3f43a31d8a5157add54379` | [CI](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209386), [CodeQL](https://github.com/tjx578/wolf15-sentient/actions/runs/36465209366): PASS; 198 tests per Python version |
 
 Python versions above are 3.11, 3.12 and 3.13. Each CI also passed Ruff,
 Pyright, build/isolated install, dependency audit and secret scan. Independent
@@ -141,7 +166,7 @@ The [M3-A implementation](m3a-reasoning-contracts.md) adds an explicit
 offline library entry point for task routing, the M2 bridge, and deterministic
 proposal checks. Its default adapter is a labelled stub. PR #13 integrated
 this offline source as recorded above; it is not a live-provider checkpoint. Existing HTTP and LangGraph
-behavior is unchanged. CP1 real model reasoning remains unproven.
+behavior is unchanged. M3-B live reasoning remains unproven.
 
 ## PR-0 baseline
 
@@ -330,23 +355,7 @@ PR-2 added the deterministic graph, bounded revision behavior, and stub roles
 while keeping model and repository-execution variability out of the loop. M1-C
 established repository trust gates without a production claim. The initial M2
 evidence/context read path is now merged as the pure helper documented above.
-CP1 real model reasoning and CP2 read-only Repository Intelligence remain
-separate future checkpoints with their own acceptance evidence. M3-A offline contracts
+M3-B real model reasoning and M4 read-only repository intelligence remain separate
+future increments with their own acceptance evidence. M3-A offline contracts
 and SCRS v0 are integrated as recorded above. The current system must
 not be described as a complete autonomous engineering OS.
-
-## WebMCP architecture status
-
-WebMCP is **TARGET / NOT_IMPLEMENTED**. No browser session manager,
-`document.modelContext` client, WebMCP discovery/invocation adapter, polyfill,
-browser automation fallback, WebMCP capability provider, or consequential
-browser-action executor exists in the current runtime.
-
-The donor portfolio is research evidence only:
-[WebMCP donor research](../research/webmcp-donors/README.md). Donor code,
-skills, polyfills and bridges are not installed, qualified or active.
-
-This architecture amendment must receive its own PR/CI review before merge,
-but it does not create a new CP0 gate or reopen the accepted CP0 baseline.
-Historical PASS remains bound to its exact SHA; a later documentation HEAD must
-be described by its own evidence rather than relabeling CP0.

@@ -2,7 +2,8 @@
 
 ## Status and evidence
 
-**Roadmap authority:** [Master Roadmap — CP0 to CP9](roadmap.md). Historical
+**Roadmap authority:** [root README](../../README.md#10-roadmap-master-cp0cp9),
+with [derived CP0–CP9 detail](roadmap.md). Historical
 M1/M2/M3/M4–M10 labels in this document identify source snapshots or prior
 design vocabulary only; they do not define a parallel checkpoint sequence.
 

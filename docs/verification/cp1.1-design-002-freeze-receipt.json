@@ -1,0 +1,40 @@
+{
+  "generation": "CP1.1-DESIGN-002",
+  "status": "FROZEN_LOCAL_PENDING_REMOTE_INTEGRATION",
+  "source_commit": "09b3d964d93e0ca1b0ebe621ac49d2603680b210",
+  "reviewed_source_state": "EXACT_LOCAL_UNCOMMITTED_BYTES",
+  "artifact_commit_sha": null,
+  "publication_binding": "Record resulting commit separately; do not rewrite this historical receipt.",
+  "frozen_at": "2026-09-29T20:02:46.513365+00:00",
+  "frozen_by_process": "Independent exact-manifest byte review then hash verification; no runtime execution",
+  "manifest": {
+    "path": "docs/verification/cp1.1-design-002-review-manifest.json",
+    "sha256": "d62932bbcbfca459af654eda8ed5e2ed073563ea441e89e3443ddc02d5d0f2cf"
+  },
+  "review_receipt": {
+    "path": "docs/verification/cp1.1-design-002-independent-review.json",
+    "sha256": "ef1db4b9ab5bdcd24090f8e57ab70b7e7eed9a68d2d2e8c1ff4a430a86f39a4c",
+    "status": "PASS"
+  },
+  "frozen_members": 10,
+  "predecessor": {
+    "generation": "CP1.1-DESIGN-001",
+    "members_unchanged": 13
+  },
+  "excluded_from_frozen_members": [
+    "docs/verification/cp1.1-design-002-review-manifest.json",
+    "docs/verification/cp1.1-design-002-independent-review.json",
+    "docs/verification/cp1.1-design-002-freeze-receipt.json"
+  ],
+  "acceptance": {
+    "legacy_P": 30,
+    "PRINCIPLE_P": 10,
+    "PRINCIPLE_X": 6,
+    "provider_evaluation": "NOT_EXECUTED_CP1.6"
+  },
+  "authority": "READ_ONLY",
+  "runtime_loaded": false,
+  "cp1_1_canonical_closed": false,
+  "remote_checks": "NOT_EXECUTED_FOR_THIS_SNAPSHOT",
+  "prior_pr21_secret_scan": "SEPARATE_FAILURE_AT_09b3d964d93e0ca1b0ebe621ac49d2603680b210"
+}

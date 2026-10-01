@@ -2,13 +2,16 @@
 
 ## Status
 
-**Target design. Runtime not implemented.** Master checkpoint ownership is
-defined only by the [Master Roadmap](roadmap.md); this document does not create
-another checkpoint sequence.
+**Derived target design. Runtime not implemented.** The [root README §10](../../README.md#10-roadmap-master-cp0cp9) owns checkpoint order and gates; the
+[roadmap](roadmap.md) and this document are subordinate views, not acceptance
+or activation decisions.
 
 The last verified pre-amendment canonical main inspected for this design is
 `dd5cf74ce47e395cf859a2b5130790129af01e16`. This document defines future
-browser capability ownership and checkpoint boundaries.
+browser capability ownership and checkpoint boundaries. Reconciliation on
+2026-10-01 used canonical `main@1410df328615325a7f8ac76574e6bf4b57bad68e`;
+the earlier baseline above remains historical provenance. Current API naming
+is documented with dated primary sources in [ADR-007](../adr/ADR-007-webmcp-browser-capability-plane.md).
 
 ## Capability family
 
@@ -36,7 +39,7 @@ Owner voice/text
   -> Browser Session
   -> WebMCP discovery
   -> normalize WebCapabilityDescriptor[]
-  -> Capability Resolver
+  -> CP4 fixed native read-only profile admission / CP5 general resolver
   -> Kernel authorizes exact invocation
   -> execute page tool
   -> WebToolResult + ExecutionReceipt
@@ -44,9 +47,15 @@ Owner voice/text
   -> owner-visible result
 ~~~
 
-If no qualified WebMCP tool satisfies the request, the Resolver may consider a
+CP4 must implement and test the fixed native profile, exact descriptor binding,
+revocation and Kernel admission before its first invocation; it returns an
+explicit no-provider result when those requirements cannot be met. It does not
+wait on or silently emulate the CP5 dynamic resolver. At CP5 or later, if no
+qualified WebMCP tool satisfies the request, the Resolver may consider a
 separately qualified `BROWSER_AUTOMATION_FALLBACK`. Fallback is explicit and
-is not equivalent evidence to `WEBMCP_NATIVE`.
+is not equivalent evidence to `WEBMCP_NATIVE`. Any donor fallback package must
+first pass CP6 qualification and separate admission; consequential effects
+remain gated by CP7 regardless of execution class.
 
 ## WOLF15 contracts
 
@@ -56,19 +65,19 @@ contracts.
 ### WebCapabilityDescriptor
 
 - canonical capability ID and provider ID;
-- browser session/document/page identity;
+- browser session, exact document/navigation and page identity;
 - origin and discovery timestamp;
-- tool name/title/description and input-schema digest;
+- tool name/title/description, descriptor generation/digest and input-schema digest;
 - annotations as untrusted provider metadata;
-- lifecycle state and discovery receipt;
+- provider/capability lifecycle state and discovery receipt;
 - required authority/data classes;
 - qualification/evaluation receipts.
 
 ### WebToolInvocation
 
 - task/run ID and policy/registry generation;
-- browser/session/document/origin;
-- exact tool identity and arguments digest;
+- browser/session, exact document/navigation identity and origin;
+- exact tool identity, descriptor generation/digest, schema digest and arguments digest;
 - requested execution class;
 - authority grant and approval reference when required;
 - cancellation/deadline.
@@ -87,7 +96,11 @@ contracts.
 
 WebMCP tools are ephemeral. Route changes, navigation, iframe/origin exposure,
 session loss, `toolchange`, provider revocation or page destruction can
-invalidate a descriptor.
+invalidate a descriptor. Fabric owns provider/capability lifecycle under Kernel
+admission. Control Kernel owns task/workflow state, authority and termination;
+page lifecycle does not transfer that ownership to a provider. Invocation must
+recheck the bound document/navigation identity and descriptor/schema generation
+and digest, not merely origin or tool name. Any mismatch fails closed.
 
 ~~~text
 TOOL_PRESENT != QUALIFIED
@@ -118,10 +131,15 @@ mutate it.
 ## Consequential actions
 
 CP7 introduces mutation only through proposal -> exact action preview -> owner
-approval bound to task/session/origin/tool/args -> Kernel authorization ->
+approval bound to task/run, browser/session, origin, document/navigation identity,
+tool, descriptor generation/digest, schema digest, arguments digest, execution
+class, policy/registry generation and authorized effects -> Kernel authorization ->
 idempotency/correlation where applicable -> execution -> durable receipt ->
 authoritative verification. Unknown outcomes are reconciled, not blindly
-retried.
+retried. A navigation or descriptor/schema update between approval and call,
+revocation, expiry or changed arguments invalidates that approval. The adapter
+rejects the stale call and requires a new preview and approval; same-origin or
+same-name rediscovery cannot inherit the old grant.
 
 ## Donor-derived knowledge
 
@@ -134,24 +152,27 @@ methodology. Donors are not runtime dependencies until CP6 qualification.
 
 ### CP4
 - discover a real WebMCP tool in an allowed session;
-- bind descriptor to origin/session/document and schema digest;
+- prove the bounded native fixed-profile admission prerequisite before invocation;
+- bind descriptor to origin/session/document/navigation and descriptor/schema generation/digests;
 - execute a read-only tool and emit a receipt;
 - cancellation and stale-descriptor behavior are explicit;
 - unsupported WebMCP does not silently become fallback.
 
 ### CP5
 - normalize ephemeral provider descriptors;
-- deny stale session/origin/tool/policy mismatches;
+- deny stale session/origin/document/tool/descriptor/schema/policy generation mismatches;
 - no automatic provider activation.
 
 ### CP6
 - exact donor SHA/provenance/license/security/dependency review;
 - native/polyfill/bridge/fallback comparison;
 - skill overlap/diff qualification;
-- sandbox/offline/shadow evaluation.
+- sandboxed independent offline evaluation; connected/shadow execution remains
+  blocked until its separate design, containment and evidence path are approved.
 
 ### CP7
-- exact owner approval for consequential invocation;
+- exact owner approval for consequential invocation, with negative tests for
+  navigation and descriptor/schema changes between approval and call;
 - idempotency/recovery where applicable;
 - durable receipt and authoritative verification.
 

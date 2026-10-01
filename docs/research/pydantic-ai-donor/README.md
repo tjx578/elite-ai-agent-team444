@@ -5,13 +5,17 @@
 `RESEARCH_ONLY / NO_RUNTIME_EFFECT / NO_AUTHORITY_EFFECT`
 
 This file is a donor record, **not a roadmap**. All implementation ownership is
-defined by the [Master Roadmap](../../architecture/roadmap.md).
+defined by the [root README §10](../../../README.md#10-roadmap-master-cp0cp9);
+the [roadmap](../../architecture/roadmap.md) is a derived view. Reconciled against
+canonical `main@1410df328615325a7f8ac76574e6bf4b57bad68e` on 2026-10-01.
+The reviewed donor revision below remains a historical source pin, not a fresh
+upstream HEAD or qualification claim.
 
 - Repository: `tjx578/pydantic-ai-sentient`
 - Reviewed revision: `05f2f35ca8af6f1382f06761c6a9a23dbd341728`
 - Upstream: `pydantic/pydantic-ai`
 - License observed: MIT
-- Donor decision: `SELECTIVE_ADOPTION_HIGH_VALUE`
+- Historical research recommendation: `SELECTIVE_ADOPTION_HIGH_VALUE`; package admission remains `NOT_ADMITTED`
 - Donor build/full test/live-provider integration: `NOT_EXECUTED`
 - WOLF15 runtime effect: `NONE`
 - WOLF15 authority effect: `NONE`
@@ -25,8 +29,13 @@ Pydantic AI = model/provider/capability implementation donor
 ~~~
 
 The full Pydantic AI `Agent` graph must not become a second orchestrator or
-state owner. For CP1, the preferred pattern is the direct model request layer
-(`pydantic_ai.direct`) behind WOLF15's own `sentient/model_gateway/`.
+state owner. For CP1, the researched pattern is a direct model request boundary
+behind WOLF15's own `sentient/model_gateway/`. `pydantic_ai.direct` names donor
+source to study, not an authorized import or a selected provider. CP1–CP5 may
+rebuild source-grounded principles natively. Importing donor package/code/skill/
+runtime requires CP6 qualification and separate admission, or an explicit
+canonical governance amendment; functional checkpoint ownership does not waive
+that prerequisite.
 
 ## Master CP routing
 
@@ -45,13 +54,13 @@ the donor is not part of CP1.
 
 ## CP1 extraction contract
 
-Preferred target:
+Native CP1 target (provider choice remains a separate CP1.2 decision):
 
 ~~~text
 Control Kernel
   -> Sentient reasoning
   -> sentient/model_gateway/
-  -> PydanticAIDirectProviderAdapter
+  -> native provider adapter (no donor package implied)
   -> Model / Provider / Profile
   -> real provider
   -> typed response
@@ -59,6 +68,11 @@ Control Kernel
   -> evidence/controller checks
   -> Control Kernel
 ~~~
+
+A later `PydanticAIDirectProviderAdapter` remains a candidate after donor
+qualification, not a dependency chosen by this research. Control owns task/
+workflow lifecycle and authority. Fabric owns provider/capability lifecycle
+under Kernel admission; donor agents and model profiles own neither authority.
 
 Required invariants:
 
@@ -110,3 +124,6 @@ runtime behavior.
 This record verifies only donor identity/source and architecture/research
 mapping. It does not establish build success, donor test success, live provider
 success, WOLF15 integration, performance gain, or capability qualification.
+Current qualification is offline-only. Connected/shadow runs require their own
+approved design, containment and evidence path; research publication and the
+proposed architecture do not supply that approval.

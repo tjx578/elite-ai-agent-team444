@@ -1,0 +1,25 @@
+{
+  "generation": "CP1.1-DESIGN-002",
+  "reviewer": "independent read-only subagent /root/design002_byte_review",
+  "status": "PASS",
+  "evidence_class": "EXACT_LOCAL_UNCOMMITTED_DESIGN_BYTES_NOT_GITHUB_APPROVAL",
+  "reviewed_manifest_sha256": "d62932bbcbfca459af654eda8ed5e2ed073563ea441e89e3443ddc02d5d0f2cf",
+  "initial_review": {
+    "status": "WARN",
+    "manifest_sha256": "e061d78f014b7a63ff425c8954df6f75722b4996d9419825b0f29e8b3acf7ebd",
+    "finding": "P2 unconditional candidate assertions in README and AGENTS conflict with future receipt",
+    "resolution": "CLOSED: lifecycle now receipt-relative; only these two manifest members changed"
+  },
+  "checks": {
+    "manifest_members_matching": 10,
+    "predecessor_frozen_members_matching": 13,
+    "other_candidate_members_unchanged": 8,
+    "principle_source_byte_identical": true,
+    "all_18_commands_mapped": true,
+    "assembly_precedence_serialization_bound": true,
+    "receipt_outside_frozen_set": true,
+    "open_blocking_findings": 0
+  },
+  "runtime_fidelity": "NOT_EXECUTED_CP1.6",
+  "recorded_at": "2026-09-29T20:02:46.511366+00:00"
+}

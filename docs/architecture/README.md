@@ -2,33 +2,37 @@
 
 ## Where decisions live
 
+The [root README on main](../../README.md) is the system SSoT. Architecture
+documents expand that design; donor registers own source identity and routing
+details without defining an independent checkpoint sequence.
+
 - [Canonical ownership](canonical-ownership.md): current-to-target responsibility
   map, ten invariants, README policy and UX prototype boundary.
 - [Current State](current-state.md): implemented behavior and historical receipts.
-- [Master Roadmap](roadmap.md): **the only normative CP0–CP9 checkpoint
-  sequence, ownership, entry/exit gates, and checkpoint status source.**
-- [North Star](super-intelligence-reference-architecture.md),
-  [target architecture](target-architecture.md), and
-  [Final Target Skeleton](final-target-skeleton.md): full product design and
-  canonical target repository tree.
-- [Browser Capability Plane / WebMCP](webmcp-browser-capability-plane.md):
-  browser-native structured tool discovery/invocation, fallback boundary and
-  checkpoint ownership.
+- [Roadmap](roadmap.md): derived CP0–CP9/substep view, donor routing and entry/exit gates.
+- [Repository donor register](../research/donor-adaptation-register-20260929.md):
+  owner-supplied v1.2 portfolio and qualification dependencies.
+- [WebMCP matrix](../research/webmcp-donors/donor-cp-matrix.csv): 11 source routing records.
+- [North Star](super-intelligence-reference-architecture.md) and
+  [target architecture](target-architecture.md): full product design.
 - [Authority model](../governance/authority-model.md) and [ADRs](../adr/):
   permission boundaries and decision history.
+- [Final target skeleton](final-target-skeleton.md) and
+  [Browser Capability Plane](webmcp-browser-capability-plane.md): reconciled
+  target details, with [ADR-007](../adr/ADR-007-webmcp-browser-capability-plane.md)
+  and [Pydantic AI donor research](../research/pydantic-ai-donor/README.md).
+  These documents add no runtime or alternative checkpoint authority.
 
 Domain documents explain M2, M3-A, SCRS, Second Brain, Personal Assistant,
-Browser Capability Plane/WebMCP, Capability Fabric/Foundry, production and learning. They do not activate those
+Capability Fabric/Foundry, production and learning. They do not activate those
 targets. SK-01 is a catalog/governance lane, not installed skill proof.
 
 ## Maintainer contract
 
-Architecture owns the global responsibility map; subsystem READMEs own local
-interfaces and limits. The Master Roadmap is the only document allowed to
-define checkpoint numbering/order. Domain, donor, skill, ADR, historical M/PR
-and checkpoint-mapping documents may map work to CP0–CP9 but may not create a
-parallel roadmap. Resolve ownership conflicts here and in an ADR when a
-decision changes, then update affected local contracts. Do not silently choose
+The root README owns system direction and global responsibility decisions.
+This directory maintains the detailed responsibility map; subsystem READMEs
+own local interfaces and limits. Resolve ownership conflicts in the root SSoT
+and affected architecture/ADR records, then update local contracts. Do not silently choose
 between duplicate target folder names by creating both implementations.
 
 Every responsibility-changing PR includes README impact review. Verify relative

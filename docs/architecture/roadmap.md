@@ -1,652 +1,279 @@
-# WOLF15 Sentient Master Roadmap — CP0 to CP9
+# WOLF15 Sentient — Roadmap CP0–CP9
 
-## Authority
+Status: **DERIVED_FROM_ROOT_README / SSOT-2026-09-30.1**. Rincian ini mengikuti [README root](../../README.md#10-roadmap-master-cp0cp9), SSoT sistem pada `main`. Perbarui bagian roadmap README terlebih dahulu, lalu sinkronkan dokumen ini; keduanya tidak boleh menetapkan urutan berbeda.
 
-This file is the **single normative checkpoint roadmap** for WOLF15 Sentient.
+Baseline pemeriksaan: `07c942cd62ec5e85a521ee47976559a55f35d8b8`, 30 September 2026 WITA. CP0 CLOSED pada `bad73335f518d89356b88cba1cc26730808cd224`; CP1 ACTIVE_NEXT / NOT_IMPLEMENTED. Semua 73 substep dipertahankan, dengan routing donor v1.2 dan syarat qualification yang eksplisit.
 
-Only the checkpoint identifiers defined here are valid for current planning:
+<!-- BEGIN DERIVED ROOT ROADMAP -->
 
-`CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CP8, CP9`.
+**Urutan implementasi tunggal: CP0 → CP1 → CP2 → CP3 → CP4 → CP5 → CP6 → CP7 → CP8 → CP9.** Substep `CPx.y` berada di dalam checkpoint induknya; bukan roadmap tambahan. Riset checkpoint berikutnya boleh berlangsung lebih awal dengan label `FUTURE_CHECKPOINT / DEFER / NO_RUNTIME_ACTIVATION`.
 
-Other documents may describe architecture, historical implementation slices,
-donor mappings, research batches, PR history, or legacy milestone names, but
-they **must not define another checkpoint sequence**. If any other document
-conflicts with this file, this file controls checkpoint ownership and ordering;
-the conflicting document must be corrected, reclassified as historical/research
-evidence, or removed.
+| CP | Nama dan hasil utama | Status pada baseline |
+| --- | --- | --- |
+| CP0 | Cognitive Foundation | **CLOSED / PASS** pada SHA penerimaan historis |
+| CP1 | Real Sentient Reasoning | **ACTIVE_NEXT / NOT_IMPLEMENTED** |
+| CP2 | Repository Intelligence | LOCKED |
+| CP3 | Production Grade v1 — authenticated durable read-only service | LOCKED |
+| CP4 | Personal JARVIS & Read-Only Intelligence | LOCKED |
+| CP5 | Capability OS | LOCKED |
+| CP6 | Capability Foundry | LOCKED |
+| CP7 | Controlled Technology Builder | LOCKED |
+| CP8 | Adaptive Intelligence | LOCKED |
+| CP9 | Technology Company OS | LOCKED |
 
-The [Final Target Skeleton](final-target-skeleton.md) defines where checkpoint
-responsibilities land. [Canonical ownership](canonical-ownership.md) defines
-which subsystem owns them. [Current State](current-state.md) records what is
-actually implemented. None of those documents may create a second roadmap.
+### Pemetaan donor master v1.2 ke checkpoint
 
-## Current position
+Register `WOLF15_SENTIENT_MASTER_REPOSITORY_DONOR_REGISTER_v1.2_WEBMCP` dan matriks CSV S06 yang diunggah pemilik pada 30 September 2026 WITA menjadi sumber pembaruan pemetaan donor. [Register canonical](../research/donor-adaptation-register-20260929.md) menyimpan seluruh portfolio, source revisions dan rekonsiliasi; [matriks WebMCP](../research/webmcp-donors/donor-cp-matrix.csv) mempertahankan 11 baris sumber. README ini tetap master **sistem dan urutan checkpoint**; register adalah master **identitas serta pemetaan donor**, tanpa urutan roadmap kedua.
 
-- **CP0 — Cognitive Foundation:** `CLOSED / PASS`.
-  Accepted architecture baseline:
-  `bad73335f518d89356b88cba1cc26730808cd224`.
-  Post-close documentation/research addenda do not reopen CP0.
-- **CP1 — Real Sentient Reasoning:** `ACTIVE_NEXT / NOT_IMPLEMENTED`.
-- **CP2–CP9:** `LOCKED / FUTURE_CHECKPOINT`.
-- Current runtime authority remains `READ_ONLY`.
-- Browser/WebMCP, capability registry, Foundry, controlled writes, learning/REE,
-  and production deployment are not activated by this roadmap.
+**Makna pemetaan:** CP fungsional menunjukkan komponen penerima suatu prinsip/capability. `qualification_cp=CP6` menunjukkan jalur akuisisi package/code/skill/runtime donor. Angka CP fungsional yang lebih awal tidak memberi izin mengimpor donor sebelum qualification selesai.
 
-PR #16 / `dd5cf74ce47e395cf859a2b5130790129af01e16` froze the
-documentation-only `ALG-REG-001` addendum after CP0. The current WebMCP/master
-roadmap documentation branch is also documentation-only and does not change
-the CP0 acceptance SHA.
+| CP | Donor dan kontribusi yang direncanakan | Batas pelaksanaan |
+| --- | --- | --- |
+| CP0 | Frozen `ALG-REG-001`, fondasi cognitive/contracts/governance | CLOSED pada SHA historis; register repository baru tidak mengubah bytes freeze |
+| CP1 | Pydantic AI sebagai donor kontrak provider utama; OpenJarvis/Ruflo untuk provider, timeout dan budget; Transformers untuk kandidat local provider; LiteLLM/DeepAgents sebagai watch candidates | Satu real provider lebih dahulu; WebMCP runtime NONE; paket donor/Transformers tidak otomatis menjadi provider pertama |
+| CP2 | Ruflo untuk retrieval/graph patterns, Pydantic AI untuk RepoContext/dedup/context spill, Context7 untuk dokumentasi sesuai versi | Analisis source read-only; WebMCP source boleh dibaca sebagai data, WebMCP runtime NONE |
+| CP3 | OpenJarvis, Paperclip, Ruflo untuk task/run/lease/telemetry; Transformers untuk serving lifecycle; Signett untuk idempotency/recovery/receipt semantics | Layanan tetap read-only; pelajari/rebangun pola, jangan mengadopsi runtime donor yang belum qualified |
+| CP4 | OpenJarvis/Paperclip/Ruflo; Transformers untuk multimodal/ASR; Context7; D3/Next.js; Deltalytix dan Openlib sebagai referensi UX/library; WebMCP spec, Chrome tools dan React lifecycle | Connector/browser read-only, profil tetap; native slice diuji dalam scope. SDK/skill/runtime S06 menunggu CP6; Openlib upstream belum terikat |
+| CP5 | OpenJarvis/Paperclip/Ruflo/Pydantic AI/Transformers, MCP spec; WebMCP spec/types/Chrome tools/React hook, MCP-B/npm packages dan OpenTiny | Registry/resolver/ephemeral descriptors dan skill binding; donor-specific provider, bridge, polyfill atau fallback hanya sesudah qualification. Web authoring skill dari `webmaxru` menunggu CP6 |
+| CP6 | OpenJarvis, Paperclip, Ruflo, Pydantic AI, Transformers, seluruh 11 donor S06 dan calon donor berikutnya | Exact source, rights, dependency/security, extraction, overlap, sandbox offline, independent evaluation dan admission terpisah; tidak self-activate |
+| CP7 | OpenJarvis/Paperclip/Ruflo; Signett, WebMCPify, WebMCP Kit dan OpenTiny untuk tindakan browser/retrofit/session yang disetujui | Prepare/review/approve/execute/receipt/postcondition; scope session nyata, WXT dan consequential effects memerlukan grant yang sesuai |
+| CP8 | OpenJarvis/Paperclip/Ruflo; Pydantic Evals sebagai pola evaluasi; Transformers untuk offline training/fine-tuning candidates; Chrome tools dan WindTunnel untuk evaluasi WebMCP | Verified episodes, fixed workload/baseline, held-out/regression, qualified evaluator dan promotion terpisah; benchmark luar tetap NOT_MEASURED untuk Sentient |
+| CP9 | Integrasi hasil CP1–CP8; Paperclip dapat memberi pola tampilan kerja organisasi | Tidak menjadi jalur admission donor baru; end-to-end evidence tetap wajib |
 
-## Master sequence
+#### Urutan implementasi dan qualification donor
 
-| CP | Official name | Primary outcome | Status |
-| --- | --- | --- | --- |
-| **CP0** | Cognitive Foundation | Deterministic Control Kernel foundation, typed contracts, offline evidence/reasoning foundation, governance and architecture invariants | **CLOSED / PASS** |
-| **CP1** | Real Sentient Reasoning | One real model provider through the WOLF15 Model Gateway with typed output, cancellation and measurable budgets; no tool authority | **ACTIVE_NEXT** |
-| **CP2** | Repository Intelligence | Exact-revision repository/source reading, structural analysis, provenance and evidence-bound reports | **LOCKED** |
-| **CP3** | Production Grade v1 | Authenticated, durable, observable, recoverable **read-only** service | **LOCKED** |
-| **CP4** | Personal JARVIS & Read-Only Intelligence | Owner interface, voice, personal/media connectors, Second Brain read path and read-only Browser/WebMCP capability | **LOCKED** |
-| **CP5** | Capability OS | Versioned Capability Registry/Resolver, Unified Skills, tools, backend MCP and ephemeral WebMCP provider resolution | **LOCKED** |
-| **CP6** | Capability Foundry | Controlled donor discovery, provenance, rights, extraction, sandbox/evaluation and candidate qualification | **LOCKED** |
-| **CP7** | Controlled Technology Builder | Exact approved repository/personal/browser actions with prepare/review/approve/execute receipts | **LOCKED** |
-| **CP8** | Adaptive Intelligence | Verified episodes, independent evaluation, REE/adaptation candidates, temporal validation and controlled promotion | **LOCKED** |
-| **CP9** | Technology Company OS | End-to-end integration of all checkpoint-proven capabilities without weakening earlier authority/evidence gates | **LOCKED** |
+1. **CP1–CP5 membangun fondasi milik Sentient.** Sumber donor dapat memberi pengetahuan, requirement, kontrak dan prinsip yang direbangun sebagai implementasi native; provenance, rights dan acceptance tetap diperiksa. Ini tidak mengaktifkan package/code/skill/runtime dari portfolio donor.
+2. **CP6 mengkualifikasi adopsi donor.** Package/library donor, SDK, polyfill, bridge, skill, runtime, serta model artifact yang akan digunakan melewati qualification yang sesuai. Integrasi donor tertentu ke komponen CP1–CP5 dilakukan sebagai perluasan setelah gate CP6, tanpa mengubah urutan atau membuka ulang penerimaan historis CP tersebut.
+3. **Kebutuhan awal yang hanya dapat dipenuhi melalui impor donor menghasilkan HOLD pada jalur itu.** Sebelum implementation, diperlukan keputusan/amandemen qualification yang eksplisit; tidak boleh menganggap tabel routing sebagai pengecualian. Pemilihan provider CP1 tetap keputusan tersendiri dan tidak dipaksakan menjadi Pydantic AI atau Transformers oleh register.
+4. **Profil CP4 tetap terbatas.** Adapter browser native/read-only milik Sentient dapat diuji pada slice tetap di bawah Kernel. Penggunaan kode/SDK/skill S06 berbeda dari mempelajari spec; pola CP4 tidak mengizinkan pemasangan package donor lebih awal. WebMCP authoring/retrofit yang benar-benar mengubah aplikasi juga tetap masuk CP7.
+5. **Offline qualification adalah satu-satunya jalur yang didukung kebijakan sekarang.** Connected/shadow membutuhkan desain, containment, evidence profile dan otorisasi terpisah. Penulisan `shadow required` pada sumber v1.2 dinormalisasi menjadi target bersyarat, tidak dianggap jalur aktif.
 
-Implementation gates are sequential:
+Pemisahan ini menjaga urutan CP0–CP9 dan syarat qualification CP6 sekaligus. **Functional ownership bukan admission date.** Data CSV tidak diubah untuk menyamarkan dependensi tersebut.
 
-~~~text
-CP0 -> CP1 -> CP2 -> CP3 -> CP4 -> CP5 -> CP6 -> CP7 -> CP8 -> CP9
-~~~
+#### Hugging Face / Transformers dan model artifacts
 
-Research for later checkpoints may happen early, but its implementation status
-must remain:
+Donor `tjx578/transformers-sentient@6b07e4510e3f9667f5256656118515bcde306fc4` dipetakan ke CP1/CP3/CP4/CP5/CP6/CP8, dengan upstream yang dilaporkan `huggingface/transformers`. Keberadaan commit telah diperiksa; build, runtime dan rights untuk penggunaan Sentient belum dikualifikasi.
 
-~~~text
-FUTURE_CHECKPOINT
--> DEFER
--> NO RUNTIME ACTIVATION
-~~~
-
-Research discovery never changes checkpoint order.
-
----
-
-## CP0 — Cognitive Foundation
-
-### Objective
-
-Freeze the WOLF15 identity, deterministic authority chain, typed control
-contracts, source/evidence rules, offline reasoning seam, cognitive
-observability foundation, repository trust controls and architecture ownership.
-
-### Accepted foundation
-
-CP0 includes the already-integrated historical slices for:
-
-- deterministic API/router/state/trace foundation;
-- deterministic orchestration and bounded revision loops;
-- repository trust/CI/CodeQL foundation;
-- M2 caller-supplied evidence/context helper;
-- SK-01 governance/catalog work;
-- M3-A offline reasoning contracts and evidence bridge;
-- SCRS v0 advisory observability;
-- canonical ownership and final architecture invariants.
-
-Those labels are historical implementation names, **not separate current
-checkpoints**.
-
-### Acceptance
-
-CP0 is accepted at
-`bad73335f518d89356b88cba1cc26730808cd224`, with exact-main CI and
-CodeQL PASS recorded for that source. The Control Kernel remains the authority
-owner and runtime authority remains read-only.
-
-### Allowed after closeout
-
-Documentation-only research/addenda may:
-
-- pin donor source revisions;
-- record provenance and licenses;
-- define anti-patterns;
-- map research to CP1–CP9;
-- improve target architecture documentation.
-
-They may not activate providers, tools, skills, browser access, memory writes,
-repository writers, learning or deployment, and they do not reopen CP0.
-
----
-
-## CP1 — Real Sentient Reasoning
-
-### Objective
-
-Replace the labelled offline/stub reasoning path with **one real model
-provider** behind a narrow WOLF15-owned cognitive gateway while keeping the
-Control Kernel, evidence spine and workflow authority unchanged.
-
-### Canonical ownership
-
-~~~text
-Control Kernel
-  -> Sentient reasoning
-  -> sentient/model_gateway/
-  -> models/providers/<provider>
-  -> real model API
-  -> WOLF15 typed validation
-  -> ReasoningProposal
-  -> evidence/controller checks
-  -> Control Kernel
-~~~
-
-`sentient/model_gateway/` is the single cognitive-facing gateway owner.
-`models/providers/` contains concrete providers. No second
-`models/gateway/` authority/gateway is created.
-
-### Primary donor input
-
-[`ARCH-DONOR-PYDANTIC-AI-01`](../research/pydantic-ai-donor/README.md) is the highest-value current CP1 donor:
-
-- repository: `tjx578/pydantic-ai-sentient`;
-- reviewed snapshot:
-  `05f2f35ca8af6f1382f06761c6a9a23dbd341728`;
-- license: MIT;
-- decision: selective adoption;
-- preferred CP1 pattern: `pydantic_ai.direct` / direct model/provider/profile
-  abstraction behind WOLF15's gateway;
-- full Pydantic AI `Agent` graph is **not** a WOLF15 orchestrator.
-
-### Required deliverables
-
-- provider-neutral `ModelGateway` request/response contract;
-- one concrete real provider adapter;
-- explicit Model / Provider / Profile separation;
-- schema-constrained `ReasoningProposal`;
-- cancellation propagation;
-- distinct deadline/timeout scopes;
-- bounded input/output/context/token/request/cost controls where measurable;
-- usage telemetry with missing cost represented as `NOT_MEASURED`, not zero;
-- typed provider failure taxonomy;
-- exact model/provider identity in execution receipts;
-- evidence binding preserved before/after model calls.
-
-### Acceptance
-
-CP1 passes only when a real provider proves:
-
-- valid typed output accepted;
-- invalid/malformed output rejected;
-- cancellation terminates the affected request;
-- timeout is distinguishable from provider/auth/rate-limit/policy failures;
-- token/context/usage limits are measurable and enforced where defined;
-- provider/model identity and usage are observable;
-- no model output can set workflow state, factual truth or authority;
-- no silent multi-provider fallback changes behavior mid-run;
-- no tool/MCP/repository/memory execution authority is introduced.
-
-### Explicitly excluded
-
-- repository reading or mutation;
-- runtime skill registry;
-- tool execution;
-- MCP capability activation;
-- durable personal memory;
-- voice/JARVIS runtime;
-- WebMCP/browser runtime;
-- adaptive/self-learning behavior.
-
-Pydantic AI patterns discovered for CP2, CP4, CP5 and CP8 remain
-`FUTURE_CHECKPOINT -> DEFER`.
-
----
-
-## CP2 — Repository Intelligence
-
-### Objective
-
-Make repositories and approved technical sources readable as exact,
-source-bound evidence without granting write authority.
-
-### Required deliverables
-
-- `RepositorySnapshotReader` bound to exact revision/digest;
-- repository tree/source map;
-- language-aware parser/AST where justified;
-- dependency/import graph;
-- source location and provenance model;
-- read-only resolver producing `SourceRef` and bounded `ContextBundle`;
-- evidence-grounded repository findings;
-- context/chunking policy based on semantic/responsibility boundaries;
-- spill/handle strategy for oversized tool/repository output;
-- explicit freshness/conflict/missing-source behavior.
-
-Pydantic AI donor patterns that may inform CP2 include `RepoContext`,
-path/content-hash deduplication and context/tool-output spill patterns. They do
-not become donor-instruction authority.
-
-### Acceptance
-
-- requested repository resolves to an exact immutable revision;
-- material finding traces to file/source bytes and location;
-- stale/missing/conflicting evidence remains explicit;
-- donor `AGENTS.md`, `CLAUDE.md`, README and code comments are treated as data;
-- oversized source output does not silently overflow model context;
-- repository access is demonstrably read-only;
-- branch name alone is never runtime identity.
-
-### Explicitly excluded
-
-- repository/file writes;
-- worktree/branch creation;
-- shell/test execution as a mutation path;
-- automatic donor code execution;
-- capability activation.
-
----
-
-## CP3 — Production Grade v1
-
-### Objective
-
-Turn the read-only cognitive system into an authenticated, durable, observable
-and recoverable service before adding personal or mutating capabilities.
-
-### Required deliverables
-
-- authenticated owner/caller boundary;
-- durable task/run/event persistence;
-- idempotent task submission and replay rules;
-- cancellation and restart recovery;
-- lease/fencing semantics where concurrency needs them;
-- durable audit/outbox/receipt semantics;
-- structured logging, tracing and metrics;
-- readiness checks tied to real dependencies;
-- secret/credential isolation;
-- staging and rollback evidence;
-- generic execution-reality envelope.
-
-The execution contract must preserve:
-
-~~~text
-HANDLER_RETURNED != EXECUTED
-EXECUTED != ACCEPTED
-ACCEPTED != VERIFIED
-SIMULATED != REAL
-FALLBACK != EQUIVALENT_SUCCESS
-~~~
-
-Pydantic AI OpenTelemetry patterns and Signett-style cancellation,
-idempotency/recovery ideas are research donors here; WOLF15 owns the contract.
-
-### Acceptance
-
-- duplicate requests do not create ambiguous duplicate canonical runs;
-- restart/cancellation/recovery preserves task truth;
-- auth/policy denial produces no side effect;
-- receipts bind source/config/provider/run identity;
-- required dependency failure changes readiness;
-- logs/traces do not leak credentials or private prompt/source payloads;
-- rollback restores exact software without restoring revoked authority.
-
-### Explicitly excluded
-
-- personal connector writes;
-- browser/WebMCP runtime actions;
-- dynamic Capability OS activation;
-- repository mutation;
-- learning-driven behavior changes.
-
----
-
-## CP4 — Personal JARVIS & Read-Only Intelligence
-
-### Objective
-
-Give the owner a JARVIS-style read-only interface across voice, permitted
-personal/media sources and browser-native capabilities while preserving the
-same Kernel task/authority path as text/API requests.
-
-### Required deliverables
-
-- Owner Console interface over stable contracts;
-- voice/STT/TTS or realtime-voice transport with interruption/cancellation;
-- owner-scoped read-only personal connectors;
-- evidence-bound Second Brain retrieval for permitted personal/project sources;
-- YouTube/media intake with metadata, transcript/caption provenance,
-  segmentation, knowledge extraction and explicit limitations;
-- browser session abstraction;
-- WebMCP discovery and **read-only** invocation;
-- `WEBMCP_NATIVE` receipt with origin/session/document/tool identity;
-- explicit `BROWSER_AUTOMATION_FALLBACK` classification if a separately
-  qualified fallback is later used.
-
-Pydantic AI realtime-voice patterns may be a donor here. WebMCP donor patterns
-are defined in `docs/research/webmcp-donors/`.
-
-### Acceptance
-
-- voice and text resolve to the same typed task/authority path;
-- missing connector/media transcript remains partial/`NOT_MEASURED`;
-- third-party media/web/page text is data, never instruction authority;
-- one permitted real read-only personal source is proven end to end;
-- one allowed WebMCP page tool is discovered and invoked read-only with receipt;
-- navigation/tool removal/session change invalidates stale WebMCP descriptors;
-- isolated browser context is the default unless an owner explicitly authorizes
-  a higher-scope logged-in browser session.
-
-### Explicitly excluded
-
-- sending messages;
-- calendar/file/account writes;
-- purchases/bookings/approvals/deletes;
-- repository mutation;
-- page-local confirmation as owner authority.
-
----
-
-## CP5 — Capability OS
-
-### Objective
-
-Create one governed capability plane for skills, tools, backend MCP, model
-providers and ephemeral browser/WebMCP providers.
-
-### Required deliverables
-
-- versioned Capability Registry;
-- task-scoped Capability Resolver;
-- Unified Skill registry/loader;
-- provider manifests and revocation;
-- canonical tool descriptors;
-- backend MCP gateway/registry contracts;
-- provider health/evidence metadata;
-- task/run generation pinning;
-- progressive disclosure so full procedures/tools load only when relevant;
-- bounded tool search;
-- WebMCP page tools normalized as ephemeral providers.
-
-Pydantic AI progressive disclosure, deferred tool loading and tool-search
-patterns may inform this checkpoint.
-
-### Core invariants
-
-~~~text
-DISCOVERED != QUALIFIED
-QUALIFIED != ACTIVE
-ACTIVE != AUTHORIZED_FOR_THIS_TASK
-CAPABILITY_LOADED != CAPABILITY_AUTHORIZED
-TOOL_SEARCH_RESULT != QUALIFIED_TOOL
-~~~
-
-### Acceptance
-
-- only qualified providers can be selected;
-- provider/capability generation is pinned for the run;
-- revoked/stale providers fail closed;
-- policy disagreement overrides provider/tool hints;
-- WebMCP session/origin/tool changes invalidate ephemeral provider state;
-- skill/tool instructions cannot raise authority or request unapproved secrets;
-- registry availability does not bypass per-call Kernel authorization.
-
-### Explicitly excluded
-
-- automatic donor acquisition;
-- self-installation;
-- consequential external actions;
-- candidate self-promotion.
-
----
-
-## CP6 — Capability Foundry
-
-### Objective
-
-Allow WOLF15 to discover and qualify new knowledge/capability donors without
-copying entire frameworks or granting them runtime authority.
-
-### Required deliverables
-
-~~~text
-donor discovery
-  -> exact revision pin
-  -> provenance / rights / license
-  -> dependency / security inspection
-  -> architecture reconstruction
-  -> canonical capability extraction
-  -> overlap / conflict analysis
-  -> sandbox / offline evaluation
-  -> shadow qualification
-  -> candidate manifest
-  -> separate admission decision
-~~~
-
-This checkpoint owns operational donor qualification. Documentation-only donor
-research may exist earlier, but it does not substitute for CP6 qualification.
-
-### Donor sets already researched
-
-- Pydantic AI donor;
-- [WebMCP specification/skills/runtime/evaluation donors](../research/webmcp-donors/README.md);
-- frozen `ALG-REG-001` algorithm donor corpus;
-- other future donors recorded as research inputs.
-
-### Acceptance
-
-- exact source/revision and provenance are reproducible;
-- rights/license uncertainty blocks code adoption;
-- donor instructions never execute by being read;
-- overlap/equivalence is compared by contract/behavior, not name;
-- security, dependency and data-egress boundaries are recorded;
-- sandbox/offline/shadow evaluation is independent of candidate claims;
-- only a candidate manifest emerges; Foundry cannot activate itself.
-
-### Explicitly excluded
-
-- fetch -> import -> execute;
-- bulk skill overwrite;
-- mutable/latest runtime dependency by default;
-- automatic production installation;
-- direct capability activation.
-
----
-
-## CP7 — Controlled Technology Builder
-
-### Objective
-
-Permit exact owner-approved effects after the read-only system, Capability OS
-and Foundry have proven their boundaries.
-
-### Required deliverables
-
-- action proposal and preview;
-- exact task/owner/target/resource/action binding;
-- artifact/input digest binding;
-- expiry/revocation/replay protection;
-- isolated worktree;
-- bounded file/shell/test/Git operations;
-- feature branch and draft PR workflow;
-- controlled personal actions;
-- consequential WebMCP/browser actions;
-- idempotency/operation journal where an effect can be ambiguous;
-- execution receipt and independent postcondition verification.
-
-### Acceptance
-
-- no write occurs without the exact required grant;
-- `READ_ONLY` is enforced by operation allowlist, not a label;
-- list-time tool filtering never replaces call-time authorization;
-- ambiguous mutation outcomes reconcile against authoritative state;
-- repository work cannot directly mutate protected/default main;
-- browser/page approval alone cannot authorize WOLF15;
-- every effect is auditable and reversible where the domain allows it.
-
-### Explicitly excluded
-
-- autonomous merge;
-- autonomous deployment;
-- unreviewed sending/purchase/booking/delete;
-- unrestricted shell or credential access.
-
----
-
-## CP8 — Adaptive Intelligence
-
-### Objective
-
-Learn from verified outcomes without allowing the learner, candidate or model
-to control its own evaluator or promotion.
-
-### Required deliverables
-
-- verified episode/outcome journal;
-- fixed, versioned evaluation rubrics;
-- baseline vs candidate replay;
-- held-out and temporal validation;
-- provider/skill/retrieval/WebMCP regression suites;
-- shadow evaluation;
-- drift and persistence analysis;
-- bounded optimizer/REE candidate lifecycle;
-- owner/governance approval and versioned activation;
-- rollback/supersession path.
-
-Pydantic Evals is a strong donor for dataset/case/evaluator/experiment/report
-separation. WebMCP Evals and WindTunnel-style methodology may support browser
-capability comparison. Donor benchmark claims must be reproduced on WOLF15
-workloads before they become WOLF15 evidence.
-
-### Acceptance
-
-~~~text
-verified outcome
-  -> Episode
-  -> Candidate
-  -> Replay
-  -> Held-Out / Temporal Evaluation
-  -> Shadow
-  -> Independent Review
-  -> Owner Approval
-  -> Versioned Activation
-~~~
-
-- candidate cannot change the fixed evaluator/rubric;
-- missing measurements remain `NOT_MEASURED`;
-- regression/hard-gate failure cannot be averaged into PASS;
-- online learning cannot silently alter active routing;
-- current runs stay pinned to their original approved generations.
-
-### Explicitly excluded
-
-- self-promotion;
-- model-written memory becoming verified fact;
-- LLM-as-judge as sole verdict authority;
-- adaptive authority escalation.
-
----
-
-## CP9 — Technology Company OS
-
-### Objective
-
-Integrate the checkpoint-proven product into one operational WOLF15 Sentient
-system without creating a new authority shortcut.
-
-### Integrated target
-
-CP9 composes:
-
-- Sentient Core / Neural Orchestrator;
-- Control Kernel;
-- Elite Specialist Organization;
-- Evidence-Grounded Second Brain;
-- Personal JARVIS and media/voice interface;
-- Browser Capability Plane / WebMCP;
-- Capability OS and Unified Skills;
-- Capability Foundry;
-- Controlled Technology Builder;
-- Adaptive Intelligence / REE;
-- Owner Console and operational observability.
-
-### Acceptance
-
-- each subsystem enters CP9 with its own earlier checkpoint evidence;
-- end-to-end task/run/authority/evidence receipts remain traceable;
-- multi-provider/fallback behavior preserves execution reality;
-- partial subsystem failure fails closed or degrades explicitly;
-- personal/browser/repository actions retain exact approval boundaries;
-- capability/adaptation generations are pinned and reversible;
-- production deployment requires its own exact-artifact operational approval.
-
-CP9 cannot waive any CP0–CP8 invariant.
-
----
-
-## Retired and normalized planning labels
-
-### Retired 13-checkpoint draft
-
-The uploaded planning draft that defined `CP-00` through `CP-12` is
-**retired as a checkpoint authority**. Its useful responsibilities are folded
-into this master sequence as follows:
-
-The donor/source content retained from that draft is recorded separately in
-the [normalized donor adaptation register](../research/donor-adaptation-register-20260929.md),
-which is explicitly not a roadmap.
-
-| Retired draft | Master owner |
+| CP pemilik | Kontrak tambahan pada substep yang sudah ada |
 | --- | --- |
-| CP-00 baseline/status | **CP0** |
-| CP-01 manual donor/adaptation register | documentation-only donor research under **CP0**; operational qualification under **CP6** |
-| CP-02 source/evidence acquisition | **CP2** |
-| CP-03 reasoning adapter | **CP1** |
-| CP-04 read-only repository audit | **CP2** |
-| CP-05 persistent task/run/event | **CP3** |
-| CP-06 authenticated/observable service | **CP3** |
-| CP-07 Owner Console | **CP4** |
-| CP-08 personal brief + document library | **CP4** |
-| CP-09 Capability Fabric/skill registry | **CP5** |
-| CP-10 Capability Foundry | **CP6** |
-| CP-11 approved actions | **CP7** |
-| CP-12 Learning/REE | **CP8** |
-| no equivalent in retired draft | **CP9** integrated product |
+| CP1 | Kandidat `LOCAL_TRANSFORMERS_PROVIDER` di `models/providers/`, di belakang `sentient/model_gateway/`; tetap satu-provider-first dan menunggu qualification untuk adopsi donor |
+| CP3 | Serving health, load/unload, device/dtype, cache/quantization dan resource telemetry; tidak ada automatic download/load |
+| CP4 | ASR, audio, vision dan multimodal sebagai input/output task yang sama dengan voice/text; capability yang tidak tersedia menjadi gap |
+| CP5 | Descriptor dan version pinning untuk keluarga `hf.*`, model artifact, tokenizer/processor/config, provider dan environment |
+| CP6 | Studi ekstraksi pipeline/interface sebagai donor utama; framework dan setiap model artifact diperiksa terpisah sebelum admission |
+| CP8 | Training/fine-tuning offline hanya menghasilkan kandidat; dataset rights, holdout, retention/regression dan metering memerlukan evidence serta izin tersendiri |
 
-No document may revive `CP-00..CP-12` as a parallel roadmap.
+Keluarga kandidat meliputi `hf.model-loader`, `hf.text-generation`, `hf.chat`, `hf.embeddings`, `hf.text-classification`, `hf.asr`, `hf.text-to-audio`, `hf.image-classification`, `hf.object-detection`, `hf.image-segmentation`, `hf.multimodal`, `hf.video`, `hf.quantization`, `hf.model-serving`, `hf.training` dan `hf.finetuning`. Ini selector rancangan, bukan API/provider yang telah tersedia. Alias singular `hf.embedding`/umum `hf.image` dari sumber harus dinormalisasi secara eksplisit sebelum menjadi canonical IDs; jangan membuat capability duplikat.
 
-### Legacy M/PR labels
+Framework Transformers, model weights, dan Control Kernel adalah tiga objek berbeda. Klaim lisensi framework `Apache-2.0` pada unggahan tidak memberi rights untuk semua model/dataset. Model ID/revision, weight/tokenizer/config digests, dependency/environment, license/permission, resource envelope dan evaluation receipt harus terikat sendiri. `trust_remote_code=false` adalah default rancangan; pengecualian membutuhkan keputusan terpisah. Donor ini tidak mengganti Pydantic AI atau pemilik Kernel.
 
-Historical documents may retain names such as M1, M2, M3-A, M3-B, M4–M10 or
-PR-0…PR-8+ because they identify old implementation/research artifacts.
-They are **not current scheduling identifiers**.
+#### Matriks WebMCP S06
 
-For interpretation only:
+Kolom primary/secondary menunjukkan pemilik fungsi. Seluruh donor tetap `NOT_ADMITTED`; angka CP3–CP5 tidak melewati prerequisite CP6 untuk adopsi package. CP1/CP2 tidak memiliki pekerjaan runtime WebMCP.
 
-| Historical label | Master checkpoint |
+| Repository | Fungsi utama | CP utama | CP sekunder | Qualification |
+| --- | --- | --- | --- | --- |
+| `webmachinelearning/webmcp` | Canonical specification knowledge | CP5 | CP4 | CP6 |
+| `webmachinelearning/webmcp-types` | Typed contracts | CP5 | — | CP6 |
+| `GoogleChromeLabs/webmcp-tools` | Implementation demos and evaluation | CP5 | CP4, CP8 | CP6 |
+| `GoogleChromeLabs/use-webmcp-tool` | React lifecycle in Owner Console | CP4 | CP5 | CP6 |
+| `webmaxru/web-ai-agent-skills` | Authoring skill | CP6 | CP5 | CP6 |
+| `TueJon/webmcpify` | App retrofit verification and audit | CP6 | CP7 | CP6 |
+| `nekuda-ai/webmcp-kit` | Secondary implementation verification and migration skill | CP6 | CP7 | CP6 |
+| `signettai/signett` | Secure action idempotency recovery and receipts | CP7 | CP3 | CP6 |
+| `WebMCP-org/npm-packages` | Runtime polyfill compatibility and bridge reference | CP5 | — | CP6 |
+| `opentiny/webmcp-sdk` | Browser fallback and CDP WXT skills | CP5 | CP7 | CP6 |
+| `nekuda-ai/WindTunnel` | Comparative provider evaluation methodology | CP8 | — | CP6 |
+
+Revision/provenance lengkap terdapat di [portfolio](../research/webmcp-donors/portfolio.yaml), [register](../research/donor-adaptation-register-20260929.md), dan [pemeriksaan sumber](../verification/repository-donor-roadmap-20260930.md). Semua 11 SHA S06 serta SHA Transformers telah ditemukan sebagai commit pada repo yang disebut. Keberadaan commit tidak membuktikan build, license compatibility, keamanan, benchmark atau runtime admission.
+
+### Langkah implementasi berikutnya
+
+**CP1.1 tetap langkah berikutnya.** Bekukan kontrak gateway, provider/model/profile, persona serta acceptance scenarios pada exact main terbaru. Gunakan register untuk membandingkan pilihan; tentukan satu real-provider slice dan buktikan cancellation, timeout, structured output, evidence binding serta batas biaya. Tidak ada donor/provider yang dipilih atau diaktifkan oleh perubahan dokumentasi ini. Setelah CP1.1 diterima, lanjutkan CP1.2–CP1.6 sesuai gate yang sama.
+
+### Gate bersama dan completion receipt
+
+Sebelum implementasi CP berikutnya: CP sebelumnya sudah CLOSED dengan receipt exact resulting-main; base SHA, kontrak, pemilik tanggung jawab, scope, prasyarat, serta acceptance task ditetapkan. Satu PR adalah increment yang dapat direview; merge satu PR tidak otomatis menutup satu CP.
+
+`HOLD` berlaku bila revision tidak dapat diikat, ownership/authority ambigu, kontrak tidak kompatibel, rights/security donor belum selesai, bukti wajib hilang, required check gagal, review kritis belum selesai, scope melompat CP, atau operasi berikutnya melampaui izin. Riset/dokumentasi yang tidak mengaktifkan runtime tetap dapat berjalan sesuai scope.
+
+Receipt penutupan minimal memuat: CP/substep, objective/scope/exclusions, base SHA, branch/head SHA, PR dan resulting-main SHA, artifact/config/schema versions, command dan hasil test, URL serta identity/check conclusion CI, temuan review dan resolusinya, acceptance evidence, keterbatasan, status akhir, keputusan penerimaan, dan next action. Receipt tidak memakai PASS dari SHA lain. Hash receipt tidak dimasukkan ke bytes dirinya sendiri.
+
+**Status pelaksanaan:** `NOT_STARTED`, `IN_PROGRESS`, `HOLD`, `PASS_LOCAL`, `PASS_REMOTE`, `CLOSED`. `ACTIVE_NEXT` berarti prioritas berikutnya; tidak berarti implementasi sudah berjalan. CP0 tidak dibuka ulang oleh addendum dokumentasi. CP1 kelak memakai resulting-main terbaru sebagai base sambil mempertahankan SHA penerimaan CP0.
+
+### CP0 — Cognitive Foundation
+
+Fondasi identitas, typed contracts, kernel deterministik, evidence offline, reasoning seam, governance skill, cognitive observability, trust gates, dan ownership diterima pada `bad73335f518d89356b88cba1cc26730808cd224`.
+
+| Substep historis | Isi |
 | --- | --- |
-| M0/M1/M2, SK-01, M3-A, SCRS v0 historical foundation slices | CP0 |
-| M3-B / real provider | CP1 |
-| M4 | CP2 |
-| M5 | CP3 |
-| M6 | CP4 |
-| M7 | CP5 |
-| M8 | CP6 |
-| M9 | CP7 |
-| M10 | CP8 |
-| integrated product / no former M equivalent | CP9 |
+| CP0.1 | SK-01 governance closure |
+| CP0.2 | M3-A reasoning contracts |
+| CP0.3 | SCRS v0 advisory observability |
+| CP0.4 | Canonical architecture alignment |
+| CP0.5 | Exact-main acceptance |
 
-New planning, issue, PR, ADR, donor assessment and status documents must use
-the master CP0–CP9 identifiers.
+Addendum algoritme `ALG-REG-001` sesudah closeout adalah freeze riset/dokumentasi, bukan aktivasi provider, skill, memory, execution, atau REE.
 
-## Change-control rule
+### CP1 — Real Sentient Reasoning
 
-A new research discovery may change **what** belongs inside a checkpoint, but
-not checkpoint numbering or order unless the owner explicitly approves a
-master-roadmap revision.
+Satu real provider melalui gateway milik WOLF15 menghasilkan proposal bertipe dan mempertahankan Kernel/evidence boundary. Persona dipasang sebagai profil berversi yang dapat dievaluasi, tanpa menambah tool authority.
 
-Every future architecture/research document must therefore state one of:
+| Substep | Isi |
+| --- | --- |
+| CP1.1 | Freeze gateway ownership, request/response schema, persona/prompt profile dan acceptance scenarios |
+| CP1.2 | Satu concrete model/provider adapter; model, provider, technical profile dan model artifact dipisahkan; calon LOCAL_TRANSFORMERS_PROVIDER mengikuti prerequisite qualification donor |
+| CP1.3 | Cancellation, deadline/timeout, budget, sanitized failure taxonomy |
+| CP1.4 | Integrasi reasoning/evidence dan typed proposal; source instructions tetap data |
+| CP1.5 | Telemetry model/provider/usage; optional complexity budgeter berdasarkan pengukuran |
+| CP1.6 | Exact-main acceptance dengan receipt real provider dan evaluasi persona |
 
-- `MASTER_CP_OWNER: CPx`;
-- `HISTORICAL_ONLY`;
-- `FUTURE_CHECKPOINT -> DEFER`;
-- `OUT_OF_ARCHITECTURE`.
+**Acceptance:** valid output diterima; malformed/schema/binding failures ditolak; cancellation menghentikan request; auth/rate-limit/policy/timeout dibedakan; token/context/output/request limits terukur sesuai kontrak; cost yang tidak diketahui tetap `NOT_MEASURED`. Tidak ada silent provider fallback atau hak tool/repo/memory dari output model. Pydantic AI direct/provider/profile adalah pola donor selektif, bukan pengganti orchestrator.
 
-No additional CP sequence, milestone roadmap, or parallel tracker is canonical.
+### CP2 — Repository Intelligence
+
+Membaca repo dan sumber teknis yang diizinkan pada exact revision untuk menghasilkan audit/analisis bersumber, tanpa hak tulis.
+
+| Substep | Isi |
+| --- | --- |
+| CP2.1 | Snapshot contract, repository identity, revision/digest dan SourceRef |
+| CP2.2 | Read adapter dengan batas akses yang ditegakkan |
+| CP2.3 | Bounded source/context assembler, semantic chunking, output spill/handles |
+| CP2.4 | Tree/source map, AST/import/dependency graph yang relevan, analisis arsitektur dan capability candidates |
+| CP2.5 | Provenance, freshness, conflict, unsupported claims, no-write dan replay tests |
+| CP2.6 | Exact-main acceptance |
+
+**Acceptance:** setiap temuan material menunjuk file/bytes/revision; source terlalu besar tidak diam-diam memenuhi konteks; stale/missing/conflicting evidence terlihat; README/AGENTS/donor comments tidak mengubah policy. Branch name saja tidak menjadi identitas runtime. Tidak ada worktree, shell executor, atau mutasi repo pada CP ini.
+
+### CP3 — Production Grade v1
+
+Membentuk layanan kognitif **read-only** yang authenticated, durable, observable, dan recoverable sebelum kemampuan pribadi atau mutasi ditambahkan.
+
+| Substep | Isi |
+| --- | --- |
+| CP3.1 | Auth dan owner/caller identity |
+| CP3.2 | Durable task/run/events, idempotency, transaction/outbox, lease/fencing bila diperlukan |
+| CP3.3 | Structured log, trace, metrics, sanitized audit/receipt |
+| CP3.4 | Secret isolation, resource/data limits, dependency-aware readiness; kontrak serving/model lifecycle/device/dtype/quantization bila provider terpilih memerlukannya |
+| CP3.5 | Restart/cancellation/recovery, fault injection, rollback |
+| CP3.6 | Staging/live read-only acceptance sesuai otorisasi operasi |
+| CP3.7 | Resulting-main acceptance |
+
+**Acceptance:** duplicate submission menghasilkan run canonical atau replay eksplisit; restart tidak mengubah task truth; auth denial tanpa efek; readiness turun saat required dependency gagal; telemetry tidak membocorkan credential/payload pribadi; rollback mengembalikan artifact tepat tanpa menghidupkan kembali izin yang direvoke. CI saja tidak menutup gate operasi.
+
+### CP4 — Personal JARVIS & Read-Only Intelligence
+
+Antarmuka pemilik, voice, sumber personal/media, dan Second Brain read path menjadi alur nyata yang tetap memakai Kernel. Persistent knowledge writes yang diperlukan untuk ingestion adalah operasi penyimpanan internal sesuai policy; konektor eksternal tetap read-only.
+
+| Substep | Isi |
+| --- | --- |
+| CP4.1 | Owner/personal/media contracts dan privacy scope |
+| CP4.2 | Read-only connectors, sync/checkpoint, metadata/caption retrieval; WebMCP discovery dan profil read-only tetap |
+| CP4.3 | Knowledge/memory persistence di atas durability CP3, provenance, retensi dan quarantine |
+| CP4.4 | Hybrid retrieval, evidence grounding, media segmentation/extraction; gap/discovery handoff hanya deferred |
+| CP4.5 | Briefing dan personal routines dengan scheduler/receipt yang sesuai scope |
+| CP4.6 | Owner interface, voice/STT/TTS, interruption, browser state dan kontrak input vision/multimodal yang tersedia; kandidat Transformers tetap gated |
+| CP4.7 | Privacy, partial failure, media test matrix, stale descriptor/session invalidation |
+| CP4.8 | Exact-main acceptance |
+
+**Acceptance:** satu sumber personal nyata, satu media slice nyata, dan satu page tool read-only yang diizinkan terbukti; voice/text melewati path izin yang sama; transcript/connector hilang menghasilkan partial/unknown yang jujur. Admission tetap pada Kernel dengan pendekatan CP4–CP5 dalam bagian browser. Sending, calendar/account writes, purchase, booking, delete, dan repo mutation belum masuk CP4.
+
+### CP5 — Capability OS
+
+Satu plane capability untuk skills, tools, backend MCP, models/providers, dan ephemeral browser tools.
+
+| Substep | Isi |
+| --- | --- |
+| CP5.1 | Contracts, canonical IDs, ToolDescriptor, CapabilityProvider, role–skill bindings dan gap semantics |
+| CP5.2 | Versioned registry generation dan lifecycle capability/provider |
+| CP5.3 | Task-scoped resolver, explicit no-provider result, pinned gap classification |
+| CP5.4 | Tool/MCP/model/provider integration, model-artifact bindings dan ephemeral WebMCP descriptors; keluarga hf.* serta bridge/fallback donor menunggu qualification |
+| CP5.5 | Unified Skills runtime, manifest/loader, pemetaan 28 peran ke package qualified, progressive disclosure dan bounded tool search |
+| CP5.6 | Pinning, health, revocation, stale generation, denial, replay dan per-call policy tests |
+| CP5.7 | Exact-main acceptance |
+
+**Acceptance:** hanya provider qualified dapat dipilih; generation dipin; revoked/stale providers gagal tertutup; provider hints tidak mengalahkan policy; tool filtering saat listing tidak menggantikan authorization saat call. Tidak ada automatic acquisition atau consequential actions.
+
+### CP6 — Capability Foundry
+
+Discovery donor dan akuisisi capability yang terkontrol menghasilkan kandidat yang dapat direview.
+
+| Substep | Isi |
+| --- | --- |
+| CP6.1 | Donor manifest, provenance, media-origin discovery request dan exact revision; portfolio v1.2 mencakup Transformers serta seluruh 11 donor S06 |
+| CP6.2 | Rights/license, dependency, security dan data-egress gates |
+| CP6.3 | Architecture reconstruction serta ekstraksi knowledge/principle/workflow; pisahkan knowledge-only, reuse, update/new skill dan provider gap |
+| CP6.4 | Contract-based overlap/dedup/conflict |
+| CP6.5 | Isolated packaging, mount/network/resource limits dan sandbox |
+| CP6.6 | Independent offline evaluation terhadap baseline; shadow qualification hanya setelah desain, containment dan evidence path tersendiri disetujui |
+| CP6.7 | Versioned candidate manifest, parent/source lineage dan consumer roles; admission terpisah untuk registry generation baru |
+| CP6.8 | Exact-main acceptance |
+
+**Acceptance:** discovery lead diverifikasi independen; source dapat direproduksi; rights/security unknown menahan adopsi; kode donor tidak dieksekusi hanya karena dibaca; kandidat tidak self-activate. Tidak ada `fetch → import → ACTIVE` atau bulk skill overwrite.
+
+### CP7 — Controlled Technology Builder
+
+Efek yang tepat dilakukan dengan approval, target, artifact, dan postcondition yang dapat diperiksa.
+
+| Substep | Isi |
+| --- | --- |
+| CP7.1 | Action proposal/preview, execution request, approval dan receipt contracts |
+| CP7.2 | Isolated worktree dan bounded file adapters |
+| CP7.3 | Bounded shell/test/Git adapters |
+| CP7.4 | GitHub feature branch dan draft-PR adapter |
+| CP7.5 | Personal actions dan consequential browser/WebMCP approval path |
+| CP7.6 | Idempotency, operation journal, replay protection, reconciliation dan rollback |
+| CP7.7 | End-to-end builder acceptance, unauthorized/stale/ambiguous action cases |
+| CP7.8 | Exact-main acceptance |
+
+**Acceptance:** tidak ada write tanpa grant yang tepat; input/artifact/browser descriptor binding valid pada saat call; ambiguous outcomes direkonsiliasi; receipt dibedakan dari verifikasi hasil. Tidak ada direct mutation protected/default branch, autonomous merge/deploy, unrestricted shell, atau tindakan pribadi tanpa review/izin yang dipersyaratkan.
+
+### CP8 — Adaptive Intelligence
+
+Perbaikan berasal dari outcome yang terbukti dan dievaluasi independen, dengan pengendalian perubahan aktif.
+
+| Substep | Isi |
+| --- | --- |
+| CP8.1 | Verified episode/outcome contracts dan journal |
+| CP8.2 | Fixed versioned evaluator/rubric dan baseline |
+| CP8.3 | SCRS calibration datasets serta ukuran drift/correlation/saturation yang bermakna |
+| CP8.4 | Bounded candidate generators/REE; update skill/prompt/workflow dan calon offline training/fine-tuning dengan data/compute/rights terpisah, applicability dan kontraindikasi |
+| CP8.5 | Replay, held-out dan temporal generalization; provider/skill/retrieval/browser regression |
+| CP8.6 | Shadow evaluation setelah jalur qualification/containment tersendiri disetujui; bukan mode yang telah tersedia |
+| CP8.7 | Independent review, owner/governance promotion dan version pinning |
+| CP8.8 | Regression, disable/supersession dan rollback |
+| CP8.9 | Exact-main acceptance |
+
+**Acceptance:** candidate tidak mengubah evaluator, rubric, policy, atau run aktif; unknown tidak menjadi zero/PASS; LLM-as-judge tidak menjadi satu-satunya verdict; hard failure menahan promotion; popularity/media persuasion bukan evidence peningkatan.
+
+Rencana historis **Sentient REE contracts and offline score v0** dipertahankan sebagai pekerjaan kandidat tanpa efek samping di CP8: typed metrics, perhitungan ΔR, kandidat α/β/γ, batas kandidat `abs(δ) ≤ 0.05`, missing-metric/normalization/cancellation guards, source/config version dan synthetic fixtures. Angka batas tersebut adalah parameter rancangan lama yang masih perlu divalidasi pada workload Sentient, bukan ukuran kecerdasan atau izin promotion. Slice offline ini tidak merangkai REE ke LangGraph, mengubah `alpha_beta_gamma.yml` aktif, menulis memory, mengaktifkan `reflective_heuristics.json`, atau mengintegrasikan trading. Penerimaan memerlukan outcome terverifikasi serta evaluator yang tidak dikendalikan bobot kandidat.
+
+### CP9 — Technology Company OS
+
+Integrasi produk dari kemampuan yang telah lulus; bukan jalan pintas melewati gate CP0–CP8.
+
+| Substep | Isi |
+| --- | --- |
+| CP9.1 | Integrated dependency dan authority audit |
+| CP9.2 | Owner workflow acceptance |
+| CP9.3 | Personal JARVIS end to end |
+| CP9.4 | Engineering/build end to end |
+| CP9.5 | Foundry → Capability → Task flow |
+| CP9.6 | Learning candidate → shadow → promotion flow |
+| CP9.7 | Security, recovery, partial failure dan chaos acceptance |
+| CP9.8 | Packaging dan product target acceptance |
+| CP9.9 | Final resulting-main/product receipt |
+
+**Acceptance:** source, task, grant, provider generation, efek dan hasil tetap dapat ditelusuri lintas subsistem; fallback menunjukkan kelas eksekusinya; kegagalan sebagian tertangani; semua keputusan aktivasi dapat diaudit/dibatalkan sesuai domain. Deployment produksi tetap memakai approval dan receipt exact artifact/lingkungan.
+
+### Normalisasi label lama
+
+M0/M1/M2, SK-01, M3-A, SCRS v0 adalah slice historis CP0. M3-B dipetakan ke CP1; M4→CP2, M5→CP3, M6→CP4, M7→CP5, M8→CP6, M9→CP7, M10→CP8. Nomor PR GitHub adalah identitas perubahan, bukan nomor CP.
+
+Draft `CP-00…CP-12` tidak lagi menjadi urutan planning. Pemetaan tanggung jawabnya: CP-00→CP0; CP-01→riset dokumentasi/CP6 qualification; CP-02 dan CP-04→CP2; CP-03→CP1; CP-05/06→CP3; CP-07/08→CP4; CP-09→CP5; CP-10→CP6; CP-11→CP7; CP-12→CP8. CP9 adalah integrasi produk. Rencana 12 bulan dalam corpus merupakan rekomendasi historis, bukan deadline resmi tanpa keputusan pemilik.
+
+<!-- END DERIVED ROOT ROADMAP -->
+
+## Catatan histori
+
+Versi roadmap sebelum revisi ini masih menyebut CP0 terbuka. Status tersebut telah digantikan oleh penerimaan CP0 pada SHA di atas. Bukti M1/M2/M3-A/SCRS tetap dapat diperiksa pada [current-state](current-state.md); hasil pengujian historis tidak dipindahkan ke revision baru. PR #17 pada `e8f82b06868311a19f65ae03782a3b499e04ba1a` adalah proposal terdahulu dan perlu direkonsiliasi dengan README ini sebelum kelak diintegrasikan.

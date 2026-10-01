@@ -70,7 +70,12 @@ connected app or from this diagram.
 
 Voice and text enter the same task-intake path. Voice is transport, not
 authority. WebMCP tools are untrusted capability descriptors until the
-Capability Resolver and Control Kernel admit an exact invocation.
+native bounded eligibility seam and Control Kernel admit an exact invocation
+in CP4. This includes descriptor/schema/session freshness, allowlisting,
+revocation and per-call policy checks. CP5 expands that same seam into the full
+Capability Registry/Resolver; there is no CP4 bypass or competing controller.
+Donor package/SDK/skill use still waits for CP6 qualification or an explicitly
+accepted qualification amendment, independently of functional CP4 ownership.
 
 CP4 should prefer an isolated browser context. Reuse of a real owner browser,
 cookies or enterprise SSO is higher-scope and requires explicit session policy.

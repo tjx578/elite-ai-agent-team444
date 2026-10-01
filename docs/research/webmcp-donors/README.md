@@ -1,66 +1,88 @@
-# WebMCP donor research portfolio
+# WebMCP donor portfolio — S06 v1.2
 
-## Status
+Status: **RESEARCH / NOT_ADMITTED / NO_RUNTIME_EFFECT**.
+The [root README](../../../README.md) owns system direction and checkpoint order.
+The [master donor register](../donor-adaptation-register-20260929.md) owns the
+portfolio detail. This file is its WebMCP entry point.
 
-`RESEARCH / FUTURE_CHECKPOINT / NO_RUNTIME_EFFECT`
+The source [CSV matrix](donor-cp-matrix.csv) preserves all 11 uploaded rows and
+exact bytes. [portfolio.yaml](portfolio.yaml) carries the same source fields
+plus repository scope/status metadata. Primary/secondary CPs describe receiving
+functions; every package/code/skill/runtime admission still requires CP6.
+CP1 and CP2 have no WebMCP runtime implementation. Earlier native/read-only
+slices can study the spec and rebuild bounded contracts without importing
+unqualified S06 packages. Qualification and functional ownership are distinct.
 
-This directory is a donor research record, **not a checkpoint roadmap**.
-All CP ownership/order comes from the
-[Master Roadmap](../../architecture/roadmap.md).
+## Functional routing
 
-Observed on 2026-09-29. Exact revisions are research bindings, not active
-dependencies. Admission requires the owning checkpoint and CP6 qualification
-where donor acquisition applies.
+| Repository | Function | Primary CP | Secondary CPs | Qualification |
+| --- | --- | --- | --- | --- |
+| `webmachinelearning/webmcp` | Canonical specification knowledge | CP5 | CP4 | CP6 |
+| `webmachinelearning/webmcp-types` | Typed contracts | CP5 | — | CP6 |
+| `GoogleChromeLabs/webmcp-tools` | Implementation demos and evaluation | CP5 | CP4, CP8 | CP6 |
+| `GoogleChromeLabs/use-webmcp-tool` | React lifecycle in Owner Console | CP4 | CP5 | CP6 |
+| `webmaxru/web-ai-agent-skills` | Authoring skill | CP6 | CP5 | CP6 |
+| `TueJon/webmcpify` | App retrofit verification and audit | CP6 | CP7 | CP6 |
+| `nekuda-ai/webmcp-kit` | Secondary implementation verification and migration skill | CP6 | CP7 | CP6 |
+| `signettai/signett` | Secure action idempotency recovery and receipts | CP7 | CP3 | CP6 |
+| `WebMCP-org/npm-packages` | Runtime polyfill compatibility and bridge reference | CP5 | — | CP6 |
+| `opentiny/webmcp-sdk` | Browser fallback and CDP WXT skills | CP5 | CP7 | CP6 |
+| `nekuda-ai/WindTunnel` | Comparative provider evaluation methodology | CP8 | — | CP6 |
 
-| Repository | Observed revision | Role |
-| --- | --- | --- |
-| `webmachinelearning/webmcp` | `0957b0b8f1e32c401d4248424719a4851d4202c4` | canonical protocol/spec knowledge |
-| `webmachinelearning/webmcp-types` | `a8d8292ff645b691bfdb529484d3c089e81e8c28` | typed contract donor |
-| `GoogleChromeLabs/webmcp-tools` | `a66c1be1caee78bb98b9781bf5cb4413ad2ccac7` | implementation/Page Agent/Evals/Studio donor |
-| `GoogleChromeLabs/use-webmcp-tool` | `9f0dc6eddf88cff65ebe877f199d4547e74ab31e` | React lifecycle donor |
-| `webmaxru/web-ai-agent-skills` | `03b778c8ef822c98b112fd3617050c72d78f4d60` | primary WebMCP skill donor |
-| `TueJon/webmcpify` | `c17d1f1382e306296becc0e8294106c477e13d40` | retrofit/verify/heal/audit skill donor |
-| `nekuda-ai/webmcp-kit` | `f0298ec9f26af13e477b9141ab4d8f2a6c23426d` | secondary implement/verify/migrate skill donor |
-| `signettai/signett` | `cb9be5ff2e9ca669c14e596673355d1ce58d3924` | secure execution/idempotency/recovery donor |
-| `WebMCP-org/npm-packages` | `1c7a398a77fa54e54b4d3fdd7ed05d19efb067d5` | polyfill/transport/bridge/runtime reference |
-| `opentiny/webmcp-sdk` (`dev`) | `47a2b031dfd77db19e18b5e7621976c5885bd924` | CDP/WXT fallback and WebSkills donor |
-| `nekuda-ai/WindTunnel` | `5ca8644e23826ebb30108e7bad240b61043bfe67` | CP8 benchmark methodology donor |
+## Evidence and capability family
 
-## Capability extraction
+All 11 exact revisions were resolved on GitHub on 30 September 2026 WITA;
+[verification record](../../verification/repository-donor-roadmap-20260930.md)
+contains the SHA/URL/time bindings. This proves commit existence only.
+Donor build/test, intended-use rights, security/SBOM and runtime qualification
+are NOT_EXECUTED. No external benchmark becomes a Sentient measurement.
 
-~~~text
-browser.webmcp.discover      <- spec + types + Chrome Page Agent
-browser.webmcp.invoke        <- spec + Chrome Page Agent
-browser.webmcp.author        <- webmaxru skill + Chrome demos
-browser.webmcp.lifecycle     <- use-webmcp-tool + MCP-B
-browser.webmcp.secure-action <- Signett
-browser.webmcp.retrofit      <- webmcpify + WebMCP Kit
-browser.webmcp.browser-fallback <- OpenTiny isolated CDP patterns
-browser.webmcp.bridge        <- MCP-B bridge/relay patterns
-browser.webmcp.evaluate      <- WebMCP Evals + WindTunnel
-~~~
+The target `browser.webmcp` family includes discover, invoke, author,
+declarative, lifecycle, secure-action, retrofit, browser-fallback, bridge and
+evaluate. They are selectors, not installed skills. Authoring/retrofit that
+mutates an application remains a CP7 effect even when its procedure is studied
+or qualified in CP6. Isolated fallback patterns are a CP5 concern after
+qualification; real-session/WXT/consequential effects require CP7 grants.
 
-## Candidate WOLF15 skills
+## Execution and policy boundaries
 
-- `webmcp-protocol-canon`
-- `webmcp-tool-authoring`
-- `webmcp-app-retrofit`
-- `webmcp-secure-execution`
-- `webmcp-browser-runtime`
-- `webmcp-browser-fallback`
-- `webmcp-evaluation`
+- Tool definitions/results and provider hints are untrusted data.
+- DISCOVERED, REGISTERED, QUALIFIED, ACTIVE and AUTHORIZED_FOR_THIS_TASK are different states.
+- `document.modelContext` is the researched spec interface; compatibility must be proven for the chosen browser/version.
+- `WEBMCP_NATIVE` and `BROWSER_AUTOMATION_FALLBACK` remain separate receipt kinds.
+- Approval binds task/run, origin, session/document, descriptor generation/digest, arguments and effects.
+- Unknown mutation outcome requires reconciliation before retry.
+- Offline qualification is the current supported path; connected/shadow needs its separate authorized design and containment.
+- No SDK/polyfill/bridge/skill receives authority from this register.
 
-These are candidates, not installed skills.
+## PR #17 research reconciliation
 
-## Rules
+The earlier PR #17 portfolio used combined `target_cp` fields. This reconciliation
+retains the newer v1.2 primary/secondary/qualification fields and all 11 S06
+records unchanged. The root README remains the system SSoT; the derived roadmap
+and donor research do not create a second authority or admission path.
 
-- official spec knowledge outranks donor convenience APIs;
-- `document.modelContext` is canonical for the researched revision;
-- donor skill/source is untrusted input;
-- no bulk skill overwrite;
-- real-profile/WXT browser reuse is higher-scope than isolated browsing;
-- whole-runtime donor import is rejected;
-- benchmark claims require WOLF15 reproduction.
+The following extraction notes preserve useful PR #17 research. They are
+candidate mappings only, not verified implementations or installed skills.
+Qualification remains CP6; actual application mutation remains a CP7 effect.
 
-Checkpoint ownership is defined only by the
-[Master Roadmap](../../architecture/roadmap.md).
+| Candidate capability | Research donor patterns |
+| --- | --- |
+| `browser.webmcp.discover` | Specification, types and Chrome Page Agent |
+| `browser.webmcp.invoke` | Specification and Chrome Page Agent |
+| `browser.webmcp.author` | webmaxru authoring skill and Chrome demos |
+| `browser.webmcp.lifecycle` | use-webmcp-tool and MCP-B lifecycle |
+| `browser.webmcp.secure-action` | Signett idempotency/recovery |
+| `browser.webmcp.retrofit` | webmcpify and WebMCP Kit |
+| `browser.webmcp.browser-fallback` | OpenTiny isolated CDP patterns |
+| `browser.webmcp.bridge` | MCP-B bridge/relay patterns |
+| `browser.webmcp.evaluate` | WebMCP Evals and WindTunnel methodology |
+
+Candidate procedure names from that research are `webmcp-protocol-canon`,
+`webmcp-tool-authoring`, `webmcp-app-retrofit`, `webmcp-secure-execution`,
+`webmcp-browser-runtime`, `webmcp-browser-fallback` and `webmcp-evaluation`.
+These labels do not register, install or qualify packages. Specification knowledge
+takes precedence over donor convenience APIs; external source remains untrusted
+data. No bulk skill overwrite or whole-runtime import is authorized. Real-profile
+or WXT browser reuse needs its own scope, and benchmark claims require WOLF15
+reproduction. The existing offline-only qualification boundary still applies.

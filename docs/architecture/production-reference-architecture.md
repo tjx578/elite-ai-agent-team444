@@ -2,9 +2,9 @@
 
 ## Status
 
-**Historical architecture source. Master checkpoint owner: CP3.** The original
-M1-B label below identifies the historical source snapshot only; it is not a
-current roadmap identifier.
+**Historical M1-B target design, merged at `main`
+`7ffac9a8254688649ecf8bca57e2ae7757bd9f32`; not a deployment plan.**
+Current checkpoint owner: CP3. M1-B identifies that historical snapshot.
 That historical snapshot has a local FastAPI app, in-memory deterministic
 `READ_ONLY` workflow, and CI. It has no
 authenticated caller boundary, durable task store, production database,
@@ -39,7 +39,8 @@ both CodeQL steps to the verified `v4.38.2` commit
 dependency updates. A successful run at one commit remains evidence for that
 commit only.
 
-The [Master Roadmap](roadmap.md) is the only normative checkpoint sequence.
+The [root README](../../README.md#10-roadmap-master-cp0cp9) owns checkpoint
+order; [roadmap.md](roadmap.md) is its derived detail.
 
 ## CP3 Production Grade v1 read-only service target
 

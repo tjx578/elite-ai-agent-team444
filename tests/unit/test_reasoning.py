@@ -256,6 +256,57 @@ def test_failure_is_not_stub_success(exception: Exception, issue: str) -> None:
     assert result.input.context.bundle is not None
 
 
+def test_arbitrary_adapter_error_is_sanitized_without_inspecting_payload() -> None:
+    accessed: list[str] = []
+
+    class PrivateFailure(Exception):
+        @property
+        def __class__(self) -> type:
+            accessed.append("class")
+            return TimeoutError
+
+        @__class__.setter
+        def __class__(self, value: type) -> None:
+            raise TypeError("class reassignment forbidden")
+
+        def __str__(self) -> str:
+            accessed.append("str")
+            raise RuntimeError("private formatting failure")
+
+    class FailedAdapter(CandidateAdapter):
+        def generate(self, invocation: ReasoningInvocation) -> object:
+            raise PrivateFailure("private-provider-details")
+
+    result = run_reasoning(request(), FailedAdapter())
+    assert result.status == "ADAPTER_FAILED"
+    assert result.issues == ["ADAPTER_FAILURE"]
+    assert result.proposal is None
+    assert result.input.context.bundle is not None
+    assert "private-provider-details" not in result.model_dump_json()
+    assert accessed == []
+
+
+def test_adapter_process_control_exception_propagates_despite_spoofed_class() -> None:
+    class ControlSignal(BaseException):
+        @property
+        def __class__(self) -> type:
+            return Exception
+
+        @__class__.setter
+        def __class__(self, value: type) -> None:
+            raise TypeError("class reassignment forbidden")
+
+    failure = ControlSignal("private-control-details")
+
+    class FailedAdapter(CandidateAdapter):
+        def generate(self, invocation: ReasoningInvocation) -> object:
+            raise failure
+
+    with pytest.raises(ControlSignal) as caught:
+        run_reasoning(request(), FailedAdapter())
+    assert caught.value is failure
+
+
 def test_adapter_cannot_mutate_controller_evidence() -> None:
     class MutatingAdapter(CandidateAdapter):
         def generate(self, invocation: ReasoningInvocation) -> object:

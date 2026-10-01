@@ -1,0 +1,430 @@
+{
+  "schema_version": "cp1-typed-donor-intake/v1",
+  "scope": "CP1.1 native gateway ownership and request/response/persona contract design",
+  "canonical_base_sha": "45d5c8df123b27c6bf7c781139db41154b6e1d4d",
+  "canonical_base_validation": "Verified by parent agent in current run; communicated before finalization",
+  "manifest_sha256": "6cfed59a67fc3df82e1e9d248a06d6af71cdaa5e5a774f842d36af18cde0bc14",
+  "account": "tjx578",
+  "account_verification": "gh api user live MATCH",
+  "extractor_profile_version": "bounded-exact-git-blob-review/v1",
+  "cache_origin": "NONE; freshly fetched exact blobs",
+  "source_execution": false,
+  "runtime_activation": false,
+  "admission": "NOT_EXECUTED",
+  "donors": [
+    {
+      "started_at": "2026-09-30T02:31:32.341776+08:00",
+      "identity": {
+        "id": 1394496138,
+        "full_name": "tjx578/pydantic-ai-sentient",
+        "default_branch": "main"
+      },
+      "parent": "pydantic/pydantic-ai",
+      "source": "pydantic/pydantic-ai",
+      "commit": "05f2f35ca8af6f1382f06761c6a9a23dbd341728",
+      "tree_sha": "788c732419e1129f47fd6101ea33574cb220019a",
+      "source_files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "1bf1f55e6d1736b499ded961ec6b94bfebb17aec",
+          "content_sha256": "bc0e89738f36944c8106e1947c3d69631f9c33b8f1bcb60ec4f89d677d2dfcf4",
+          "bytes": 1100,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/LICENSE",
+          "fetched_span": [
+            1,
+            21
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              21
+            ]
+          ]
+        },
+        {
+          "path": "README.md",
+          "blob_sha": "bb3cf70e1054a3aa85fed6fe602088d498f8826f",
+          "content_sha256": "518369670ea0a105252618e453e6f14462dcfa179ce9c391ea7f3f764830a5bf",
+          "bytes": 22830,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/README.md",
+          "fetched_span": [
+            1,
+            352
+          ],
+          "reviewed_spans": []
+        },
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "cd44ddfe02cc1486a8e4cf5896ff6c85a4e90308",
+          "content_sha256": "84b7f5f6065257da7972b1d6012204779e1c726fa6fcbea60a2b69609d514768",
+          "bytes": 26627,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pyproject.toml",
+          "fetched_span": [
+            1,
+            606
+          ],
+          "reviewed_spans": []
+        },
+        {
+          "path": "pydantic_ai_slim/pyproject.toml",
+          "blob_sha": "5f432743eb7fb5828eadb5c05a9e52c284152a10",
+          "content_sha256": "f700d666feec1bc9ffc9103b9e519d035780797ac79300b56d33243afb9ed943",
+          "bytes": 7856,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pyproject.toml",
+          "fetched_span": [
+            1,
+            176
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              95
+            ]
+          ]
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/output.py",
+          "blob_sha": "88dfaa340a19a76103bf2ed80923fac21de1f94e",
+          "content_sha256": "3d403c88a3d5d8d4466b2c5c0095c6c4a3dd3abb9b69f2ffc94a577a134c8572",
+          "bytes": 30945,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/output.py",
+          "fetched_span": [
+            1,
+            774
+          ],
+          "reviewed_spans": [
+            [
+              129,
+              242
+            ]
+          ]
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/usage.py",
+          "blob_sha": "915d508e9213c50041e85e9e5ca55d2c78da6c8b",
+          "content_sha256": "27c40b471aa18c05e3225058626830116c89a6493956201e0bb5da4d15bf2d18",
+          "bytes": 27932,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/usage.py",
+          "fetched_span": [
+            1,
+            613
+          ],
+          "reviewed_spans": [
+            [
+              456,
+              623
+            ]
+          ]
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/settings.py",
+          "blob_sha": "33ed14b8de051b6e0b06a5ba17bca3ca44619c57",
+          "content_sha256": "2caa43e53a07f6db780494dd41343ccf77dbbd7de16ebad774311884346f02ac",
+          "bytes": 16995,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/settings.py",
+          "fetched_span": [
+            1,
+            537
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              97
+            ]
+          ]
+        },
+        {
+          "path": "pydantic_ai_slim/pydantic_ai/providers/__init__.py",
+          "blob_sha": "d8adcf242e552796ba80b0f2824a4e9d07edf23f",
+          "content_sha256": "ffdc17a232a229cf8003cf670da3ea728e5a4d5028144566bc91bd7edf99ec2b",
+          "bytes": 10518,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/pydantic_ai_slim/pydantic_ai/providers/__init__.py",
+          "fetched_span": [
+            1,
+            309
+          ],
+          "reviewed_spans": []
+        },
+        {
+          "path": "tests/test_settings.py",
+          "blob_sha": "a4c06444112020c09a7cb845867b681f8c9e12f5",
+          "content_sha256": "88088a7a9f0e55c618e98bb3771f6271b5eee9c59e42c045eb0d93d2ab940195",
+          "bytes": 6629,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/tests/test_settings.py",
+          "fetched_span": [
+            1,
+            149
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              85
+            ]
+          ]
+        },
+        {
+          "path": "tests/test_usage_limits.py",
+          "blob_sha": "37bcf82218083b1f4060c28e7d457ed0b716b089",
+          "content_sha256": "bc0330c7bd16af487165b10fb08f59f6aee94da7ac10918e660ef0e6fa761136",
+          "bytes": 53519,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/tests/test_usage_limits.py",
+          "fetched_span": [
+            1,
+            1391
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              90
+            ]
+          ]
+        },
+        {
+          "path": "tests/models/google/test_output.py",
+          "blob_sha": "a23d51f326a8bcabf162b48ed7110e31850309a4",
+          "content_sha256": "dd3614e40056f2f27fdc15185942f3f100e412b1e69338b761ae50d81d19e837",
+          "bytes": 14718,
+          "url": "https://github.com/tjx578/pydantic-ai-sentient/blob/05f2f35ca8af6f1382f06761c6a9a23dbd341728/tests/models/google/test_output.py",
+          "fetched_span": [
+            1,
+            373
+          ],
+          "reviewed_spans": []
+        }
+      ],
+      "failures": [],
+      "finished_at": "2026-09-30T02:34:09.299936+08:00",
+      "total_source_bytes": 219669,
+      "source_status": "SOURCE_READ",
+      "coverage": "PARTIAL_COVERAGE",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false,
+      "identity_status": "IDENTITY_VERIFIED",
+      "upstream_lineage_status": "MATCH",
+      "knowledge_status": "KNOWLEDGE_EXTRACTED",
+      "review_outcome": "DESIGN_INPUT_ONLY_NOT_ADMITTED",
+      "rights_status": "LICENSE_DECLARATION_OBSERVED_NOT_ADMISSION",
+      "license_observed": "MIT",
+      "execution": "NOT_EXECUTED",
+      "coverage_exclusions": [
+        "Whole-repository behavior, transitive dependencies, model/provider execution, runtime safety, reusable skill sources and lifecycle qualification not exhaustively reviewed.",
+        "Downloaded source files with no reviewed spans are fetched evidence only, not semantic coverage."
+      ]
+    },
+    {
+      "started_at": "2026-09-30T02:31:35.141413+08:00",
+      "identity": {
+        "id": 1365880169,
+        "full_name": "tjx578/OpenJarvis-sentient",
+        "default_branch": "main"
+      },
+      "parent": "open-jarvis/OpenJarvis",
+      "source": "open-jarvis/OpenJarvis",
+      "commit": "fbbdb23c86627c18b859369b19746a9245f1ce0b",
+      "tree_sha": "38b5119380fe0559e48f0b6b7270c18dcab363af",
+      "source_files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "7d8b094eda9393e9ac5fcaa34fe276ee947f61bd",
+          "content_sha256": "ac617ecddb7ffeb27a239c6c9c8145212306baa90e23ee694849bf3cefb10743",
+          "bytes": 10773,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/LICENSE",
+          "fetched_span": [
+            1,
+            190
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              22
+            ]
+          ]
+        },
+        {
+          "path": "README.md",
+          "blob_sha": "d7a744490d48645a4d85ae571db95fd25f6a25f3",
+          "content_sha256": "f01dce57e39fb4606b91a8d1d4cd5a477c12497f19e50181c08b82d9ead03432",
+          "bytes": 9654,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/README.md",
+          "fetched_span": [
+            1,
+            178
+          ],
+          "reviewed_spans": []
+        },
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "c9cc1e2ced4d89c73df95842f4cf9ca5627762d8",
+          "content_sha256": "b872db6b462e53b75d8a7c377f43f3bbab2fcfe5a9ac56f54158a39ddb331f14",
+          "bytes": 11407,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/pyproject.toml",
+          "fetched_span": [
+            1,
+            307
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              95
+            ]
+          ]
+        },
+        {
+          "path": "src/openjarvis/core/types.py",
+          "blob_sha": "9b93437f1e36dc1f41456605dedca31a75a334e4",
+          "content_sha256": "2ec42e9c5af5e698c0a54fd18f58d6e076f88bd4b290a55c64cab0c94ec10a58",
+          "bytes": 10233,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/core/types.py",
+          "fetched_span": [
+            1,
+            317
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              125
+            ]
+          ]
+        },
+        {
+          "path": "src/openjarvis/engine/_base.py",
+          "blob_sha": "102936ba55a91e76162a4f5afe74d688da74ccc2",
+          "content_sha256": "9ff854e86fe0b2d96f08f644117499b923b2320feecfa6302428feb9200e38d4",
+          "bytes": 4674,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/engine/_base.py",
+          "fetched_span": [
+            1,
+            130
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              134
+            ]
+          ]
+        },
+        {
+          "path": "src/openjarvis/engine/_openai_compat.py",
+          "blob_sha": "db57eb44f1c47534bdc7414be9f7a809d5f834d6",
+          "content_sha256": "f8771c8c7defb8eb06b979d621edae364dd1a1d44736ed782a9ff3532c594b96",
+          "bytes": 14396,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/engine/_openai_compat.py",
+          "fetched_span": [
+            1,
+            341
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              200
+            ]
+          ]
+        },
+        {
+          "path": "src/openjarvis/agents/prompt_loader.py",
+          "blob_sha": "f92c88fc15bd0fc32436582ca9773344aa86652d",
+          "content_sha256": "58c315a92093d683128c8cb7785c308295827cf8dd7ca077d1ffc1acab336d3b",
+          "bytes": 2672,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/src/openjarvis/agents/prompt_loader.py",
+          "fetched_span": [
+            1,
+            84
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              84
+            ]
+          ]
+        },
+        {
+          "path": "tests/core/test_types.py",
+          "blob_sha": "b91817f921b2e2c14df7feabb89470723a9ee009",
+          "content_sha256": "27c65f5e63e7111ccd74fac82feafab4f516f46186741f6f6b1c16c6eaa6f7dc",
+          "bytes": 3208,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/core/test_types.py",
+          "fetched_span": [
+            1,
+            109
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              110
+            ]
+          ]
+        },
+        {
+          "path": "tests/engine/test_base.py",
+          "blob_sha": "f466b4da5fc1bad4b8427bb3c9ef503064506f52",
+          "content_sha256": "7c55fd2d917901677cac6093d165aed6d06615d4e6723f6277f2268fa50bc3a6",
+          "bytes": 1790,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/engine/test_base.py",
+          "fetched_span": [
+            1,
+            60
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              56
+            ]
+          ]
+        },
+        {
+          "path": "tests/engine/test_structured_output.py",
+          "blob_sha": "4ba8cd0c335f89c10c3d816b3550591a3d83b015",
+          "content_sha256": "563852a982794328968ae9785ceb1fd5b5ef01659de8cc1a7cd233cf1b49dca5",
+          "bytes": 14729,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/engine/test_structured_output.py",
+          "fetched_span": [
+            1,
+            377
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              142
+            ]
+          ]
+        },
+        {
+          "path": "tests/engine/test_openai_compat_api_key.py",
+          "blob_sha": "dc54135824fcb9a0f8bef0de6404339d0b85a48e",
+          "content_sha256": "667e5c3444752a95b075d843b8cb75ccc1be0d8757a2f1f288f79a77d1d1cad0",
+          "bytes": 4678,
+          "url": "https://github.com/tjx578/OpenJarvis-sentient/blob/fbbdb23c86627c18b859369b19746a9245f1ce0b/tests/engine/test_openai_compat_api_key.py",
+          "fetched_span": [
+            1,
+            109
+          ],
+          "reviewed_spans": [
+            [
+              1,
+              114
+            ]
+          ]
+        }
+      ],
+      "failures": [],
+      "finished_at": "2026-09-30T02:34:20.174863+08:00",
+      "total_source_bytes": 88214,
+      "source_status": "SOURCE_READ",
+      "coverage": "PARTIAL_COVERAGE",
+      "qualification_status": "NOT_ADMITTED",
+      "activation_authority": false,
+      "identity_status": "IDENTITY_VERIFIED",
+      "upstream_lineage_status": "MATCH",
+      "knowledge_status": "KNOWLEDGE_EXTRACTED",
+      "review_outcome": "DESIGN_INPUT_ONLY_NOT_ADMITTED",
+      "rights_status": "LICENSE_DECLARATION_OBSERVED_NOT_ADMISSION",
+      "license_observed": "Apache-2.0",
+      "execution": "NOT_EXECUTED",
+      "coverage_exclusions": [
+        "Whole-repository behavior, transitive dependencies, model/provider execution, runtime safety, reusable skill sources and lifecycle qualification not exhaustively reviewed.",
+        "Downloaded source files with no reviewed spans are fetched evidence only, not semantic coverage."
+      ]
+    }
+  ],
+  "finalized_at": "2026-09-30T02:35:23.91772+08:00"
+}
