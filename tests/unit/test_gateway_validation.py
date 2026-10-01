@@ -9,6 +9,7 @@ import pytest
 from test_reasoning import request as reasoning_request
 
 from wolf15_sentient.reasoning import prepare_reasoning
+from wolf15_sentient.reasoning.runtime import MAX_REQUEST_BYTES
 from wolf15_sentient.sentient.model_gateway.canonical import (
     MAX_SAFE_INTEGER,
     GatewayValidationError,
@@ -147,6 +148,33 @@ def test_existing_reasoning_serialization_is_preserved_exactly():
     assert invocation.input_digest_sha256 == sha256(raw).hexdigest()
     # The existing M3-A order differs from gateway canonical order. Do not migrate it silently.
     assert canonical(json.loads(raw)) != raw
+
+
+@pytest.mark.parametrize("remaining_bytes", [-1, 0, 1])
+def test_reasoning_input_obeys_invocation_byte_limit(remaining_bytes):
+    prepared = prepare_reasoning(reasoning_request(intent="é" * 4000))
+    raw = prepared.model_dump_json().encode("utf-8")
+    data = fixture("request")
+    data["envelope"]["correlation"]["input_digest_sha256"] = sha256(raw).hexdigest()
+    data["envelope"]["evidence_refs"] = [source.source_id for source in prepared.sources]
+    data["envelope"]["limits"]["max_request_bytes"] = len(raw) + remaining_bytes
+    request = rebind(data)
+    assert len(canonical(request.model_dump())) < request.envelope.limits.max_request_bytes
+    assert len(raw.decode("utf-8")) < request.envelope.limits.max_request_bytes
+    if remaining_bytes < 0:
+        with pytest.raises(GatewayValidationError, match="^REASONING_BYTE_LIMIT$"):
+            bind_reasoning_input(request, raw)
+    else:
+        assert bind_reasoning_input(request, raw).input.model_dump_json().encode("utf-8") == raw
+
+
+def test_invocation_limit_cannot_relax_global_reasoning_byte_cap():
+    raw = b"x" * (MAX_REQUEST_BYTES + 1)
+    data = fixture("request")
+    data["envelope"]["limits"]["max_request_bytes"] = MAX_REQUEST_BYTES + 10
+    data["envelope"]["correlation"]["input_digest_sha256"] = sha256(raw).hexdigest()
+    with pytest.raises(GatewayValidationError, match="^REASONING_BYTE_LIMIT$"):
+        bind_reasoning_input(rebind(data), raw)
 
 
 @pytest.mark.parametrize("fault", ["bytes", "correlation", "evidence", "reordered"])
