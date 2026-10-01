@@ -41,7 +41,7 @@ an owner-controlled authority decision when side effects are possible.
   source content and cannot direct the Foundry or Kernel.
 - Conflicting or incomplete capability evidence yields `NOT_QUALIFIED` with
   the missing checks; it is never guessed into an active provider.
-- M8 acceptance: exact snapshot binding, reproducible extraction, overlap
+- CP6 acceptance (historical M8): exact snapshot binding, reproducible extraction, overlap
   results, isolation, dependency/security evidence, side-effect review,
   offline comparison, any separately authorized shadow path, and a reversible registry decision.
 

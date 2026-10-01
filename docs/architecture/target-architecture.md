@@ -26,7 +26,9 @@ WOLF15 Sentient is intended to be an independent, auditable product for software
 - execute repository operations only through constrained adapters;
 - retain evidence for every gate and decision;
 - stop safely when evidence or authority is insufficient;
-- reserve merge and production decisions for the owner.
+- reserve merge and production decisions for the owner;
+- prefer structured browser-native capabilities such as WebMCP when available,
+  while preserving an explicitly classified bounded browser-automation fallback.
 
 ## System boundary
 
@@ -74,6 +76,7 @@ The control plane must not be embedded inside a target repository. A repository 
 | Intelligence Division | Research, analysis, and source verification | Target; roster and contracts pending |
 | Knowledge & Memory | Store and retrieve sourced context and lifecycle-bound decisions | Target; no persistence or retrieval implementation |
 | Capability Fabric | Describe capabilities and mediate access through authorized tools and adapters | Target; no execution adapters |
+| Browser Capability Plane / WebMCP | Discover and invoke page-provided structured browser tools, normalize them as ephemeral providers, and preserve origin/session/tool receipts | Target only; no browser/WebMCP runtime |
 | Learning & Adaptation Plane | Journal evidence-backed episodes and produce evaluated capability/workflow candidates without raising authority | Contracts only; not wired to workflow |
 | WOLF15 Trading System | Own trading strategy, risk controls, and execution | External; no integration in this foundation |
 
@@ -124,6 +127,35 @@ read-only -> proposed patch -> isolated worktree -> feature branch
 
 Later steps are not implied by earlier ones.
 
+### Browser Capability Plane / WebMCP
+
+WebMCP is a browser capability provider surface, not a second orchestrator and
+not a replacement for backend MCP.
+
+~~~text
+browser session
+  -> discover page-provided WebMCP tools
+  -> normalize origin + session + tool + schema + annotations
+  -> Capability Resolver eligibility
+  -> Control Kernel authorization
+  -> execute exact invocation
+  -> structured result + execution receipt
+  -> evidence / owner-visible response
+~~~
+
+CP4 owns native bounded read-only discovery/invocation, including minimal
+allowlisted descriptor eligibility, schema/session freshness, revocation and
+per-call Kernel checks before invocation. CP5 expands this seam into the full
+provider registry/resolver; CP4 never bypasses admission while waiting for CP5.
+SDK/polyfill/bridge acquisition requires CP6 qualification or a separately
+accepted qualification amendment. A required unqualified dependency holds the
+slice. Consequential browser actions belong to CP7.
+A separately qualified fallback reports `BROWSER_AUTOMATION_FALLBACK`, never
+`WEBMCP_NATIVE`.
+
+See [Browser Capability Plane / WebMCP](webmcp-browser-capability-plane.md) and
+[Final Target Skeleton](final-target-skeleton.md).
+
 ### Trace and decision ledger
 
 Every workflow node records identifiers, timestamps, status, input/output references, evidence, errors, and decisions. Sensitive data and credentials must never be persisted as trace content.
@@ -143,24 +175,21 @@ The UI is a later consumer of stable API and trace contracts. It displays state 
 3. **Control plane to execution adapter:** authorize each action, constrain scope, and record evidence.
 4. **Execution adapter to target repository:** isolate changes and protect default branches.
 5. **Control plane to external services:** use least-privilege credentials and distinguish configured from verified connectivity.
-6. **Draft PR to production:** require a separate human-controlled decision and deployment mechanism.
+6. **Control plane to browser/WebMCP:** bind origin, document/session, tool identity, arguments, execution class and cancellation; treat page/tool metadata as untrusted provider input.
+7. **Consequential browser action to owner approval:** page-local confirmation is not the WOLF15 authority root.
+8. **Draft PR to production:** require a separate human-controlled decision and deployment mechanism.
 
 ## Failure behavior
 
 The system fails closed when a contract is invalid, required evidence is missing, the revision limit is exhausted, an adapter exceeds its scope, or authority is insufficient. The expected terminal result is `BLOCKED_REQUIRES_OWNER` or `NOT_READY`, not an optimistic success status.
 
-## Delivery sequence
+## Delivery authority
 
-| Milestone | Scope | Explicitly excluded |
-| --- | --- | --- |
-| PR-0 | Truth alignment, architecture contracts, ADRs, authority model | Runtime claims |
-| PR-1 | Python/API/contracts/router/state/trace foundation with tests | LangGraph, model calls, repo execution |
-| PR-2 | Deterministic graph, bounded revision loop, stub roles | Real model reasoning |
-| PR-3 | Schema-constrained model adapters | Repository mutation |
-| PR-4 | Read-only and isolated repository execution | Main-branch or production authority |
-| PR-5 | Feature branch and draft PR delivery | Autonomous merge/deploy |
-| PR-6 | Durable state, approval, and resume | Owner Console |
-| PR-7 | Owner Console over stable contracts | Policy bypass |
-| PR-8+ | Additional specialists, memory, optimization | Authority expansion by default |
+This document defines architecture, not checkpoint order. The former PR-0…
+PR-8+ delivery table is retired as current scheduling authority.
 
-Each milestone must update [Current State](current-state.md) using repository and test evidence.
+The only normative implementation sequence is the
+[root README CP0–CP9](../../README.md#10-roadmap-master-cp0cp9), with
+[roadmap.md](roadmap.md) as a derived view. Historical PR/M labels may remain in
+old evidence records to identify the source slice that produced them, but new
+planning and acceptance decisions use only CP0–CP9.

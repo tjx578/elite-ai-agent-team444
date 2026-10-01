@@ -19,6 +19,16 @@ provide proposals or evidence to it. Moving files requires a separate tested
 migration and an explicit ownership decision; parallel target names do not
 authorize duplicate implementations.
 
+The [browser design](webmcp-browser-capability-plane.md) refines the root's
+existing CP4–CP8 allocation. Browser integration owns session-bound discovery
+and invocation; Capability Fabric owns provider lifecycle/registry state under
+Kernel admission. Control owns task/workflow state, gates and termination, not
+every subsystem's lifecycle data. CP4's native bounded eligibility seam precedes
+every invocation; CP5 expands it into the full registry/resolver. Donor package
+acquisition remains subject to CP6 qualification or an accepted amendment.
+The [target skeleton](final-target-skeleton.md) is a design map, not installed
+packages or a migration authorization.
+
 ## Current implementation to target skeleton
 
 All package paths below are relative to `src/wolf15_sentient/` unless qualified.

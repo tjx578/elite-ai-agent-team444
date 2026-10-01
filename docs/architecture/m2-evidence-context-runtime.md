@@ -1,5 +1,9 @@
 # M2 evidence and context runtime
 
+**Historical implementation label.** This M2 name identifies a CP0 foundation
+slice only; it is not a current checkpoint. External repository/source
+resolution belongs to CP2 in the [Master Roadmap](roadmap.md).
+
 `wolf15_sentient.evidence.assemble_context` is a pure, read-only evaluator. The
 caller supplies source text, `SourceRef` metadata, claims, and an explicit
 `EvidencePolicy`. The function does not open `SourceRef.locator`, read a file,

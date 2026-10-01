@@ -95,20 +95,20 @@ Therefore a low covariance, high metric state, or any future fusion score cannot
 grant WRITE authority, validate a factual claim, bypass review, select a tool,
 activate a provider, or change the current task.
 
-## Roadmap mapping
+## Master checkpoint mapping
 
-- **M3-A / this stacked increment:** observe controller-owned reasoning/evidence
-  telemetry and produce an advisory recursive estimate.
-- **M3-B:** a real provider may add measured transport/model telemetry, but SCRS
-  remains observational unless a separate reviewed increment changes that.
-- **M5:** a future Cognitive Modulation Governor may consume calibrated state to
-  request deeper checks or hold work; hard policy remains owned by the Kernel.
-- **M10:** retrospective trajectory smoothing (including an RTS-style candidate)
-  belongs with offline Learning/REE and cannot rewrite historical events or the
-  active task.
+This file retains `M3-A` in its filename/title because it is a historical
+implementation record. It does not define a roadmap.
 
-No automatic fusion weights, behavioral thresholds, reflective mutation, or
-promotion mechanism are included in this change.
+- **CP0:** SCRS v0 is an accepted read-only advisory foundation slice.
+- **CP1:** a real provider may add measured model/transport telemetry; SCRS
+  remains observational.
+- **CP3:** a future governor may consume calibrated state only to request deeper
+  checks or hold work; Control Kernel remains authority.
+- **CP8:** retrospective trajectory smoothing and adaptive candidates belong to
+  offline Learning/REE and cannot rewrite historical events or the active task.
+
+See the [Master Roadmap](roadmap.md).
 
 ## Acceptance boundary
 
@@ -136,7 +136,7 @@ digest alone is not used for deduplication. Callers must reuse an event's origin
 ID on retry. States missing lifecycle fields cannot resume; do not fabricate
 history. State retention is caller-owned and no persistent storage is introduced.
 
-M3-B provider telemetry integration remains future work. This contract does not
+CP1 provider telemetry integration remains future work. This contract does not
 connect a provider, write memory, or change active workflow behavior. Merge
 qualification requires CI, CodeQL, and independent review on the exact rebased
 HEAD against main; earlier stacked runs do not substitute for those checks.

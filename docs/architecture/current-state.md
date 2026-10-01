@@ -4,7 +4,21 @@
 
 This document records what is demonstrably present in the repository. It is not a description of the eventual WOLF15 Sentient product.
 
-## Canonical baseline
+## PR17 reconciliation candidate
+
+This documentation candidate reconciles PR17 with main after merged PR21.
+Root README remains the system SSoT; roadmap.md remains its derived view with
+all canonical substeps. The v1.2 donor register, Transformers routing, S06
+matrix and CP6 acquisition prerequisites are retained. Browser design and
+Pydantic AI research are target/source knowledge only, with no activation.
+
+PR21's scanner corrective and CP1.1 design integration are preserved; its
+historical manifests/reviews/freezes are unchanged. This PR does not publish
+PR23/PR24's separate unmerged gateway increments or close CP1. No provider,
+browser, registry, donor SDK, scheduler or consequential adapter is activated.
+The older baseline below remains historical evidence, not a fresh status claim.
+
+## Historical canonical baseline
 
 ### Inspected main and checkpoint position
 

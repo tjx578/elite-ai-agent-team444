@@ -8,10 +8,10 @@ controls what evidence is needed before a package can be used in a scope.
 
 | Lane | Earliest use | Required boundary |
 | --- | --- | --- |
-| Development workbench | M2–M5 tasks, one package at a time after qualification | Codex may use an admitted procedure to help build or review source; the procedure gains no product authority |
-| Product capability | Directed read-only patterns at M6; governed registry at M7 | Versioned contract, pinned resolver, denial/replay tests, consent and kernel policy |
-| Capability Foundry | CP6 / M8 | Donor provenance, isolation, overlap comparison, offline qualification and independent admission; shadow needs its separate authorized path |
-| Learning and REE | M10 | Verified episodes and fixed-rubric evaluation; no self-promotion |
+| Development workbench | CP0 foundation / CP1–CP3 development, one package at a time after scoped qualification | Codex may use an admitted procedure to help build or review source; the procedure gains no product authority |
+| Product capability | Native read-only patterns at CP4; governed registry at CP5; donor package use still gated by CP6 | Versioned contract, pinned resolver, denial/replay tests, consent and kernel policy |
+| Capability Foundry | CP6 (historical M8) | Donor provenance, isolation, overlap comparison, offline qualification and independent admission; shadow needs its separate authorized path |
+| Learning and REE | CP8 (historical M10) | Verified episodes and fixed-rubric evaluation; no self-promotion |
 
 The first review batch is `agent-scout-explorer`, `agent-specification`,
 `retrieval-knowledge-structurer`, `agent-planner`, `agent-coder`,
@@ -26,12 +26,12 @@ the task and available evidence. The owner area in the catalog is a proposed
 work assignment, not an implemented six-division or 28-specialist roster.
 
 Checkpoint order is owned by the [root README](../../README.md#10-roadmap-master-cp0cp9);
-the [roadmap](roadmap.md) is its derived detail. Milestones stay in order. M2's initial
-pure evidence/context evaluator merged in PR #11; SK-01 does not wire it to a
-skill loader. M3 model adapters, M4 repository intelligence, and M5 service
-hardening remain separate implementation work. M6 read-only personal briefs
-do not grant send/write permission. M7 is the first governed runtime skill
-registry; M8 and M10 have their own evidence and approval gates.
+the [roadmap](roadmap.md) is its derived detail. Historical M labels identify
+source slices only. CP0 contains M2's pure evidence/context foundation; CP1
+owns real reasoning, CP2 repository intelligence and CP3 service hardening.
+CP4 read-only personal briefs grant no send/write permission. CP5 owns the
+full governed registry, CP6 donor qualification and CP8 Learning/REE. Functional
+ownership never bypasses the donor acquisition gate or grants runtime authority.
 
 The root README now defines the target 28-role roster and role–skill matrix.
 Those design contracts do not qualify the SK-01 selectors. Uploaded donor

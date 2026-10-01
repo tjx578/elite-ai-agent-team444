@@ -55,6 +55,34 @@ qualification; real-session/WXT/consequential effects require CP7 grants.
 - Offline qualification is the current supported path; connected/shadow needs its separate authorized design and containment.
 - No SDK/polyfill/bridge/skill receives authority from this register.
 
-This path updates the same portfolio function proposed in PR #17. That branch
-must reconcile its older target_cp fields with these primary/secondary/
-qualification fields before a later merge; it cannot replace the newer SSoT.
+## PR #17 research reconciliation
+
+The earlier PR #17 portfolio used combined `target_cp` fields. This reconciliation
+retains the newer v1.2 primary/secondary/qualification fields and all 11 S06
+records unchanged. The root README remains the system SSoT; the derived roadmap
+and donor research do not create a second authority or admission path.
+
+The following extraction notes preserve useful PR #17 research. They are
+candidate mappings only, not verified implementations or installed skills.
+Qualification remains CP6; actual application mutation remains a CP7 effect.
+
+| Candidate capability | Research donor patterns |
+| --- | --- |
+| `browser.webmcp.discover` | Specification, types and Chrome Page Agent |
+| `browser.webmcp.invoke` | Specification and Chrome Page Agent |
+| `browser.webmcp.author` | webmaxru authoring skill and Chrome demos |
+| `browser.webmcp.lifecycle` | use-webmcp-tool and MCP-B lifecycle |
+| `browser.webmcp.secure-action` | Signett idempotency/recovery |
+| `browser.webmcp.retrofit` | webmcpify and WebMCP Kit |
+| `browser.webmcp.browser-fallback` | OpenTiny isolated CDP patterns |
+| `browser.webmcp.bridge` | MCP-B bridge/relay patterns |
+| `browser.webmcp.evaluate` | WebMCP Evals and WindTunnel methodology |
+
+Candidate procedure names from that research are `webmcp-protocol-canon`,
+`webmcp-tool-authoring`, `webmcp-app-retrofit`, `webmcp-secure-execution`,
+`webmcp-browser-runtime`, `webmcp-browser-fallback` and `webmcp-evaluation`.
+These labels do not register, install or qualify packages. Specification knowledge
+takes precedence over donor convenience APIs; external source remains untrusted
+data. No bulk skill overwrite or whole-runtime import is authorized. Real-profile
+or WXT browser reuse needs its own scope, and benchmark claims require WOLF15
+reproduction. The existing offline-only qualification boundary still applies.
