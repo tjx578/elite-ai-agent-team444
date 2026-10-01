@@ -4,6 +4,11 @@ Status: **DRAFT_RECONCILED — independent review pending**
 
 This document summarizes the official adoption rule for all legacy algorithm donor batches.
 
+It is **not a roadmap**. Checkpoint numbering, order and status are owned only
+by the [root README](../../README.md#10-roadmap-master-cp0cp9);
+[roadmap.md](roadmap.md) is its derived detail. This document may assign a
+donor principle to one of those CPs but cannot create another checkpoint.
+
 ## Core decision
 
 Legacy algorithms are **knowledge donors**, not runtime authorities.

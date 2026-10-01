@@ -17,6 +17,11 @@ details without defining an independent checkpoint sequence.
   [target architecture](target-architecture.md): full product design.
 - [Authority model](../governance/authority-model.md) and [ADRs](../adr/):
   permission boundaries and decision history.
+- [Final target skeleton](final-target-skeleton.md) and
+  [Browser Capability Plane](webmcp-browser-capability-plane.md): reconciled
+  target details, with [ADR-007](../adr/ADR-007-webmcp-browser-capability-plane.md)
+  and [Pydantic AI donor research](../research/pydantic-ai-donor/README.md).
+  These documents add no runtime or alternative checkpoint authority.
 
 Domain documents explain M2, M3-A, SCRS, Second Brain, Personal Assistant,
 Capability Fabric/Foundry, production and learning. They do not activate those
