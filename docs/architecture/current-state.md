@@ -4,17 +4,48 @@
 
 This document records what is demonstrably present in the repository. It is not a description of the eventual WOLF15 Sentient product.
 
-## PR17 reconciliation candidate
+## CP1 design acceptance and current increment
 
-This documentation candidate reconciles PR17 with main after merged PR21.
+PR #21 is merged and CP1.1 is **CLOSED for design publication/integration** on
+the exact resulting main recorded in the additive
+[publication receipt](../verification/cp1.1-design-003-publication-receipt.json).
+Its Linux, Windows, scanner, CI and CodeQL evidence is separate from historical
+local freezes. CP1 remains **IN_PROGRESS**; CP2–CP9 remain gated.
+
+This increment adds offline gateway wire types, canonical parsing, envelope and
+response binding, and validation of supplied exact M3-A reasoning bytes. It is
+a **CP1.2 prerequisite candidate**, not a concrete provider implementation or
+CP1.2 acceptance. No provider/model is selected, no live call occurs, and no
+gateway dispatch or `/tasks` activation is added. See the
+[gateway implementation boundary](../../src/wolf15_sentient/sentient/model_gateway/README.md).
+Provider choice, approved bindings, transport enforcement and real-provider
+persona acceptance remain required before CP1 can close.
+
+An additional **CP1.3–CP1.5 provider-neutral prerequisite candidate** supplies
+fresh host-observation checks around output validation and an in-memory
+allowlisted telemetry projection. It is stacked on the unmerged CP1.2 candidate;
+neither draft increment is claimed integrated on main. It rejects observed
+cancellation/policy denial/late output but does not interrupt transport or
+cleanup. Telemetry remains wire-reported; no sink or independent metering exists.
+CP1.2–CP1.6 remain open and provider-specific acceptance remains pending.
+
+Frozen root README/AGENTS and historical design receipts retain their reviewed
+bytes and original snapshot statements. The additive publication receipt binds
+the subsequent acceptance; old pending-publication fields are historical facts.
+
+## Merged PR17 reconciliation
+
+Merged PR17 reconciled its documentation with main after merged PR21.
 Root README remains the system SSoT; roadmap.md remains its derived view with
 all canonical substeps. The v1.2 donor register, Transformers routing, S06
 matrix and CP6 acquisition prerequisites are retained. Browser design and
 Pydantic AI research are target/source knowledge only, with no activation.
 
 PR21's scanner corrective and CP1.1 design integration are preserved; its
-historical manifests/reviews/freezes are unchanged. This PR does not publish
-PR23/PR24's separate unmerged gateway increments or close CP1. No provider,
+historical manifests/reviews/freezes are unchanged. PR17 did not publish the
+separate gateway increments or close CP1. The CP1.2 candidate above is still
+unmerged; its receipt records prior PR21 acceptance, not acceptance of this
+new head. No provider,
 browser, registry, donor SDK, scheduler or consequential adapter is activated.
 The older baseline below remains historical evidence, not a fresh status claim.
 

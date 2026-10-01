@@ -9,6 +9,18 @@ execution events. `evidence.py`, `reasoning.py` and `cognition.py` define the
 M2, M3-A and SCRS boundaries. `learning.py` defines episode/candidate and
 advisory-generation data only.
 
+`model_gateway.py` implements the frozen CP1 gateway wire shapes as strict,
+required-field models without trimming, coercion or default insertion. It keeps
+wire proposals separate from M3-A's convenience defaults. Canonical byte parsing
+and request/response bindings belong to `sentient/model_gateway`; model validation
+alone does not verify digests, approved profiles, budgets or provider behavior.
+These provider-independent types do not activate a transport or close CP1.2.
+
+`gateway_telemetry.py` defines a separate frozen, strict in-memory projection
+contract. It preserves wire-reported measurement status and binds free-text
+descriptors by digest, with no payload or logging sink. It is not the gateway
+wire schema and does not prove host timing, provider metering or authorization.
+
 Consumers import concrete types or the intentional exports in `__init__.py`.
 Reasoning and cognition types are available in their own modules. A schema is
 not an executor, persistence store, policy admission decision or factual proof.
