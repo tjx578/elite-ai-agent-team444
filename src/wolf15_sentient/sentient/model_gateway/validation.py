@@ -40,7 +40,9 @@ def bind_reasoning_input(request: GatewayRequest, raw: bytes) -> ReasoningInvoca
     gateway canonical JSON, including its original field order and defaults.
     """
     bound = validate_request(canonical(request.model_dump(warnings=False)))
-    if type(raw) is not bytes or len(raw) > MAX_REQUEST_BYTES:
+    if type(raw) is not bytes or len(raw) > min(
+        MAX_REQUEST_BYTES, bound.envelope.limits.max_request_bytes
+    ):
         raise GatewayValidationError("REASONING_BYTE_LIMIT")
     correlation = bound.envelope.correlation
     if sha256(raw).hexdigest() != correlation.input_digest_sha256:
